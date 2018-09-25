@@ -1,2 +1,2 @@
-# PM_ES_Script
-Script for my seminar "Econometrics &amp; Statistics" at the University Bonn
+# Script
+This repository contains the script for my seminar "Econometrics &amp; Statistics".
