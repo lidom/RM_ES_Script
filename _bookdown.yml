@@ -1,0 +1,7 @@
+book_filename: "PM_ES_Script"
+chapter_name: "Chapter "
+repo: https://github.com/lidom/PM_ES_Script
+output_dir: docs
+rmd_files: ["index.Rmd", "01-Introduction.Rmd", "02-Diving-In.Rmd"]
+clean: [packages.bib, bookdown.bbl]
+new_session: yes
