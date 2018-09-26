@@ -2,6 +2,6 @@ book_filename: "PM_ES_Script"
 chapter_name: "Ch. "
 repo: https://github.com/lidom/PM_ES_Script/docs/index.html
 output_dir: docs
-rmd_files: ["index.Rmd", "01-Introduction-to-R.Rmd", "02-Diving-In.Rmd"]
+rmd_files: ["index.Rmd", "01-Introduction-to-R.Rmd", "02-Test-Theory.Rmd"]
 clean: [packages.bib, bookdown.bbl]
 new_session: yes
