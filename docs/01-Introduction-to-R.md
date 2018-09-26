@@ -756,7 +756,7 @@ library(tidyverse)
 ```
 
 ```
-## -- Attaching packages ----------------------------------- tidyverse 1.2.1 --
+## -- Attaching packages ---------------- tidyverse 1.2.1 --
 ```
 
 ```
@@ -766,7 +766,7 @@ library(tidyverse)
 ```
 
 ```
-## -- Conflicts -------------------------------------- tidyverse_conflicts() --
+## -- Conflicts ------------------- tidyverse_conflicts() --
 ## x dplyr::filter() masks stats::filter()
 ## x dplyr::lag()    masks stats::lag()
 ```
@@ -1045,10 +1045,7 @@ ggplot(CW, aes(Time, weight, group=Diet,
 
 ### Tidyverse: Data Wrangling Basics
 
-<!-- ```{r resettblprint, echo = FALSE} -->
-<!-- # Temporarily resetting the print limit -->
-<!-- options(tibble.print_min=3, tibble.print_max=3) -->
-<!-- ``` -->
+
 
 In this section we will learn how to wrangle (manipulate) datasets using the `tidyverse`
 package. Let's start with the `mutate()`, `select()`, `rename()`, `filter()` and `arrange()` 
@@ -1067,19 +1064,12 @@ CWm1
 
 ```
 ## # A tibble: 578 x 5
-##    Chick Diet  Time  weight weightKg
-##    <int> <fct> <fct>  <int>    <dbl>
-##  1    18 1     0         39    0.039
-##  2    18 1     2         35    0.035
-##  3    16 1     0         41    0.041
-##  4    16 1     2         45    0.045
-##  5    16 1     4         49    0.049
-##  6    16 1     6         51    0.051
-##  7    16 1     8         57    0.057
-##  8    16 1     10        51    0.051
-##  9    16 1     12        54    0.054
-## 10    15 1     0         41    0.041
-## # ... with 568 more rows
+##   Chick Diet  Time  weight weightKg
+##   <int> <fct> <fct>  <int>    <dbl>
+## 1    18 1     0         39    0.039
+## 2    18 1     2         35    0.035
+## 3    16 1     0         41    0.041
+## # ... with 575 more rows
 ```
 
 ```r
@@ -1090,19 +1080,12 @@ CWm2
 
 ```
 ## # A tibble: 578 x 4
-##    Chick Diet   Time  weight
-##    <int> <chr>  <fct>  <int>
-##  1    18 Diet 1 0         39
-##  2    18 Diet 1 2         35
-##  3    16 Diet 1 0         41
-##  4    16 Diet 1 2         45
-##  5    16 Diet 1 4         49
-##  6    16 Diet 1 6         51
-##  7    16 Diet 1 8         57
-##  8    16 Diet 1 10        51
-##  9    16 Diet 1 12        54
-## 10    15 Diet 1 0         41
-## # ... with 568 more rows
+##   Chick Diet   Time  weight
+##   <int> <chr>  <fct>  <int>
+## 1    18 Diet 1 0         39
+## 2    18 Diet 1 2         35
+## 3    16 Diet 1 0         41
+## # ... with 575 more rows
 ```
 
 \
@@ -1116,19 +1099,12 @@ select(CWm1, -weight)
 
 ```
 ## # A tibble: 578 x 4
-##    Chick Diet  Time  weightKg
-##    <int> <fct> <fct>    <dbl>
-##  1    18 1     0        0.039
-##  2    18 1     2        0.035
-##  3    16 1     0        0.041
-##  4    16 1     2        0.045
-##  5    16 1     4        0.049
-##  6    16 1     6        0.051
-##  7    16 1     8        0.057
-##  8    16 1     10       0.051
-##  9    16 1     12       0.054
-## 10    15 1     0        0.041
-## # ... with 568 more rows
+##   Chick Diet  Time  weightKg
+##   <int> <fct> <fct>    <dbl>
+## 1    18 1     0        0.039
+## 2    18 1     2        0.035
+## 3    16 1     0        0.041
+## # ... with 575 more rows
 ```
 
 ```r
@@ -1138,19 +1114,12 @@ select(CWm1, Chick, Time, Diet, weightKg)
 
 ```
 ## # A tibble: 578 x 4
-##    Chick Time  Diet  weightKg
-##    <int> <fct> <fct>    <dbl>
-##  1    18 0     1        0.039
-##  2    18 2     1        0.035
-##  3    16 0     1        0.041
-##  4    16 2     1        0.045
-##  5    16 4     1        0.049
-##  6    16 6     1        0.051
-##  7    16 8     1        0.057
-##  8    16 10    1        0.051
-##  9    16 12    1        0.054
-## 10    15 0     1        0.041
-## # ... with 568 more rows
+##   Chick Time  Diet  weightKg
+##   <int> <fct> <fct>    <dbl>
+## 1    18 0     1        0.039
+## 2    18 2     1        0.035
+## 3    16 0     1        0.041
+## # ... with 575 more rows
 ```
 
 \
@@ -1163,19 +1132,12 @@ rename(CW, Group = Diet, Weight = weight)
 
 ```
 ## # A tibble: 578 x 4
-##    Chick Group Time  Weight
-##    <int> <fct> <fct>  <int>
-##  1    18 1     0         39
-##  2    18 1     2         35
-##  3    16 1     0         41
-##  4    16 1     2         45
-##  5    16 1     4         49
-##  6    16 1     6         51
-##  7    16 1     8         57
-##  8    16 1     10        51
-##  9    16 1     12        54
-## 10    15 1     0         41
-## # ... with 568 more rows
+##   Chick Group Time  Weight
+##   <int> <fct> <fct>  <int>
+## 1    18 1     0         39
+## 2    18 1     2         35
+## 3    16 1     0         41
+## # ... with 575 more rows
 ```
 
 \
@@ -1193,11 +1155,7 @@ filter(CW, Time==21 & weight>300)
 ## 1     7 1     21       305
 ## 2    29 2     21       309
 ## 3    21 2     21       331
-## 4    32 3     21       305
-## 5    40 3     21       321
-## 6    34 3     21       341
-## 7    35 3     21       373
-## 8    48 4     21       322
+## # ... with 5 more rows
 ```
 
 For comparing values in vectors use: `<` (less than), `>` (greater than), `<=`
@@ -1214,19 +1172,12 @@ arrange(CW, Chick, Time)
 
 ```
 ## # A tibble: 578 x 4
-##    Chick Diet  Time  weight
-##    <int> <fct> <fct>  <int>
-##  1     1 1     0         42
-##  2     1 1     2         51
-##  3     1 1     4         59
-##  4     1 1     6         64
-##  5     1 1     8         76
-##  6     1 1     10        93
-##  7     1 1     12       106
-##  8     1 1     14       125
-##  9     1 1     16       149
-## 10     1 1     18       171
-## # ... with 568 more rows
+##   Chick Diet  Time  weight
+##   <int> <fct> <fct>  <int>
+## 1     1 1     0         42
+## 2     1 1     2         51
+## 3     1 1     4         59
+## # ... with 575 more rows
 ```
 
 ```r
@@ -1235,19 +1186,12 @@ arrange(CW, desc(weight))
 
 ```
 ## # A tibble: 578 x 4
-##    Chick Diet  Time  weight
-##    <int> <fct> <fct>  <int>
-##  1    35 3     21       373
-##  2    35 3     20       361
-##  3    34 3     21       341
-##  4    35 3     18       332
-##  5    21 2     21       331
-##  6    34 3     20       327
-##  7    48 4     21       322
-##  8    40 3     21       321
-##  9    21 2     20       318
-## 10    29 2     21       309
-## # ... with 568 more rows
+##   Chick Diet  Time  weight
+##   <int> <fct> <fct>  <int>
+## 1    35 3     21       373
+## 2    35 3     20       361
+## 3    34 3     21       341
+## # ... with 575 more rows
 ```
 
 
@@ -1274,19 +1218,12 @@ CW21
 
 ```
 ## # A tibble: 95 x 4
-##    Chick Group  Time  Weight
-##    <int> <fct>  <fct>  <int>
-##  1     1 Diet 1 0         42
-##  2     1 Diet 1 21       205
-##  3     2 Diet 1 0         40
-##  4     2 Diet 1 21       215
-##  5     3 Diet 1 0         43
-##  6     3 Diet 1 21       202
-##  7     4 Diet 1 0         42
-##  8     4 Diet 1 21       157
-##  9     5 Diet 1 0         41
-## 10     5 Diet 1 21       223
-## # ... with 85 more rows
+##   Chick Group  Time  Weight
+##   <int> <fct>  <fct>  <int>
+## 1     1 Diet 1 0         42
+## 2     1 Diet 1 21       205
+## 3     2 Diet 1 0         40
+## # ... with 92 more rows
 ```
 
 
@@ -1339,19 +1276,12 @@ mnsdCW
 ```
 ## # A tibble: 48 x 4
 ## # Groups:   Diet [4]
-##    Diet  Time      N  Mean
-##    <fct> <fct> <int> <dbl>
-##  1 1     0        20  41.4
-##  2 1     2        20  47.2
-##  3 1     4        19  56.5
-##  4 1     6        19  66.8
-##  5 1     8        19  79.7
-##  6 1     10       19  93.1
-##  7 1     12       19 109. 
-##  8 1     14       18 123. 
-##  9 1     16       17 145. 
-## 10 1     18       17 159. 
-## # ... with 38 more rows
+##   Diet  Time      N  Mean
+##   <fct> <fct> <int> <dbl>
+## 1 1     0        20  41.4
+## 2 1     2        20  47.2
+## 3 1     4        19  56.5
+## # ... with 45 more rows
 ```
 
  
@@ -1384,11 +1314,7 @@ sumCW
 ## 1 1     0        20  41.4  0.995   41      39    43
 ## 2 1     21       16 178.  58.7    166      96   305
 ## 3 2     0        10  40.7  1.49    40.5    39    43
-## 4 2     21       10 215.  78.1    212.     74   331
-## 5 3     0        10  40.8  1.03    41      39    42
-## 6 3     21       10 270.  71.6    281     147   373
-## 7 4     0        10  41    1.05    41      39    42
-## 8 4     21        9 239.  43.3    237     196   322
+## # ... with 5 more rows
 ```
 
 Let's make the summaries "prettier", say, for a report or publication.
@@ -1448,3 +1374,9 @@ This summary table offers the same interpretation as before, namely that diet 3 
 highest mean and median weights at day 21 but a higher variation than group 4.
 However it should be noted that at day 21, diet 1 lost 4 chicks from 20 that started 
 and diet 4 lost 1 from 10. This could be a sign of some health related issues.
+
+
+
+
+
+

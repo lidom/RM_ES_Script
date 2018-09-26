@@ -717,10 +717,10 @@ ggplot(CW, aes(Time, weight, group=Diet,
 
 ### Tidyverse: Data Wrangling Basics
 
-<!-- ```{r resettblprint, echo = FALSE} -->
-<!-- # Temporarily resetting the print limit -->
-<!-- options(tibble.print_min=3, tibble.print_max=3) -->
-<!-- ``` -->
+```{r resettblprint, echo = FALSE}
+# Temporarily resetting the print limit
+options(tibble.print_min=3, tibble.print_max=3)
+```
 
 In this section we will learn how to wrangle (manipulate) datasets using the `tidyverse`
 package. Let's start with the `mutate()`, `select()`, `rename()`, `filter()` and `arrange()` 
@@ -918,3 +918,12 @@ This summary table offers the same interpretation as before, namely that diet 3 
 highest mean and median weights at day 21 but a higher variation than group 4.
 However it should be noted that at day 21, diet 1 lost 4 chicks from 20 that started 
 and diet 4 lost 1 from 10. This could be a sign of some health related issues.
+
+
+```{r tblprintdef, echo = FALSE}
+# Resetting the print limit back to the defaults
+options(tibble.print_min=10, tibble.print_max=20)
+```
+
+
+
