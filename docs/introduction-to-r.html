@@ -908,7 +908,7 @@ prettySumCW &lt;-<span class="st"> </span>sumCW <span class="op">%&gt;%</span><s
 <span class="st"> </span><span class="kw">mutate</span>(<span class="dt">Range =</span> <span class="kw">str_c</span>(Min, <span class="st">&quot; - &quot;</span>, Max)) <span class="op">%&gt;%</span><span class="st"> </span>
 <span class="st"> </span><span class="kw">select</span>(Diet, Time, N, <span class="st">`</span><span class="dt">Mean (SD)</span><span class="st">`</span>, Median, Range) <span class="op">%&gt;%</span>
 <span class="st"> </span><span class="kw">arrange</span>(Diet, Time) <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st"> </span><span class="kw">kable</span>(<span class="dt">format =</span> <span class="st">&quot;html&quot;</span>)
+<span class="st"> </span><span class="kw">kable</span>(<span class="dt">format =</span> <span class="st">&quot;latex&quot;</span>)
 prettySumCW</code></pre></div>
 <table>
 <thead>
@@ -1152,7 +1152,7 @@ gitbook.start({
 "link": null,
 "text": null
 },
-"download": null,
+"download": ["PM_ES_Script.pdf"],
 "toc": {
 "collapse": "subsection"
 }

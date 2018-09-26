@@ -863,7 +863,7 @@ sumCW
 ```
 
 Let's make the summaries "prettier", say, for a report or publication.
-```{r prettySum}
+```{r prettySum, echo=TRUE, eval=FALSE}
 library("knitr") # to use the kable() function
 prettySumCW <- sumCW %>% 
  mutate(`Mean (SD)` = str_c(format(Mean, digits=1),
@@ -871,8 +871,31 @@ prettySumCW <- sumCW %>%
  mutate(Range = str_c(Min, " - ", Max)) %>% 
  select(Diet, Time, N, `Mean (SD)`, Median, Range) %>%
  arrange(Diet, Time) %>% 
+ kable(format = "latex")
+prettySumCW
+```
+
+```{r prettySum2, echo=FALSE}
+library("knitr") # to use the kable() function
+if( knitr:::is_latex_output() ) {
+    prettySumCW <- sumCW %>% 
+ mutate(`Mean (SD)` = str_c(format(Mean, digits=1),
+           " (", format(SD, digits=2), ")")) %>% 
+ mutate(Range = str_c(Min, " - ", Max)) %>% 
+ select(Diet, Time, N, `Mean (SD)`, Median, Range) %>%
+ arrange(Diet, Time) %>% 
+ kable(format = "latex")
+prettySumCW
+} else {
+    prettySumCW <- sumCW %>% 
+ mutate(`Mean (SD)` = str_c(format(Mean, digits=1),
+           " (", format(SD, digits=2), ")")) %>% 
+ mutate(Range = str_c(Min, " - ", Max)) %>% 
+ select(Diet, Time, N, `Mean (SD)`, Median, Range) %>%
+ arrange(Diet, Time) %>% 
  kable(format = "html")
 prettySumCW
+}
 ```
 
 
