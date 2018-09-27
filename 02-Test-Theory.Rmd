@@ -1,3 +1,121 @@
-# Test Theory
+# Statistical Test Procedures
 
-Details on test theory.
+
+**Basic concepts:** 
+Assume a random sample $X_1,\dots,X_n$, where the distributions of $X_1,\dots,X_n$ depend on some unknown parameter $\theta\in \Omega$, where $\Omega$ is some parameter space.
+
+<!-- n independently and identically distributed  -->
+
+\
+
+**General Testing problem:** 
+
+$$H_0:\theta\in \Omega_0$$
+against
+$$H_1:\theta\in \Omega_1$$
+
+$H_0$ is the null hypothesis, while $H_1$ is the alternative. $\Omega_0\subset \Omega$ and $\Omega_1\subset \Omega$ are used to denote the possible values of $\theta$ under $H_0$ and $H_1$, respectively. Necessarily, $\Omega_0\cap \Omega_1=\emptyset$.
+
+For a large number of tests we have $\Omega=\mathbb{R}$ and the respective null hypothesis states that $\theta$ has a specific value $\theta_0\in\mathbb{R}$, i.e., $\Omega_0=\{\theta_0\}$ and $H_0:\theta=\theta_0$. Depending on
+the alternative one then often distinguishes between one-sided ($\Omega_1=(\theta_0,\infty)$ or
+$\Omega_1=(-\infty,\theta_0)$) and two-sided tests ($\Omega_1=\{\theta\in\mathbb{R}| \theta\neq \theta_0\}$).
+
+\
+
+**Statistical hypothesis testing:** The data is used in order to decide whether to accept or to reject $H_0$.
+
+\
+
+**Test statistic:** 
+Every  hypothesis test relies on a corresponding test statistic
+$T=T(X_1,\dots,X_n)$. Any test statistics is a real valued random variable, and for given
+observations the resulting observed value $T_{obs}$ is used to decide between
+$H_0$ and $H_1$. Generally, the distribution of $T$ under $H_0$ is analyzed in order
+to define a **rejection region**  $C$:
+
+- $T_{obs}\not\in C$ $\Rightarrow$ $H_0$ is not rejected
+- $T_{obs}\in C$ $\Rightarrow$ $H_0$ is rejected
+
+Typically  $C$ is of the form  $(-\infty,c_0]$, $[c_1,\infty)$ or 
+$(-\infty,c_0]\cup [c_1,\infty)$. The limits of the respective intervals are
+called **critical values**, and are obtained from quantiles of the null distribution
+
+
+**Null distribution:** The distribution of $T$ under $H_0$.
+
+\
+
+| **Type I error:**  | $H_0$ is rejected even though $H_0$ is true. |
+| **Type II error:** | The test fails to reject a false $H_0$.      | 
+
+\
+
+In a statistical significance test, the probability of a type I error is controlled by the **significance level** $\alpha$ (e.g., $\alpha=5\%$).
+
+$$P\left(\text{Type I error}\right)=P\left(T\in C| \ H_0\text{ true}\right)\leq \alpha$$
+
+Note: $\sup_{\theta\in\Omega_0} P(T\in C|\theta\in\Omega_0)$ is called the **size** of the test. 
+
+The preselected significance level $\alpha$ is a bound for the size, which may not be attained (i.e., size $<\alpha$) if, for instance, the relevant probability function is discrete.
+
+
+\
+
+Practically important significance levels:
+
+- $\alpha=0.05$ - It is common to say that a test result is "significant" if a hypothesis test of level $\alpha=0.05$ rejects $H_0$.
+- $\alpha=0.01$ - It is common to say that a test result is "strongly significant" if a hypothesis test of level $\alpha=0.01$ rejects $H_0$.
+
+
+
+<!-- {\bf P-value:} Statistical software usually determines the p-value of a test.\\ -->
+
+**p-value:** The p-value is the probability of obtaining a test statistic at least as extreme as the one that was actually observed, assuming that the null hypothesis is true.
+
+\
+
+**Remarks:** 
+
+- The p-value is random since it depends on the {\bf observed} data. That is, different random samples will lead to different p-values.
+- For given data, having determined the p-value of a test we also know the test
+decisions for all possible levels $\alpha$:
+$$
+\begin{eqnarray*}
+\alpha > \hbox{p-value} & \Rightarrow& H_0 \mbox{ is rejected }
+\\
+\alpha < \hbox{p-value} &\Rightarrow& H_0 \mbox{ is accepted }
+\end{eqnarray*}
+$$
+
+
+**Example:** Let $X\sim N(\mu,\sigma^2)$. Observation from an i.i.d sample of size $n=5$:
+
+$X_1=19.20$,
+$X_2=17.40$,
+$X_3=18.50$,
+$X_4=16.50$,
+$X_5=18.90$,
+$$\Rightarrow \bar X =18.1$$
+
+\
+
+Testing problem: $H_0:\mu=17$ against $H_1:\mu\ne 17$ (two-sided test).
+
+\
+
+Since the variance is unknown, we have to use a t-test in order to test $H_0$. Test statistic of the t-test:
+$$T=\frac{\sqrt{n}(\bar X-\mu_0)}{S},$$
+where $S^2=\frac{1}{n-1} \sum_{i=1}^n (X_i-\bar X)^2$ is the unbiased estimator of $\sigma^2$.
+$$T_{obs}=\frac{\sqrt{5}(18.1-17)}{1.125}=2.187$$
+$$\Rightarrow \hbox{p-value}=P( |T_{n-1}|\ge 2.187)=0.094$$
+
+\
+
+t-test for different significance levels  $\alpha$:
+
+- $\alpha=0.2$ $\Rightarrow$ $2.187>t_{4,0.9}\;=1.533$ $\Rightarrow$ $H_0$ is rejected
+- $\alpha=0.1$ $\Rightarrow$ $2.187>t_{4,0.95}=2.132$ $\Rightarrow$ $H_0$ is rejected
+<!-- - $\alpha=0.094=\hbox{p-value}$ $\Rightarrow$ $2.187=t_{4,0.953}=2.187$$\qquad\qquad\Rightarrow$ $H_0$ is rejected -->
+- $\alpha=0.05$ $\Rightarrow$ $2.187<t_{4,0.975}=2.776$ $\Rightarrow$ $H_0$ is accepted
+- $\alpha=0.01$ $\Rightarrow$ $2.187<t_{4,0.995}=4.604$ $\Rightarrow$ $H_0$ is accepted
+
