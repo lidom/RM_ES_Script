@@ -103,14 +103,10 @@ decisions for all possible levels $\alpha$:
 \
 
 
-\begin{figure}
-
-{\centering \includegraphics{img/xkcd_p_values} 
-
-}
-
-\caption{From: https://xkcd.com/1478/}(\#fig:pvalueFig)
-\end{figure}
+<div class="figure" style="text-align: center">
+<img src="img/xkcd_p_values.png" alt="From: https://xkcd.com/1478/"  />
+<p class="caption">(\#fig:pvalueFig)From: https://xkcd.com/1478/</p>
+</div>
 
 
 
@@ -510,16 +506,9 @@ Z&=\frac{\sqrt{n}\,(\bar{X}_n-\mu_{0})}{\sigma}\\
 \end{align*}
 
 The different distributions (under $H_0$ and $H_1$) of the test statistic $Z$ can be investigated in the following dynamic plot:
+<iframe src="https://dliebl.shinyapps.io/Gauss-Test-Distr/?showcase=0" width="672" height="1200px"></iframe>
 
 
-\begin{figure}
-
-{\centering \includegraphics{img/Gauss-Test-Distr} 
-
-}
-
-\caption{See: https://dliebl.shinyapps.io/Gauss-Test-Distr/}(\#fig:unnamed-chunk-2)
-\end{figure}
 
 
 
