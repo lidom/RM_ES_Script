@@ -110,7 +110,7 @@ server <- function(input, output) {
      ## Legend on the right
      if(mu.1==mu.0){
        legend("topright", title=NULL, 
-              legend = c(paste0("P(Type I Error) = μ = ",round(alpha,digits=2)," "),
+              legend = c(paste0("P(Type I Error) = α = ",round(alpha,digits=2)," "),
                          "",
                          "Null Distribution: N(0,1)",
                          paste0("True Distribution: N(",round(mu.1,digits=1),",1)")),
