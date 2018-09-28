@@ -73,7 +73,7 @@ server <- function(input, output) {
      yy.1 <- yy.1*10
      ## Plotting:
      par(cex=1.5)#family = "serif", 
-     plot(xx.0, yy.0, type="n", xlim=range(c(xx.0,xx.1)), ylim=c(0,5.5), #ylim=range(c(yy.0,yy.1)),
+     plot(xx.0, yy.0, type="n", xlim=range(c(xx.0,xx.1)), ylim=c(0,9), #ylim=range(c(yy.0,yy.1)),
           ylab = "", xlab = "", axes=FALSE, main="")
      # mtext(side = 3, text = expression(paste("One Sided Z-Test",sep="")), line = 3, cex=1.3)
      if(mu.1==mu.0){

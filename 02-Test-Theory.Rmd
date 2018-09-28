@@ -508,7 +508,7 @@ The different distributions (under $H_0$ and $H_1$) of the test statistic $Z$ ca
 ```{r, echo=FALSE}
 if(!knitr:::is_latex_output()){
   knitr::include_app("https://dliebl.shinyapps.io/Gauss-Test-Distr/",
-  height = "1200px")
+  height = "800px")
 }
 ```
 
