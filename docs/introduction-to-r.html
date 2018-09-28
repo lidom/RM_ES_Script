@@ -25,7 +25,7 @@
 <meta name="author" content="JProf. Dominik Liebl">
 
 
-<meta name="date" content="2018-09-26">
+<meta name="date" content="2018-09-28">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -33,7 +33,7 @@
   
   
 <link rel="prev" href="index.html">
-<link rel="next" href="test-theory.html">
+<link rel="next" href="statistical-hypothesis-testing.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -119,7 +119,14 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="1.8.4" data-path="introduction-to-r.html"><a href="introduction-to-r.html#the-group_by-function"><i class="fa fa-check"></i><b>1.8.4</b> The <code>group_by()</code> function</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="2" data-path="test-theory.html"><a href="test-theory.html"><i class="fa fa-check"></i><b>2</b> Test Theory</a></li>
+<li class="chapter" data-level="2" data-path="statistical-hypothesis-testing.html"><a href="statistical-hypothesis-testing.html"><i class="fa fa-check"></i><b>2</b> Statistical Hypothesis Testing</a><ul>
+<li class="chapter" data-level="2.1" data-path="statistical-hypothesis-testing.html"><a href="statistical-hypothesis-testing.html#hypotheses-and-test-statistics"><i class="fa fa-check"></i><b>2.1</b> Hypotheses and Test-Statistics</a></li>
+<li class="chapter" data-level="2.2" data-path="statistical-hypothesis-testing.html"><a href="statistical-hypothesis-testing.html#significance-level-size-and-p-values"><i class="fa fa-check"></i><b>2.2</b> Significance Level, Size and P-values</a></li>
+<li class="chapter" data-level="2.3" data-path="statistical-hypothesis-testing.html"><a href="statistical-hypothesis-testing.html#the-power-function"><i class="fa fa-check"></i><b>2.3</b> The power function</a></li>
+<li class="chapter" data-level="2.4" data-path="statistical-hypothesis-testing.html"><a href="statistical-hypothesis-testing.html#asymptotic-null-distributions"><i class="fa fa-check"></i><b>2.4</b> Asymptotic Null Distributions</a></li>
+<li class="chapter" data-level="2.5" data-path="statistical-hypothesis-testing.html"><a href="statistical-hypothesis-testing.html#multiple-comparisons"><i class="fa fa-check"></i><b>2.5</b> Multiple comparisons</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="r-lab-the-gauss-test.html"><a href="r-lab-the-gauss-test.html"><i class="fa fa-check"></i><b>3</b> R-Lab: The Gauss-Test</a></li>
 </ul>
 
       </nav>
@@ -504,11 +511,29 @@ X   &lt;-<span class="st"> </span><span class="kw">cbind</span>(X<span class="fl
 
 ## Plot results
 <span class="kw">par</span>(<span class="dt">mfrow=</span><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>))
-<span class="kw">plot</span>(<span class="kw">density</span>(beta.<span class="fl">2.</span>sim), <span class="dt">main=</span><span class="kw">expression</span>(<span class="kw">hat</span>(beta)[<span class="dv">2</span>]))
-<span class="kw">abline</span>(<span class="dt">v=</span>beta.vec[<span class="dv">2</span>], <span class="dt">col=</span><span class="st">&quot;red&quot;</span>, <span class="dt">lwd=</span><span class="dv">2</span>)
+<span class="kw">plot</span>(<span class="kw">density</span>(beta.<span class="fl">2.</span>sim), <span class="dt">bw=</span><span class="st">&quot;SJ&quot;</span>, <span class="dt">main=</span><span class="kw">expression</span>(<span class="kw">hat</span>(beta)[<span class="dv">2</span>]))</code></pre></div>
+<pre><code>## Warning in plot.window(...): &quot;bw&quot; ist kein Grafikparameter</code></pre>
+<pre><code>## Warning in plot.xy(xy, type, ...): &quot;bw&quot; ist kein Grafikparameter</code></pre>
+<pre><code>## Warning in axis(side = side, at = at, labels = labels, ...): &quot;bw&quot; ist kein
+## Grafikparameter
+
+## Warning in axis(side = side, at = at, labels = labels, ...): &quot;bw&quot; ist kein
+## Grafikparameter</code></pre>
+<pre><code>## Warning in box(...): &quot;bw&quot; ist kein Grafikparameter</code></pre>
+<pre><code>## Warning in title(...): &quot;bw&quot; ist kein Grafikparameter</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">abline</span>(<span class="dt">v=</span>beta.vec[<span class="dv">2</span>], <span class="dt">col=</span><span class="st">&quot;red&quot;</span>, <span class="dt">lwd=</span><span class="dv">2</span>)
 ##
-<span class="kw">plot</span>(<span class="kw">density</span>(beta.<span class="fl">3.</span>sim), <span class="dt">main=</span><span class="kw">expression</span>(<span class="kw">hat</span>(beta)[<span class="dv">3</span>]))
-<span class="kw">abline</span>(<span class="dt">v=</span>beta.vec[<span class="dv">3</span>], <span class="dt">col=</span><span class="st">&quot;red&quot;</span>, <span class="dt">lwd=</span><span class="dv">2</span>)</code></pre></div>
+<span class="kw">plot</span>(<span class="kw">density</span>(beta.<span class="fl">3.</span>sim), <span class="dt">bw=</span><span class="st">&quot;SJ&quot;</span>, <span class="dt">main=</span><span class="kw">expression</span>(<span class="kw">hat</span>(beta)[<span class="dv">3</span>]))</code></pre></div>
+<pre><code>## Warning in plot.window(...): &quot;bw&quot; ist kein Grafikparameter</code></pre>
+<pre><code>## Warning in plot.xy(xy, type, ...): &quot;bw&quot; ist kein Grafikparameter</code></pre>
+<pre><code>## Warning in axis(side = side, at = at, labels = labels, ...): &quot;bw&quot; ist kein
+## Grafikparameter
+
+## Warning in axis(side = side, at = at, labels = labels, ...): &quot;bw&quot; ist kein
+## Grafikparameter</code></pre>
+<pre><code>## Warning in box(...): &quot;bw&quot; ist kein Grafikparameter</code></pre>
+<pre><code>## Warning in title(...): &quot;bw&quot; ist kein Grafikparameter</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">abline</span>(<span class="dt">v=</span>beta.vec[<span class="dv">3</span>], <span class="dt">col=</span><span class="st">&quot;red&quot;</span>, <span class="dt">lwd=</span><span class="dv">2</span>)</code></pre></div>
 <p><img src="01-Introduction-to-R_files/figure-html/unnamed-chunk-32-1.png" width="672" /></p>
 </div>
 <div id="r-packages" class="section level2">
@@ -530,11 +555,11 @@ Of course, <code>ggplot2</code> concerns “only” plotting, but you’ll find 
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">install.packages</span>(<span class="st">&quot;tidyverse&quot;</span>)</code></pre></div>
 <p>To use the <code>tidyverse</code> package load it using the <code>library()</code> function:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(tidyverse)</code></pre></div>
-<pre><code>## ── Attaching packages ──────────────── tidyverse 1.2.1 ──</code></pre>
+<pre><code>## ── Attaching packages ─────────────────────────────── tidyverse 1.2.1 ──</code></pre>
 <pre><code>## ✔ tibble  1.4.2     ✔ dplyr   0.7.6
 ## ✔ tidyr   0.8.1     ✔ stringr 1.2.0
 ## ✔ purrr   0.2.5     ✔ forcats 0.3.0</code></pre>
-<pre><code>## ── Conflicts ─────────────────── tidyverse_conflicts() ──
+<pre><code>## ── Conflicts ────────────────────────────────── tidyverse_conflicts() ──
 ## ✖ dplyr::filter() masks stats::filter()
 ## ✖ dplyr::lag()    masks stats::lag()</code></pre>
 <p><strong>Chick Weight Data</strong></p>
@@ -1041,7 +1066,7 @@ Range
         </div>
       </div>
 <a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="test-theory.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="statistical-hypothesis-testing.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

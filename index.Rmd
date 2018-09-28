@@ -14,7 +14,7 @@ description: "Script for the project module in econometrics & statistics."
 
 # Preface {-}
 
-This is the script of the project module in econometrics & statistics.
+This is the script for the project module in econometrics & statistics.
 
 
 **General Topic:**

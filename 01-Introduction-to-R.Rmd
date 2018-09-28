@@ -466,10 +466,10 @@ for(rpt in 1:B){
 
 ## Plot results
 par(mfrow=c(1,2))
-plot(density(beta.2.sim), main=expression(hat(beta)[2]))
+plot(density(beta.2.sim), bw="SJ", main=expression(hat(beta)[2]))
 abline(v=beta.vec[2], col="red", lwd=2)
 ##
-plot(density(beta.3.sim), main=expression(hat(beta)[3]))
+plot(density(beta.3.sim), bw="SJ", main=expression(hat(beta)[3]))
 abline(v=beta.vec[3], col="red", lwd=2)
 ```
 

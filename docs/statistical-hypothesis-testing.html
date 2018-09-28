@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Project Module in Econometrics &amp; Statistics</title>
+  <meta name="description" content="Script for the project module in econometrics &amp; statistics.">
+  <meta name="generator" content="bookdown  and GitBook 2.6.7">
+
+  <meta property="og:title" content="Project Module in Econometrics &amp; Statistics" />
+  <meta property="og:type" content="book" />
+  <meta property="og:url" content="http://dliebl.com/PM_ES_Script/" />
+  
+  <meta property="og:description" content="Script for the project module in econometrics &amp; statistics." />
+  <meta name="github-repo" content="lidom/PM_ES_Script" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Project Module in Econometrics &amp; Statistics" />
+  
+  <meta name="twitter:description" content="Script for the project module in econometrics &amp; statistics." />
+  
+
+<meta name="author" content="JProf. Dominik Liebl">
+
+
+<meta name="date" content="2018-09-28">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+<link rel="prev" href="introduction-to-r.html">
+<link rel="next" href="r-lab-the-gauss-test.html">
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="http://www.dliebl.com/PM_ES_Script/">Project Module E&S</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a></li>
+<li class="chapter" data-level="1" data-path="introduction-to-r.html"><a href="introduction-to-r.html"><i class="fa fa-check"></i><b>1</b> Introduction to R</a><ul>
+<li class="chapter" data-level="1.1" data-path="introduction-to-r.html"><a href="introduction-to-r.html#short-glossary"><i class="fa fa-check"></i><b>1.1</b> Short Glossary</a></li>
+<li class="chapter" data-level="1.2" data-path="introduction-to-r.html"><a href="introduction-to-r.html#first-steps"><i class="fa fa-check"></i><b>1.2</b> First Steps</a></li>
+<li class="chapter" data-level="1.3" data-path="introduction-to-r.html"><a href="introduction-to-r.html#further-data-objects"><i class="fa fa-check"></i><b>1.3</b> Further Data Objects</a></li>
+<li class="chapter" data-level="1.4" data-path="introduction-to-r.html"><a href="introduction-to-r.html#simple-regression-analysis-using-r"><i class="fa fa-check"></i><b>1.4</b> Simple Regression Analysis using R</a></li>
+<li class="chapter" data-level="1.5" data-path="introduction-to-r.html"><a href="introduction-to-r.html#programming-and-simulating-using-r"><i class="fa fa-check"></i><b>1.5</b> Programming and Simulating using R</a></li>
+<li class="chapter" data-level="1.6" data-path="introduction-to-r.html"><a href="introduction-to-r.html#simulation-hands-on"><i class="fa fa-check"></i><b>1.6</b> Simulation (Hands on)</a></li>
+<li class="chapter" data-level="1.7" data-path="introduction-to-r.html"><a href="introduction-to-r.html#r-packages"><i class="fa fa-check"></i><b>1.7</b> R-packages</a></li>
+<li class="chapter" data-level="1.8" data-path="introduction-to-r.html"><a href="introduction-to-r.html#tidyverse"><i class="fa fa-check"></i><b>1.8</b> Tidyverse</a><ul>
+<li class="chapter" data-level="1.8.1" data-path="introduction-to-r.html"><a href="introduction-to-r.html#tidyverse-plotting-basics"><i class="fa fa-check"></i><b>1.8.1</b> Tidyverse: Plotting Basics</a></li>
+<li class="chapter" data-level="1.8.2" data-path="introduction-to-r.html"><a href="introduction-to-r.html#tidyverse-data-wrangling-basics"><i class="fa fa-check"></i><b>1.8.2</b> Tidyverse: Data Wrangling Basics</a></li>
+<li class="chapter" data-level="1.8.3" data-path="introduction-to-r.html"><a href="introduction-to-r.html#the-pipe-operator"><i class="fa fa-check"></i><b>1.8.3</b> The pipe operator <code>%&gt;%</code></a></li>
+<li class="chapter" data-level="1.8.4" data-path="introduction-to-r.html"><a href="introduction-to-r.html#the-group_by-function"><i class="fa fa-check"></i><b>1.8.4</b> The <code>group_by()</code> function</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="statistical-hypothesis-testing.html"><a href="statistical-hypothesis-testing.html"><i class="fa fa-check"></i><b>2</b> Statistical Hypothesis Testing</a><ul>
+<li class="chapter" data-level="2.1" data-path="statistical-hypothesis-testing.html"><a href="statistical-hypothesis-testing.html#hypotheses-and-test-statistics"><i class="fa fa-check"></i><b>2.1</b> Hypotheses and Test-Statistics</a></li>
+<li class="chapter" data-level="2.2" data-path="statistical-hypothesis-testing.html"><a href="statistical-hypothesis-testing.html#significance-level-size-and-p-values"><i class="fa fa-check"></i><b>2.2</b> Significance Level, Size and P-values</a></li>
+<li class="chapter" data-level="2.3" data-path="statistical-hypothesis-testing.html"><a href="statistical-hypothesis-testing.html#the-power-function"><i class="fa fa-check"></i><b>2.3</b> The power function</a></li>
+<li class="chapter" data-level="2.4" data-path="statistical-hypothesis-testing.html"><a href="statistical-hypothesis-testing.html#asymptotic-null-distributions"><i class="fa fa-check"></i><b>2.4</b> Asymptotic Null Distributions</a></li>
+<li class="chapter" data-level="2.5" data-path="statistical-hypothesis-testing.html"><a href="statistical-hypothesis-testing.html#multiple-comparisons"><i class="fa fa-check"></i><b>2.5</b> Multiple comparisons</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="r-lab-the-gauss-test.html"><a href="r-lab-the-gauss-test.html"><i class="fa fa-check"></i><b>3</b> R-Lab: The Gauss-Test</a></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Project Module in Econometrics &amp; Statistics</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="statistical-hypothesis-testing" class="section level1">
+<h1><span class="header-section-number">Ch. 2</span> Statistical Hypothesis Testing</h1>
+<div id="hypotheses-and-test-statistics" class="section level2">
+<h2><span class="header-section-number">2.1</span> Hypotheses and Test-Statistics</h2>
+<p>Assume an independently and identically distributed random sample <span class="math inline">\(X_1,\dots,X_n\)</span>, where the distributions of <span class="math inline">\(X_1,\dots,X_n\)</span> depend on some unknown parameter <span class="math inline">\(\theta\in \Omega\)</span>, where <span class="math inline">\(\Omega\)</span> is some parameter space.</p>
+<p><br />
+</p>
+<p><strong>General Testing problem:</strong></p>
+<p><span class="math display">\[H_0:\theta\in \Omega_0\]</span> against <span class="math display">\[H_1:\theta\in \Omega_1\]</span></p>
+<p><span class="math inline">\(H_0\)</span> is the null hypothesis, while <span class="math inline">\(H_1\)</span> is the alternative. <span class="math inline">\(\Omega_0\subset \Omega\)</span> and <span class="math inline">\(\Omega_1\subset \Omega\)</span> are used to denote the possible values of <span class="math inline">\(\theta\)</span> under <span class="math inline">\(H_0\)</span> and <span class="math inline">\(H_1\)</span>, respectively. Necessarily, <span class="math inline">\(\Omega_0\cap \Omega_1=\emptyset\)</span>.</p>
+<p>For a large number of tests we have <span class="math inline">\(\Omega=\mathbb{R}\)</span> and the respective null hypothesis states that <span class="math inline">\(\theta\)</span> has a specific value <span class="math inline">\(\theta_0\in\mathbb{R}\)</span>, i.e., <span class="math inline">\(\Omega_0=\{\theta_0\}\)</span> and <span class="math inline">\(H_0:\theta=\theta_0\)</span>. Depending on the alternative one then often distinguishes between one-sided (<span class="math inline">\(\Omega_1=(\theta_0,\infty)\)</span> or <span class="math inline">\(\Omega_1=(-\infty,\theta_0)\)</span>) and two-sided tests (<span class="math inline">\(\Omega_1=\{\theta\in\mathbb{R}| \theta\neq \theta_0\}\)</span>).</p>
+<p><br />
+</p>
+<p>The data <span class="math inline">\(X_1,\dots,X_n\)</span> is used in order to decide whether to accept or to reject <span class="math inline">\(H_0\)</span>.</p>
+<p><br />
+<strong>Test Statistic:</strong> Every hypothesis test relies on a corresponding test statistic <span class="math display">\[T=T(X_1,\dots,X_n).\]</span> Any test statistics is a real valued random variable, and for given observations the resulting observed value <span class="math inline">\(T_{obs}\)</span> is used to decide between <span class="math inline">\(H_0\)</span> and <span class="math inline">\(H_1\)</span>. Generally, the distribution of <span class="math inline">\(T\)</span> under <span class="math inline">\(H_0\)</span> is analyzed in order to define a <strong>rejection region</strong> <span class="math inline">\(C\)</span>:</p>
+<ul>
+<li><span class="math inline">\(T_{obs}\not\in C\)</span> <span class="math inline">\(\Rightarrow\)</span> <span class="math inline">\(H_0\)</span> is not rejected</li>
+<li><span class="math inline">\(T_{obs}\in C\)</span> <span class="math inline">\(\Rightarrow\)</span> <span class="math inline">\(H_0\)</span> is rejected</li>
+</ul>
+<p>Typically <span class="math inline">\(C\)</span> is of the form <span class="math inline">\((-\infty,c_0]\)</span>, <span class="math inline">\([c_1,\infty)\)</span> or <span class="math inline">\((-\infty,c_0]\cup [c_1,\infty)\)</span>. The limits of the respective intervals are called <strong>critical values</strong>, and are obtained from quantiles of the <strong>null distribution</strong>, i.e., the distribution of <span class="math inline">\(T\)</span> under <span class="math inline">\(H_0\)</span>.</p>
+<p><br />
+</p>
+<table>
+<thead>
+<tr class="header">
+<th align="left">Decision Errors</th>
+<th align="center">Verbal Definition</th>
+<th align="center">Formal Definition</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Type I error</td>
+<td align="center"><span class="math inline">\(H_0\)</span> is rejected even though <span class="math inline">\(H_0\)</span> is true.</td>
+<td align="center"><span class="math inline">\(P(T\not\in C|\,H_0\text{ true})\)</span></td>
+</tr>
+<tr class="even">
+<td align="left">Type II error</td>
+<td align="center">The test fails to reject a false <span class="math inline">\(H_0\)</span>.</td>
+<td align="center"><span class="math inline">\(P(T\in C |\,H_1\text{ true})\)</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="significance-level-size-and-p-values" class="section level2">
+<h2><span class="header-section-number">2.2</span> Significance Level, Size and P-values</h2>
+<p>In a statistical significance test, the probability of a type I error is controlled by the <strong>significance level</strong> <span class="math inline">\(\alpha\)</span> (e.g., <span class="math inline">\(\alpha=5\%\)</span>).</p>
+<p><span class="math display">\[P\left(\text{Type I error}\right)=P\left(T\in C| \ H_0\text{ true}\right)\leq \alpha\]</span></p>
+<p>The <strong>size</strong> of a statistical test is defined as <span class="math display">\[\sup_{\theta\in\Omega_0} P(T\in C|\theta\in\Omega_0).\]</span></p>
+<p>The preselected significance level <span class="math inline">\(\alpha\)</span> is a bound for the size, which may not be attained (i.e., size <span class="math inline">\(&lt;\alpha\)</span>) if, for instance, the relevant probability function is discrete.</p>
+<p><br />
+</p>
+<p>Practically important significance levels:</p>
+<ul>
+<li><span class="math inline">\(\alpha=0.05\)</span> - It is common to say that a test result is “significant” if a hypothesis test of level <span class="math inline">\(\alpha=0.05\)</span> rejects <span class="math inline">\(H_0\)</span>.</li>
+<li><span class="math inline">\(\alpha=0.01\)</span> - It is common to say that a test result is “strongly significant” if a hypothesis test of level <span class="math inline">\(\alpha=0.01\)</span> rejects <span class="math inline">\(H_0\)</span>.</li>
+</ul>
+<!-- {\bf P-value:} Statistical software usually determines the p-value of a test.\\ -->
+<p><strong>p-value:</strong> The p-value is the probability of obtaining a test statistic at least as extreme as the one that was actually observed, assuming that the null hypothesis is true.</p>
+<p><br />
+<strong>Remarks:</strong></p>
+<ul>
+<li>The p-value is random since it depends on the observed data. That is, different random samples will lead to different p-values.</li>
+<li>For given data, having determined the p-value of a test we also know the test decisions for all possible levels <span class="math inline">\(\alpha\)</span>:
+<span class="math display">\[\begin{align*}
+\alpha &gt; \text{p-value} &amp; \Rightarrow H_0 \text{ is rejected }\\
+\alpha &lt; \text{p-value} &amp; \Rightarrow H_0 \text{ is accepted }
+\end{align*}\]</span></li>
+</ul>
+<p><br />
+</p>
+<div class="figure" style="text-align: center"><span id="fig:pvalueFig"></span>
+<img src="img/xkcd_p_values.png" alt="From: https://xkcd.com/1478/"  />
+<p class="caption">
+Figure 2.1: From: <a href="https://xkcd.com/1478/" class="uri">https://xkcd.com/1478/</a>
+</p>
+</div>
+<p><strong>Example:</strong> Let <span class="math inline">\(X_i\sim N(\mu,\sigma^2)\)</span> independently for all <span class="math inline">\(i=1,\dots,5=n\)</span>. Observed realizations from this iid random sample:</p>
+<p><span class="math inline">\(X_1=19.20\)</span>, <span class="math inline">\(X_2=17.40\)</span>, <span class="math inline">\(X_3=18.50\)</span>, <span class="math inline">\(X_4=16.50\)</span>, <span class="math inline">\(X_5=18.90\)</span></p>
+<p><span class="math display">\[\Rightarrow \bar X =18.1\]</span></p>
+<p><br />
+Testing problem: <span class="math inline">\(H_0:\mu=17\)</span> against <span class="math inline">\(H_1:\mu\ne 17\)</span> (two-sided test).</p>
+<p><br />
+Since the variance is unknown, we have to use a <strong>t-test</strong> in order to test <span class="math inline">\(H_0\)</span>. Test statistic of the t-test: <span class="math display">\[T=\frac{\sqrt{n}(\bar X-\mu_0)}{S},\]</span> where <span class="math inline">\(S^2=\frac{1}{n-1} \sum_{i=1}^n (X_i-\bar X)^2\)</span> is the unbiased estimator of <span class="math inline">\(\sigma^2\)</span>. <span class="math display">\[T_{obs}=\frac{\sqrt{5}(18.1-17)}{1.125}=2.187\]</span> <span class="math display">\[\Rightarrow \hbox{p-value}=P( |T_{n-1}|\ge 2.187)=0.094\]</span></p>
+<p><br />
+t-test for different significance levels <span class="math inline">\(\alpha\)</span>:</p>
+<ul>
+<li><span class="math inline">\(\alpha=0.2\phantom{0}\)</span> <span class="math inline">\(\Rightarrow\)</span> <span class="math inline">\(2.187&gt;t_{4,0.9}\;=1.533\)</span> <span class="math inline">\(\Rightarrow\)</span> <span class="math inline">\(H_0\)</span> is rejected</li>
+<li><span class="math inline">\(\alpha=0.1\phantom{0}\)</span> <span class="math inline">\(\Rightarrow\)</span> <span class="math inline">\(2.187&gt;t_{4,0.95}=2.132\)</span> <span class="math inline">\(\Rightarrow\)</span> <span class="math inline">\(H_0\)</span> is rejected <!-- - $\alpha=0.094=\hbox{p-value}$ $\Rightarrow$ $2.187=t_{4,0.953}=2.187$$\qquad\qquad\Rightarrow$ $H_0$ is rejected --></li>
+<li><span class="math inline">\(\alpha=0.05\)</span> <span class="math inline">\(\Rightarrow\)</span> <span class="math inline">\(2.187&lt;t_{4,0.975}=2.776\)</span> <span class="math inline">\(\Rightarrow\)</span> <span class="math inline">\(H_0\)</span> is accepted</li>
+<li><span class="math inline">\(\alpha=0.01\)</span> <span class="math inline">\(\Rightarrow\)</span> <span class="math inline">\(2.187&lt;t_{4,0.995}=4.604\)</span> <span class="math inline">\(\Rightarrow\)</span> <span class="math inline">\(H_0\)</span> is accepted</li>
+</ul>
+</div>
+<div id="the-power-function" class="section level2">
+<h2><span class="header-section-number">2.3</span> The power function</h2>
+<p>For every possible value <span class="math inline">\(\theta\in \Omega_0\cup \Omega_1\)</span>, all sample sizes <span class="math inline">\(n\)</span> and each significance level <span class="math inline">\(\alpha\)</span> the corresponding value of the <strong>power function</strong> <span class="math inline">\(\beta\)</span> is given by the probability <span class="math display">\[
+\beta_{n,\alpha}(\theta):=P(H_0 \text{ is rejected, if the true parameter value equals }\theta)
+\]</span></p>
+<p>Obviously, <span class="math inline">\(\beta_{n,\alpha}(\theta)\leq \alpha\)</span> for all <span class="math inline">\(\theta\in\Omega_0\)</span>. For any <span class="math inline">\(\theta\in\Omega_1\)</span>, <span class="math inline">\(1-\beta_{n,\alpha}(\theta)\)</span> is the probability of committing a type II error.</p>
+<p>The power function is an important tool for accessing the quality of a test and for comparing different test procedures. Obviously, the power of a test depends on the true value <span class="math inline">\(\theta\in\Omega\)</span>, the sample size <span class="math inline">\(n\)</span>, and on the significance level <span class="math inline">\(\alpha\)</span>.</p>
+<p><br />
+Some important terminology: - If possible, a test is constructed in such a way that size equals level, i.e., <span class="math inline">\(\beta_{n,\alpha}(\theta)=\alpha\)</span> for some <span class="math inline">\(\theta\in\Omega_0\)</span>. In some cases, however, as for discrete test statistics or complex, composite null hypothesis, it is not possible to reach the level, and <span class="math inline">\(\sup_{\theta\in\Omega_0}\beta_{n,\alpha}(\theta)&lt;\alpha\)</span>. In this case the test is called <strong>conservative</strong>. - <strong>Unbiased test:</strong> A significance test of level <span class="math inline">\(\alpha&gt;0\)</span> is called <strong>unbiased</strong> if <span class="math inline">\(\beta_{n,\alpha}(\theta)\ge\alpha\)</span> for all <span class="math inline">\(\theta\in\Omega_1\)</span>. - <strong>Consistent Test:</strong> A significance test of level <span class="math inline">\(\alpha&gt;0\)</span> is called <strong>consistent</strong> if <span class="math display">\[\lim_{n\rightarrow \infty} \beta_{n,\alpha}(\theta) =1\]</span> for all <span class="math inline">\(\theta\in \Omega_1\)</span>.</p>
+<p><br />
+</p>
+<p>When choosing between different testing procedures for the same testing problem, one will usually prefer the <strong>most powerful</strong> test. Consider a fixed sample size <span class="math inline">\(n\)</span>.</p>
+<ul>
+<li>For a specified <span class="math inline">\(\theta\in\Omega_1\)</span>, a test with power function <span class="math inline">\(\beta_{n,\alpha}(\theta)\)</span> is said to be <strong>most powerful</strong> for <span class="math inline">\(\theta\)</span> if for any alternative test with power function <span class="math inline">\(\beta^*_{n,\alpha}(\theta)\)</span>, <span class="math display">\[\beta_{n,\alpha}(\theta)\ge \beta^*_{n,\alpha}(\theta)\]</span> holds for all levels <span class="math inline">\(\alpha&gt;0\)</span>.</li>
+<li>A test with power function <span class="math inline">\(\beta_{n,\alpha}(\theta)\)</span> is said to be <strong>uniformly most powerful</strong> against the set of alternatives <span class="math inline">\(\Omega_1\)</span> if for any alternative test with power function <span class="math inline">\(\beta^*_{n,\alpha}(\theta)\)</span>, <span class="math display">\[\beta_{n,\alpha}(\theta)\ge \beta^*_{n,\alpha}(\theta)\quad \text{holds for all }\theta\in\Omega_1, \alpha&gt;0\]</span></li>
+</ul>
+<p>Unfortunately, uniformly most powerful tests only exist for very special testing problems.</p>
+<p><br />
+</p>
+<p><strong>Example:</strong> Let <span class="math inline">\(X_1,\dots,X_n\)</span> be an iid random sample. Assume that <span class="math inline">\(n=9\)</span>, and that <span class="math inline">\(X_i\sim N(\mu,0.18^2)\)</span>. Hence, in this simple example only the mean <span class="math inline">\(\mu=E(X)\)</span> is unknown, while the standard deviation has the known value <span class="math inline">\(\sigma=0.18\)</span>.</p>
+<p>Testing problem: <span class="math inline">\(H_0:\mu=\mu_0\)</span> against <span class="math inline">\(H_1:\mu\neq \mu_0\)</span> for <span class="math inline">\(\mu_0=18.3\)</span>.</p>
+<p>Since the variance is known, a test may rely on the Gauss test statistic <span class="math display">\[Z=\frac{\sqrt{n} (\bar X -\mu_0)}{\sigma} =\frac{3 (\bar X -18.3)}{0.18}\]</span></p>
+<p>Under <span class="math inline">\(H_0\)</span> we have <span class="math inline">\(Z\sim N(0,1)\)</span>, and for the significance level <span class="math inline">\(\alpha=0.05\)</span> the null hypothesis is rejected if <span class="math display">\[|Z|\geq z_{1-\alpha/2}=1.96.\]</span> Here <span class="math inline">\(z_{1-\alpha/2}\)</span> denotes the corresponding quantile of the standard normal distribution. Note that the size of this test equals its level <span class="math inline">\(\alpha=0.05\)</span>.</p>
+For determining the rejection region of a test it suffices to determine the distribution of the test statistic under <span class="math inline">\(H_0\)</span>. But in order to calculate the power function one needs to quantify the distribution of the test statistic for all possible values <span class="math inline">\(\theta\in\Omega\)</span>. For many important problems this is a formidable task. In our example it is, however, quite easy. Note that for any (true) <span class="math inline">\(\mu\in\mathbb{R}\)</span> the corresponding distribution of <span class="math inline">\(Z\equiv Z_\mu=\sqrt{n(\bar X-\mu_0)}/\sigma\)</span> is <span class="math display">\[Z_\mu=\frac{\sqrt{n} (\mu -\mu_0)}{\sigma}+\frac{\sqrt{n} (\bar X -\mu)}{\sigma}
+\sim N\left(\frac{\sqrt{n} (\mu -\mu_0)}{\sigma}, 1\right)\]</span> This implies that with <span class="math inline">\(\Phi\)</span> denoting the distribution function of the standard normal distribution we obtain
+<span class="math display">\[\begin{align*}
+\beta_{n,\alpha}(\mu)
+&amp; = P\left(|Z_\mu|&gt;z_{1-\alpha/2}\right)\\
+&amp; = 1-\Phi\left(z_{1-\alpha/2}-\frac{\sqrt{n} (\mu -\mu_0)}{\sigma}\right) + \Phi\left(-z_{1-\alpha/2}-\frac{\sqrt{n} (\mu -\mu_0)}{\sigma}\right)
+\end{align*}\]</span>
+<p>The example values <span class="math inline">\(\mu_0=18.3\)</span>, <span class="math inline">\(n=9\)</span> and <span class="math inline">\(\sigma=0.18\)</span> lead to:</p>
+<ul>
+<li><span class="math inline">\(\mu=18.36\)</span> and <span class="math inline">\(\alpha=0.05\)</span> <span class="math inline">\(\Rightarrow\)</span> <span class="math inline">\(\beta_{9,0.05}(18.36)=0.168\)</span></li>
+<li><span class="math inline">\(\mu=18.48\)</span> and <span class="math inline">\(\alpha=0.05\)</span> <span class="math inline">\(\Rightarrow\)</span> <span class="math inline">\(\beta_{9,0.05}(18.48)=0.873\)</span></li>
+<li><span class="math inline">\(\mu=18.48\)</span> and <span class="math inline">\(\alpha=0.01\)</span> <span class="math inline">\(\Rightarrow\)</span> <span class="math inline">\(\beta_{9,0.05}(18.48)=0.663\)</span></li>
+</ul>
+<p>This example illustrates the power function of a “good” test, since:</p>
+<ul>
+<li>Under <span class="math inline">\(H_0:\mu=\mu_0\)</span> we have <span class="math inline">\(\beta_{n,\alpha}(\mu_0)=\alpha\)</span>.</li>
+<li>The test is unbiased, since <span class="math inline">\(\beta_{n,\alpha}(\mu)\geq\alpha\)</span> for any <span class="math inline">\(\mu\neq \mu_0\)</span>.</li>
+<li>The test is consistent, since <span class="math inline">\(\lim_{n\rightarrow\infty} \beta_{n,\alpha}(\mu)=1\)</span> for every fixed <span class="math inline">\(\mu\neq \mu_0\)</span>.</li>
+</ul>
+<p><br />
+For fixed sample size <span class="math inline">\(n\)</span>, <span class="math inline">\(\beta_{n,\alpha}(\mu)\)</span> increases as the distance <span class="math inline">\(|\mu-\mu_0|\)</span> increases. If <span class="math inline">\(|\mu-\mu_0|&gt;|\mu^*-\mu_0|\)</span> then <span class="math inline">\(\beta_{n,\alpha}(\mu)&gt;\beta_{n,\alpha}(\mu^*)\)</span>. On the other hand, <span class="math inline">\(\beta_{n,\alpha}(\mu)\)</span> decreases as the size <span class="math inline">\(\alpha\)</span> of the test decreases. If <span class="math inline">\(\alpha&gt;\alpha^*\)</span> then <span class="math inline">\(\beta_{n,\alpha}(\mu)&gt;\beta_{n,\alpha^*}(\mu)\)</span>.</p>
+<p>Assuming that the basic assumptions (normality and known variance) are true, the above “Gauss-test” is even the most prominent example of a uniformly most powerful test. Under these conditions, for any possible value of <span class="math inline">\(\mu\)</span> no other possible test can achieve a larger value of <span class="math inline">\(\beta_{n,\alpha}(\mu)\)</span>.</p>
+</div>
+<div id="asymptotic-null-distributions" class="section level2">
+<h2><span class="header-section-number">2.4</span> Asymptotic Null Distributions</h2>
+<p>Generally, the underlying distributions are unknown. In this case it is usually not possible to compute the power function of a test for fixed <span class="math inline">\(n\)</span> (exceptions are so called “distribution-free” tests in nonparametric statistics). The only way out of this difficulty is to rely on large sample asymptotics and corresponding asymptotic distributions, which allow to approximate the power function and to study the <strong>asymptotic efficiency</strong> of a test. The finite sample behavior of a test for different sample sizes <span class="math inline">\(n\)</span> is then evaluated by <strong>simulation studies</strong>.</p>
+<p>For a real-valued parameter <span class="math inline">\(\theta\)</span> most tests of <span class="math inline">\(H_0:\theta=\theta_0\)</span> rely on estimators <span class="math inline">\(\hat\theta\)</span> of <span class="math inline">\(\theta\)</span>. Under suitable regularity conditions on the underlying distribution central limit theorems usually imply that as <span class="math inline">\(n\rightarrow\infty\)</span> <span class="math display">\[\sqrt{n}(\hat\theta - \theta)\rightarrow_D N(0,v^2),\]</span> where <span class="math inline">\(v^2\)</span> is the asymptotic variance of the estimator. % Often a consistent estimator <span class="math inline">\(\hat v^2\)</span> of <span class="math inline">\(v^2\)</span> can be determined from the data. For large <span class="math inline">\(n\)</span> we then approximately have <span class="math display">\[\frac{\sqrt{n}(\hat\theta - \theta)}{ v}\sim N(0,1).\]</span> For given <span class="math inline">\(\alpha\)</span>, a one-sided test of <span class="math inline">\(H_0:\theta=\theta_0\)</span> against <span class="math inline">\(H_1:\theta&gt;\theta_0\)</span> then rejects <span class="math inline">\(H_0\)</span> if <span class="math display">\[
+Z=\frac{\sqrt{n} (\hat\theta -\theta_0)}{v}&gt;z_{1-\alpha}.
+\]</span> The corresponding asymptotic approximation (valid for sufficiently large <span class="math inline">\(n\)</span>) of the true power function is then given by <span class="math display">\[
+\beta_{n,\alpha}(\theta) = 1-\Phi\left(z_{1-\alpha}-\frac{\sqrt{n} (\theta -\theta_0)}{v}\right)
+\]</span></p>
+<p><br />
+Note that in practice the (unknown) true value <span class="math inline">\(v^2\)</span> is generally replaced by an estimator <span class="math inline">\(\hat v^2\)</span> determined from the data. As long as <span class="math inline">\(\hat v^2\)</span> is a consistent estimator of <span class="math inline">\(v^2\)</span> this leads to the same asymptotic power function. The resulting test is asymptotically unbiased and consistent.</p>
+<p><br />
+Usually there are many different possible estimators. Consider an alternative estimator <span class="math inline">\(\tilde\theta\)</span> of <span class="math inline">\(\theta\)</span> satisfying <span class="math display">\[
+\sqrt{n}(\tilde\theta - \theta)\rightarrow_D N(0,\tilde v^2).
+\]</span> If the asymptotic variance <span class="math inline">\(v^2\)</span> of the estimator <span class="math inline">\(\hat\theta\)</span> is smaller than the asymptotic variance <span class="math inline">\(\tilde v^2\)</span> of <span class="math inline">\(\tilde\theta\)</span>, i.e., <span class="math inline">\(v^2&lt;\tilde v^2\)</span>, then <span class="math inline">\(\hat\theta\)</span> is a <strong>more efficient</strong> estimator of <span class="math inline">\(\theta\)</span>. Then necessarily the test based on <span class="math inline">\(\hat\theta\)</span> is <strong>more powerful</strong> than the test based on <span class="math inline">\(\tilde\theta\)</span>, since asymptotically for all <span class="math inline">\(\theta&gt;\theta_0\)</span> <!-- \begin{align*} --> <!-- \tilde\beta_{n,\alpha}(\theta) &= 1-\Phi\left(z_{1-\alpha}-\frac{\sqrt{n} (\theta -\theta_0)}{\tilde v}\right)\\ --> <!-- & < 1-\Phi\left(z_{1-\alpha}-\frac{\sqrt{n} (\theta -\theta_0)}{v}\right)=\beta_{n,\alpha}(\theta) --> <!-- \end{align*} --></p>
+<p><br />
+<strong>Example:</strong> Let <span class="math inline">\(X_1,\dots,X_n\)</span> be an iid random sample. Consider testing <span class="math inline">\(H_0:\mu=\mu_0\)</span> against <span class="math inline">\(H_1:\mu&gt;\mu_0\)</span>, where <span class="math inline">\(\mu:=E(X_i)\)</span>. For a given level <span class="math inline">\(\alpha\)</span> the t-test then rejects <span class="math inline">\(H_0\)</span> if <span class="math display">\[
+T=\frac{\sqrt{n}(\bar X-\mu_0)}{S}&gt;t_{n-1;1-\alpha},
+\]</span> where <span class="math inline">\(t_{n-1;1-\alpha}\)</span> is the <span class="math inline">\(1-\alpha\)</span> quantile of a t-distributions with <span class="math inline">\(n-1\)</span>-degrees of freedom. This is an exact test if the distribution of <span class="math inline">\(X_i\)</span> is normal. In the general case, the justification of the t-test is based on asymptotic arguments. Under some regularity conditions the central limit theorem implies that <span class="math display">\[
+\sqrt{n}(\bar X - \mu)\rightarrow_D N(0,\sigma^2)
+\]</span> with <span class="math inline">\(\sigma^2=Var(X_i)\)</span>. Moreover, <span class="math inline">\(S^2\)</span> is a consistent estimator of <span class="math inline">\(\sigma^2\)</span> and <span class="math inline">\(t_{n-1;1-\alpha}\rightarrow z_{1-\alpha}\)</span> as <span class="math inline">\(n\rightarrow \infty\)</span>. Thus even if the distribution of <span class="math inline">\(X_i\)</span> is non-normal, for sufficiently large <span class="math inline">\(n\)</span>, <span class="math inline">\(T=\frac{\sqrt{n}(\bar X-\mu_0)}{S}\)</span> is approximately <span class="math inline">\(N(0,1)\)</span>-distributed and the asymptotic power function of the t-test is given by <span class="math display">\[
+\beta_{n,\alpha}(\theta) = 1-\Phi\left(z_{1-\alpha}-\frac{\sqrt{n} (\mu -\mu_0)}{\sigma}\right)
+\]</span></p>
+</div>
+<div id="multiple-comparisons" class="section level2">
+<h2><span class="header-section-number">2.5</span> Multiple comparisons</h2>
+<p>In statistics, the multiple comparisons, multiplicity or multiple testing problem occurs when one considers a set of statistical inferences simultaneously or infers a subset of parameters selected based on the observed values. Errors in inference, including confidence intervals that fail to include their corresponding population parameters or hypothesis tests that incorrectly reject the null hypothesis are more likely to occur when one considers the set as a whole.</p>
+<!-- This is an important, although largely ignored problem in applied econometric work.  -->
+<p>In empirical studies often dozens or even hundreds of tests are performed for the same data set. When <strong>searching</strong> for significant test results, one may come up with <strong>false discoveries</strong>.</p>
+<!-- Multiple tests: In some study many different tests are done simultaneously -->
+<p><strong>Example:</strong> <span class="math inline">\(m\)</span> different, independent test of significance level <span class="math inline">\(\alpha&gt;0\)</span>. (Independence means that the test statistics used are mutually independent – this is usually not true in practice). Let’s assume that a common null hypothesis <span class="math inline">\(H_0\)</span> holds for each of the <span class="math inline">\(m\)</span> tests. Then</p>
+<p><span class="math display">\[
+P \begin{pmatrix}
+      \text{Type I error}\\
+      \text{by at least} \\
+      \text{one of the $m$ tests}
+  \end{pmatrix}
+= 1 - (1 - \alpha)^m =: \alpha_m&gt;\alpha
+\]</span></p>
+<p>Therefore, as <span class="math inline">\(m\)</span> increases also the probability of a type I error increases:</p>
+<table>
+<thead>
+<tr class="header">
+<th align="left"><span class="math inline">\(m\)</span></th>
+<th align="right"><span class="math inline">\(\alpha_m\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">1</td>
+<td align="right">0.05</td>
+</tr>
+<tr class="even">
+<td align="left">3</td>
+<td align="right">0.143</td>
+</tr>
+<tr class="odd">
+<td align="left">5</td>
+<td align="right">0.226</td>
+</tr>
+<tr class="even">
+<td align="left">10</td>
+<td align="right">0.401</td>
+</tr>
+<tr class="odd">
+<td align="left">100</td>
+<td align="right">0.994 (!)</td>
+</tr>
+</tbody>
+</table>
+<p><br />
+</p>
+<p><strong>Analogous problem:</strong> Construction of <span class="math inline">\(m\)</span> many <span class="math inline">\((1-\alpha)\)</span>-confidence intervals. <span class="math display">\[
+P \begin{pmatrix}
+      \text{at least one of the $m$ confidence} \\
+      \text{intervals does not contain} \\
+      \text{the true parameter value} \end{pmatrix}
+    = 1 - (1-\alpha)^m&gt;\alpha
+\]</span></p>
+<p><br />
+</p>
+<p>This represents the general problem of multiple comparisons. In practice, it will not be true that all test statistics used are mutually independent. (This even complicates the problem.) However, we will still have the effect that the probability of at least one falsely significant result increases with the number <span class="math inline">\(m\)</span> of tests, but it will not be equal to <span class="math inline">\(1 - (1-\alpha)^m\)</span>.</p>
+<br />
+A statistically rigorous <strong>solution</strong> of this problem consists in modifying the constructions of tests or confidence intervals in order to arrive at <strong>simultaneous tests</strong>: <span class="math display">\[
+P \begin{pmatrix}
+  \text{Type I error by} \\
+  \text{at least one of the $m$ tests}
+  \end{pmatrix} \le \alpha
+\]</span> or <strong>simultaneous confidence intervals</strong>:
+<span class="math display">\[\begin{align*}
+&amp;P \begin{pmatrix}
+      \text{at least one of the $m$ confidence} \\
+      \text{intervals does not contain} \\
+      \text{the true parameter value}
+  \end{pmatrix}  \le \alpha\\[2ex]
+\Leftrightarrow
+&amp;P \begin{pmatrix}
+    \text{All confidence intervals} \\
+    \text{simultaneously contain the} \\
+    \text{true parameter values}
+  \end{pmatrix} \geq 1 - \alpha
+\end{align*}\]</span>
+<p><br />
+For certain problems (e.g., analysis of variance) there exist specific procedures for constructing simultaneous confidence intervals. However, the only generally applicable procedure seems to be the Bonferroni correction. It is based on Boole’s inequality.</p>
+<p><strong>Theorem (Boole):</strong> Let <span class="math inline">\(A_1, A_2, \dots, A_m\)</span> denote <span class="math inline">\(m\)</span> different events. Then <span class="math display">\[
+ P(A_1 \cup A_2 \cup \dots \cup A_m) \leq
+  \sum_{i=1}^m P(A_i).
+\]</span> This inequality also implies that: <span class="math display">\[
+ P(A_1 \cap A_2 \cap \dots \cap A_m) \ge
+  1 - \sum_{i=1}^m P(\bar A_i),
+\]</span> where <span class="math inline">\(\bar A_i\)</span> denotes the complementary event “not <span class="math inline">\(A_i\)</span>”.</p>
+<p><br />
+<strong>Example: Bonferroni adjustment</strong> for <span class="math inline">\(m\)</span> different tests of level <span class="math inline">\(\alpha^* = \alpha/m\)</span>. <span class="math display">\[
+P\begin{pmatrix}
+\text{Type I error by} \\
+\text{at least one of the $m$ tests}\end{pmatrix}
+\leq \sum_{i=1}^m \alpha^\ast = \alpha
+\]</span></p>
+<!-- \item Analogously: Construction of $m$ many $(1-\alpha^*)$-confidence intervals, -->
+<!-- $\alpha^* =\frac{\alpha}{m}$: -->
+<!--   \begin{equation*} -->
+<!--     \Rightarrow -->
+<!--     P\begin{pmatrix} -->
+<!--       \text{at least one of the $m$ confidence} \\ -->
+<!--       \text{intervals does not contain} \\ -->
+<!--       \text{the true parameter value} \end{pmatrix} -->
+<!--        \le \sum_{i=1}^m \alpha^\ast = \alpha -->
+<!--     \end{equation*}    -->
+<!--     %%%%%%%%%%%% -->
+<!--     \begin{equation*} -->
+<!--     \Leftrightarrow -->
+<!--     P\begin{pmatrix} -->
+<!--     \text{all confidence interval} \\ -->
+<!--     \text{simultaneously contain the} \\ -->
+<!--     \text{true parameter values}\end{pmatrix} -->
+<!--     \ge 1 - \sum_{i=1}^m \alpha^\ast = 1 - \alpha -->
+<!--   \end{equation*} -->
+<!-- \end{itemize} -->
+<!-- \newpage -->
+<!-- {\bf Example: Regression analysis} -->
+<!-- For $n=40$ US corporations a multiple regression model is used to model the observed return of capital $Y$ -->
+<!-- in dependence of 12 explanatory variables. After eliminating two outliers, the following table provides -->
+<!-- the results of the regression analysis. -->
+<!-- {\small -->
+<!-- \begin{verbatim} -->
+<!--         Coefficients: -->
+<!--                 Estimate Std. Error t value Pr(>|t|) -->
+<!--     (Intercept)  0.24883    0.14386   1.730  0.09603 . -->
+<!--     WCFTCL       1.11519    0.36955   3.018  0.00579 ** -->
+<!--     WCFTDT      -0.21457    0.39528  -0.543  0.59206 -->
+<!--     GEARRAT     -0.01992    0.10610  -0.188  0.85261 -->
+<!--     LOGSALE      0.49969    0.18335   2.725  0.01156 * -->
+<!--     LOGASST     -0.48743    0.17500  -2.785  0.01005 * -->
+<!--     NFATAST     -0.30425    0.15446  -1.970  0.06003 . -->
+<!--     CAPINT      -0.08022    0.03706  -2.165  0.04017 * -->
+<!--     FATTOT      -0.11086    0.09125  -1.215  0.23571 -->
+<!--     INVTAST      0.23047    0.23588   0.977  0.33790 -->
+<!--     PAYOUT       0.00168    0.01717   0.098  0.92284 -->
+<!--     QUIKRAT      0.08012    0.10827   0.740  0.46617 -->
+<!--     CURRAT      -0.18976    0.09244  -2.053  0.05070 . -->
+<!--     --- -->
+<!-- Signif. codes: 0 `***' 0.001 `**' 0.01 `*' 0.05 `.' 0.1 ` ' 1 -->
+<!--     Residual standard error: 0.0552  -->
+<!--     Multiple R-Squared: 0.6958,     -->
+<!--     Adjusted R-squared: 0.5498 -->
+<!--     F-statistic: 4.765 on 12 and 25 DF,  -->
+<!--     p-value: 0.0004878 -->
+<!-- \end{verbatim}} -->
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="introduction-to-r.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="r-lab-the-gauss-test.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"linkedin": false,
+"weibo": false,
+"instapper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"download": ["PM_ES_Script.pdf"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "";
+    if (src === "" || src === "true") src = "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:" && /^https?:/.test(src))
+      src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
