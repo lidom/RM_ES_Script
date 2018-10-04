@@ -30,7 +30,7 @@ Each student will be evaluated on the basis of a presentation and a seminar pape
 
 \
 
-**Important:** You need to register for this course via [BASIS](https://basis.uni-bonn.de/). Registration period: 15.10-22.10.  
+**Important:** You need to register for this course via [BASIS](https://basis.uni-bonn.de/). Registration period: Oct. 15-22.  
 
 
 \
@@ -56,7 +56,7 @@ Date        Time               Topic
 
 
 - **Location:** Room 0.042
-- **Supervision meetings:** From November to January at the office of JProf. Liebl
+- **Supervision meetings:** From Nov. to Jan. at the office of JProf. Liebl
 
 
 **Deadline for submission of term papers:** Feb. 28, 2019, via e-mail to [dliebl@uni-bonn.de](mailto:dliebl@uni-bonn.de)

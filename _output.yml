@@ -5,7 +5,7 @@ bookdown::gitbook:
     toc:
       collapse: subsection
       before: |
-        <li><a href="http://www.dliebl.com/PM_ES_Script/">Research Module E&S</a></li>
+        <li><a href="http://www.dliebl.com/RM_ES_Script/">Research Module E&S</a></li>
 #      after: |
 #        <li><a href="https://github.com/lidom/PM_ES_Script/blob/master/docs/PM_ES_Script.pdf" target="blank">pdf-Version</a></li>
   runtime: shiny
