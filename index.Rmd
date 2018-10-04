@@ -1,5 +1,5 @@
 --- 
-title: "Project Module in Econometrics & Statistics"
+title: "Research Module in Econometrics & Statistics"
 author: "JProf. Dominik Liebl"
 date: "`r Sys.Date()`"
 site: bookdown::bookdown_site
@@ -14,15 +14,53 @@ description: "Script for the project module in econometrics & statistics."
 
 # Preface {-}
 
-This is the script for the project module in econometrics & statistics.
+
+This is the script for the research module in econometrics & statistics.
 
 
 **General Topic:**
 Regression analysis and beyond 
   
 **Description:** 
-This project module covers modern methods in statistics and econometrics with a focus on regression analysis. Participants have the opportunity to choose among a set of specific projects. Topics suggested by the participants are generally appreciated, but will be assessed with respect to their practical feasibility. All projects should have a theoretical part describing the model and the estimation procedures, a Monte-Carlo simulation study, and an application to real data. Depending on the actual number of participants, it might be that the project work has to be carried out as a group task rather than as an individual task. The first five to six weeks consist of lectures (4h per week). Participation is strongly recommended and active participation is desirable. After the lecture series, the groups will have regular meetings with the supervisor. 
+This research module covers modern methods in statistics and econometrics with a focus on regression analysis. Participants have the opportunity to choose among a set of specific projects. Topics suggested by the participants are generally appreciated, but will be assessed with respect to their practical feasibility. All projects should have a theoretical part describing the model and/or the estimation procedures, a Monte-Carlo simulation study, and an application to real data. Depending on the actual number of participants, it might be that the project work has to be carried out as a group task rather than as an individual task. The first five to six weeks consist of lectures (4h per week). Participation is strongly recommended and active participation is desirable. After the lecture series, the groups will have regular meetings with the supervisor. 
 
 **Grading:**
-Each student will be evaluated on the basis of a presentation (Scheduled for begin/mid of January) and a seminar paper (Deadline: end of February). 
+Each student will be evaluated on the basis of a presentation and a seminar paper. 
+
+
+\
+
+**Important:** You need to register for this course via [BASIS](https://basis.uni-bonn.de/). Registration period: 15.10-22.10.  
+
+
+\
+
+
+**Time Table:**
+
+Date        Time               Topic
+----------  -----------------  ---------------------------------
+08.10.      14:15 - 15:45      General Introduction / Introduction to R
+10.10.      14:15 - 15:45      Test Theory
+15.10.      14:15 - 15:45      Test Theory
+17.10.      14:15 - 15:45      Estimation Theory
+22.10.      14:15 - 15:45      Estimation Theory
+24.10.      14:15 - 15:45      Regression / **Final allocation of topics**
+29.10.      14:15 - 15:45      Regression
+31.10.      14:15 - 15:45      Regression
+05.11.      14:15 - 15:45      Bootstrap
+07.11.      14:15 - 15:45      How to write and present
+21.01.      14:15 - 15:45      Group presentations
+23.01.      14:15 - 15:45      Group presentations
+(28.01.)    14:15 - 15:45      (Group presentations)
+
+
+- **Location:** Room 0.042
+- **Supervision meetings:** From November to January at the office of JProf. Liebl
+
+
+**Deadline for submission of term papers:** Feb. 28, 2019, via e-mail to [dliebl@uni-bonn.de](mailto:dliebl@uni-bonn.de)
+
+
+
 

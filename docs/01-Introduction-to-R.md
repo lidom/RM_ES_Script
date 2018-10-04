@@ -17,9 +17,11 @@ Why R?
 *  R is **free** of charge from: [www.r-project.org](https://www.r-project.org/)
 *  The celebrated IDE **RStudio** for R is also **free** of charge: [www.rstudio.com](http://www.rstudio.com/)
 *  R is equipped with one of the most flexible and powerful graphics routines available anywhere. \
-   For instance, check out this repository on [Clean Graphs](http://shinyapps.org/apps/RGraphCompendium/index.php) or this: [R graph catalog](http://shiny.stat.ubc.ca/r-graph-catalog/).
-*  The S language (R is a dialect of S) is the de-facto standard for statistical science.
-   Reading the statistical literature, you will find that examples and even pseudo-code are often written in R-compatible syntax. 
+   For instance, check out one of the following repositories: 
+    * [Clean Graphs](http://shinyapps.org/apps/RGraphCompendium/index.php) 
+    * [R graph catalog](http://shiny.stat.ubc.ca/r-graph-catalog/)
+    * [Publication Ready Plots](http://www.sthda.com/english/rpkgs/ggpubr/)
+*  Today, R is the de-facto standard for statistical science.
 
 
 
@@ -793,7 +795,7 @@ Of course, `ggplot2` concerns "only" plotting, but you'll find R-packages for al
 ## Tidyverse
 
 The `tidyverse` package is a collection of packages that lets you import, 
-manipulate, explore, visualise and model data in a harmonised and consistent way which 
+manipulate, explore, visualize and model data in a harmonized and consistent way which 
 helps you to be more productive. 
 
 
@@ -810,7 +812,7 @@ library(tidyverse)
 ```
 
 ```
-## -- Attaching packages ------------------------------- tidyverse 1.2.1 --
+## -- Attaching packages ---------------------------------- tidyverse 1.2.1 --
 ```
 
 ```
@@ -820,7 +822,7 @@ library(tidyverse)
 ```
 
 ```
-## -- Conflicts ---------------------------------- tidyverse_conflicts() --
+## -- Conflicts ------------------------------------- tidyverse_conflicts() --
 ## x dplyr::filter() masks stats::filter()
 ## x dplyr::lag()    masks stats::lag()
 ```
@@ -972,7 +974,7 @@ ggplot(CW, aes(Time, weight)) + geom_point()
 \begin{center}\includegraphics{01-Introduction-to-R_files/figure-latex/emptyPlot-1} \includegraphics{01-Introduction-to-R_files/figure-latex/emptyPlot-2} \end{center}
 
 
-Add colour for `Diet`. The graph above does not differentiate between the diets. Let's use a different colour for
+Add color for `Diet`. The graph above does not differentiate between the diets. Let's use a different color for
 each diet.
 
 ```r
@@ -1314,7 +1316,7 @@ each function doing its thing and passing it to the next.
 
 
 
-From the data visualisations above we concluded that the diet 3 has the highest mean 
+From the data visualizations above we concluded that the diet 3 has the highest mean 
 and diet 4 the least variation. In this section, we will quantify the effects of the 
 diets using **summmary statistics**. We start by looking at the number of observations 
 and the mean by **diet** and **time**.
@@ -1339,7 +1341,7 @@ mnsdCW
 ```
 
  
-For each distinct combination of `Diet` and `Time`, the chick weight data is summarised 
+For each distinct combination of `Diet` and `Time`, the chick weight data is summarized 
 into the number of observations (`N`) and the mean (`Mean`) of `weight`.
 
 

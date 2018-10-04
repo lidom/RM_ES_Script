@@ -25,7 +25,7 @@
 <meta name="author" content="JProf. Dominik Liebl">
 
 
-<meta name="date" content="2018-09-28">
+<meta name="date" content="2018-10-04">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -104,6 +104,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 
 <li class="divider"></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a></li>
+<li class="chapter" data-level="" data-path="topics.html"><a href="topics.html"><i class="fa fa-check"></i>Topics</a></li>
 <li class="chapter" data-level="1" data-path="introduction-to-r.html"><a href="introduction-to-r.html"><i class="fa fa-check"></i><b>1</b> Introduction to R</a><ul>
 <li class="chapter" data-level="1.1" data-path="introduction-to-r.html"><a href="introduction-to-r.html#short-glossary"><i class="fa fa-check"></i><b>1.1</b> Short Glossary</a></li>
 <li class="chapter" data-level="1.2" data-path="introduction-to-r.html"><a href="introduction-to-r.html#first-steps"><i class="fa fa-check"></i><b>1.2</b> First Steps</a></li>
@@ -121,10 +122,10 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul></li>
 <li class="chapter" data-level="2" data-path="statistical-hypothesis-testing.html"><a href="statistical-hypothesis-testing.html"><i class="fa fa-check"></i><b>2</b> Statistical Hypothesis Testing</a><ul>
 <li class="chapter" data-level="2.1" data-path="statistical-hypothesis-testing.html"><a href="statistical-hypothesis-testing.html#hypotheses-and-test-statistics"><i class="fa fa-check"></i><b>2.1</b> Hypotheses and Test-Statistics</a></li>
-<li class="chapter" data-level="2.2" data-path="statistical-hypothesis-testing.html"><a href="statistical-hypothesis-testing.html#significance-level-size-and-p-values"><i class="fa fa-check"></i><b>2.2</b> Significance Level, Size and P-values</a></li>
-<li class="chapter" data-level="2.3" data-path="statistical-hypothesis-testing.html"><a href="statistical-hypothesis-testing.html#the-power-function"><i class="fa fa-check"></i><b>2.3</b> The power function</a></li>
+<li class="chapter" data-level="2.2" data-path="statistical-hypothesis-testing.html"><a href="statistical-hypothesis-testing.html#significance-level-size-and-p-values"><i class="fa fa-check"></i><b>2.2</b> Significance Level, Size and p-Values</a></li>
+<li class="chapter" data-level="2.3" data-path="statistical-hypothesis-testing.html"><a href="statistical-hypothesis-testing.html#the-power-function"><i class="fa fa-check"></i><b>2.3</b> The Power Function</a></li>
 <li class="chapter" data-level="2.4" data-path="statistical-hypothesis-testing.html"><a href="statistical-hypothesis-testing.html#asymptotic-null-distributions"><i class="fa fa-check"></i><b>2.4</b> Asymptotic Null Distributions</a></li>
-<li class="chapter" data-level="2.5" data-path="statistical-hypothesis-testing.html"><a href="statistical-hypothesis-testing.html#multiple-comparisons"><i class="fa fa-check"></i><b>2.5</b> Multiple comparisons</a></li>
+<li class="chapter" data-level="2.5" data-path="statistical-hypothesis-testing.html"><a href="statistical-hypothesis-testing.html#multiple-comparisons"><i class="fa fa-check"></i><b>2.5</b> Multiple Comparisons</a></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="r-lab-the-gauss-test.html"><a href="r-lab-the-gauss-test.html"><i class="fa fa-check"></i><b>3</b> R-Lab: The Gauss-Test</a></li>
 </ul>
@@ -164,8 +165,52 @@ Z&amp;=\frac{\sqrt{n}\,(\bar{X}_n-\mu_{0})}{\sigma}\\
 &amp;=\frac{\sqrt{n}\,(\bar{X}_n-\mu_{0}+\mu-\mu)}{\sigma}\\
 &amp;=\frac{\sqrt{n}\,(\bar{X}_n-\mu)}{\sigma}+{\color{blue}{ \frac{\sqrt{n}\,(\mu-\mu_{0})}{\sigma} }} \sim N\left({\color{blue}{\frac{\sqrt{n}\,(\mu-\mu_{0})}{\sigma}}},1\right)
 \end{align*}\]</span>
-<p>The different distributions (under <span class="math inline">\(H_0\)</span> and <span class="math inline">\(H_1\)</span>) of the test statistic <span class="math inline">\(Z\)</span> can be investigated in the following dynamic plot: <iframe src="https://dliebl.shinyapps.io/Gauss-Test-Distr/?showcase=0" width="672" height="800px"></iframe></p>
+<p>The different distributions (under <span class="math inline">\(H_0\)</span> and <span class="math inline">\(H_1\)</span>) of the test statistic <span class="math inline">\(Z\)</span> can be investigated in the following dynamic plot: <iframe src="https://dliebl.shinyapps.io/Gauss-Test-Distr/?showcase=0" width="672" height="900px"></iframe></p>
 
+<div id="refs" class="references">
+<div>
+<p>Baltagi, B. 2008. <em>Econometric Analysis of Panel Data</em>. John Wiley &amp; Sons.</p>
+</div>
+<div>
+<p>F. Bretz, P. Westfall, T. Hothorn. 2010. <em>Multiple Comparisons Using R</em>. Chapman; Hall/CRC.</p>
+</div>
+<div>
+<p>Fan, J., and I. Gijbels. 1996. <em>Local Polynomial Modelling and Its Applications</em>. 1. ed. Vol. 66. Monographs on Statistics and Applied Probability. Chapman &amp; Hall/CRC.</p>
+</div>
+<div>
+<p>Gałecki, A., and T. Burzykowski. 2013. <em>Linear Mixed-Effects Models Using R: A Step-by-Step Approach</em>. Springer.</p>
+</div>
+<div>
+<p>Gelman, A., and J. Hill. 2006. <em>Data Analysis Using Regression and Multilevel/Hierarchical Models</em>. Cambridge University Press.</p>
+</div>
+<div>
+<p>Greene, W.H. 2003. <em>Econometric Analysis</em>. Pearson.</p>
+</div>
+<div>
+<p>Hastie, T., R. Tibshirani, and M. Wainwright. 2015. <em>Statistical Learning with Sparsity: The Lasso and Generalizations</em>. CRC press.</p>
+</div>
+<div>
+<p>Hsiao, C. 2014. <em>Analysis of Panel Data</em>. Cambridge university press.</p>
+</div>
+<div>
+<p>Li, Q., and J.S. Racine. 2007. <em>Nonparametric Econometrics: Theory and Practice</em>. Princeton University Press.</p>
+</div>
+<div>
+<p>Romano, J.P., and M. Wolf. 2005. “Exact and Approximate Stepdown Methods for Multiple Hypothesis Testing.” <em>Journal of the American Statistical Association</em> 100 (469). Taylor &amp; Francis: 94–108.</p>
+</div>
+<div>
+<p>Verbeke, G., and G. Molenberghs. 2000. <em>Linear Mixed Models for Longitudinal Data</em>. Springer.</p>
+</div>
+<div>
+<p>Wand, M.P., and M.C. Jones. 1994. <em>Kernel Smoothing</em>. Vol. 60. Chapman &amp; Hall/CRC.</p>
+</div>
+<div>
+<p>White, H. 2014. <em>Asymptotic Theory for Cconometricians</em>. Academic press.</p>
+</div>
+<div>
+<p>Y. Hochberg, A.C. Tamhane. 1987. <em>Multiple Comparison Procedures</em>. Wiley Series in Probability; Statistics.</p>
+</div>
+</div>
 </div>
             </section>
 
