@@ -15,7 +15,10 @@ description: "Script for the research module in econometrics & statistics (Unive
 # Preface {-}
 
 
-This is the script for the research module in econometrics & statistics.
+This is the script for the research module in econometrics & statistics. 
+
+
+Repo that makes this site: https://github.com/lidom/RM_ES_Script
 
 
 **General Topic:**
