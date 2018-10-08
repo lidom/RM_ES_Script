@@ -161,7 +161,7 @@ t.test(X, mu = mu_0, alternative = "two.sided")
 
 
 
-## The Power Function
+## The Power Function {#PF1}
 
 
 For every possible value $\theta\in\Omega_0\cup\Omega_1$, 
@@ -513,7 +513,7 @@ library("tidyverse", quietly = TRUE)
 ```
 
 ```
-## -- Attaching packages ----------------------------------- tidyverse 1.2.1 --
+## -- Attaching packages ------------------ tidyverse 1.2.1 --
 ```
 
 ```
@@ -524,7 +524,7 @@ library("tidyverse", quietly = TRUE)
 ```
 
 ```
-## -- Conflicts -------------------------------------- tidyverse_conflicts() --
+## -- Conflicts --------------------- tidyverse_conflicts() --
 ## x tidyr::extract()   masks magrittr::extract()
 ## x dplyr::filter()    masks stats::filter()
 ## x dplyr::lag()       masks stats::lag()

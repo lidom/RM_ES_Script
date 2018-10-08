@@ -1,15 +1,15 @@
 --- 
 title: "Research Module in Econometrics & Statistics"
 author: "JProf. Dominik Liebl"
-date: "2018-10-04"
+date: "2018-10-08"
 site: bookdown::bookdown_site
 documentclass: book
 bibliography: [book.bib]
 biblio-style: apalike
 link-citations: yes
-github-repo: lidom/PM_ES_Script
-url: 'http\://dliebl.com/PM_ES_Script/'
-description: "Script for the project module in econometrics & statistics."
+github-repo: lidom/RM_ES_Script
+url: 'http\://dliebl.com/RM_ES_Script/'
+description: "Script for the research module in econometrics & statistics (University Bonn)."
 ---
 
 # Preface {-}
@@ -40,19 +40,17 @@ Each student will be evaluated on the basis of a presentation and a seminar pape
 
 Date        Time               Topic
 ----------  -----------------  ---------------------------------
-08.10.      14:15 - 15:45      General Introduction / Introduction to R
-10.10.      14:15 - 15:45      Test Theory
+08.10.      14:15 - 15:45      General Introduction 
+10.10.      14:15 - 15:45      Introduction to R
 15.10.      14:15 - 15:45      Test Theory
-17.10.      14:15 - 15:45      Estimation Theory
+17.10.      14:15 - 15:45      Test Theory
 22.10.      14:15 - 15:45      Estimation Theory
-24.10.      14:15 - 15:45      Regression / **Final allocation of topics**
+24.10.      14:15 - 15:45      Estimation Theory / **Final allocation of topics**
 29.10.      14:15 - 15:45      Regression
 31.10.      14:15 - 15:45      Regression
-05.11.      14:15 - 15:45      Bootstrap
-07.11.      14:15 - 15:45      How to write and present
-21.01.      14:15 - 15:45      Group presentations
-23.01.      14:15 - 15:45      Group presentations
-(28.01.)    14:15 - 15:45      (Group presentations)
+07.11.      14:15 - 15:45      How to Write and Present
+28.01.      14:15 - 15:45      Presentations
+30.01.      14:15 - 15:45      Presentations
 
 
 - **Location:** Room 0.042
@@ -63,4 +61,7 @@ Date        Time               Topic
 
 
 
+<!-- 05.11.      14:15 - 15:45      Bootstrap -->
+<!-- 21.01.      14:15 - 15:45      Presentations -->
+<!-- 23.01.      14:15 - 15:45      Presentations -->
 

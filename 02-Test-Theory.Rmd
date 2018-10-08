@@ -150,7 +150,7 @@ t.test(X, mu = mu_0, alternative = "two.sided")
 
 
 
-## The Power Function
+## The Power Function {#PF1}
 
 
 For every possible value $\theta\in\Omega_0\cup\Omega_1$, 

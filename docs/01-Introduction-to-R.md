@@ -521,9 +521,9 @@ abline(a=alpha,
 
 
 
-## Programming and Simulating using R
+## Programming in R
 
-Let's write our own (very simple) R-function for estimating linear regression models. In order to be able to validate our function, we start with **simulating data** (for which we then *know* all parameters). Simulating data is like being the "Data-God": For instance, we generate realizations of the error term $\varepsilon_i$, i.e., something which we **never** observe in real data. 
+Let's write, i.e., program our own R-function for estimating linear regression models. In order to be able to validate our function, we start with **simulating data** for which we then *know* all true parameters. Simulating data is like being the "Data-God": For instance, we generate realizations of the error term $\varepsilon_i$, i.e., something which we *never* observe in real data. 
 
 \
 
@@ -662,109 +662,6 @@ myOLSFun(y=y, x=X)
 Can you extend the function for the computation of the covariance matrix of the slope-estimates, several measures of fits (R$^2$, adj.-R$^2$, etc.), t-tests, ...?
 
 
-## Simulation (Hands on)
-
-
-```r
-## Simulation parameters:
-set.seed(109)            # Sets the "seed" of the random number generators
-B           <- 5000      # Number of simulation runs
-## Model parameters:
-beta.vec    <- c(1,-5,5) # Slope coefficients
-n           <- 50        # Number of observations
-## Containers to save simulation results:
-beta.2.sim  <- rep(NA,B) 
-beta.3.sim  <- rep(NA,B) 
-
-## Generate the regressors: 
-## Outside of the loop (i.e., 'conditional on X')
-X.1 <- rep(1, n)
-X.2 <- rnorm(n, mean=10, sd=1.5)    # Draw realizations form a normal distr.
-X.3 <- rt(n, df=5, ncp=2)           # Draw realizations form a t-distr.
-X   <- cbind(X.1, X.2, X.3)         # Save as a Nx3-dimensional matrix.
-
-## Setup a progressbar
-#pb <- txtProgressBar(min = 0, max = B, style = 3)
-
-for(rpt in 1:B){
-  eps <- (X.3)*rnorm(n, mean=0, sd=1) # heteroscadastic error term
-  y   <- X %*% beta.vec + eps         # Dependent variable
-  ## Estimation
-  beta.hat <- myOLSFun(y=y,x=X)
-  ## Save results
-  beta.2.sim[rpt] <- beta.hat[2]
-  beta.3.sim[rpt] <- beta.hat[3]
-  ## Progress bar
-  #setTxtProgressBar(pb, rpt)
-}
-#close(pb)# Close progressbar
-
-## Plot results
-par(mfrow=c(1,2))
-plot(density(beta.2.sim), bw="SJ", main=expression(hat(beta)[2]))
-```
-
-```
-## Warning in plot.window(...): "bw" ist kein Grafikparameter
-```
-
-```
-## Warning in plot.xy(xy, type, ...): "bw" ist kein Grafikparameter
-```
-
-```
-## Warning in axis(side = side, at = at, labels = labels, ...): "bw" ist kein
-## Grafikparameter
-
-## Warning in axis(side = side, at = at, labels = labels, ...): "bw" ist kein
-## Grafikparameter
-```
-
-```
-## Warning in box(...): "bw" ist kein Grafikparameter
-```
-
-```
-## Warning in title(...): "bw" ist kein Grafikparameter
-```
-
-```r
-abline(v=beta.vec[2], col="red", lwd=2)
-##
-plot(density(beta.3.sim), bw="SJ", main=expression(hat(beta)[3]))
-```
-
-```
-## Warning in plot.window(...): "bw" ist kein Grafikparameter
-```
-
-```
-## Warning in plot.xy(xy, type, ...): "bw" ist kein Grafikparameter
-```
-
-```
-## Warning in axis(side = side, at = at, labels = labels, ...): "bw" ist kein
-## Grafikparameter
-
-## Warning in axis(side = side, at = at, labels = labels, ...): "bw" ist kein
-## Grafikparameter
-```
-
-```
-## Warning in box(...): "bw" ist kein Grafikparameter
-```
-
-```
-## Warning in title(...): "bw" ist kein Grafikparameter
-```
-
-```r
-abline(v=beta.vec[3], col="red", lwd=2)
-```
-
-![](01-Introduction-to-R_files/figure-latex/unnamed-chunk-32-1.pdf)<!-- --> 
-
-
 
 
 ## R-packages
@@ -784,7 +681,7 @@ qplot(Sepal.Length, Petal.Length, data = iris, color = Species)
 
 
 
-\begin{center}\includegraphics[width=\textwidth]{01-Introduction-to-R_files/figure-latex/unnamed-chunk-34-1} \end{center}
+\begin{center}\includegraphics[width=\textwidth]{01-Introduction-to-R_files/figure-latex/unnamed-chunk-32-1} \end{center}
 
 \
 
@@ -812,7 +709,7 @@ library(tidyverse)
 ```
 
 ```
-## -- Attaching packages ----------------------------------- tidyverse 1.2.1 --
+## -- Attaching packages ------------------ tidyverse 1.2.1 --
 ```
 
 ```
@@ -822,7 +719,7 @@ library(tidyverse)
 ```
 
 ```
-## -- Conflicts -------------------------------------- tidyverse_conflicts() --
+## -- Conflicts --------------------- tidyverse_conflicts() --
 ## x dplyr::filter() masks stats::filter()
 ## x dplyr::lag()    masks stats::lag()
 ```
