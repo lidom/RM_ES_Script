@@ -881,3 +881,40 @@ options(tibble.print_min=10, tibble.print_max=20)
 
 
 
+## Further Links
+
+
+### Further R-Intros
+
+* https://eddelbuettel.github.io/gsir-te/Getting-Started-in-R.pdf
+
+* https://www.datacamp.com/courses/free-introduction-to-r
+
+* https://swcarpentry.github.io/r-novice-gapminder/
+
+* https://support.rstudio.com/hc/en-us/articles/200526207-Using-Projects
+
+
+
+### Version Control (Git/GitHub)
+
+* https://support.rstudio.com/hc/en-us/articles/200532077-Version-Control-with-Git-and-SVN
+
+* http://happygitwithr.com/
+
+* https://www.gitkraken.com/
+
+
+
+### R-Ladies 
+
+* https://rladies.org/
+
+
+
+
+
+
+
+
+
