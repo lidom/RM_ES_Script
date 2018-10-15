@@ -25,7 +25,7 @@
 <meta name="author" content="JProf. Dominik Liebl">
 
 
-<meta name="date" content="2018-10-08">
+<meta name="date" content="2018-10-15">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -117,6 +117,11 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="1.7.2" data-path="introduction-to-r.html"><a href="introduction-to-r.html#tidyverse-data-wrangling-basics"><i class="fa fa-check"></i><b>1.7.2</b> Tidyverse: Data Wrangling Basics</a></li>
 <li class="chapter" data-level="1.7.3" data-path="introduction-to-r.html"><a href="introduction-to-r.html#the-pipe-operator"><i class="fa fa-check"></i><b>1.7.3</b> The pipe operator <code>%&gt;%</code></a></li>
 <li class="chapter" data-level="1.7.4" data-path="introduction-to-r.html"><a href="introduction-to-r.html#the-group_by-function"><i class="fa fa-check"></i><b>1.7.4</b> The <code>group_by()</code> function</a></li>
+</ul></li>
+<li class="chapter" data-level="1.8" data-path="introduction-to-r.html"><a href="introduction-to-r.html#further-links"><i class="fa fa-check"></i><b>1.8</b> Further Links</a><ul>
+<li class="chapter" data-level="1.8.1" data-path="introduction-to-r.html"><a href="introduction-to-r.html#further-r-intros"><i class="fa fa-check"></i><b>1.8.1</b> Further R-Intros</a></li>
+<li class="chapter" data-level="1.8.2" data-path="introduction-to-r.html"><a href="introduction-to-r.html#version-control-gitgithub"><i class="fa fa-check"></i><b>1.8.2</b> Version Control (Git/GitHub)</a></li>
+<li class="chapter" data-level="1.8.3" data-path="introduction-to-r.html"><a href="introduction-to-r.html#r-ladies"><i class="fa fa-check"></i><b>1.8.3</b> R-Ladies</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="statistical-hypothesis-testing.html"><a href="statistical-hypothesis-testing.html"><i class="fa fa-check"></i><b>2</b> Statistical Hypothesis Testing</a><ul>
@@ -498,11 +503,11 @@ Of course, <code>ggplot2</code> concerns “only” plotting, but you’ll find 
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">install.packages</span>(<span class="st">&quot;tidyverse&quot;</span>)</code></pre></div>
 <p>To use the <code>tidyverse</code> package load it using the <code>library()</code> function:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(tidyverse)</code></pre></div>
-<pre><code>## ── Attaching packages ────────────────── tidyverse 1.2.1 ──</code></pre>
+<pre><code>## ── Attaching packages ───────────────────────────────────────────────────────────────────── tidyverse 1.2.1 ──</code></pre>
 <pre><code>## ✔ tibble  1.4.2     ✔ dplyr   0.7.6
 ## ✔ tidyr   0.8.1     ✔ stringr 1.2.0
 ## ✔ purrr   0.2.5     ✔ forcats 0.3.0</code></pre>
-<pre><code>## ── Conflicts ───────────────────── tidyverse_conflicts() ──
+<pre><code>## ── Conflicts ──────────────────────────────────────────────────────────────────────── tidyverse_conflicts() ──
 ## ✖ dplyr::filter() masks stats::filter()
 ## ✖ dplyr::lag()    masks stats::lag()</code></pre>
 <p><strong>Chick Weight Data</strong></p>
@@ -999,6 +1004,32 @@ Range
 <!--   # collapse_rows(columns = 1, latex_hline = "none", valign = "top") -->
 <!-- ``` -->
 <p><strong>Interpretation:</strong> This summary table offers the same interpretation as before, namely that diet 3 has the highest mean and median weights at day 21 but a higher variation than group 4. However it should be noted that at day 21, diet 1 lost 4 chicks from 20 that started and diet 4 lost 1 from 10. This could be a sign of some health related issues.</p>
+</div>
+</div>
+<div id="further-links" class="section level2">
+<h2><span class="header-section-number">1.8</span> Further Links</h2>
+<div id="further-r-intros" class="section level3">
+<h3><span class="header-section-number">1.8.1</span> Further R-Intros</h3>
+<ul>
+<li><p><a href="https://eddelbuettel.github.io/gsir-te/Getting-Started-in-R.pdf" class="uri">https://eddelbuettel.github.io/gsir-te/Getting-Started-in-R.pdf</a></p></li>
+<li><p><a href="https://www.datacamp.com/courses/free-introduction-to-r" class="uri">https://www.datacamp.com/courses/free-introduction-to-r</a></p></li>
+<li><p><a href="https://swcarpentry.github.io/r-novice-gapminder/" class="uri">https://swcarpentry.github.io/r-novice-gapminder/</a></p></li>
+<li><p><a href="https://support.rstudio.com/hc/en-us/articles/200526207-Using-Projects" class="uri">https://support.rstudio.com/hc/en-us/articles/200526207-Using-Projects</a></p></li>
+</ul>
+</div>
+<div id="version-control-gitgithub" class="section level3">
+<h3><span class="header-section-number">1.8.2</span> Version Control (Git/GitHub)</h3>
+<ul>
+<li><p><a href="https://support.rstudio.com/hc/en-us/articles/200532077-Version-Control-with-Git-and-SVN" class="uri">https://support.rstudio.com/hc/en-us/articles/200532077-Version-Control-with-Git-and-SVN</a></p></li>
+<li><p><a href="http://happygitwithr.com/" class="uri">http://happygitwithr.com/</a></p></li>
+<li><p><a href="https://www.gitkraken.com/" class="uri">https://www.gitkraken.com/</a></p></li>
+</ul>
+</div>
+<div id="r-ladies" class="section level3">
+<h3><span class="header-section-number">1.8.3</span> R-Ladies</h3>
+<ul>
+<li><a href="https://rladies.org/" class="uri">https://rladies.org/</a></li>
+</ul>
 
 </div>
 </div>
