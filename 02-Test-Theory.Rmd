@@ -85,6 +85,11 @@ Practically important significance levels:
 
 **p-Value:** The *p-value* is the probability of obtaining a test statistic at least as "extreme" as the one that was actually observed, assuming that the null hypothesis is true.
 
+* For one-sided tests:
+    * $P(T\geq T_{\text{obs}}|H_0\text{ true})$ or
+    * $P(T\leq T_{\text{obs}}|H_0\text{ true})$ 
+* For two-sided tests:
+    * $2\min\{P(T\leq T_{\text{obs}}|H_0\text{ true}),\,P(T\geq T_{\text{obs}}|H_0\text{ true})$
 
 
 **Remarks:**
@@ -99,10 +104,12 @@ Practically important significance levels:
 \
 
 
-```{r pvalueFig, echo=FALSE, fig.cap="From: https://xkcd.com/1478/", fig.align = 'center'}
+```{r pvalueFig, echo=FALSE, fig.cap="From: https://xkcd.com/1478/", fig.align = 'center', fig.height=15}
 knitr::include_graphics("img/xkcd_p_values.png")
 ```
 
+
+\
 
 
 **Example:**
@@ -119,7 +126,7 @@ Since the variance is unknown, we have to use a **t-test** in order to test $H_0
 $$T=\frac{\sqrt{n}(\bar X-\mu_0)}{S},$$
 where $S^2=\frac{1}{n-1}\sum_{i=1}^n (X_i-\bar X)^2$ is the unbiased estimator of $\sigma^2$.
 $$T_{obs}=\frac{\sqrt{5}(18.1-17)}{1.125}=2.187$$
-$$\Rightarrow \hbox{p-value}=P(|T_{n-1}|\ge 2.187)=0.094$$
+$$\Rightarrow \hbox{p-value}=2\min\{P(T_{n-1}\leq 2.187),\, P(T_{n-1}\geq 2.187)\}=0.094$$
 
 \
 
@@ -144,7 +151,7 @@ p_value %>% round(., digits = 3)
 ```
 
 Of course, there is also a `t.test()` function in R:
-```{r, eval=FALSE}
+```{r, eval=TRUE}
 t.test(X, mu = mu_0, alternative = "two.sided")
 ```
 

@@ -25,7 +25,7 @@
 <meta name="author" content="JProf. Dominik Liebl">
 
 
-<meta name="date" content="2018-10-15">
+<meta name="date" content="2018-10-17">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -212,6 +212,17 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p><br />
 </p>
 <p><strong>p-Value:</strong> The <em>p-value</em> is the probability of obtaining a test statistic at least as “extreme” as the one that was actually observed, assuming that the null hypothesis is true.</p>
+<ul>
+<li>For one-sided tests:
+<ul>
+<li><span class="math inline">\(P(T\geq T_{\text{obs}}|H_0\text{ true})\)</span> or</li>
+<li><span class="math inline">\(P(T\leq T_{\text{obs}}|H_0\text{ true})\)</span></li>
+</ul></li>
+<li>For two-sided tests:
+<ul>
+<li><span class="math inline">\(2\min\{P(T\leq T_{\text{obs}}|H_0\text{ true}),\,P(T\geq T_{\text{obs}}|H_0\text{ true})\)</span></li>
+</ul></li>
+</ul>
 <p><strong>Remarks:</strong></p>
 <ul>
 <li>The p-value is random as it depends on the observed data. That is, different random samples will lead to different p-values.</li>
@@ -229,11 +240,13 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 Figure 2.1: From: <a href="https://xkcd.com/1478/" class="uri">https://xkcd.com/1478/</a>
 </p>
 </div>
+<p><br />
+</p>
 <p><strong>Example:</strong> Let <span class="math inline">\(X_i\sim N(\mu,\sigma^2)\)</span> independently for all <span class="math inline">\(i=1,\dots,5=n\)</span>. Observed realizations from this i.i.d. random sample: <span class="math inline">\(X_1=19.20\)</span>, <span class="math inline">\(X_2=17.40\)</span>, <span class="math inline">\(X_3=18.50\)</span>, <span class="math inline">\(X_4=16.50\)</span>, <span class="math inline">\(X_5=18.90\)</span>. That is, the empirical mean is given by <span class="math inline">\(\bar X =18.1\)</span>.</p>
 <p><br />
 Testing problem: <span class="math inline">\(H_0:\mu=17\)</span> against <span class="math inline">\(H_1:\mu\ne 17\)</span> (i.e., a two-sided test).</p>
 <p><br />
-Since the variance is unknown, we have to use a <strong>t-test</strong> in order to test <span class="math inline">\(H_0\)</span>. Test statistic of the t-test: <span class="math display">\[T=\frac{\sqrt{n}(\bar X-\mu_0)}{S},\]</span> where <span class="math inline">\(S^2=\frac{1}{n-1}\sum_{i=1}^n (X_i-\bar X)^2\)</span> is the unbiased estimator of <span class="math inline">\(\sigma^2\)</span>. <span class="math display">\[T_{obs}=\frac{\sqrt{5}(18.1-17)}{1.125}=2.187\]</span> <span class="math display">\[\Rightarrow \hbox{p-value}=P(|T_{n-1}|\ge 2.187)=0.094\]</span></p>
+Since the variance is unknown, we have to use a <strong>t-test</strong> in order to test <span class="math inline">\(H_0\)</span>. Test statistic of the t-test: <span class="math display">\[T=\frac{\sqrt{n}(\bar X-\mu_0)}{S},\]</span> where <span class="math inline">\(S^2=\frac{1}{n-1}\sum_{i=1}^n (X_i-\bar X)^2\)</span> is the unbiased estimator of <span class="math inline">\(\sigma^2\)</span>. <span class="math display">\[T_{obs}=\frac{\sqrt{5}(18.1-17)}{1.125}=2.187\]</span> <span class="math display">\[\Rightarrow \hbox{p-value}=2\min\{P(T_{n-1}\leq 2.187),\, P(T_{n-1}\geq 2.187)\}=0.094\]</span></p>
 <p><br />
 The above computations in R</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(<span class="st">&quot;magrittr&quot;</span>, <span class="dt">quietly =</span> <span class="ot">TRUE</span>)<span class="co"># for using the pipe-operator: %&gt;% </span>
@@ -255,6 +268,17 @@ p_value <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">
 <pre><code>## [1] 0.094</code></pre>
 <p>Of course, there is also a <code>t.test()</code> function in R:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">t.test</span>(X, <span class="dt">mu =</span> mu_<span class="dv">0</span>, <span class="dt">alternative =</span> <span class="st">&quot;two.sided&quot;</span>)</code></pre></div>
+<pre><code>## 
+##  One Sample t-test
+## 
+## data:  X
+## t = 2.1869, df = 4, p-value = 0.09402
+## alternative hypothesis: true mean is not equal to 17
+## 95 percent confidence interval:
+##  16.70347 19.49653
+## sample estimates:
+## mean of x 
+##      18.1</code></pre>
 </div>
 <div id="PF1" class="section level2">
 <h2><span class="header-section-number">2.3</span> The Power Function</h2>
@@ -478,12 +502,12 @@ Analogously: Construction of <span class="math inline">\(m\)</span> many <span c
 <!-- \newpage -->
 <p><strong>Example:</strong> Regression analysis with <span class="math inline">\(K=100\)</span> regressors, where none of the variables has an effect on the dependent variable <span class="math inline">\(y\)</span>.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(<span class="st">&quot;tidyverse&quot;</span>, <span class="dt">quietly =</span> <span class="ot">TRUE</span>)</code></pre></div>
-<pre><code>## ── Attaching packages ───────────────────────────────────────────────────────────────────── tidyverse 1.2.1 ──</code></pre>
+<pre><code>## ── Attaching packages ───────────────── tidyverse 1.2.1 ──</code></pre>
 <pre><code>## ✔ ggplot2 2.2.1     ✔ purrr   0.2.5
 ## ✔ tibble  1.4.2     ✔ dplyr   0.7.6
 ## ✔ tidyr   0.8.1     ✔ stringr 1.2.0
 ## ✔ readr   1.1.1     ✔ forcats 0.3.0</code></pre>
-<pre><code>## ── Conflicts ──────────────────────────────────────────────────────────────────────── tidyverse_conflicts() ──
+<pre><code>## ── Conflicts ──────────────────── tidyverse_conflicts() ──
 ## ✖ tidyr::extract()   masks magrittr::extract()
 ## ✖ dplyr::filter()    masks stats::filter()
 ## ✖ dplyr::lag()       masks stats::lag()

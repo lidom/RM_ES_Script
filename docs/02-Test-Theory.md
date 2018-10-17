@@ -85,6 +85,11 @@ Practically important significance levels:
 
 **p-Value:** The *p-value* is the probability of obtaining a test statistic at least as "extreme" as the one that was actually observed, assuming that the null hypothesis is true.
 
+* For one-sided tests:
+    * $P(T\geq T_{\text{obs}}|H_0\text{ true})$ or
+    * $P(T\leq T_{\text{obs}}|H_0\text{ true})$ 
+* For two-sided tests:
+    * $2\min\{P(T\leq T_{\text{obs}}|H_0\text{ true}),\,P(T\geq T_{\text{obs}}|H_0\text{ true})$
 
 
 **Remarks:**
@@ -109,6 +114,8 @@ Practically important significance levels:
 \end{figure}
 
 
+\
+
 
 **Example:**
 Let $X_i\sim N(\mu,\sigma^2)$ independently for all $i=1,\dots,5=n$. Observed realizations from this i.i.d. random sample: $X_1=19.20$, $X_2=17.40$, $X_3=18.50$, $X_4=16.50$, $X_5=18.90$. That is, the empirical mean is given by $\bar X =18.1$.
@@ -124,7 +131,7 @@ Since the variance is unknown, we have to use a **t-test** in order to test $H_0
 $$T=\frac{\sqrt{n}(\bar X-\mu_0)}{S},$$
 where $S^2=\frac{1}{n-1}\sum_{i=1}^n (X_i-\bar X)^2$ is the unbiased estimator of $\sigma^2$.
 $$T_{obs}=\frac{\sqrt{5}(18.1-17)}{1.125}=2.187$$
-$$\Rightarrow \hbox{p-value}=P(|T_{n-1}|\ge 2.187)=0.094$$
+$$\Rightarrow \hbox{p-value}=2\min\{P(T_{n-1}\leq 2.187),\, P(T_{n-1}\geq 2.187)\}=0.094$$
 
 \
 
@@ -157,6 +164,20 @@ Of course, there is also a `t.test()` function in R:
 
 ```r
 t.test(X, mu = mu_0, alternative = "two.sided")
+```
+
+```
+## 
+## 	One Sample t-test
+## 
+## data:  X
+## t = 2.1869, df = 4, p-value = 0.09402
+## alternative hypothesis: true mean is not equal to 17
+## 95 percent confidence interval:
+##  16.70347 19.49653
+## sample estimates:
+## mean of x 
+##      18.1
 ```
 
 
@@ -513,7 +534,7 @@ library("tidyverse", quietly = TRUE)
 ```
 
 ```
-## -- Attaching packages --------------------------------------------------------------------- tidyverse 1.2.1 --
+## -- Attaching packages ----------------- tidyverse 1.2.1 --
 ```
 
 ```
@@ -524,7 +545,7 @@ library("tidyverse", quietly = TRUE)
 ```
 
 ```
-## -- Conflicts ------------------------------------------------------------------------ tidyverse_conflicts() --
+## -- Conflicts -------------------- tidyverse_conflicts() --
 ## x tidyr::extract()   masks magrittr::extract()
 ## x dplyr::filter()    masks stats::filter()
 ## x dplyr::lag()       masks stats::lag()
