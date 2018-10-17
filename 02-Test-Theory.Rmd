@@ -49,8 +49,8 @@ and are obtained from quantiles of the **null distribution**, i.e., the distribu
 
 Decision Errors      Verbal Definition                              Formal Definition 
 ------------------  -------------------------------------------  ----------------------
-Type I error         $H_0$ is rejected even though $H_0$ is true.   $P(T\not\in C|\,H_0\text{ true})$  
-Type II error        The test fails to reject a false $H_0$.        $P(T\in C    |\,H_1\text{ true})$  
+Type I error         $H_0$ is rejected even though $H_0$ is true.   $P(T\in C     |\,H_0\text{ true})$  
+Type II error        The test fails to reject a false $H_0$.        $P(T\not\in C |\,H_1\text{ true})$  
 
 
 
@@ -118,7 +118,7 @@ Let $X_i\sim N(\mu,\sigma^2)$ independently for all $i=1,\dots,5=n$. Observed re
 
 \
 
-Testing problem: $H_0:\mu=17$ against $H_1:\mu\ne 17$ (i.e., a two-sided test).
+Testing problem: $H_0:\mu=\mu_0$ against $H_1:\mu\ne\mu_0 17$ (i.e., a two-sided test), where $\mu_0=17$.
 
 \
 
@@ -275,6 +275,40 @@ c(beta_Ztest_TwoSided(n = n, alpha = 0.05, sigma = sigma, mu_0 = mu_0, mu=18.35)
   beta_Ztest_TwoSided(n = n, alpha = 0.05, sigma = sigma, mu_0 = mu_0, mu=18.50),
   beta_Ztest_TwoSided(n = n, alpha = 0.01, sigma = sigma, mu_0 = mu_0, mu=18.50)) %>% 
   round(., digits = 3)
+```
+
+
+Plotting the graph of the power function
+```{r, fig.align = 'center', fig.height=6,  fig.width=7}
+suppressPackageStartupMessages(
+  library("tidyverse")
+)
+# Vectorize the function with respect to mu_0:
+beta_Ztest_TwoSided <- Vectorize(FUN = beta_Ztest_TwoSided, 
+                                 vectorize.args = "mu_0")
+
+mu_0_vec <- seq(from = 17.75, to = 18.25, len = 50)
+
+beta_vec <- beta_Ztest_TwoSided(n     =   10, 
+                                alpha = 0.05, 
+                                sigma = 0.18, 
+                                mu    =  18, 
+                                mu_0  = mu_0_vec)
+
+beta_df <- data.frame("mu_0"  = mu_0_vec,
+                      "Beta"  = beta_vec)
+
+ggplot(data = beta_df, aes(x=mu_0, y=Beta)) +
+  geom_line() +
+  geom_hline(yintercept = 0.05, lty=2) + 
+  geom_text(aes(x=17.77, y=0.07, label='alpha==0.05'), parse=TRUE, size=5) +
+  labs(title = expression(
+    paste("Powerfunction of the two-sided Z-Test (n=10 and ",alpha==0.05,")")), 
+       x = expression(paste(mu[0])),
+       y = expression(paste(beta)), size=8)    +
+  theme_bw() +
+  theme(axis.text  = element_text(size=12),
+           axis.title = element_text(size=14))
 ```
 
 

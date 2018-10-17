@@ -185,12 +185,12 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <tr class="odd">
 <td align="left">Type I error</td>
 <td align="center"><span class="math inline">\(H_0\)</span> is rejected even though <span class="math inline">\(H_0\)</span> is true.</td>
-<td align="center"><span class="math inline">\(P(T\not\in C|\,H_0\text{ true})\)</span></td>
+<td align="center"><span class="math inline">\(P(T\in C |\,H_0\text{ true})\)</span></td>
 </tr>
 <tr class="even">
 <td align="left">Type II error</td>
 <td align="center">The test fails to reject a false <span class="math inline">\(H_0\)</span>.</td>
-<td align="center"><span class="math inline">\(P(T\in C |\,H_1\text{ true})\)</span></td>
+<td align="center"><span class="math inline">\(P(T\not\in C |\,H_1\text{ true})\)</span></td>
 </tr>
 </tbody>
 </table>
@@ -244,7 +244,7 @@ Figure 2.1: From: <a href="https://xkcd.com/1478/" class="uri">https://xkcd.com/
 </p>
 <p><strong>Example:</strong> Let <span class="math inline">\(X_i\sim N(\mu,\sigma^2)\)</span> independently for all <span class="math inline">\(i=1,\dots,5=n\)</span>. Observed realizations from this i.i.d. random sample: <span class="math inline">\(X_1=19.20\)</span>, <span class="math inline">\(X_2=17.40\)</span>, <span class="math inline">\(X_3=18.50\)</span>, <span class="math inline">\(X_4=16.50\)</span>, <span class="math inline">\(X_5=18.90\)</span>. That is, the empirical mean is given by <span class="math inline">\(\bar X =18.1\)</span>.</p>
 <p><br />
-Testing problem: <span class="math inline">\(H_0:\mu=17\)</span> against <span class="math inline">\(H_1:\mu\ne 17\)</span> (i.e., a two-sided test).</p>
+Testing problem: <span class="math inline">\(H_0:\mu=\mu_0\)</span> against <span class="math inline">\(H_1:\mu\ne\mu_0 17\)</span> (i.e., a two-sided test), where <span class="math inline">\(\mu_0=17\)</span>.</p>
 <p><br />
 Since the variance is unknown, we have to use a <strong>t-test</strong> in order to test <span class="math inline">\(H_0\)</span>. Test statistic of the t-test: <span class="math display">\[T=\frac{\sqrt{n}(\bar X-\mu_0)}{S},\]</span> where <span class="math inline">\(S^2=\frac{1}{n-1}\sum_{i=1}^n (X_i-\bar X)^2\)</span> is the unbiased estimator of <span class="math inline">\(\sigma^2\)</span>. <span class="math display">\[T_{obs}=\frac{\sqrt{5}(18.1-17)}{1.125}=2.187\]</span> <span class="math display">\[\Rightarrow \hbox{p-value}=2\min\{P(T_{n-1}\leq 2.187),\, P(T_{n-1}\geq 2.187)\}=0.094\]</span></p>
 <p><br />
@@ -340,6 +340,37 @@ mu_<span class="dv">0</span>  &lt;-<span class="st"> </span><span class="fl">18.
   <span class="kw">beta_Ztest_TwoSided</span>(<span class="dt">n =</span> n, <span class="dt">alpha =</span> <span class="fl">0.01</span>, <span class="dt">sigma =</span> sigma, <span class="dt">mu_0 =</span> mu_<span class="dv">0</span>, <span class="dt">mu=</span><span class="fl">18.50</span>)) <span class="op">%&gt;%</span><span class="st"> </span>
 <span class="st">  </span><span class="kw">round</span>(., <span class="dt">digits =</span> <span class="dv">3</span>)</code></pre></div>
 <pre><code>## [1] 0.133 0.915 0.776</code></pre>
+<p>Plotting the graph of the power function</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">suppressPackageStartupMessages</span>(
+  <span class="kw">library</span>(<span class="st">&quot;tidyverse&quot;</span>)
+)
+<span class="co"># Vectorize the function with respect to mu_0:</span>
+beta_Ztest_TwoSided &lt;-<span class="st"> </span><span class="kw">Vectorize</span>(<span class="dt">FUN =</span> beta_Ztest_TwoSided, 
+                                 <span class="dt">vectorize.args =</span> <span class="st">&quot;mu_0&quot;</span>)
+
+mu_<span class="dv">0</span>_vec &lt;-<span class="st"> </span><span class="kw">seq</span>(<span class="dt">from =</span> <span class="fl">17.75</span>, <span class="dt">to =</span> <span class="fl">18.25</span>, <span class="dt">len =</span> <span class="dv">50</span>)
+
+beta_vec &lt;-<span class="st"> </span><span class="kw">beta_Ztest_TwoSided</span>(<span class="dt">n     =</span>   <span class="dv">10</span>, 
+                                <span class="dt">alpha =</span> <span class="fl">0.05</span>, 
+                                <span class="dt">sigma =</span> <span class="fl">0.18</span>, 
+                                <span class="dt">mu    =</span>  <span class="dv">18</span>, 
+                                <span class="dt">mu_0  =</span> mu_<span class="dv">0</span>_vec)
+
+beta_df &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="st">&quot;mu_0&quot;</span>  =<span class="st"> </span>mu_<span class="dv">0</span>_vec,
+                      <span class="st">&quot;Beta&quot;</span>  =<span class="st"> </span>beta_vec)
+
+<span class="kw">ggplot</span>(<span class="dt">data =</span> beta_df, <span class="kw">aes</span>(<span class="dt">x=</span>mu_<span class="dv">0</span>, <span class="dt">y=</span>Beta)) <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_line</span>() <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_hline</span>(<span class="dt">yintercept =</span> <span class="fl">0.05</span>, <span class="dt">lty=</span><span class="dv">2</span>) <span class="op">+</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">geom_text</span>(<span class="kw">aes</span>(<span class="dt">x=</span><span class="fl">17.77</span>, <span class="dt">y=</span><span class="fl">0.07</span>, <span class="dt">label=</span><span class="st">&#39;alpha==0.05&#39;</span>), <span class="dt">parse=</span><span class="ot">TRUE</span>, <span class="dt">size=</span><span class="dv">5</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="kw">expression</span>(
+    <span class="kw">paste</span>(<span class="st">&quot;Powerfunction of the two-sided Z-Test (n=10 and &quot;</span>,alpha<span class="op">==</span><span class="fl">0.05</span>,<span class="st">&quot;)&quot;</span>)), 
+       <span class="dt">x =</span> <span class="kw">expression</span>(<span class="kw">paste</span>(mu[<span class="dv">0</span>])),
+       <span class="dt">y =</span> <span class="kw">expression</span>(<span class="kw">paste</span>(beta)), <span class="dt">size=</span><span class="dv">8</span>)    <span class="op">+</span>
+<span class="st">  </span><span class="kw">theme_bw</span>() <span class="op">+</span>
+<span class="st">  </span><span class="kw">theme</span>(<span class="dt">axis.text  =</span> <span class="kw">element_text</span>(<span class="dt">size=</span><span class="dv">12</span>),
+           <span class="dt">axis.title =</span> <span class="kw">element_text</span>(<span class="dt">size=</span><span class="dv">14</span>))</code></pre></div>
+<p><img src="02-Test-Theory_files/figure-html/unnamed-chunk-4-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p>This example illustrates the power function of a sensible test, since:</p>
 <ul>
 <li>Under <span class="math inline">\(H_0:\mu=\mu_0\)</span> we have <span class="math inline">\(\beta_{n,\alpha}(\mu_0)=\alpha\)</span>.</li>
@@ -439,7 +470,7 @@ P \begin{pmatrix}
 \]</span></p>
 <p><br />
 </p>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-4"></span>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-5"></span>
 <img src="img/xkcd_mult_test.png" alt="From: https://xkcd.com/882/"  />
 <p class="caption">
 Figure 2.2: From: <a href="https://xkcd.com/882/" class="uri">https://xkcd.com/882/</a>
@@ -501,18 +532,8 @@ Analogously: Construction of <span class="math inline">\(m\)</span> many <span c
 \end{align*}\]</span>
 <!-- \newpage -->
 <p><strong>Example:</strong> Regression analysis with <span class="math inline">\(K=100\)</span> regressors, where none of the variables has an effect on the dependent variable <span class="math inline">\(y\)</span>.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(<span class="st">&quot;tidyverse&quot;</span>, <span class="dt">quietly =</span> <span class="ot">TRUE</span>)</code></pre></div>
-<pre><code>## ── Attaching packages ───────────────── tidyverse 1.2.1 ──</code></pre>
-<pre><code>## ✔ ggplot2 2.2.1     ✔ purrr   0.2.5
-## ✔ tibble  1.4.2     ✔ dplyr   0.7.6
-## ✔ tidyr   0.8.1     ✔ stringr 1.2.0
-## ✔ readr   1.1.1     ✔ forcats 0.3.0</code></pre>
-<pre><code>## ── Conflicts ──────────────────── tidyverse_conflicts() ──
-## ✖ tidyr::extract()   masks magrittr::extract()
-## ✖ dplyr::filter()    masks stats::filter()
-## ✖ dplyr::lag()       masks stats::lag()
-## ✖ purrr::set_names() masks magrittr::set_names()</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">K &lt;-<span class="st"> </span><span class="dv">100</span>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(<span class="st">&quot;tidyverse&quot;</span>, <span class="dt">quietly =</span> <span class="ot">TRUE</span>)
+K &lt;-<span class="st"> </span><span class="dv">100</span>
 n &lt;-<span class="st"> </span><span class="dv">500</span>
 
 <span class="kw">set.seed</span>(<span class="dv">123</span>)
