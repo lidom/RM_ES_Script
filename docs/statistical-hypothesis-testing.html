@@ -25,7 +25,7 @@
 <meta name="author" content="JProf. Dominik Liebl">
 
 
-<meta name="date" content="2018-10-17">
+<meta name="date" content="2018-10-18">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -33,7 +33,7 @@
   
   
 <link rel="prev" href="introduction-to-r.html">
-
+<link rel="next" href="estimation-theory.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -132,6 +132,20 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="2.5" data-path="statistical-hypothesis-testing.html"><a href="statistical-hypothesis-testing.html#multiple-comparisons"><i class="fa fa-check"></i><b>2.5</b> Multiple Comparisons</a></li>
 <li class="chapter" data-level="2.6" data-path="statistical-hypothesis-testing.html"><a href="statistical-hypothesis-testing.html#r-lab-the-gauss-test"><i class="fa fa-check"></i><b>2.6</b> R-Lab: The Gauss-Test</a></li>
 </ul></li>
+<li class="chapter" data-level="3" data-path="estimation-theory.html"><a href="estimation-theory.html"><i class="fa fa-check"></i><b>3</b> Estimation Theory</a><ul>
+<li class="chapter" data-level="3.1" data-path="estimation-theory.html"><a href="estimation-theory.html#basics"><i class="fa fa-check"></i><b>3.1</b> Basics</a></li>
+<li class="chapter" data-level="3.2" data-path="estimation-theory.html"><a href="estimation-theory.html#consistency-of-estimators"><i class="fa fa-check"></i><b>3.2</b> Consistency of Estimators</a></li>
+<li class="chapter" data-level="3.3" data-path="estimation-theory.html"><a href="estimation-theory.html#rates-of-convergence"><i class="fa fa-check"></i><b>3.3</b> Rates of Convergence</a></li>
+<li class="chapter" data-level="3.4" data-path="estimation-theory.html"><a href="estimation-theory.html#asymptotic-distributions"><i class="fa fa-check"></i><b>3.4</b> Asymptotic Distributions</a></li>
+<li class="chapter" data-level="3.5" data-path="estimation-theory.html"><a href="estimation-theory.html#asymptotic-theory"><i class="fa fa-check"></i><b>3.5</b> Asymptotic Theory</a></li>
+<li class="chapter" data-level="3.6" data-path="estimation-theory.html"><a href="estimation-theory.html#mathematical-tools"><i class="fa fa-check"></i><b>3.6</b> Mathematical tools</a><ul>
+<li class="chapter" data-level="3.6.1" data-path="estimation-theory.html"><a href="estimation-theory.html#taylor-expansions"><i class="fa fa-check"></i><b>3.6.1</b> Taylor expansions</a></li>
+<li class="chapter" data-level="3.6.2" data-path="estimation-theory.html"><a href="estimation-theory.html#tools-for-deriving-asymptotic-distributions"><i class="fa fa-check"></i><b>3.6.2</b> Tools for deriving asymptotic distributions</a></li>
+<li class="chapter" data-level="3.6.3" data-path="estimation-theory.html"><a href="estimation-theory.html#the-delta-method"><i class="fa fa-check"></i><b>3.6.3</b> The Delta-Method</a></li>
+</ul></li>
+<li class="chapter" data-level="3.7" data-path="estimation-theory.html"><a href="estimation-theory.html#example-simple-linear-regression"><i class="fa fa-check"></i><b>3.7</b> Example: Simple Linear Regression</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 </ul>
 
       </nav>
@@ -623,50 +637,6 @@ Z&amp;=\frac{\sqrt{n}\,(\bar{X}_n-\mu_{0})}{\sigma}\\
 \end{align*}\]</span>
 <p>The different distributions (under <span class="math inline">\(H_0\)</span> and <span class="math inline">\(H_1\)</span>) of the test statistic <span class="math inline">\(Z\)</span> can be investigated in the following dynamic plot: <iframe src="https://dliebl.shinyapps.io/Gauss-Test-Distr/?showcase=0" width="672" height="900px"></iframe></p>
 
-<div id="refs" class="references">
-<div>
-<p>Baltagi, B. 2008. <em>Econometric Analysis of Panel Data</em>. John Wiley &amp; Sons.</p>
-</div>
-<div>
-<p>F. Bretz, P. Westfall, T. Hothorn. 2010. <em>Multiple Comparisons Using R</em>. Chapman; Hall/CRC.</p>
-</div>
-<div>
-<p>Fan, J., and I. Gijbels. 1996. <em>Local Polynomial Modelling and Its Applications</em>. 1. ed. Vol. 66. Monographs on Statistics and Applied Probability. Chapman &amp; Hall/CRC.</p>
-</div>
-<div>
-<p>Gałecki, A., and T. Burzykowski. 2013. <em>Linear Mixed-Effects Models Using R: A Step-by-Step Approach</em>. Springer.</p>
-</div>
-<div>
-<p>Gelman, A., and J. Hill. 2006. <em>Data Analysis Using Regression and Multilevel/Hierarchical Models</em>. Cambridge University Press.</p>
-</div>
-<div>
-<p>Greene, W.H. 2003. <em>Econometric Analysis</em>. Pearson.</p>
-</div>
-<div>
-<p>Hastie, T., R. Tibshirani, and M. Wainwright. 2015. <em>Statistical Learning with Sparsity: The Lasso and Generalizations</em>. CRC press.</p>
-</div>
-<div>
-<p>Hsiao, C. 2014. <em>Analysis of Panel Data</em>. Cambridge university press.</p>
-</div>
-<div>
-<p>Li, Q., and J.S. Racine. 2007. <em>Nonparametric Econometrics: Theory and Practice</em>. Princeton University Press.</p>
-</div>
-<div>
-<p>Romano, J.P., and M. Wolf. 2005. “Exact and Approximate Stepdown Methods for Multiple Hypothesis Testing.” <em>Journal of the American Statistical Association</em> 100 (469): 94–108.</p>
-</div>
-<div>
-<p>Verbeke, G., and G. Molenberghs. 2000. <em>Linear Mixed Models for Longitudinal Data</em>. Springer.</p>
-</div>
-<div>
-<p>Wand, M.P., and M.C. Jones. 1994. <em>Kernel Smoothing</em>. Vol. 60. Chapman &amp; Hall/CRC.</p>
-</div>
-<div>
-<p>White, H. 2014. <em>Asymptotic Theory for Cconometricians</em>. Academic press.</p>
-</div>
-<div>
-<p>Y. Hochberg, A.C. Tamhane. 1987. <em>Multiple Comparison Procedures</em>. Wiley Series in Probability; Statistics.</p>
-</div>
-</div>
 </div>
 </div>
             </section>
@@ -674,8 +644,8 @@ Z&amp;=\frac{\sqrt{n}\,(\bar{X}_n-\mu_{0})}{\sigma}\\
           </div>
         </div>
       </div>
-<a href="introduction-to-r.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-
+<a href="introduction-to-r.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="estimation-theory.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

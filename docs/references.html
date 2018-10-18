@@ -32,8 +32,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   
   
-<link rel="prev" href="index.html">
-<link rel="next" href="introduction-to-r.html">
+<link rel="prev" href="estimation-theory.html">
+
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -163,69 +163,58 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="topics" class="section level1 unnumbered">
-<h1>Topics</h1>
-<ul>
-<li><strong>Nonparametric Regression</strong> <br> Literature: <span class="citation">Li and Racine (<a href="#ref-LR2007">2007</a>)</span>, <span class="citation">Fan and Gijbels (<a href="#ref-FG1996">1996</a>)</span>, and <span class="citation">Wand and Jones (<a href="#ref-WJ1994">1994</a>)</span> <br><br />
-</li>
-<li><strong>Panel Data Analysis</strong> <br> Literature: <span class="citation">Hsiao (<a href="#ref-H2014">2014</a>)</span>, <span class="citation">Greene (<a href="#ref-G2003">2003</a>)</span>, and <span class="citation">Baltagi (<a href="#ref-B2008">2008</a>)</span> <br><br />
-</li>
-<li><strong>Multilevel (Mixed Effects) Linear Models</strong> <br> Literature: <span class="citation">Gelman and Hill (<a href="#ref-GH2006">2006</a>)</span>, <span class="citation">Verbeke and Molenberghs (<a href="#ref-VM2000">2000</a>)</span>, and <span class="citation">Gałecki and Burzykowski (<a href="#ref-GB2013">2013</a>)</span> <br><br />
-</li>
-<li><strong>Covariance Matrix Estimators (HAC and Friends)</strong> <br> Literature: <span class="citation">White (<a href="#ref-W2014">2014</a>)</span>, Ch. 6 and Vignettes of the <a href="https://cran.r-project.org/web/packages/sandwich/index.html">sandwich R-package</a> <br><br />
-</li>
-<li><strong>Multiple Testing</strong> <br> Literature: <span class="citation">Romano and Wolf (<a href="#ref-RW2005">2005</a>)</span>, <span class="citation">F. Bretz (<a href="#ref-BHW2010">2010</a>)</span>, and <span class="citation">Y. Hochberg (<a href="#ref-HT1987">1987</a>)</span> <br><br />
-</li>
-<li><strong>Statistical Learning with Sparsity (Lasso and Generalizations)</strong> <br> Literature: <span class="citation">Hastie, Tibshirani, and Wainwright (<a href="#ref-HTW2015">2015</a>)</span></li>
-</ul>
-<p><br></p>
-<p>Alternative topics suggested by the participants are generally appreciated.</p>
-<!-- White-Book: See Notation at Corollary 4.24 and Theorem 4.25 -->
+<div id="references" class="section level1 unnumbered">
+<h1>References</h1>
+<!-- ```{r include=FALSE} -->
+<!-- knitr::write_bib(c( -->
+<!--   .packages(), 'bookdown', 'knitr', 'rmarkdown', 'htmlwidgets', 'webshot', 'DT', -->
+<!--   'miniUI', 'tufte', 'servr', 'citr', 'rticles' -->
+<!-- ), 'packages.bib') -->
+<!-- ``` -->
 
-</div>
-<h3>References</h3>
 <div id="refs" class="references">
-<div id="ref-LR2007">
-<p>Li, Q., and J.S. Racine. 2007. <em>Nonparametric Econometrics: Theory and Practice</em>. Princeton University Press.</p>
-</div>
-<div id="ref-FG1996">
-<p>Fan, J., and I. Gijbels. 1996. <em>Local Polynomial Modelling and Its Applications</em>. 1. ed. Vol. 66. Monographs on Statistics and Applied Probability. Chapman &amp; Hall/CRC.</p>
-</div>
-<div id="ref-WJ1994">
-<p>Wand, M.P., and M.C. Jones. 1994. <em>Kernel Smoothing</em>. Vol. 60. Chapman &amp; Hall/CRC.</p>
-</div>
-<div id="ref-H2014">
-<p>Hsiao, C. 2014. <em>Analysis of Panel Data</em>. Cambridge university press.</p>
-</div>
-<div id="ref-G2003">
-<p>Greene, W.H. 2003. <em>Econometric Analysis</em>. Pearson.</p>
-</div>
-<div id="ref-B2008">
+<div>
 <p>Baltagi, B. 2008. <em>Econometric Analysis of Panel Data</em>. John Wiley &amp; Sons.</p>
 </div>
-<div id="ref-GH2006">
-<p>Gelman, A., and J. Hill. 2006. <em>Data Analysis Using Regression and Multilevel/Hierarchical Models</em>. Cambridge University Press.</p>
-</div>
-<div id="ref-VM2000">
-<p>Verbeke, G., and G. Molenberghs. 2000. <em>Linear Mixed Models for Longitudinal Data</em>. Springer.</p>
-</div>
-<div id="ref-GB2013">
-<p>Gałecki, A., and T. Burzykowski. 2013. <em>Linear Mixed-Effects Models Using R: A Step-by-Step Approach</em>. Springer.</p>
-</div>
-<div id="ref-W2014">
-<p>White, H. 2014. <em>Asymptotic Theory for Cconometricians</em>. Academic press.</p>
-</div>
-<div id="ref-RW2005">
-<p>Romano, J.P., and M. Wolf. 2005. “Exact and Approximate Stepdown Methods for Multiple Hypothesis Testing.” <em>Journal of the American Statistical Association</em> 100 (469): 94–108.</p>
-</div>
-<div id="ref-BHW2010">
+<div>
 <p>F. Bretz, P. Westfall, T. Hothorn. 2010. <em>Multiple Comparisons Using R</em>. Chapman; Hall/CRC.</p>
 </div>
-<div id="ref-HT1987">
+<div>
+<p>Fan, J., and I. Gijbels. 1996. <em>Local Polynomial Modelling and Its Applications</em>. 1. ed. Vol. 66. Monographs on Statistics and Applied Probability. Chapman &amp; Hall/CRC.</p>
+</div>
+<div>
+<p>Gałecki, A., and T. Burzykowski. 2013. <em>Linear Mixed-Effects Models Using R: A Step-by-Step Approach</em>. Springer.</p>
+</div>
+<div>
+<p>Gelman, A., and J. Hill. 2006. <em>Data Analysis Using Regression and Multilevel/Hierarchical Models</em>. Cambridge University Press.</p>
+</div>
+<div>
+<p>Greene, W.H. 2003. <em>Econometric Analysis</em>. Pearson.</p>
+</div>
+<div>
+<p>Hastie, T., R. Tibshirani, and M. Wainwright. 2015. <em>Statistical Learning with Sparsity: The Lasso and Generalizations</em>. CRC press.</p>
+</div>
+<div>
+<p>Hsiao, C. 2014. <em>Analysis of Panel Data</em>. Cambridge university press.</p>
+</div>
+<div>
+<p>Li, Q., and J.S. Racine. 2007. <em>Nonparametric Econometrics: Theory and Practice</em>. Princeton University Press.</p>
+</div>
+<div>
+<p>Romano, J.P., and M. Wolf. 2005. “Exact and Approximate Stepdown Methods for Multiple Hypothesis Testing.” <em>Journal of the American Statistical Association</em> 100 (469): 94–108.</p>
+</div>
+<div>
+<p>Verbeke, G., and G. Molenberghs. 2000. <em>Linear Mixed Models for Longitudinal Data</em>. Springer.</p>
+</div>
+<div>
+<p>Wand, M.P., and M.C. Jones. 1994. <em>Kernel Smoothing</em>. Vol. 60. Chapman &amp; Hall/CRC.</p>
+</div>
+<div>
+<p>White, H. 2014. <em>Asymptotic Theory for Cconometricians</em>. Academic press.</p>
+</div>
+<div>
 <p>Y. Hochberg, A.C. Tamhane. 1987. <em>Multiple Comparison Procedures</em>. Wiley Series in Probability; Statistics.</p>
 </div>
-<div id="ref-HTW2015">
-<p>Hastie, T., R. Tibshirani, and M. Wainwright. 2015. <em>Statistical Learning with Sparsity: The Lasso and Generalizations</em>. CRC press.</p>
 </div>
 </div>
             </section>
@@ -233,8 +222,8 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
           </div>
         </div>
       </div>
-<a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="introduction-to-r.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="estimation-theory.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

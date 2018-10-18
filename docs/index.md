@@ -1,7 +1,7 @@
 --- 
 title: "Research Module in Econometrics & Statistics"
 author: "JProf. Dominik Liebl"
-date: "2018-10-17"
+date: "2018-10-18"
 site: bookdown::bookdown_site
 documentclass: book
 bibliography: [book.bib]
@@ -49,8 +49,8 @@ Date        Time               Topic
 17.10.      14:15 - 15:45      Test Theory
 22.10.      14:15 - 15:45      Estimation Theory
 24.10.      14:15 - 15:45      Estimation Theory / **Final allocation of topics**
-29.10.      14:15 - 15:45      Regression
-31.10.      14:15 - 15:45      Regression
+29.10.      14:15 - 15:45      Regression Analysis
+31.10.      14:15 - 15:45      Simulations
 07.11.      14:15 - 15:45      How to Write and Present
 28.01.      14:15 - 15:45      Presentations
 30.01.      14:15 - 15:45      Presentations
