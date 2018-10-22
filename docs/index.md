@@ -1,7 +1,7 @@
 --- 
 title: "Research Module in Econometrics & Statistics"
 author: "JProf. Dominik Liebl"
-date: "2018-10-18"
+date: "2018-10-22"
 site: bookdown::bookdown_site
 documentclass: book
 bibliography: [book.bib]

@@ -1,7 +1,7 @@
 # Estimation Theory
 
 
-## Basics
+## Bias, Variance and MSE
 
 
 Given a sample $X_1,\dots,X_n$ consider an estimator $\widehat{\theta}_n\equiv\widehat{\theta}(X_1,\dots,X_n)$ of a real-valued parameter  $\theta\in\Omega\subset\mathbb{R}$.
@@ -34,20 +34,23 @@ $$\textrm{var}(\widehat{\theta}_n)=E\left((\widehat{\theta}_n-E(\widehat{\theta}
 Performance of an estimator is most frequently evaluated with respect to the **quadratic loss** (also
 called $L_2$ loss)
 $$(\widehat{\theta}_n-\theta)^2.$$ 
-The corresponding risk is the **mean squared error**
-$$E\left((\widehat{\theta}_n-\theta)^2\right) =\textrm{Bias}(\widehat{\theta}_n)^2+\textrm{var}(\widehat{\theta}_n)$$
+The corresponding risk is the **Mean Squared Error (MSE)**
+$$E\left((\widehat{\theta}_n-\theta)^2\right)=\textrm{Bias}(\widehat{\theta}_n)^2+\textrm{var}(\widehat{\theta}_n)$$
 For an unbiased estimator the mean squared error is obviously equal to the variance of the estimator.
+
 
 \
 
 
 **Example:** Assume an i.i.d. sample $X_1,\dots,X_n$ with mean $\mu=E(X_i)$ and variance $\sigma^2=\textrm{var}(X_i)<\infty$.
-* The sample mean $\bar X$ is an unbiased estimator of the true mean $\mu$
-$$E(\bar X)=\mu\quad \text{for any possible value of the true mean } \mu$$
+
+* The sample mean $\bar X$ is an unbiased estimator of the true mean $\mu$, since the equation
+$$E(\bar X)=\mu$$
+holds for any possible value of the true mean $\mu$.
 * The variance of the estimator $\bar X$ is given by
 $$\textrm{var}(\bar X)=\sigma^2/n$$
 * The mean squared error of the estimator $\bar X$ is given by
-$$E\left(\bar X-\mu)^2\right)=\textrm{var}(\bar X)=\sigma^2/n$$
+$$E\left((\bar X-\mu)^2\right)=\textrm{var}(\bar X)=\sigma^2/n$$
 
 
 
@@ -90,20 +93,20 @@ Note that:
 **Consistency of estimators.** Based on a sample $X_1,\dots,X_n$ let $\hat\theta_n\equiv\theta_n(X_1,\dots,X_n)$ be an estimator of an unknown parameter $\theta$.
 
 * $\hat\theta_n$ is called "weakly consistent" if
-$$\theta_n\to_{P} \theta\quad \hbox{ as }\quad n\to\infty $$
+$$\hat{\theta}_n\to_{P} \theta\quad \hbox{ as }\quad n\to\infty $$
 * $\hat\theta_n$ is called "strongly consistent" if
-$$\theta_n\to_{a.s.} \theta\quad \hbox{ as }\quad n\to\infty $$
+$$\hat{\theta}_n\to_{a.s.} \theta\quad \hbox{ as }\quad n\to\infty $$
 
 \
 
-**Remark:** For most statistical estimation problems it is usually possible to define many different estimators. The real problem is to find a good estimator which approximates the true parameter $\theta$ with the maximal possible accuracy. Consistency is generally seen as a necessary condition which has to be satisfied by any reasonable estimator. In econometric practice usually only weak consistency is derived which generally follows from [**laws of large numbers**](https://www.statlect.com/asymptotic-theory/law-of-large-numbers).
+**Remark:** For most statistical estimation problems it is usually possible to define many different estimators. The real problem is to find a good estimator which approximates the true parameter $\theta$ with the maximal possible accuracy. Consistency is generally seen as a necessary condition which has to be satisfied by any reasonable estimator. In econometric practice usually only weak consistency is derived which generally follows from weak [**laws of large numbers**](https://www.statlect.com/asymptotic-theory/law-of-large-numbers).
 
 \
 
 
 **Example:** Assume again an i.i.d. sample $X_1,\dots,X_n$ with mean $\mu=E(X_i)$ and variance $\sigma^2=\textrm{var}(X_i)<\infty$. As stated above we then have
 $$E\left((\bar X-\mu)^2\right)=\textrm{var}(\bar X)=\sigma^2/n\rightarrow 0 \quad \text{as } n\rightarrow\infty.$$
-Therefore, $\bar X \to_{q.m.} \mu$ as well as  $\bar X \to_{P} \mu$, i.e. $\bar X$ is a (weakly) consistent estimator of $\mu$.
+Therefore, $\bar X \to_{q.m.} \mu$. The latter implies that $\bar X \to_{P} \mu$, i.e. $\bar X$ is a (weakly) consistent estimator of $\mu$.
 
 
 
@@ -118,27 +121,26 @@ sample size $n$. This order of magnitude is usually represented using the symbol
 
 Let $\{Z_n\}_{n=1,2,3,\dots}$ be a sequence of random variables, and let $\{c_n\}_{n=1,2,3,\dots}$ be a sequence of positive numbers ($c_n$ may de a deterministic sequence of real numbers or it may be a sequence of random variables).
 
-* We will write $Z_n=O_p(c_n)$ if for any $\epsilon>0$ there exists real numbers $M<\infty$ and $n_\epsilon$ such that
-$$P(|Z_n|\ge M\cdot c_n)\le\epsilon\quad\hbox{ if } n\ge n_\epsilon$$
+* We will write $Z_n=O_p(c_n)$ if for any $\epsilon>0$ there exist numbers $0<M<\infty$ and $m$ such that
+$$P(|Z_n|\ge M\cdot c_n)\leq\epsilon\quad\hbox{ for all }\quad n\geq m.$$
 * We will write $Z_n=o_p(c_n)$ if
-$$\lim_{n\to\infty} P(|Z_n|\ge \epsilon\cdot c_n)=0\quad\hbox{ for all } \epsilon>0$$
+$$\lim_{n\to\infty} P(|Z_n|\geq\epsilon\cdot c_n)=0\quad\hbox{ for all }\quad \epsilon>0.$$
+* With $c_n=1$ for all $n$, $Z_n=O_p(1)$ means that the sequence $\{Z_n\}$ is **stochastically bounded**. I.e., for any $\epsilon>0$ there exist number $0<M<\infty$ and $m$ such that 
+$$P(|Z_n|\geq M)\leq\epsilon\quad\hbox{ for all }\quad n\geq m.$$
+* With $c_n=1$ for all $n$, $Z_n=o_P(1)$ is equivalent to $Z_n\to_{P} 0$, i.e., $Z_n$ converges in probability to zero.
+
+
+Note that:
+
+* $Z_n=O_p(c_n)$ is equivalent to $Z_n/c_n=O_p(1)$
+* $Z_n=o_p(c_n)$ is equivalent to $Z_n/c_n=o_p(1)$
+
 
 \
 
-
-With $c_n=1$ for all $n$, $Z_n=O_p(1)$ means that the sequence $\{Z_n\}$ is stochastically bounded, i.e., for any $\epsilon>0$ there exists a $0<M<\infty$ such that $P(|Z_n|\ge M)\le\epsilon$.
-
-
-\
-
-Similarly, with $c_n=1$ for all $n$, $Z_n=o_P(1)$ is equivalent to $Z_n\to_{P} 0$, i.e., $Z_n$ converges in probability to zero.
-
-
-\
-
-**Definition:** An estimator $\theta\equiv\theta_n$ of a parameter $\theta$ possesses the
-rate of convergence  $n^{-r}$ if and only if $r$ is the largest positive number with the property that
-$$|\theta_n-\theta|=O_P(n^{-r}).$$
+**Definition:** An estimator $\hat\theta\equiv\hat\theta_n$ of a parameter $\theta$ possesses the
+rate of convergence  $n^{-r}$ if and only if $r$ is the *largest positive number* with the property that
+$$|\hat\theta_n-\theta|=O_P(n^{-r}).$$
 
 The rate of convergence quantifies how fast the estimation error decreases when increasing the sample size $n$.
 
@@ -146,25 +148,27 @@ The rate of convergence quantifies how fast the estimation error decreases when 
 \
 
 
-Let $\theta_n$ be an  unbiased estimator of an unknown parameter $\theta$ satisfying $\textrm{var}(\theta_n)=C n^{-1}$ for some $0<C<\infty$. Then $\theta_n$ possesses the rate of convergence $n^{-1/2}$. This is a consequence of the  Chebyshev inequality.
+Let $\hat\theta_n$ be an *unbiased* estimator of an unknown parameter $\theta$ satisfying $\textrm{var}(\hat\theta_n)=C n^{-1}$ for some $0<C<\infty$. Then $\hat\theta_n$ possesses the rate of convergence $n^{-1/2}$. This is a consequence of the [Chebyshev inequality](https://www.statlect.com/fundamentals-of-probability/Chebyshev-inequality).
 
 \
 
 **Chebyshev inequality:** If $Z$ denotes a random variable with mean $\mu$ and variance $\sigma^2$, then
 $$P\left(|X-\mu|> \sigma \cdot m\right)\le \frac{1}{m^2}\quad\hbox{ for all }\quad m>0$$
 $$\Rightarrow
-P\left(|\theta_n-\theta|> n^{-1/2}\sqrt{d} \cdot
+P\left(|\hat\theta_n-\theta|> n^{-1/2}\sqrt{C} \cdot
 \frac{1}{\sqrt{\epsilon}}\right)\leq \epsilon \quad\hbox{ for all }\quad\epsilon>0$$
 
-\
-
-**Generalization:** If $E\left((\theta_n-\theta)^2\right)=Cn^{-2r}$ for some $0<C<\infty$, then $|\theta_n-\theta|=O_P(n^{-r})$ and $n^{-r}$ is the rate of convergence of $\theta_n$.
-
 
 \
 
 
-**Example:** Assume again an i.i.d. sample $X_1,\dots,X_n$ with mean $\mu=E(X_i)$ and variance $\sigma^2=\textrm{var}(X_i)<\infty$. The sample mean $\bar X$ ($\equiv \bar X_n$) is an unbiased estimator of $\mu$ with variance $\textrm{var}(\bar X)=\sigma^2/n$.
+**Generalization:** Let $\hat\theta_n$ be a *not necessarily unbiased* estimator of an unknown parameter $\theta$. If $E\left((\hat\theta_n-\theta)^2\right)=Cn^{-2r}$ for some $0<C<\infty$, then $|\hat\theta_n-\theta|=O_P(n^{-r})$ and $n^{-r}$ is the rate of convergence of $\hat\theta_n$.
+
+
+\
+
+
+**Example:** Assume an i.i.d. sample $X_1,\dots,X_n$ with mean $\mu=E(X_i)$ and variance $\sigma^2=\textrm{var}(X_i)<\infty$. The sample mean $\bar X$ ($\equiv \bar X_n$) is an unbiased estimator of $\mu$ with variance $\textrm{var}(\bar X)=\sigma^2/n$.
 For large $n$ we have by the [central limit theorem](https://www.statlect.com/asymptotic-theory/central-limit-theorem]) that approximately $\sqrt{n}(\bar X-\mu)\sim N(0,\sigma^2)$. Therefore, for example:
 
 * with $\epsilon=0.05$ we obtain
@@ -178,7 +182,7 @@ $\bar X-\mu=O_P(n^{-1/2})$. On the other hand for any $r>1/2$ we have $n^{-r}/n^
 
 \begin{align*}
  &P\left(|\bar X_n-\mu|\geq c\sigma\cdot n^{-r}\right)=\\
-=&P\left(|\bar X_n-\mu|\ge (c\sigma\cdot n^{-1/2}\right)\cdot\frac{n^{-r}}{n^{-1/2}})\rightarrow 1 \quad\text{as}\quad n\rightarrow \infty.
+=&P\left(|\bar X_n-\mu|\ge (c\sigma\cdot n^{-1/2})\cdot\frac{n^{-r}}{n^{-1/2}}\right)\rightarrow 1 \quad\text{as}\quad n\rightarrow \infty.
 \end{align*}
 
 Therefore $n^{-1/2}$ is the rate of convergence of $\bar X$.
@@ -241,13 +245,13 @@ The practically most important version of stochastic convergence is convergence 
 
 **Definition:** Let $Z_n$ be a sequence of random variables with corresponding distribution functions $G_n$. $Z_n$ converges "in distribution" to a random variable $Z$ with distribution function $G$, if
 $$G_n(x)\to G(x)\quad\hbox{ as }\quad n\to\infty $$
-at all continuity points $x$ of $G$. **Notation:** $Z_n\to_L G$
+at all continuity points $x$ of $G$ (abbreviated: $Z_n\to_L G$).
 
 
 \
 
 
-In a vast majority of practically important situation the limiting distribution is the normal distribution. One then speaks of ** asymptotic normality**. Asymptotic normality is usually a consequence of central limit theorems. The simplest result in this direction is the central limit theorem of Lindeberg-Levy.
+In a vast majority of practically important situation the limiting distribution is the normal distribution. One then speaks of **asymptotic normality**. Asymptotic normality is usually a consequence of central limit theorems. The simplest result in this direction is the central limit theorem of Lindeberg-Levy.
 
 \
 
@@ -261,33 +265,34 @@ $$\sqrt{n}\left(\frac{1}{n} \sum_{i=1}^n Z_i -\mu\right)\rightarrow_L N(0,\sigma
 with $E(X_i)=\mu$, $Var(X_i)=\sigma^2$. Then the  central limit theorem of Lindeberg-Levy implies that
 $$\sqrt{n}(\bar X -\mu ) \to_L N(0,\sigma^2)\quad\text{ or equivalently }\quad
 \frac{\sqrt{n}(\bar X -\mu )}{\sigma}\to_L N(0,1).$$
-We can conclude that $\bar X$ is an "asymptotically  normal estimator" of $\mu$. If $n$ is sufficiently large, then  $\bar X$ is approximatively normal with mean $\mu$ and variance $\sigma^2/n$. **Frequently used notations:** 
+We can conclude that $\bar X$ is an "asymptotically  normal estimator" of $\mu$. If $n$ is sufficiently large, then  $\bar X$ is approximatively normal with mean $\mu$ and variance $\sigma^2/n$. Frequently used notations:
 
 * $\bar X\sim AN(\mu,\sigma^2/n)$
-* $\bar X\overset{a}{\sim}(\mu,\sigma^2/n)$
+* $\bar X\overset{a}{\sim}N(\mu,\sigma^2/n)$
 
 
 \
 
-Most estimators used in parametric and nonparametric statistics are asymptotically normal. In parametric problems (with rate of convergence $n^{-1/2}$) one usually obtains
-$$\sqrt{n}(\theta_n -\theta )\to_L N(0,v^2),$$
-where $v^2$ is the asymptotic variance of the estimator (often, but not necessarily,  $v^2=\lim_{n\to\infty} n\cdot\textrm{var}(\theta_n)$).
-$$\Rightarrow \theta_n\sim AN(\theta,v^2/n)$$
+Most estimators $\hat\theta_n$ used in parametric and nonparametric statistics are asymptotically normal. In parametric problems (with rate of convergence $n^{-1/2}$) one usually obtains
+$$\sqrt{n}(\hat\theta_n -\theta )\to_L N(0,v^2),$$
+where $v^2$ is the asymptotic variance of the estimator (often, but not necessarily,  $v^2=\lim_{n\to\infty} n\cdot\textrm{var}(\hat\theta_n)$).
+
+<!-- $$\Rightarrow \hat\theta_n\sim AN(\theta,v^2/n)$$ -->
 
 
 \
 
 
-**Multivariate generalization:** The above concepts are easily generalized to estimators $\theta_n$ of a multivariate parameter vector $\theta\in\mathbb{R}^p$. Consistency and rates of convergence then have to be derived separately for each element of the vector. Convergence in distribution is defined via convergence of the multivariate distribution functions. For standard estimators (e.g., maximum likelihood) in parametric problems one usually obtains
-$$\sqrt{n}(\theta_n -\theta )\to_L N_p(0,V),$$
-where $V$ is the asymptotic covariance matrix (usually $V=\lim_{n\to\infty} n\cdot\textrm{Cov}(\theta_n)$).
+**Multivariate generalization:** The above concepts are easily generalized to estimators $\hat\theta_n$ of a multivariate parameter vector $\theta\in\mathbb{R}^p$. Consistency and rates of convergence then have to be derived separately for each element of the vector. Convergence in distribution is defined via convergence of the multivariate distribution functions. For standard estimators (e.g., maximum likelihood) in parametric problems one usually obtains
+$$\sqrt{n}(\hat\theta_n -\theta )\to_L N_p(0,V),$$
+where $V$ is the asymptotic covariance matrix (usually, $V=\lim_{n\to\infty} n\cdot\textrm{Cov}(\hat\theta_n)$).
 
 
 \
 
 
 Multivariate normality holds if and only if for any vector $c=(c_1,\dots,c_p)'\in\mathbb{R}^p$ with $\sum_{j=1}^p c_j^2=\Vert c\Vert_2^2=1$
-$$\sqrt{n}\left(\sum_{j=1}^p c_j (\theta_{jn} -\theta_j)\right)=\sqrt{n}\left(c'\theta_n-c'\theta\right)\to_L N\left(0,v_c^2\right).$$
+$$\sqrt{n}\left(\sum_{j=1}^p c_j (\hat\theta_{jn} -\theta_j)\right)=\sqrt{n}\left(c'\hat\theta_n-c'\theta\right)\to_L N\left(0,v_c^2\right).$$
 Here,
 $$v_c^2=c'Vc=\sum_{j=1}^p\sum_{k=1}^p c_jc_k V_{jk},$$
 where $V_{jk}$ are the elements of the asymptotic covariance matrix $V$. This condition is frequently called **"Cramer-Wold device"**. Using one-dimensional central limit theorems it can be verified for any vector $c$.
@@ -295,7 +300,7 @@ where $V_{jk}$ are the elements of the asymptotic covariance matrix $V$. This co
 \
 
 
-**Example:** Let $X_1=(X_{11},X_{12})',\dots,X_n=(X_{11},X_{12})'$ be i.i.d. two-dimensional random vectors with $E(X_i)=\mu=(\mu_1,\mu_2)'$ and $Cov(X_i)=\Sigma$. The Cramer-Wold device and Lindeberg-Levy's central limit theorem then imply that
+**Example:** Let $X_1=(X_{11},X_{12})',\dots,X_n=(X_{n1},X_{n2})'$ be i.i.d. two-dimensional random vectors with $E(X_i)=\mu=(\mu_1,\mu_2)'$ and $Cov(X_i)=\Sigma$. The Cramer-Wold device and Lindeberg-Levy's central limit theorem then imply that
 $$\sqrt{n}\left(\bar X -\mu\right)\to_L N_2\left(0,\Sigma\right).$$
 
 
@@ -403,8 +408,7 @@ $$f(x)=f(x_0)+f'(x_0)\cdot(x-x_0)+\frac{1}{2} (x-x_0)^T f''(x_0)(x-x_0)+O(\Vert 
 Let $\{W_n\}$, $\{Z_n\}$  be sequences of random variables, then:
 
 * $Z_n=W_n+o_P(1)\quad \Leftrightarrow \quad Z_n-W_n\to_P 0$. If additionally $W_n\to_L N(0,v^2)$ then $Z_n\to_L N(0,v^2)$.
-* For any fixed constant  $c\neq 0$: $W_n\to_L N(0,v^2)$ implies $cW_n\to_L N(0,c^2v^2)$
-* For any fixed constant  $c\neq 0$: If  $Z_n\to_P c$ as well as $W_n\to_L N(0,v^2)$, then
+* For any fixed constant  $c\neq 0$: If  $Z_n\to_P c$ and $W_n\to_L N(0,v^2)$, then
 $$cW_n\to_L N(0,c^2v^2)\quad\hbox{as well as }\quad  V_n:=Z_n\cdot W_n\to_L N(0,c^2v^2).$$
 Furthermore, If $Z_n$ and $c$ are positive (with probability 1) then also
 $$W_n/c\to_L N(0,v^2/c^2)\quad\hbox{as well as }\quad  V_n:= W_n/Z_n\to_L N(0,v^2/c^2).$$
@@ -416,6 +420,8 @@ V_n:=Z_n\cdot W_n&\to_L N_p(0,CVC')
 \end{align*}
 
 
+<!-- For any fixed constant  $c\neq 0$: $W_n\to_L N(0,v^2)$ implies $cW_n\to_L N(0,c^2v^2)$ -->
+
 
 ### The Delta-Method
 
@@ -424,12 +430,12 @@ A further tool which is frequently used in asymptotic statistics is the so-calle
 
 **Delta-Method:** Let $\widehat{\theta}_n$ be a sequence of estimators of a one-dimensional parameter $\theta$ satisfying
 $n^{r} (\widehat{\theta}_n-\theta)\rightarrow_L  N(0,v^2),$ and let $g(.)$ be a real-valued function which is continuously differentiable at $\theta$ and satisfies $g'(\theta)\neq 0$. Then
-$$n^{r} (g(\widehat{\theta}_n)-g(\theta)) \rightarrow_L  N(0,g'(\theta)^2v^2).$$
+$$n^{r} \left(g(\widehat{\theta}_n)-g(\theta)\right) \rightarrow_L  N\left(0,g'(\theta)^2v^2\right).$$
 
 \
 
 
-**Example:** Assume an i.i.d. sample $X_1,\dots,X_n$ from an exponential distribution, i.e., the underlying density of $X_i$ is given by $f(x|\theta)=\theta\exp(-\theta x)$. We then have $\mu:=E(X_i)=\frac{1}{\theta}$ as well as $\sigma^2_X:=\textrm{var}(X_i)=\frac{1}{\theta^2}$. The underlying parameter $\theta>0$ is unknown and has to be estimated from the data.
+**Example:** Assume an i.i.d. sample $X_1,\dots,X_n$ from an exponential distribution, i.e., the underlying density of $X_i$ is given by $f(x|\theta)=\theta\exp(-\theta x)$. We then have $\mu:=E(X_i)=1/\theta$ as well as $\sigma^2_X:=\textrm{var}(X_i)=1/\theta^2$. The underlying parameter $\theta>0$ is unknown and has to be estimated from the data.
 
 
 \
@@ -439,8 +445,8 @@ The maximum-likelihood estimator of $\theta$ is $\hat\theta=1/\bar X$.
 
 \
 
-We know that $\sqrt{n}(\bar X-\frac{1}{\theta})\to_L N(0,\frac{1}{\theta^2})$, but what's about the distribution of $\frac{1}{\bar X}$? For this purpose the delta-method can be applied with $g(x)=1/x$. Then $g'(x)=-\frac{1}{x^2}$, $g'(\frac{1}{\theta})=-\theta^2$, and consequently
-$$n^{1/2} (\frac{1}{\bar X}-\theta)=n^{1/2} (g(\bar X)-g(\frac{1}{\theta}))\rightarrow_L N(0,\theta^2).$$
+We know that $\sqrt{n}(\bar X-\frac{1}{\theta})\to_L N(0,\frac{1}{\theta^2})$, but what's about the distribution of $1/\bar X$? For this purpose the delta-method can be applied with $g(x)=1/x$. Then $g'(x)=-1/x^2$, $g'(1/\theta)=-\theta^2$, and consequently
+$$n^{1/2} \left(\frac{1}{\bar X}-\theta\right)=n^{1/2}\left(g\left(\bar X\right)-g\left(\frac{1}{\theta}\right)\right)\rightarrow_L N\left(0,\theta^2\right).$$
  
  
  

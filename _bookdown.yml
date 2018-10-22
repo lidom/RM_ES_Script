@@ -5,3 +5,4 @@ output_dir: docs
 rmd_files: ["index.Rmd", "00-Topics.Rmd", "01-Introduction-to-R.Rmd", "02-Test-Theory.Rmd", "03-Estimation-Theory.Rmd", "References.Rmd"]
 clean: [packages.bib, bookdown.bbl]
 new_session: yes
+delete_merged_file: true

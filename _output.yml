@@ -1,4 +1,7 @@
 bookdown::gitbook:
+  highlight: tango
+  includes:     
+    in_header: [hypothesis.html]
   css: style.css
   split_by: chapter
   config:

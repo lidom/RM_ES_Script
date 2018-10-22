@@ -25,7 +25,7 @@
 <meta name="author" content="JProf. Dominik Liebl">
 
 
-<meta name="date" content="2018-10-18">
+<meta name="date" content="2018-10-22">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -47,44 +47,45 @@
 
 
 
+<script async defer src="https://hypothes.is/embed.js"></script>
 
 
 <style type="text/css">
 div.sourceCode { overflow-x: auto; }
 table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
   margin: 0; padding: 0; vertical-align: baseline; border: none; }
-table.sourceCode { width: 100%; line-height: 100%; }
+table.sourceCode { width: 100%; line-height: 100%; background-color: #f8f8f8; }
 td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
 td.sourceCode { padding-left: 5px; }
-code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code > span.dt { color: #902000; } /* DataType */
-code > span.dv { color: #40a070; } /* DecVal */
-code > span.bn { color: #40a070; } /* BaseN */
-code > span.fl { color: #40a070; } /* Float */
-code > span.ch { color: #4070a0; } /* Char */
-code > span.st { color: #4070a0; } /* String */
-code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code > span.ot { color: #007020; } /* Other */
-code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code > span.fu { color: #06287e; } /* Function */
-code > span.er { color: #ff0000; font-weight: bold; } /* Error */
-code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
-code > span.cn { color: #880000; } /* Constant */
-code > span.sc { color: #4070a0; } /* SpecialChar */
-code > span.vs { color: #4070a0; } /* VerbatimString */
-code > span.ss { color: #bb6688; } /* SpecialString */
+pre, code { background-color: #f8f8f8; }
+code > span.kw { color: #204a87; font-weight: bold; } /* Keyword */
+code > span.dt { color: #204a87; } /* DataType */
+code > span.dv { color: #0000cf; } /* DecVal */
+code > span.bn { color: #0000cf; } /* BaseN */
+code > span.fl { color: #0000cf; } /* Float */
+code > span.ch { color: #4e9a06; } /* Char */
+code > span.st { color: #4e9a06; } /* String */
+code > span.co { color: #8f5902; font-style: italic; } /* Comment */
+code > span.ot { color: #8f5902; } /* Other */
+code > span.al { color: #ef2929; } /* Alert */
+code > span.fu { color: #000000; } /* Function */
+code > span.er { color: #a40000; font-weight: bold; } /* Error */
+code > span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #000000; } /* Constant */
+code > span.sc { color: #000000; } /* SpecialChar */
+code > span.vs { color: #4e9a06; } /* VerbatimString */
+code > span.ss { color: #4e9a06; } /* SpecialString */
 code > span.im { } /* Import */
-code > span.va { color: #19177c; } /* Variable */
-code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code > span.op { color: #666666; } /* Operator */
-code > span.bu { } /* BuiltIn */
+code > span.va { color: #000000; } /* Variable */
+code > span.cf { color: #204a87; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #ce5c00; font-weight: bold; } /* Operator */
+code > span.pp { color: #8f5902; font-style: italic; } /* Preprocessor */
 code > span.ex { } /* Extension */
-code > span.pp { color: #bc7a00; } /* Preprocessor */
-code > span.at { color: #7d9029; } /* Attribute */
-code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code > span.at { color: #c4a000; } /* Attribute */
+code > span.do { color: #8f5902; font-weight: bold; font-style: italic; } /* Documentation */
+code > span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #8f5902; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Information */
 </style>
 
 <link rel="stylesheet" href="style.css" type="text/css" />
@@ -133,7 +134,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="2.6" data-path="statistical-hypothesis-testing.html"><a href="statistical-hypothesis-testing.html#r-lab-the-gauss-test"><i class="fa fa-check"></i><b>2.6</b> R-Lab: The Gauss-Test</a></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="estimation-theory.html"><a href="estimation-theory.html"><i class="fa fa-check"></i><b>3</b> Estimation Theory</a><ul>
-<li class="chapter" data-level="3.1" data-path="estimation-theory.html"><a href="estimation-theory.html#basics"><i class="fa fa-check"></i><b>3.1</b> Basics</a></li>
+<li class="chapter" data-level="3.1" data-path="estimation-theory.html"><a href="estimation-theory.html#bias-variance-and-mse"><i class="fa fa-check"></i><b>3.1</b> Bias, Variance and MSE</a></li>
 <li class="chapter" data-level="3.2" data-path="estimation-theory.html"><a href="estimation-theory.html#consistency-of-estimators"><i class="fa fa-check"></i><b>3.2</b> Consistency of Estimators</a></li>
 <li class="chapter" data-level="3.3" data-path="estimation-theory.html"><a href="estimation-theory.html#rates-of-convergence"><i class="fa fa-check"></i><b>3.3</b> Rates of Convergence</a></li>
 <li class="chapter" data-level="3.4" data-path="estimation-theory.html"><a href="estimation-theory.html#asymptotic-distributions"><i class="fa fa-check"></i><b>3.4</b> Asymptotic Distributions</a></li>
@@ -165,8 +166,8 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
             <section class="normal" id="section-">
 <div id="estimation-theory" class="section level1">
 <h1><span class="header-section-number">Ch. 3</span> Estimation Theory</h1>
-<div id="basics" class="section level2">
-<h2><span class="header-section-number">3.1</span> Basics</h2>
+<div id="bias-variance-and-mse" class="section level2">
+<h2><span class="header-section-number">3.1</span> Bias, Variance and MSE</h2>
 <p>Given a sample <span class="math inline">\(X_1,\dots,X_n\)</span> consider an estimator <span class="math inline">\(\widehat{\theta}_n\equiv\widehat{\theta}(X_1,\dots,X_n)\)</span> of a real-valued parameter <span class="math inline">\(\theta\in\Omega\subset\mathbb{R}\)</span>.</p>
 <p>The distribution of any estimator of course depends on the true parameter vector <span class="math inline">\(\theta\)</span>, i.e., more precisely, <span class="math display">\[\widehat{\theta}_n\equiv \widehat{\theta}(X_1,\dots,X_n;\theta).\]</span> This dependence is usually not explicitly written, but all properties of estimators discussed below have to hold for all possible parameter values <span class="math inline">\(\theta\in\Omega\)</span>. This will go without saying.</p>
 <p><br />
@@ -178,10 +179,15 @@ Statistical inference requires to assess the accuracy of an estimator.</p>
 The <strong>variance</strong> of an estimator is given by <span class="math display">\[\textrm{var}(\widehat{\theta}_n)=E\left((\widehat{\theta}_n-E(\widehat{\theta}_n))^2\right).\]</span></p>
 <p><br />
 </p>
-<p>Performance of an estimator is most frequently evaluated with respect to the <strong>quadratic loss</strong> (also called <span class="math inline">\(L_2\)</span> loss) <span class="math display">\[(\widehat{\theta}_n-\theta)^2.\]</span> The corresponding risk is the <strong>mean squared error</strong> <span class="math display">\[E\left((\widehat{\theta}_n-\theta)^2\right) =\textrm{Bias}(\widehat{\theta}_n)^2+\textrm{var}(\widehat{\theta}_n)\]</span> For an unbiased estimator the mean squared error is obviously equal to the variance of the estimator.</p>
+<p>Performance of an estimator is most frequently evaluated with respect to the <strong>quadratic loss</strong> (also called <span class="math inline">\(L_2\)</span> loss) <span class="math display">\[(\widehat{\theta}_n-\theta)^2.\]</span> The corresponding risk is the <strong>Mean Squared Error (MSE)</strong> <span class="math display">\[E\left((\widehat{\theta}_n-\theta)^2\right)=\textrm{Bias}(\widehat{\theta}_n)^2+\textrm{var}(\widehat{\theta}_n)\]</span> For an unbiased estimator the mean squared error is obviously equal to the variance of the estimator.</p>
 <p><br />
 </p>
-<p><strong>Example:</strong> Assume an i.i.d. sample <span class="math inline">\(X_1,\dots,X_n\)</span> with mean <span class="math inline">\(\mu=E(X_i)\)</span> and variance <span class="math inline">\(\sigma^2=\textrm{var}(X_i)&lt;\infty\)</span>. * The sample mean <span class="math inline">\(\bar X\)</span> is an unbiased estimator of the true mean <span class="math inline">\(\mu\)</span> <span class="math display">\[E(\bar X)=\mu\quad \text{for any possible value of the true mean } \mu\]</span> * The variance of the estimator <span class="math inline">\(\bar X\)</span> is given by <span class="math display">\[\textrm{var}(\bar X)=\sigma^2/n\]</span> * The mean squared error of the estimator <span class="math inline">\(\bar X\)</span> is given by <span class="math display">\[E\left(\bar X-\mu)^2\right)=\textrm{var}(\bar X)=\sigma^2/n\]</span></p>
+<p><strong>Example:</strong> Assume an i.i.d. sample <span class="math inline">\(X_1,\dots,X_n\)</span> with mean <span class="math inline">\(\mu=E(X_i)\)</span> and variance <span class="math inline">\(\sigma^2=\textrm{var}(X_i)&lt;\infty\)</span>.</p>
+<ul>
+<li>The sample mean <span class="math inline">\(\bar X\)</span> is an unbiased estimator of the true mean <span class="math inline">\(\mu\)</span>, since the equation <span class="math display">\[E(\bar X)=\mu\]</span> holds for any possible value of the true mean <span class="math inline">\(\mu\)</span>.</li>
+<li>The variance of the estimator <span class="math inline">\(\bar X\)</span> is given by <span class="math display">\[\textrm{var}(\bar X)=\sigma^2/n\]</span></li>
+<li>The mean squared error of the estimator <span class="math inline">\(\bar X\)</span> is given by <span class="math display">\[E\left((\bar X-\mu)^2\right)=\textrm{var}(\bar X)=\sigma^2/n\]</span></li>
+</ul>
 </div>
 <div id="consistency-of-estimators" class="section level2">
 <h2><span class="header-section-number">3.2</span> Consistency of Estimators</h2>
@@ -208,14 +214,14 @@ The <strong>variance</strong> of an estimator is given by <span class="math disp
 <p><br />
 <strong>Consistency of estimators.</strong> Based on a sample <span class="math inline">\(X_1,\dots,X_n\)</span> let <span class="math inline">\(\hat\theta_n\equiv\theta_n(X_1,\dots,X_n)\)</span> be an estimator of an unknown parameter <span class="math inline">\(\theta\)</span>.</p>
 <ul>
-<li><span class="math inline">\(\hat\theta_n\)</span> is called “weakly consistent” if <span class="math display">\[\theta_n\to_{P} \theta\quad \hbox{ as }\quad n\to\infty \]</span></li>
-<li><span class="math inline">\(\hat\theta_n\)</span> is called “strongly consistent” if <span class="math display">\[\theta_n\to_{a.s.} \theta\quad \hbox{ as }\quad n\to\infty \]</span></li>
+<li><span class="math inline">\(\hat\theta_n\)</span> is called “weakly consistent” if <span class="math display">\[\hat{\theta}_n\to_{P} \theta\quad \hbox{ as }\quad n\to\infty \]</span></li>
+<li><span class="math inline">\(\hat\theta_n\)</span> is called “strongly consistent” if <span class="math display">\[\hat{\theta}_n\to_{a.s.} \theta\quad \hbox{ as }\quad n\to\infty \]</span></li>
 </ul>
 <p><br />
-<strong>Remark:</strong> For most statistical estimation problems it is usually possible to define many different estimators. The real problem is to find a good estimator which approximates the true parameter <span class="math inline">\(\theta\)</span> with the maximal possible accuracy. Consistency is generally seen as a necessary condition which has to be satisfied by any reasonable estimator. In econometric practice usually only weak consistency is derived which generally follows from <a href="https://www.statlect.com/asymptotic-theory/law-of-large-numbers"><strong>laws of large numbers</strong></a>.</p>
+<strong>Remark:</strong> For most statistical estimation problems it is usually possible to define many different estimators. The real problem is to find a good estimator which approximates the true parameter <span class="math inline">\(\theta\)</span> with the maximal possible accuracy. Consistency is generally seen as a necessary condition which has to be satisfied by any reasonable estimator. In econometric practice usually only weak consistency is derived which generally follows from weak <a href="https://www.statlect.com/asymptotic-theory/law-of-large-numbers"><strong>laws of large numbers</strong></a>.</p>
 <p><br />
 </p>
-<p><strong>Example:</strong> Assume again an i.i.d. sample <span class="math inline">\(X_1,\dots,X_n\)</span> with mean <span class="math inline">\(\mu=E(X_i)\)</span> and variance <span class="math inline">\(\sigma^2=\textrm{var}(X_i)&lt;\infty\)</span>. As stated above we then have <span class="math display">\[E\left((\bar X-\mu)^2\right)=\textrm{var}(\bar X)=\sigma^2/n\rightarrow 0 \quad \text{as } n\rightarrow\infty.\]</span> Therefore, <span class="math inline">\(\bar X \to_{q.m.} \mu\)</span> as well as <span class="math inline">\(\bar X \to_{P} \mu\)</span>, i.e. <span class="math inline">\(\bar X\)</span> is a (weakly) consistent estimator of <span class="math inline">\(\mu\)</span>.</p>
+<p><strong>Example:</strong> Assume again an i.i.d. sample <span class="math inline">\(X_1,\dots,X_n\)</span> with mean <span class="math inline">\(\mu=E(X_i)\)</span> and variance <span class="math inline">\(\sigma^2=\textrm{var}(X_i)&lt;\infty\)</span>. As stated above we then have <span class="math display">\[E\left((\bar X-\mu)^2\right)=\textrm{var}(\bar X)=\sigma^2/n\rightarrow 0 \quad \text{as } n\rightarrow\infty.\]</span> Therefore, <span class="math inline">\(\bar X \to_{q.m.} \mu\)</span>. The latter implies that <span class="math inline">\(\bar X \to_{P} \mu\)</span>, i.e. <span class="math inline">\(\bar X\)</span> is a (weakly) consistent estimator of <span class="math inline">\(\mu\)</span>.</p>
 </div>
 <div id="rates-of-convergence" class="section level2">
 <h2><span class="header-section-number">3.3</span> Rates of Convergence</h2>
@@ -223,29 +229,32 @@ The <strong>variance</strong> of an estimator is given by <span class="math disp
 <p><br />
 Let <span class="math inline">\(\{Z_n\}_{n=1,2,3,\dots}\)</span> be a sequence of random variables, and let <span class="math inline">\(\{c_n\}_{n=1,2,3,\dots}\)</span> be a sequence of positive numbers (<span class="math inline">\(c_n\)</span> may de a deterministic sequence of real numbers or it may be a sequence of random variables).</p>
 <ul>
-<li>We will write <span class="math inline">\(Z_n=O_p(c_n)\)</span> if for any <span class="math inline">\(\epsilon&gt;0\)</span> there exists real numbers <span class="math inline">\(M&lt;\infty\)</span> and <span class="math inline">\(n_\epsilon\)</span> such that <span class="math display">\[P(|Z_n|\ge M\cdot c_n)\le\epsilon\quad\hbox{ if } n\ge n_\epsilon\]</span></li>
-<li>We will write <span class="math inline">\(Z_n=o_p(c_n)\)</span> if <span class="math display">\[\lim_{n\to\infty} P(|Z_n|\ge \epsilon\cdot c_n)=0\quad\hbox{ for all } \epsilon&gt;0\]</span></li>
+<li>We will write <span class="math inline">\(Z_n=O_p(c_n)\)</span> if for any <span class="math inline">\(\epsilon&gt;0\)</span> there exist numbers <span class="math inline">\(0&lt;M&lt;\infty\)</span> and <span class="math inline">\(m\)</span> such that <span class="math display">\[P(|Z_n|\ge M\cdot c_n)\leq\epsilon\quad\hbox{ for all }\quad n\geq m.\]</span></li>
+<li>We will write <span class="math inline">\(Z_n=o_p(c_n)\)</span> if <span class="math display">\[\lim_{n\to\infty} P(|Z_n|\geq\epsilon\cdot c_n)=0\quad\hbox{ for all }\quad \epsilon&gt;0.\]</span></li>
+<li>With <span class="math inline">\(c_n=1\)</span> for all <span class="math inline">\(n\)</span>, <span class="math inline">\(Z_n=O_p(1)\)</span> means that the sequence <span class="math inline">\(\{Z_n\}\)</span> is <strong>stochastically bounded</strong>. I.e., for any <span class="math inline">\(\epsilon&gt;0\)</span> there exist number <span class="math inline">\(0&lt;M&lt;\infty\)</span> and <span class="math inline">\(m\)</span> such that <span class="math display">\[P(|Z_n|\geq M)\leq\epsilon\quad\hbox{ for all }\quad n\geq m.\]</span></li>
+<li>With <span class="math inline">\(c_n=1\)</span> for all <span class="math inline">\(n\)</span>, <span class="math inline">\(Z_n=o_P(1)\)</span> is equivalent to <span class="math inline">\(Z_n\to_{P} 0\)</span>, i.e., <span class="math inline">\(Z_n\)</span> converges in probability to zero.</li>
+</ul>
+<p>Note that:</p>
+<ul>
+<li><span class="math inline">\(Z_n=O_p(c_n)\)</span> is equivalent to <span class="math inline">\(Z_n/c_n=O_p(1)\)</span></li>
+<li><span class="math inline">\(Z_n=o_p(c_n)\)</span> is equivalent to <span class="math inline">\(Z_n/c_n=o_p(1)\)</span></li>
 </ul>
 <p><br />
-</p>
-<p>With <span class="math inline">\(c_n=1\)</span> for all <span class="math inline">\(n\)</span>, <span class="math inline">\(Z_n=O_p(1)\)</span> means that the sequence <span class="math inline">\(\{Z_n\}\)</span> is stochastically bounded, i.e., for any <span class="math inline">\(\epsilon&gt;0\)</span> there exists a <span class="math inline">\(0&lt;M&lt;\infty\)</span> such that <span class="math inline">\(P(|Z_n|\ge M)\le\epsilon\)</span>.</p>
-<p><br />
-Similarly, with <span class="math inline">\(c_n=1\)</span> for all <span class="math inline">\(n\)</span>, <span class="math inline">\(Z_n=o_P(1)\)</span> is equivalent to <span class="math inline">\(Z_n\to_{P} 0\)</span>, i.e., <span class="math inline">\(Z_n\)</span> converges in probability to zero.</p>
-<p><br />
-<strong>Definition:</strong> An estimator <span class="math inline">\(\theta\equiv\theta_n\)</span> of a parameter <span class="math inline">\(\theta\)</span> possesses the rate of convergence <span class="math inline">\(n^{-r}\)</span> if and only if <span class="math inline">\(r\)</span> is the largest positive number with the property that <span class="math display">\[|\theta_n-\theta|=O_P(n^{-r}).\]</span></p>
+<strong>Definition:</strong> An estimator <span class="math inline">\(\hat\theta\equiv\hat\theta_n\)</span> of a parameter <span class="math inline">\(\theta\)</span> possesses the rate of convergence <span class="math inline">\(n^{-r}\)</span> if and only if <span class="math inline">\(r\)</span> is the <em>largest positive number</em> with the property that <span class="math display">\[|\hat\theta_n-\theta|=O_P(n^{-r}).\]</span></p>
 <p>The rate of convergence quantifies how fast the estimation error decreases when increasing the sample size <span class="math inline">\(n\)</span>.</p>
 <p><br />
 </p>
-<p>Let <span class="math inline">\(\theta_n\)</span> be an unbiased estimator of an unknown parameter <span class="math inline">\(\theta\)</span> satisfying <span class="math inline">\(\textrm{var}(\theta_n)=C n^{-1}\)</span> for some <span class="math inline">\(0&lt;C&lt;\infty\)</span>. Then <span class="math inline">\(\theta_n\)</span> possesses the rate of convergence <span class="math inline">\(n^{-1/2}\)</span>. This is a consequence of the Chebyshev inequality.</p>
+<p>Let <span class="math inline">\(\hat\theta_n\)</span> be an <em>unbiased</em> estimator of an unknown parameter <span class="math inline">\(\theta\)</span> satisfying <span class="math inline">\(\textrm{var}(\hat\theta_n)=C n^{-1}\)</span> for some <span class="math inline">\(0&lt;C&lt;\infty\)</span>. Then <span class="math inline">\(\hat\theta_n\)</span> possesses the rate of convergence <span class="math inline">\(n^{-1/2}\)</span>. This is a consequence of the <a href="https://www.statlect.com/fundamentals-of-probability/Chebyshev-inequality">Chebyshev inequality</a>.</p>
 <p><br />
 <strong>Chebyshev inequality:</strong> If <span class="math inline">\(Z\)</span> denotes a random variable with mean <span class="math inline">\(\mu\)</span> and variance <span class="math inline">\(\sigma^2\)</span>, then <span class="math display">\[P\left(|X-\mu|&gt; \sigma \cdot m\right)\le \frac{1}{m^2}\quad\hbox{ for all }\quad m&gt;0\]</span> <span class="math display">\[\Rightarrow
-P\left(|\theta_n-\theta|&gt; n^{-1/2}\sqrt{d} \cdot
+P\left(|\hat\theta_n-\theta|&gt; n^{-1/2}\sqrt{C} \cdot
 \frac{1}{\sqrt{\epsilon}}\right)\leq \epsilon \quad\hbox{ for all }\quad\epsilon&gt;0\]</span></p>
 <p><br />
-<strong>Generalization:</strong> If <span class="math inline">\(E\left((\theta_n-\theta)^2\right)=Cn^{-2r}\)</span> for some <span class="math inline">\(0&lt;C&lt;\infty\)</span>, then <span class="math inline">\(|\theta_n-\theta|=O_P(n^{-r})\)</span> and <span class="math inline">\(n^{-r}\)</span> is the rate of convergence of <span class="math inline">\(\theta_n\)</span>.</p>
+</p>
+<p><strong>Generalization:</strong> Let <span class="math inline">\(\hat\theta_n\)</span> be a <em>not necessarily unbiased</em> estimator of an unknown parameter <span class="math inline">\(\theta\)</span>. If <span class="math inline">\(E\left((\hat\theta_n-\theta)^2\right)=Cn^{-2r}\)</span> for some <span class="math inline">\(0&lt;C&lt;\infty\)</span>, then <span class="math inline">\(|\hat\theta_n-\theta|=O_P(n^{-r})\)</span> and <span class="math inline">\(n^{-r}\)</span> is the rate of convergence of <span class="math inline">\(\hat\theta_n\)</span>.</p>
 <p><br />
 </p>
-<p><strong>Example:</strong> Assume again an i.i.d. sample <span class="math inline">\(X_1,\dots,X_n\)</span> with mean <span class="math inline">\(\mu=E(X_i)\)</span> and variance <span class="math inline">\(\sigma^2=\textrm{var}(X_i)&lt;\infty\)</span>. The sample mean <span class="math inline">\(\bar X\)</span> (<span class="math inline">\(\equiv \bar X_n\)</span>) is an unbiased estimator of <span class="math inline">\(\mu\)</span> with variance <span class="math inline">\(\textrm{var}(\bar X)=\sigma^2/n\)</span>. For large <span class="math inline">\(n\)</span> we have by the <a href="https://www.statlect.com/asymptotic-theory/central-limit-theorem%5D">central limit theorem</a> that approximately <span class="math inline">\(\sqrt{n}(\bar X-\mu)\sim N(0,\sigma^2)\)</span>. Therefore, for example:</p>
+<p><strong>Example:</strong> Assume an i.i.d. sample <span class="math inline">\(X_1,\dots,X_n\)</span> with mean <span class="math inline">\(\mu=E(X_i)\)</span> and variance <span class="math inline">\(\sigma^2=\textrm{var}(X_i)&lt;\infty\)</span>. The sample mean <span class="math inline">\(\bar X\)</span> (<span class="math inline">\(\equiv \bar X_n\)</span>) is an unbiased estimator of <span class="math inline">\(\mu\)</span> with variance <span class="math inline">\(\textrm{var}(\bar X)=\sigma^2/n\)</span>. For large <span class="math inline">\(n\)</span> we have by the <a href="https://www.statlect.com/asymptotic-theory/central-limit-theorem%5D">central limit theorem</a> that approximately <span class="math inline">\(\sqrt{n}(\bar X-\mu)\sim N(0,\sigma^2)\)</span>. Therefore, for example:</p>
 <ul>
 <li>with <span class="math inline">\(\epsilon=0.05\)</span> we obtain <span class="math display">\[P\left(|\bar X_n-\mu|\ge 1.96\sigma\cdot n^{-1/2}\right)=0.05\]</span></li>
 <li>with <span class="math inline">\(\epsilon=0.01\)</span> we obtain <span class="math display">\[P\left(|\bar X_n-\mu|\ge 2.64\sigma\cdot n^{-1/2}\right)=0.01.\]</span></li>
@@ -253,7 +262,7 @@ P\left(|\theta_n-\theta|&gt; n^{-1/2}\sqrt{d} \cdot
 <p>Generalizing this argument for all possible <span class="math inline">\(\epsilon&gt;0\)</span> we can conclude that <span class="math inline">\(\bar X-\mu=O_P(n^{-1/2})\)</span>. On the other hand for any <span class="math inline">\(r&gt;1/2\)</span> we have <span class="math inline">\(n^{-r}/n^{-1/2}\rightarrow 0\)</span> as <span class="math inline">\(n\rightarrow \infty\)</span>. Hence, for any constant <span class="math inline">\(c&gt;0\)</span></p>
 <span class="math display">\[\begin{align*}
  &amp;P\left(|\bar X_n-\mu|\geq c\sigma\cdot n^{-r}\right)=\\
-=&amp;P\left(|\bar X_n-\mu|\ge (c\sigma\cdot n^{-1/2}\right)\cdot\frac{n^{-r}}{n^{-1/2}})\rightarrow 1 \quad\text{as}\quad n\rightarrow \infty.
+=&amp;P\left(|\bar X_n-\mu|\ge (c\sigma\cdot n^{-1/2})\cdot\frac{n^{-r}}{n^{-1/2}}\right)\rightarrow 1 \quad\text{as}\quad n\rightarrow \infty.
 \end{align*}\]</span>
 <p>Therefore <span class="math inline">\(n^{-1/2}\)</span> is the rate of convergence of <span class="math inline">\(\bar X\)</span>.</p>
 <ul>
@@ -301,30 +310,31 @@ Z_nV_n &amp;  =O_P(r_ns_n)
 <h2><span class="header-section-number">3.4</span> Asymptotic Distributions</h2>
 <p>The practically most important version of stochastic convergence is convergence in distribution. Knowledge about the “asymptotic distribution” of an estimator allows to construct confidence intervals and tests.</p>
 <p><br />
-<strong>Definition:</strong> Let <span class="math inline">\(Z_n\)</span> be a sequence of random variables with corresponding distribution functions <span class="math inline">\(G_n\)</span>. <span class="math inline">\(Z_n\)</span> converges “in distribution” to a random variable <span class="math inline">\(Z\)</span> with distribution function <span class="math inline">\(G\)</span>, if <span class="math display">\[G_n(x)\to G(x)\quad\hbox{ as }\quad n\to\infty \]</span> at all continuity points <span class="math inline">\(x\)</span> of <span class="math inline">\(G\)</span>. <strong>Notation:</strong> <span class="math inline">\(Z_n\to_L G\)</span></p>
+<strong>Definition:</strong> Let <span class="math inline">\(Z_n\)</span> be a sequence of random variables with corresponding distribution functions <span class="math inline">\(G_n\)</span>. <span class="math inline">\(Z_n\)</span> converges “in distribution” to a random variable <span class="math inline">\(Z\)</span> with distribution function <span class="math inline">\(G\)</span>, if <span class="math display">\[G_n(x)\to G(x)\quad\hbox{ as }\quad n\to\infty \]</span> at all continuity points <span class="math inline">\(x\)</span> of <span class="math inline">\(G\)</span> (abbreviated: <span class="math inline">\(Z_n\to_L G\)</span>).</p>
 <p><br />
 </p>
-<p>In a vast majority of practically important situation the limiting distribution is the normal distribution. One then speaks of ** asymptotic normality**. Asymptotic normality is usually a consequence of central limit theorems. The simplest result in this direction is the central limit theorem of Lindeberg-Levy.</p>
+<p>In a vast majority of practically important situation the limiting distribution is the normal distribution. One then speaks of <strong>asymptotic normality</strong>. Asymptotic normality is usually a consequence of central limit theorems. The simplest result in this direction is the central limit theorem of Lindeberg-Levy.</p>
 <p><br />
 <strong>Theorem (Lindeberg-Levy)</strong> Let <span class="math inline">\(Z_1,Z_2,\dots\)</span> be a sequence of i.i.d. random variables with finite mean <span class="math inline">\(\mu\)</span> and variance <span class="math inline">\(\sigma^2&lt;\infty\)</span>. Then <span class="math display">\[\sqrt{n}\left(\frac{1}{n} \sum_{i=1}^n Z_i -\mu\right)\rightarrow_L N(0,\sigma^2).\]</span></p>
 <p><br />
 <strong>Example:</strong> Let <span class="math inline">\(X_1,\dots,X_n\)</span> be independent random variables with <span class="math inline">\(E(X_i)=\mu\)</span>, <span class="math inline">\(Var(X_i)=\sigma^2\)</span>. Then the central limit theorem of Lindeberg-Levy implies that <span class="math display">\[\sqrt{n}(\bar X -\mu ) \to_L N(0,\sigma^2)\quad\text{ or equivalently }\quad
-\frac{\sqrt{n}(\bar X -\mu )}{\sigma}\to_L N(0,1).\]</span> We can conclude that <span class="math inline">\(\bar X\)</span> is an “asymptotically normal estimator” of <span class="math inline">\(\mu\)</span>. If <span class="math inline">\(n\)</span> is sufficiently large, then <span class="math inline">\(\bar X\)</span> is approximatively normal with mean <span class="math inline">\(\mu\)</span> and variance <span class="math inline">\(\sigma^2/n\)</span>. <strong>Frequently used notations:</strong></p>
+\frac{\sqrt{n}(\bar X -\mu )}{\sigma}\to_L N(0,1).\]</span> We can conclude that <span class="math inline">\(\bar X\)</span> is an “asymptotically normal estimator” of <span class="math inline">\(\mu\)</span>. If <span class="math inline">\(n\)</span> is sufficiently large, then <span class="math inline">\(\bar X\)</span> is approximatively normal with mean <span class="math inline">\(\mu\)</span> and variance <span class="math inline">\(\sigma^2/n\)</span>. Frequently used notations:</p>
 <ul>
 <li><span class="math inline">\(\bar X\sim AN(\mu,\sigma^2/n)\)</span></li>
-<li><span class="math inline">\(\bar X\overset{a}{\sim}(\mu,\sigma^2/n)\)</span></li>
+<li><span class="math inline">\(\bar X\overset{a}{\sim}N(\mu,\sigma^2/n)\)</span></li>
 </ul>
 <p><br />
-Most estimators used in parametric and nonparametric statistics are asymptotically normal. In parametric problems (with rate of convergence <span class="math inline">\(n^{-1/2}\)</span>) one usually obtains <span class="math display">\[\sqrt{n}(\theta_n -\theta )\to_L N(0,v^2),\]</span> where <span class="math inline">\(v^2\)</span> is the asymptotic variance of the estimator (often, but not necessarily, <span class="math inline">\(v^2=\lim_{n\to\infty} n\cdot\textrm{var}(\theta_n)\)</span>). <span class="math display">\[\Rightarrow \theta_n\sim AN(\theta,v^2/n)\]</span></p>
+Most estimators <span class="math inline">\(\hat\theta_n\)</span> used in parametric and nonparametric statistics are asymptotically normal. In parametric problems (with rate of convergence <span class="math inline">\(n^{-1/2}\)</span>) one usually obtains <span class="math display">\[\sqrt{n}(\hat\theta_n -\theta )\to_L N(0,v^2),\]</span> where <span class="math inline">\(v^2\)</span> is the asymptotic variance of the estimator (often, but not necessarily, <span class="math inline">\(v^2=\lim_{n\to\infty} n\cdot\textrm{var}(\hat\theta_n)\)</span>).</p>
+<!-- $$\Rightarrow \hat\theta_n\sim AN(\theta,v^2/n)$$ -->
 <p><br />
 </p>
-<p><strong>Multivariate generalization:</strong> The above concepts are easily generalized to estimators <span class="math inline">\(\theta_n\)</span> of a multivariate parameter vector <span class="math inline">\(\theta\in\mathbb{R}^p\)</span>. Consistency and rates of convergence then have to be derived separately for each element of the vector. Convergence in distribution is defined via convergence of the multivariate distribution functions. For standard estimators (e.g., maximum likelihood) in parametric problems one usually obtains <span class="math display">\[\sqrt{n}(\theta_n -\theta )\to_L N_p(0,V),\]</span> where <span class="math inline">\(V\)</span> is the asymptotic covariance matrix (usually <span class="math inline">\(V=\lim_{n\to\infty} n\cdot\textrm{Cov}(\theta_n)\)</span>).</p>
+<p><strong>Multivariate generalization:</strong> The above concepts are easily generalized to estimators <span class="math inline">\(\hat\theta_n\)</span> of a multivariate parameter vector <span class="math inline">\(\theta\in\mathbb{R}^p\)</span>. Consistency and rates of convergence then have to be derived separately for each element of the vector. Convergence in distribution is defined via convergence of the multivariate distribution functions. For standard estimators (e.g., maximum likelihood) in parametric problems one usually obtains <span class="math display">\[\sqrt{n}(\hat\theta_n -\theta )\to_L N_p(0,V),\]</span> where <span class="math inline">\(V\)</span> is the asymptotic covariance matrix (usually, <span class="math inline">\(V=\lim_{n\to\infty} n\cdot\textrm{Cov}(\hat\theta_n)\)</span>).</p>
 <p><br />
 </p>
-<p>Multivariate normality holds if and only if for any vector <span class="math inline">\(c=(c_1,\dots,c_p)&#39;\in\mathbb{R}^p\)</span> with <span class="math inline">\(\sum_{j=1}^p c_j^2=\Vert c\Vert_2^2=1\)</span> <span class="math display">\[\sqrt{n}\left(\sum_{j=1}^p c_j (\theta_{jn} -\theta_j)\right)=\sqrt{n}\left(c&#39;\theta_n-c&#39;\theta\right)\to_L N\left(0,v_c^2\right).\]</span> Here, <span class="math display">\[v_c^2=c&#39;Vc=\sum_{j=1}^p\sum_{k=1}^p c_jc_k V_{jk},\]</span> where <span class="math inline">\(V_{jk}\)</span> are the elements of the asymptotic covariance matrix <span class="math inline">\(V\)</span>. This condition is frequently called <strong>“Cramer-Wold device”</strong>. Using one-dimensional central limit theorems it can be verified for any vector <span class="math inline">\(c\)</span>.</p>
+<p>Multivariate normality holds if and only if for any vector <span class="math inline">\(c=(c_1,\dots,c_p)&#39;\in\mathbb{R}^p\)</span> with <span class="math inline">\(\sum_{j=1}^p c_j^2=\Vert c\Vert_2^2=1\)</span> <span class="math display">\[\sqrt{n}\left(\sum_{j=1}^p c_j (\hat\theta_{jn} -\theta_j)\right)=\sqrt{n}\left(c&#39;\hat\theta_n-c&#39;\theta\right)\to_L N\left(0,v_c^2\right).\]</span> Here, <span class="math display">\[v_c^2=c&#39;Vc=\sum_{j=1}^p\sum_{k=1}^p c_jc_k V_{jk},\]</span> where <span class="math inline">\(V_{jk}\)</span> are the elements of the asymptotic covariance matrix <span class="math inline">\(V\)</span>. This condition is frequently called <strong>“Cramer-Wold device”</strong>. Using one-dimensional central limit theorems it can be verified for any vector <span class="math inline">\(c\)</span>.</p>
 <p><br />
 </p>
-<p><strong>Example:</strong> Let <span class="math inline">\(X_1=(X_{11},X_{12})&#39;,\dots,X_n=(X_{11},X_{12})&#39;\)</span> be i.i.d. two-dimensional random vectors with <span class="math inline">\(E(X_i)=\mu=(\mu_1,\mu_2)&#39;\)</span> and <span class="math inline">\(Cov(X_i)=\Sigma\)</span>. The Cramer-Wold device and Lindeberg-Levy’s central limit theorem then imply that <span class="math display">\[\sqrt{n}\left(\bar X -\mu\right)\to_L N_2\left(0,\Sigma\right).\]</span></p>
+<p><strong>Example:</strong> Let <span class="math inline">\(X_1=(X_{11},X_{12})&#39;,\dots,X_n=(X_{n1},X_{n2})&#39;\)</span> be i.i.d. two-dimensional random vectors with <span class="math inline">\(E(X_i)=\mu=(\mu_1,\mu_2)&#39;\)</span> and <span class="math inline">\(Cov(X_i)=\Sigma\)</span>. The Cramer-Wold device and Lindeberg-Levy’s central limit theorem then imply that <span class="math display">\[\sqrt{n}\left(\bar X -\mu\right)\to_L N_2\left(0,\Sigma\right).\]</span></p>
 <p><br />
 Note that asymptotic normality usually also holds for nonparametric curve estimators with convergence rates slower than <span class="math inline">\(n^{-1/2}\)</span>.</p>
 </div>
@@ -385,26 +395,26 @@ For most estimation problems in parametric statistics maximum-likelihood estimat
 <p>Let <span class="math inline">\(\{W_n\}\)</span>, <span class="math inline">\(\{Z_n\}\)</span> be sequences of random variables, then:</p>
 <ul>
 <li><span class="math inline">\(Z_n=W_n+o_P(1)\quad \Leftrightarrow \quad Z_n-W_n\to_P 0\)</span>. If additionally <span class="math inline">\(W_n\to_L N(0,v^2)\)</span> then <span class="math inline">\(Z_n\to_L N(0,v^2)\)</span>.</li>
-<li>For any fixed constant <span class="math inline">\(c\neq 0\)</span>: <span class="math inline">\(W_n\to_L N(0,v^2)\)</span> implies <span class="math inline">\(cW_n\to_L N(0,c^2v^2)\)</span></li>
-<li>For any fixed constant <span class="math inline">\(c\neq 0\)</span>: If <span class="math inline">\(Z_n\to_P c\)</span> as well as <span class="math inline">\(W_n\to_L N(0,v^2)\)</span>, then <span class="math display">\[cW_n\to_L N(0,c^2v^2)\quad\hbox{as well as }\quad  V_n:=Z_n\cdot W_n\to_L N(0,c^2v^2).\]</span> Furthermore, If <span class="math inline">\(Z_n\)</span> and <span class="math inline">\(c\)</span> are positive (with probability 1) then also <span class="math display">\[W_n/c\to_L N(0,v^2/c^2)\quad\hbox{as well as }\quad  V_n:= W_n/Z_n\to_L N(0,v^2/c^2).\]</span></li>
+<li>For any fixed constant <span class="math inline">\(c\neq 0\)</span>: If <span class="math inline">\(Z_n\to_P c\)</span> and <span class="math inline">\(W_n\to_L N(0,v^2)\)</span>, then <span class="math display">\[cW_n\to_L N(0,c^2v^2)\quad\hbox{as well as }\quad  V_n:=Z_n\cdot W_n\to_L N(0,c^2v^2).\]</span> Furthermore, If <span class="math inline">\(Z_n\)</span> and <span class="math inline">\(c\)</span> are positive (with probability 1) then also <span class="math display">\[W_n/c\to_L N(0,v^2/c^2)\quad\hbox{as well as }\quad  V_n:= W_n/Z_n\to_L N(0,v^2/c^2).\]</span></li>
 <li>Multivariate generalization (<span class="math inline">\(C\)</span>, <span class="math inline">\(Z_n\)</span> <span class="math inline">\(p\times p\)</span> matrices; <span class="math inline">\(W_n\)</span> <span class="math inline">\(p\)</span>-dimensional random vectors): If <span class="math inline">\(Z_n\to_P C\)</span> as well as <span class="math inline">\(W_n\to_L N_p(0,V)\)</span>, then
 <span class="math display">\[\begin{align*}
 CW_n&amp;\to_L N_p(0,CVC&#39;)\quad\hbox{as well as }\\
 V_n:=Z_n\cdot W_n&amp;\to_L N_p(0,CVC&#39;)
 \end{align*}\]</span></li>
 </ul>
+<!-- For any fixed constant  $c\neq 0$: $W_n\to_L N(0,v^2)$ implies $cW_n\to_L N(0,c^2v^2)$ -->
 </div>
 <div id="the-delta-method" class="section level3">
 <h3><span class="header-section-number">3.6.3</span> The Delta-Method</h3>
 <p>A further tool which is frequently used in asymptotic statistics is the so-called delta-method.</p>
-<p><strong>Delta-Method:</strong> Let <span class="math inline">\(\widehat{\theta}_n\)</span> be a sequence of estimators of a one-dimensional parameter <span class="math inline">\(\theta\)</span> satisfying <span class="math inline">\(n^{r} (\widehat{\theta}_n-\theta)\rightarrow_L N(0,v^2),\)</span> and let <span class="math inline">\(g(.)\)</span> be a real-valued function which is continuously differentiable at <span class="math inline">\(\theta\)</span> and satisfies <span class="math inline">\(g&#39;(\theta)\neq 0\)</span>. Then <span class="math display">\[n^{r} (g(\widehat{\theta}_n)-g(\theta)) \rightarrow_L  N(0,g&#39;(\theta)^2v^2).\]</span></p>
+<p><strong>Delta-Method:</strong> Let <span class="math inline">\(\widehat{\theta}_n\)</span> be a sequence of estimators of a one-dimensional parameter <span class="math inline">\(\theta\)</span> satisfying <span class="math inline">\(n^{r} (\widehat{\theta}_n-\theta)\rightarrow_L N(0,v^2),\)</span> and let <span class="math inline">\(g(.)\)</span> be a real-valued function which is continuously differentiable at <span class="math inline">\(\theta\)</span> and satisfies <span class="math inline">\(g&#39;(\theta)\neq 0\)</span>. Then <span class="math display">\[n^{r} \left(g(\widehat{\theta}_n)-g(\theta)\right) \rightarrow_L  N\left(0,g&#39;(\theta)^2v^2\right).\]</span></p>
 <p><br />
 </p>
-<p><strong>Example:</strong> Assume an i.i.d. sample <span class="math inline">\(X_1,\dots,X_n\)</span> from an exponential distribution, i.e., the underlying density of <span class="math inline">\(X_i\)</span> is given by <span class="math inline">\(f(x|\theta)=\theta\exp(-\theta x)\)</span>. We then have <span class="math inline">\(\mu:=E(X_i)=\frac{1}{\theta}\)</span> as well as <span class="math inline">\(\sigma^2_X:=\textrm{var}(X_i)=\frac{1}{\theta^2}\)</span>. The underlying parameter <span class="math inline">\(\theta&gt;0\)</span> is unknown and has to be estimated from the data.</p>
+<p><strong>Example:</strong> Assume an i.i.d. sample <span class="math inline">\(X_1,\dots,X_n\)</span> from an exponential distribution, i.e., the underlying density of <span class="math inline">\(X_i\)</span> is given by <span class="math inline">\(f(x|\theta)=\theta\exp(-\theta x)\)</span>. We then have <span class="math inline">\(\mu:=E(X_i)=1/\theta\)</span> as well as <span class="math inline">\(\sigma^2_X:=\textrm{var}(X_i)=1/\theta^2\)</span>. The underlying parameter <span class="math inline">\(\theta&gt;0\)</span> is unknown and has to be estimated from the data.</p>
 <p><br />
 The maximum-likelihood estimator of <span class="math inline">\(\theta\)</span> is <span class="math inline">\(\hat\theta=1/\bar X\)</span>.</p>
 <p><br />
-We know that <span class="math inline">\(\sqrt{n}(\bar X-\frac{1}{\theta})\to_L N(0,\frac{1}{\theta^2})\)</span>, but what’s about the distribution of <span class="math inline">\(\frac{1}{\bar X}\)</span>? For this purpose the delta-method can be applied with <span class="math inline">\(g(x)=1/x\)</span>. Then <span class="math inline">\(g&#39;(x)=-\frac{1}{x^2}\)</span>, <span class="math inline">\(g&#39;(\frac{1}{\theta})=-\theta^2\)</span>, and consequently <span class="math display">\[n^{1/2} (\frac{1}{\bar X}-\theta)=n^{1/2} (g(\bar X)-g(\frac{1}{\theta}))\rightarrow_L N(0,\theta^2).\]</span></p>
+We know that <span class="math inline">\(\sqrt{n}(\bar X-\frac{1}{\theta})\to_L N(0,\frac{1}{\theta^2})\)</span>, but what’s about the distribution of <span class="math inline">\(1/\bar X\)</span>? For this purpose the delta-method can be applied with <span class="math inline">\(g(x)=1/x\)</span>. Then <span class="math inline">\(g&#39;(x)=-1/x^2\)</span>, <span class="math inline">\(g&#39;(1/\theta)=-\theta^2\)</span>, and consequently <span class="math display">\[n^{1/2} \left(\frac{1}{\bar X}-\theta\right)=n^{1/2}\left(g\left(\bar X\right)-g\left(\frac{1}{\theta}\right)\right)\rightarrow_L N\left(0,\theta^2\right).\]</span></p>
 </div>
 </div>
 <div id="example-simple-linear-regression" class="section level2">
