@@ -127,7 +127,7 @@ $$P(|Z_n|\ge M\cdot c_n)\leq\epsilon\quad\hbox{ for all }\quad n\geq m.$$
 $$\lim_{n\to\infty} P(|Z_n|\geq\epsilon\cdot c_n)=0\quad\hbox{ for all }\quad \epsilon>0.$$
 * With $c_n=1$ for all $n$, $Z_n=O_p(1)$ means that the sequence $\{Z_n\}$ is **stochastically bounded**. I.e., for any $\epsilon>0$ there exist number $0<M<\infty$ and $m$ such that 
 $$P(|Z_n|\geq M)\leq\epsilon\quad\hbox{ for all }\quad n\geq m.$$
-* With $c_n=1$ for all $n$, $Z_n=o_P(1)$ is equivalent to $Z_n\to_{P} 0$, i.e., $Z_n$ converges in probability to zero.
+* With $c_n=1$ for all $n$, $Z_n=o_P(1)$ is equivalent to $Z_n\to_{P} 0$, i.e., $Z_n$ **converges in probability to zero**.
 
 
 Note that:
@@ -139,7 +139,7 @@ Note that:
 \
 
 **Definition:** An estimator $\hat\theta\equiv\hat\theta_n$ of a parameter $\theta$ possesses the
-rate of convergence  $n^{-r}$ if and only if $r$ is the *largest positive number* with the property that
+**rate of convergence** $n^{-r}$ if and only if $r$ is the *largest positive number* with the property that
 $$|\hat\theta_n-\theta|=O_P(n^{-r}).$$
 
 The rate of convergence quantifies how fast the estimation error decreases when increasing the sample size $n$.
@@ -148,7 +148,7 @@ The rate of convergence quantifies how fast the estimation error decreases when 
 \
 
 
-Let $\hat\theta_n$ be an *unbiased* estimator of an unknown parameter $\theta$ satisfying $\textrm{var}(\hat\theta_n)=C n^{-1}$ for some $0<C<\infty$. Then $\hat\theta_n$ possesses the rate of convergence $n^{-1/2}$. This is a consequence of the [Chebyshev inequality](https://www.statlect.com/fundamentals-of-probability/Chebyshev-inequality).
+**Unbiased estimators:** Let $\hat\theta_n$ be an *unbiased* estimator of an unknown parameter $\theta$ satisfying $\textrm{var}(\hat\theta_n)=C n^{-1}$ for some $0<C<\infty$. Then $\hat\theta_n$ possesses the rate of convergence $n^{-1/2}$. This is a consequence of the [Chebyshev inequality](https://www.statlect.com/fundamentals-of-probability/Chebyshev-inequality).
 
 \
 
@@ -169,7 +169,7 @@ P\left(|\hat\theta_n-\theta|> n^{-1/2}\sqrt{C} \cdot
 
 
 **Example:** Assume an i.i.d. sample $X_1,\dots,X_n$ with mean $\mu=E(X_i)$ and variance $\sigma^2=\textrm{var}(X_i)<\infty$. The sample mean $\bar X$ ($\equiv \bar X_n$) is an unbiased estimator of $\mu$ with variance $\textrm{var}(\bar X)=\sigma^2/n$.
-For large $n$ we have by the [central limit theorem](https://www.statlect.com/asymptotic-theory/central-limit-theorem]) that approximately $\sqrt{n}(\bar X-\mu)\sim N(0,\sigma^2)$. Therefore, for example:
+For large $n$ we have by the central limit theorem that approximately $\sqrt{n}(\bar X-\mu)\sim N(0,\sigma^2)$. Therefore, for example:
 
 * with $\epsilon=0.05$ we obtain
 $$P\left(|\bar X_n-\mu|\ge 1.96\sigma\cdot n^{-1/2}\right)=0.05$$
@@ -185,9 +185,13 @@ $\bar X-\mu=O_P(n^{-1/2})$. On the other hand for any $r>1/2$ we have $n^{-r}/n^
 =&P\left(|\bar X_n-\mu|\ge (c\sigma\cdot n^{-1/2})\cdot\frac{n^{-r}}{n^{-1/2}}\right)\rightarrow 1 \quad\text{as}\quad n\rightarrow \infty.
 \end{align*}
 
-Therefore $n^{-1/2}$ is the rate of convergence of $\bar X$.
+Therefore $n^{-1/2}$ is the **rate of convergence** of $\bar X$.
 
 
+\
+
+
+Note that:
 
 * Maximum-likelihood estimators of an unknown parameter  usually possess the rate of convergence $n^{-1/2}$ (there are exceptions!).
 * The situation is different, for instance, in nonparametric curve estimation problems. For example kernel estimators (of a density or regression function) only achieve the rate of convergence $n^{-2/5}$.
@@ -243,15 +247,16 @@ The practically most important version of stochastic convergence is convergence 
 
 \
 
-**Definition:** Let $Z_n$ be a sequence of random variables with corresponding distribution functions $G_n$. $Z_n$ converges "in distribution" to a random variable $Z$ with distribution function $G$, if
+**Definition:** Let $Z_n$ be a sequence of random variables with corresponding distribution functions $G_n$. Then $Z_n$ **converges in distribution** to a random variable $Z$ with distribution function $G$, if
 $$G_n(x)\to G(x)\quad\hbox{ as }\quad n\to\infty $$
-at all continuity points $x$ of $G$ (abbreviated: $Z_n\to_L G$).
+at all continuity points $x$ of $G$ (abbreviated: $Z_n\to_L Z$ or $Z_n\to_L G$ or "$\to_D$" instead of "$\to_L$").
 
 
 \
 
 
-In a vast majority of practically important situation the limiting distribution is the normal distribution. One then speaks of **asymptotic normality**. Asymptotic normality is usually a consequence of central limit theorems. The simplest result in this direction is the central limit theorem of Lindeberg-Levy.
+In a vast majority of practically important situation the limiting distribution is the normal distribution. One then speaks of **asymptotic normality**. Asymptotic normality is usually a consequence of [central limit theorems](https://www.statlect.com/asymptotic-theory/central-limit-theorem]). The simplest result in this direction is the central limit theorem of Lindeberg-Levy.
+
 
 \
 
@@ -292,10 +297,14 @@ where $V$ is the asymptotic covariance matrix (usually, $V=\lim_{n\to\infty} n\c
 
 
 Multivariate normality holds if and only if for any vector $c=(c_1,\dots,c_p)'\in\mathbb{R}^p$ with $\sum_{j=1}^p c_j^2=\Vert c\Vert_2^2=1$
-$$\sqrt{n}\left(\sum_{j=1}^p c_j (\hat\theta_{jn} -\theta_j)\right)=\sqrt{n}\left(c'\hat\theta_n-c'\theta\right)\to_L N\left(0,v_c^2\right).$$
-Here,
+$$\sqrt{n}\left(\sum_{j=1}^p c_j (\hat\theta_{jn} -\theta_j)\right)=\sqrt{n}\left(c'\hat\theta_n-c'\theta\right)\to_L N\left(0,v_c^2\right),$$
+where
 $$v_c^2=c'Vc=\sum_{j=1}^p\sum_{k=1}^p c_jc_k V_{jk},$$
-where $V_{jk}$ are the elements of the asymptotic covariance matrix $V$. This condition is frequently called **"Cramer-Wold device"**. Using one-dimensional central limit theorems it can be verified for any vector $c$.
+and where $V_{jk}$ are the elements of the asymptotic covariance matrix $V$. 
+
+
+This condition is frequently called **"Cramer-Wold device"**. Using one-dimensional central limit theorems it can be verified for any vector $c$.
+
 
 \
 
@@ -326,6 +335,7 @@ Asymptotic theory is used in order to select an appropriate estimation procedure
 
 
 \
+
 
 Properties of an asymptotically efficient estimator $\theta_n$:
 
@@ -450,59 +460,97 @@ $$n^{1/2} \left(\frac{1}{\bar X}-\theta\right)=n^{1/2}\left(g\left(\bar X\right)
  
  
  
-## Example: Simple Linear Regression
+<!-- ## Example: Simple Linear Regression -->
 
-Assume an i.i.d. sample $(Y_1,X_1),\dots,(Y_n,X_n)$ of random variables, and consider estimating the slope parameters in the linear regression model
-$$Y_i=\alpha+\beta X_i+\epsilon_i,\quad, i=1,\dots,n,$$
-where $\epsilon_i$ are i.i.d. zero mean error terms with variance $\sigma_\epsilon^2$ (independent of $X_i$). Furthermore assume that $\textrm{var}(X_i)=\sigma_X^2$.
-
-
-\
-
-The least-squares estimator $\hat\beta$ of $\beta$ is then given by
-$$\hat\beta=\frac{\sum_{i=1}^n (X_i-\bar X)Y_i}{\sum_{i=1}^n (X_i-\bar X)^2}=\beta+
-\frac{\sum_{i=1}^n (X_i-\bar X)\epsilon_i}{\sum_{i=1}^n (X_i-\bar X)^2}$$
+<!-- Assume an i.i.d. sample $(Y_1,X_1),\dots,(Y_n,X_n)$ of random variables, and consider estimating the slope parameters in the linear regression model -->
+<!-- $$Y_i=\alpha+\beta X_i+\epsilon_i,\quad, i=1,\dots,n,$$ -->
+<!-- where $\epsilon_i$ are i.i.d. zero mean error terms with variance $\sigma_\epsilon^2$ (independent of $X_i$). Furthermore assume that $\textrm{var}(X_i)=\sigma_X^2$. -->
 
 
-\
+<!-- \ -->
 
 
-We already know that $\bar X -\mu_x=O_P(n^{-1/2})$, where $\mu_x=E(X_i)$ is the mean of $X_i$. Also note that the mean of $\epsilon_i$ is zero, and hence $\bar \epsilon=O_P(n^{-1/2})$. Therefore, $(\bar X -\mu_x)\bar\epsilon=O_P(n^{-1})$.
-
-\
-
-
-Furthermore, it follows from the law of large numbers that
-$$\frac{1}{n}\sum_{i=1}^n (X_i-\bar X)^2 \to_P \sigma_x^2.$$
-
-\
+<!-- Observe that  -->
+<!-- \begin{align*} -->
+<!-- (Y_i-\bar{Y})&=\beta (X_i - \bar{X}) + (\epsilon_i - \bar{\epsilon}) -->
+<!-- \end{align*} -->
 
 
-Now,
-$$\hat\beta-\beta =
-\frac{\frac{1}{n}\sum_{i=1}^n (X_i-\bar X)\epsilon_i}{\frac{1}{n}\sum_{i=1}^n (X_i-\bar X)^2}
-=\frac{\frac{1}{n}\sum_{i=1}^n (X_i-\mu)\epsilon_i}{\frac{1}{n}\sum_{i=1}^n (X_i-\bar X)^2}
-+\underbrace{\frac{ (\mu-\bar X)\bar\epsilon}{\frac{1}{n}\sum_{i=1}^n (X_i-\bar X)^2}}_{O_P(n^{-1})}$$
-
-\
+<!-- \ -->
 
 
-This implies that
-$$\sqrt{n}(\hat\beta-\beta) 
-=\frac{\sqrt{n}\frac{1}{n}\sum_{i=1}^n (X_i-\mu)\epsilon_i}{\frac{1}{n}\sum_{i=1}^n (X_i-\bar X)^2}
-+\underbrace{\frac{\sqrt{n} (\mu-\bar X)\bar\epsilon}{\frac{1}{n}\sum_{i=1}^n (X_i-\bar X)^2}}_{o_P(1)}$$
+<!-- The least-squares estimator $\hat\beta$ of $\beta$ is given by -->
+<!-- \begin{align*} -->
+<!-- \hat\beta -->
+<!-- &=\frac{\sum_{i=1}^n (X_i-\bar X)Y_i}{\sum_{i=1}^n (X_i-\bar X)^2}\\ -->
+<!-- &=\beta+\frac{\sum_{i=1}^n (X_i-\bar X)(\epsilon_i-\bar\epsilon)}{\sum_{i=1}^n (X_i-\bar X)^2}\\ -->
+<!-- &=\beta+\frac{\sum_{i=1}^n (X_i-\bar X)\epsilon_i}{\sum_{i=1}^n (X_i-\bar X)^2} -->
+<!--        -\frac{\sum_{i=1}^n (X_i-\bar X)\bar\epsilon}{\sum_{i=1}^n (X_i-\bar X)^2} -->
+<!-- \end{align*} -->
 
-\
-
-
-By the above rules one can neglect the additional term of order $o_P(1)$ when deriving the asymptotic distribution. Note that $(X_i-\mu)\epsilon_i$ are i.i.d. random variables with zero mean and variance $\sigma_X^2\sigma_\epsilon^2$. The central limit theorem of Lindeberg-Levy thus implies that
-$$\sqrt{n}\frac{1}{n}\sum_{i=1}^n (X_i-\mu)\epsilon_i\to_L N(0,\sigma_x^2\sigma_\epsilon^2).$$
-
-\
+<!-- \ -->
 
 
-Since $\frac{1}{n}\sum_{i=1}^n (X_i-\bar X)^2 \to_P \sigma_x^2$ we can conclude by the above rules that
-$$\sqrt{n}(\hat\beta-\beta) \to_L N(0,\frac{\sigma_\epsilon^2}{\sigma_X^2}).$$
+<!-- We already know that $\bar X -\mu_x=O_P(n^{-1/2})$, where $\mu_x=E(X_i)$ is the mean of $X_i$. Also note that the mean of $\epsilon_i$ is zero, and hence $\bar \epsilon=O_P(n^{-1/2})$. Therefore, $(\bar X -\mu_x)\bar\epsilon=O_P(n^{-1})$. -->
+
+<!-- \ -->
+
+
+<!-- Furthermore, it follows from the law of large numbers that -->
+<!-- $$\frac{1}{n}\sum_{i=1}^n (X_i-\bar X)^2 \to_P \sigma_x^2.$$ -->
+
+<!-- \ -->
+
+
+<!-- Now, -->
+<!-- $$\hat\beta-\beta = -->
+<!-- \frac{\frac{1}{n}\sum_{i=1}^n (X_i-\bar X)\epsilon_i}{\frac{1}{n}\sum_{i=1}^n (X_i-\bar X)^2} -->
+<!-- =\frac{\frac{1}{n}\sum_{i=1}^n (X_i-\mu)\epsilon_i}{\frac{1}{n}\sum_{i=1}^n (X_i-\bar X)^2} -->
+<!-- +\underbrace{\frac{ (\mu-\bar X)\bar\epsilon}{\frac{1}{n}\sum_{i=1}^n (X_i-\bar X)^2}}_{O_P(n^{-1})}$$ -->
+
+<!-- \ -->
+
+
+<!-- This implies that -->
+<!-- $$\sqrt{n}(\hat\beta-\beta)  -->
+<!-- =\frac{\sqrt{n}\frac{1}{n}\sum_{i=1}^n (X_i-\mu)\epsilon_i}{\frac{1}{n}\sum_{i=1}^n (X_i-\bar X)^2} -->
+<!-- +\underbrace{\frac{\sqrt{n} (\mu-\bar X)\bar\epsilon}{\frac{1}{n}\sum_{i=1}^n (X_i-\bar X)^2}}_{o_P(1)}$$ -->
+
+<!-- \ -->
+
+
+<!-- By the above rules one can neglect the additional term of order $o_P(1)$ when deriving the asymptotic distribution. Note that $(X_i-\mu)\epsilon_i$ are i.i.d. random variables with zero mean and variance $\sigma_X^2\sigma_\epsilon^2$. The central limit theorem of Lindeberg-Levy thus implies that -->
+<!-- $$\sqrt{n}\frac{1}{n}\sum_{i=1}^n (X_i-\mu)\epsilon_i\to_L N(0,\sigma_x^2\sigma_\epsilon^2).$$ -->
+
+<!-- \ -->
+
+
+<!-- Since $\frac{1}{n}\sum_{i=1}^n (X_i-\bar X)^2 \to_P \sigma_x^2$ we can conclude by the above rules that -->
+<!-- $$\sqrt{n}(\hat\beta-\beta) \to_L N(0,\frac{\sigma_\epsilon^2}{\sigma_X^2}).$$ -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

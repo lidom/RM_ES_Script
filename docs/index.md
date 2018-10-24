@@ -1,7 +1,7 @@
 --- 
 title: "Research Module in Econometrics & Statistics"
 author: "JProf. Dominik Liebl"
-date: "2018-10-22"
+date: "2018-10-24"
 site: bookdown::bookdown_site
 documentclass: book
 bibliography: [book.bib]
@@ -52,8 +52,8 @@ Date        Time               Topic
 29.10.      14:15 - 15:45      Regression Analysis
 31.10.      14:15 - 15:45      Simulations
 07.11.      14:15 - 15:45      How to Write and Present
-28.01.      14:15 - 15:45      Presentations
-30.01.      14:15 - 15:45      Presentations
+21.01.      14:15 - 15:45      Presentations
+23.01.      14:15 - 15:45      Presentations
 
 
 - **Location:** Room 0.042
