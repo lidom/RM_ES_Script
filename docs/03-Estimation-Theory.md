@@ -378,7 +378,6 @@ $$f(x)=f(x_0)+\sum_{r=1}^k \frac{1}{r!}f^{(r)}(x_0)\cdot(x-x_0)^r+O((x-x_0)^{k+1
 
 First order Taylor approximation: $f(x)=\tilde f(x)+O((x-x_0)^{2})$, where $\tilde f(x)=x-x_0$
 
-* $x=1.01$ $\Rightarrow$ $f(x)=0.00995$, $\tilde f(x)=0.01$ and $|f(x)-\tilde f(x)|=0.00005$
 * $x=1.05$ $\Rightarrow$ $f(x)=0.04879$, $\tilde f(x)=0.05$ and $|f(x)-\tilde f(x)|=0.00121$
 * $x=1.1\phantom{0}$ $\Rightarrow$ $f(x)=0.09531$, $\tilde f(x)=0.1\phantom{0}$ and $|f(x)-\tilde f(x)|=0.00469$
 * $x=1.5\phantom{0}$ $\Rightarrow$ $f(x)=0.40546$, $\tilde f(x)=0.5\phantom{0}$ and $|f(x)-\tilde f(x)|=0.09454$
