@@ -1,6 +1,6 @@
 # Linear Regression
 
-Now I'll teach you some crazy math, but I need to work it out first...
+The lecture script of this chapter can be found [HERE]("4_Lin_Regression.pdf").
 
 
 
