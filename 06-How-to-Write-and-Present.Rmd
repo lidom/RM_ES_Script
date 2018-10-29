@@ -77,9 +77,6 @@ As with any rule, you can be a little creative here, but checking your topic sen
 
 
 
-
-
-
 Bonus #1: You changed tenses mid-paragraph, and/or your methods are written in the present tense. Repeat after me: methods will be written in the past tense. You’re talking about things you did in the past, not things you are doing in the perpetual present. Relentlessly check your prose for the present tense, and also for changes in tense that happen mid-sentence or mid-paragraph.
 
 Bonus #2: You’re not following SI conventions. According to the International System of Units (SI), there must be a space between a value and its unit. 5g should be 5 g, 100ml should be 100 ml, 30ºC should be 30 ºC, etc. Now you know!

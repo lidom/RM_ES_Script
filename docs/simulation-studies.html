@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Research Module in Econometrics &amp; Statistics</title>
+  <meta name="description" content="Script for the research module in econometrics &amp; statistics (University Bonn).">
+  <meta name="generator" content="bookdown  and GitBook 2.6.7">
+
+  <meta property="og:title" content="Research Module in Econometrics &amp; Statistics" />
+  <meta property="og:type" content="book" />
+  <meta property="og:url" content="http://dliebl.com/RM_ES_Script/" />
+  
+  <meta property="og:description" content="Script for the research module in econometrics &amp; statistics (University Bonn)." />
+  <meta name="github-repo" content="lidom/RM_ES_Script" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Research Module in Econometrics &amp; Statistics" />
+  
+  <meta name="twitter:description" content="Script for the research module in econometrics &amp; statistics (University Bonn)." />
+  
+
+<meta name="author" content="JProf. Dominik Liebl">
+
+
+<meta name="date" content="2018-10-29">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+<link rel="prev" href="linear-regression.html">
+<link rel="next" href="references.html">
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; background-color: #f8f8f8; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+pre, code { background-color: #f8f8f8; }
+code > span.kw { color: #204a87; font-weight: bold; } /* Keyword */
+code > span.dt { color: #204a87; } /* DataType */
+code > span.dv { color: #0000cf; } /* DecVal */
+code > span.bn { color: #0000cf; } /* BaseN */
+code > span.fl { color: #0000cf; } /* Float */
+code > span.ch { color: #4e9a06; } /* Char */
+code > span.st { color: #4e9a06; } /* String */
+code > span.co { color: #8f5902; font-style: italic; } /* Comment */
+code > span.ot { color: #8f5902; } /* Other */
+code > span.al { color: #ef2929; } /* Alert */
+code > span.fu { color: #000000; } /* Function */
+code > span.er { color: #a40000; font-weight: bold; } /* Error */
+code > span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #000000; } /* Constant */
+code > span.sc { color: #000000; } /* SpecialChar */
+code > span.vs { color: #4e9a06; } /* VerbatimString */
+code > span.ss { color: #4e9a06; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #000000; } /* Variable */
+code > span.cf { color: #204a87; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #ce5c00; font-weight: bold; } /* Operator */
+code > span.pp { color: #8f5902; font-style: italic; } /* Preprocessor */
+code > span.ex { } /* Extension */
+code > span.at { color: #c4a000; } /* Attribute */
+code > span.do { color: #8f5902; font-weight: bold; font-style: italic; } /* Documentation */
+code > span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #8f5902; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="http://www.dliebl.com/RM_ES_Script/">Research Module E&S</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a></li>
+<li class="chapter" data-level="" data-path="topics.html"><a href="topics.html"><i class="fa fa-check"></i>Topics</a></li>
+<li class="chapter" data-level="1" data-path="introduction-to-r.html"><a href="introduction-to-r.html"><i class="fa fa-check"></i><b>1</b> Introduction to R</a><ul>
+<li class="chapter" data-level="1.1" data-path="introduction-to-r.html"><a href="introduction-to-r.html#short-glossary"><i class="fa fa-check"></i><b>1.1</b> Short Glossary</a></li>
+<li class="chapter" data-level="1.2" data-path="introduction-to-r.html"><a href="introduction-to-r.html#first-steps"><i class="fa fa-check"></i><b>1.2</b> First Steps</a></li>
+<li class="chapter" data-level="1.3" data-path="introduction-to-r.html"><a href="introduction-to-r.html#further-data-objects"><i class="fa fa-check"></i><b>1.3</b> Further Data Objects</a></li>
+<li class="chapter" data-level="1.4" data-path="introduction-to-r.html"><a href="introduction-to-r.html#simple-regression-analysis-using-r"><i class="fa fa-check"></i><b>1.4</b> Simple Regression Analysis using R</a></li>
+<li class="chapter" data-level="1.5" data-path="introduction-to-r.html"><a href="introduction-to-r.html#programming-in-r"><i class="fa fa-check"></i><b>1.5</b> Programming in R</a></li>
+<li class="chapter" data-level="1.6" data-path="introduction-to-r.html"><a href="introduction-to-r.html#r-packages"><i class="fa fa-check"></i><b>1.6</b> R-packages</a></li>
+<li class="chapter" data-level="1.7" data-path="introduction-to-r.html"><a href="introduction-to-r.html#tidyverse"><i class="fa fa-check"></i><b>1.7</b> Tidyverse</a><ul>
+<li class="chapter" data-level="1.7.1" data-path="introduction-to-r.html"><a href="introduction-to-r.html#tidyverse-plotting-basics"><i class="fa fa-check"></i><b>1.7.1</b> Tidyverse: Plotting Basics</a></li>
+<li class="chapter" data-level="1.7.2" data-path="introduction-to-r.html"><a href="introduction-to-r.html#tidyverse-data-wrangling-basics"><i class="fa fa-check"></i><b>1.7.2</b> Tidyverse: Data Wrangling Basics</a></li>
+<li class="chapter" data-level="1.7.3" data-path="introduction-to-r.html"><a href="introduction-to-r.html#the-pipe-operator"><i class="fa fa-check"></i><b>1.7.3</b> The pipe operator <code>%&gt;%</code></a></li>
+<li class="chapter" data-level="1.7.4" data-path="introduction-to-r.html"><a href="introduction-to-r.html#the-group_by-function"><i class="fa fa-check"></i><b>1.7.4</b> The <code>group_by()</code> function</a></li>
+</ul></li>
+<li class="chapter" data-level="1.8" data-path="introduction-to-r.html"><a href="introduction-to-r.html#further-links"><i class="fa fa-check"></i><b>1.8</b> Further Links</a><ul>
+<li class="chapter" data-level="1.8.1" data-path="introduction-to-r.html"><a href="introduction-to-r.html#further-r-intros"><i class="fa fa-check"></i><b>1.8.1</b> Further R-Intros</a></li>
+<li class="chapter" data-level="1.8.2" data-path="introduction-to-r.html"><a href="introduction-to-r.html#version-control-gitgithub"><i class="fa fa-check"></i><b>1.8.2</b> Version Control (Git/GitHub)</a></li>
+<li class="chapter" data-level="1.8.3" data-path="introduction-to-r.html"><a href="introduction-to-r.html#r-ladies"><i class="fa fa-check"></i><b>1.8.3</b> R-Ladies</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="statistical-hypothesis-testing.html"><a href="statistical-hypothesis-testing.html"><i class="fa fa-check"></i><b>2</b> Statistical Hypothesis Testing</a><ul>
+<li class="chapter" data-level="2.1" data-path="statistical-hypothesis-testing.html"><a href="statistical-hypothesis-testing.html#hypotheses-and-test-statistics"><i class="fa fa-check"></i><b>2.1</b> Hypotheses and Test-Statistics</a></li>
+<li class="chapter" data-level="2.2" data-path="statistical-hypothesis-testing.html"><a href="statistical-hypothesis-testing.html#significance-level-size-and-p-values"><i class="fa fa-check"></i><b>2.2</b> Significance Level, Size and p-Values</a></li>
+<li class="chapter" data-level="2.3" data-path="statistical-hypothesis-testing.html"><a href="statistical-hypothesis-testing.html#PF1"><i class="fa fa-check"></i><b>2.3</b> The Power Function</a></li>
+<li class="chapter" data-level="2.4" data-path="statistical-hypothesis-testing.html"><a href="statistical-hypothesis-testing.html#asymptotic-null-distributions"><i class="fa fa-check"></i><b>2.4</b> Asymptotic Null Distributions</a></li>
+<li class="chapter" data-level="2.5" data-path="statistical-hypothesis-testing.html"><a href="statistical-hypothesis-testing.html#multiple-comparisons"><i class="fa fa-check"></i><b>2.5</b> Multiple Comparisons</a></li>
+<li class="chapter" data-level="2.6" data-path="statistical-hypothesis-testing.html"><a href="statistical-hypothesis-testing.html#r-lab-the-gauss-test"><i class="fa fa-check"></i><b>2.6</b> R-Lab: The Gauss-Test</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="estimation-theory.html"><a href="estimation-theory.html"><i class="fa fa-check"></i><b>3</b> Estimation Theory</a><ul>
+<li class="chapter" data-level="3.1" data-path="estimation-theory.html"><a href="estimation-theory.html#bias-variance-and-mse"><i class="fa fa-check"></i><b>3.1</b> Bias, Variance and MSE</a></li>
+<li class="chapter" data-level="3.2" data-path="estimation-theory.html"><a href="estimation-theory.html#consistency-of-estimators"><i class="fa fa-check"></i><b>3.2</b> Consistency of Estimators</a></li>
+<li class="chapter" data-level="3.3" data-path="estimation-theory.html"><a href="estimation-theory.html#rates-of-convergence"><i class="fa fa-check"></i><b>3.3</b> Rates of Convergence</a></li>
+<li class="chapter" data-level="3.4" data-path="estimation-theory.html"><a href="estimation-theory.html#asymptotic-distributions"><i class="fa fa-check"></i><b>3.4</b> Asymptotic Distributions</a></li>
+<li class="chapter" data-level="3.5" data-path="estimation-theory.html"><a href="estimation-theory.html#asymptotic-theory"><i class="fa fa-check"></i><b>3.5</b> Asymptotic Theory</a></li>
+<li class="chapter" data-level="3.6" data-path="estimation-theory.html"><a href="estimation-theory.html#mathematical-tools"><i class="fa fa-check"></i><b>3.6</b> Mathematical tools</a><ul>
+<li class="chapter" data-level="3.6.1" data-path="estimation-theory.html"><a href="estimation-theory.html#taylor-expansions"><i class="fa fa-check"></i><b>3.6.1</b> Taylor expansions</a></li>
+<li class="chapter" data-level="3.6.2" data-path="estimation-theory.html"><a href="estimation-theory.html#tools-for-deriving-asymptotic-distributions"><i class="fa fa-check"></i><b>3.6.2</b> Tools for deriving asymptotic distributions</a></li>
+<li class="chapter" data-level="3.6.3" data-path="estimation-theory.html"><a href="estimation-theory.html#the-delta-method"><i class="fa fa-check"></i><b>3.6.3</b> The Delta-Method</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="linear-regression.html"><a href="linear-regression.html"><i class="fa fa-check"></i><b>4</b> Linear Regression</a></li>
+<li class="chapter" data-level="5" data-path="simulation-studies.html"><a href="simulation-studies.html"><i class="fa fa-check"></i><b>5</b> Simulation Studies</a><ul>
+<li class="chapter" data-level="5.1" data-path="simulation-studies.html"><a href="simulation-studies.html#checking-parameter-estimators"><i class="fa fa-check"></i><b>5.1</b> Checking Parameter Estimators</a></li>
+<li class="chapter" data-level="5.2" data-path="simulation-studies.html"><a href="simulation-studies.html#checking-test-statistics"><i class="fa fa-check"></i><b>5.2</b> Checking Test Statistics</a><ul>
+<li class="chapter" data-level="5.2.1" data-path="simulation-studies.html"><a href="simulation-studies.html#simple-example-gauss-test"><i class="fa fa-check"></i><b>5.2.1</b> Simple Example: Gauss Test</a></li>
+<li class="chapter" data-level="5.2.2" data-path="simulation-studies.html"><a href="simulation-studies.html#simulated-power-function"><i class="fa fa-check"></i><b>5.2.2</b> Simulated Power Function</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Research Module in Econometrics &amp; Statistics</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="simulation-studies" class="section level1">
+<h1><span class="header-section-number">Ch. 5</span> Simulation Studies</h1>
+<div id="checking-parameter-estimators" class="section level2">
+<h2><span class="header-section-number">5.1</span> Checking Parameter Estimators</h2>
+<p>For the following, we use our <code>myOLSFun()</code> function to compute OLS estimators.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">myOLSFun &lt;-<span class="st"> </span><span class="cf">function</span>(y, x, <span class="dt">add.intercept=</span><span class="ot">FALSE</span>){
+  
+  ## Number of Observations:
+  n         &lt;-<span class="st"> </span><span class="kw">length</span>(y)
+  
+  ## Add an intercept to x:
+  <span class="cf">if</span>(add.intercept){
+    Intercept &lt;-<span class="st"> </span><span class="kw">rep</span>(<span class="dv">1</span>, n)
+    x         &lt;-<span class="st"> </span><span class="kw">cbind</span>(Intercept, x)
+  }
+  
+  ## Estimation of the slope-parameters:
+  beta.hat.vec &lt;-<span class="st"> </span><span class="kw">solve</span>(<span class="kw">t</span>(x) <span class="op">%*%</span><span class="st"> </span>x) <span class="op">%*%</span><span class="st"> </span><span class="kw">t</span>(x) <span class="op">%*%</span><span class="st"> </span>y
+  
+  ## Return the result:
+  <span class="kw">return</span>(beta.hat.vec)
+}</code></pre></div>
+<p>Let us consider the multiple regression model:</p>
+<p><span class="math display">\[y_i=\beta_1 +\beta_2 x_{2i}+\beta_3 x_{3i}+\varepsilon_{i},\quad i=1,\dots,n,\]</span> where <span class="math inline">\(\varepsilon_{i}\)</span> is a heteroscedastic error term <span class="math display">\[\varepsilon_{i}\sim N(0,\sigma_i^2),\quad \sigma_i=x_{3i},\]</span></p>
+<p>and where for all <span class="math inline">\(i=1,\dots,n=50\)</span>:</p>
+<ul>
+<li><span class="math inline">\(\beta_1=1\)</span>, <span class="math inline">\(\beta_2=-5\)</span>, and <span class="math inline">\(\beta_3=5\)</span></li>
+<li><span class="math inline">\(x_{2i}\sim N(10,1.5^2)\)</span></li>
+<li><span class="math inline">\(x_{3i}\)</span> comes from a t-distribution with 5 degrees of freedom and non-centrality parameter 2</li>
+</ul>
+<p><br />
+</p>
+<p>This following code generates:</p>
+<ol style="list-style-type: decimal">
+<li><code>B &lt;- 5000</code> (pseudo) random samples from the above model.</li>
+<li>Computes the OLS estimates <span class="math inline">\(\hat{\beta}_{2b}\)</span> and <span class="math inline">\(\hat{\beta}_{3b}\)</span> for each sample <span class="math inline">\(b=1,\dots,B\)</span></li>
+<li>Stores the estimation results in the data-vectors <code>beta.2.sim</code> and <code>beta.3.sim</code></li>
+<li>Plots the distribution of the estimation results using non-parametric density plots</li>
+</ol>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">## Simulation parameters:
+<span class="kw">set.seed</span>(<span class="dv">109</span>)            <span class="co"># Sets the &quot;seed&quot; of the random number generators</span>
+B           &lt;-<span class="st"> </span><span class="dv">5000</span>      <span class="co"># Number of simulation runs</span>
+## Model parameters:
+beta.vec    &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span>,<span class="op">-</span><span class="dv">5</span>,<span class="dv">5</span>) <span class="co"># Slope coefficients</span>
+n           &lt;-<span class="st"> </span><span class="dv">50</span>        <span class="co"># Number of observations</span>
+## Containers to save simulation results:
+beta.<span class="fl">2.</span>sim  &lt;-<span class="st"> </span><span class="kw">rep</span>(<span class="ot">NA</span>,B) 
+beta.<span class="fl">3.</span>sim  &lt;-<span class="st"> </span><span class="kw">rep</span>(<span class="ot">NA</span>,B) 
+
+## Generate the regressors: 
+## Outside of the loop (i.e., &#39;conditional on X&#39;)
+X<span class="fl">.1</span> &lt;-<span class="st"> </span><span class="kw">rep</span>(<span class="dv">1</span>, n)
+X<span class="fl">.2</span> &lt;-<span class="st"> </span><span class="kw">rnorm</span>(n, <span class="dt">mean=</span><span class="dv">10</span>, <span class="dt">sd=</span><span class="fl">1.5</span>)    <span class="co"># Draw realizations form a normal distr.</span>
+X<span class="fl">.3</span> &lt;-<span class="st"> </span><span class="kw">rt</span>(n, <span class="dt">df=</span><span class="dv">5</span>, <span class="dt">ncp=</span><span class="dv">2</span>)           <span class="co"># Draw realizations form a t-distr.</span>
+X   &lt;-<span class="st"> </span><span class="kw">cbind</span>(X<span class="fl">.1</span>, X<span class="fl">.2</span>, X<span class="fl">.3</span>)         <span class="co"># Save as a Nx3-dimensional matrix.</span>
+
+## Setup a progressbar
+<span class="co">#pb &lt;- txtProgressBar(min = 0, max = B, style = 3)</span>
+
+<span class="cf">for</span>(rpt <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span>B){
+  eps &lt;-<span class="st"> </span>(X<span class="fl">.3</span>)<span class="op">*</span><span class="kw">rnorm</span>(n, <span class="dt">mean=</span><span class="dv">0</span>, <span class="dt">sd=</span><span class="dv">1</span>) <span class="co"># heteroscadastic error term</span>
+  y   &lt;-<span class="st"> </span>X <span class="op">%*%</span><span class="st"> </span>beta.vec <span class="op">+</span><span class="st"> </span>eps         <span class="co"># Dependent variable</span>
+  ## Estimation
+  beta.hat &lt;-<span class="st"> </span><span class="kw">myOLSFun</span>(<span class="dt">y=</span>y,<span class="dt">x=</span>X)
+  ## Save results
+  beta.<span class="fl">2.</span>sim[rpt] &lt;-<span class="st"> </span>beta.hat[<span class="dv">2</span>]
+  beta.<span class="fl">3.</span>sim[rpt] &lt;-<span class="st"> </span>beta.hat[<span class="dv">3</span>]
+  ## Progress bar
+  <span class="co">#setTxtProgressBar(pb, rpt)</span>
+}
+<span class="co">#close(pb)# Close progressbar</span>
+
+## Plot results
+<span class="kw">par</span>(<span class="dt">mfrow=</span><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>))
+<span class="kw">plot</span>(<span class="kw">density</span>(beta.<span class="fl">2.</span>sim, <span class="dt">bw=</span><span class="st">&quot;SJ&quot;</span>), <span class="dt">main=</span><span class="kw">expression</span>(<span class="kw">hat</span>(beta)[<span class="dv">2</span>]))
+<span class="kw">abline</span>(<span class="dt">v=</span>beta.vec[<span class="dv">2</span>], <span class="dt">col=</span><span class="st">&quot;red&quot;</span>, <span class="dt">lwd=</span><span class="dv">2</span>)
+##
+<span class="kw">plot</span>(<span class="kw">density</span>(beta.<span class="fl">3.</span>sim, <span class="dt">bw=</span><span class="st">&quot;SJ&quot;</span>), <span class="dt">main=</span><span class="kw">expression</span>(<span class="kw">hat</span>(beta)[<span class="dv">3</span>]))
+<span class="kw">abline</span>(<span class="dt">v=</span>beta.vec[<span class="dv">3</span>], <span class="dt">col=</span><span class="st">&quot;red&quot;</span>, <span class="dt">lwd=</span><span class="dv">2</span>)</code></pre></div>
+<p><img src="05-Simulations_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>
+</div>
+<div id="checking-test-statistics" class="section level2">
+<h2><span class="header-section-number">5.2</span> Checking Test Statistics</h2>
+<div id="simple-example-gauss-test" class="section level3">
+<h3><span class="header-section-number">5.2.1</span> Simple Example: Gauss Test</h3>
+<p>First, we repeat some of the things we already know about the Gauss test statistic from <a href="statistical-hypothesis-testing.html#PF1">Chapter</a>.</p>
+<p>Let us consider the simple case of the <em>one-sided</em> Gauss (or Z) test statistic under the following following setup:</p>
+<ul>
+<li><span class="math inline">\(X_1,\dots,X_n\)</span> i.i.d. random sample with <span class="math inline">\(X_i\sim N(\mu_X,\sigma_X^2)\)</span> and <span class="math inline">\(\sigma_X^2=1\)</span></li>
+<li><span class="math inline">\(\alpha=0.05\)</span> (Significance level)</li>
+<li><span class="math inline">\(n\in\{15,30,50\}\)</span> (Different sample sizes)</li>
+<li><span class="math inline">\(\mu_{X,0}=0\)</span>, i.e., <span class="math inline">\(\Omega_0=\{0\}\)</span> and <span class="math inline">\(\Omega_1=]0,\infty[\)</span>.</li>
+</ul>
+<p>Under the above setup, we know the <strong>theoretical power function:</strong> <span class="math display">\[
+\begin{array}{rcl}
+\beta^{Z}_{n,\alpha}(\mu_X)
+&amp;=&amp;\mathbb{P}(Z \geq z_{1-\alpha})\\
+&amp;=&amp;1-\mathbb{P}(Z &lt; z_{1-\alpha})\\
+&amp;=&amp;1-\Phi_{\mu_Z,\sigma^2_Z}(z_{1-\alpha}),
+\end{array}
+\]</span> where <span class="math inline">\(\Phi_{\mu_Z,\sigma_Z^2}\)</span> denotes the distribution function of a Gaussian distribution with mean and variance: <span class="math display">\[
+\begin{array}{rcl}
+\mu_Z&amp;=&amp;\frac{\sqrt{n}(\mu_X-\mu_{X,0})}{\sigma_X}
+\,=\,\sqrt{n}(\mu_X-0)\\
+\sigma^2_Z&amp;=&amp;1.
+\end{array}
+\]</span> Furthermore, <span class="math inline">\(z_{1-\alpha}=z_{0.95}\)</span> is the 95% quantile of a standard normal distribution.</p>
+<p><strong>Computation in R:</strong> This is how you can use R in order to compute <span class="math inline">\(\beta^{Z}_{n,\alpha}(\mu_X)=1-\Phi_{\mu_Z,1}(z_{1-\alpha})\)</span>:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">Gauss.beta &lt;-<span class="st"> </span><span class="cf">function</span>(n,             <span class="co"># sample size  </span>
+                       <span class="dt">alpha=</span><span class="fl">0.05</span>,    <span class="co"># significance level</span>
+                       <span class="dt">mu.X.true=</span><span class="dv">0</span>,   <span class="co"># The true mean of X_i </span>
+                       <span class="dt">mu.X.null=</span><span class="dv">0</span>,   <span class="co"># The null-hypothesis mean of X_i</span>
+                       <span class="dt">var.X    =</span><span class="dv">1</span>    <span class="co"># The assumed known var of X_i</span>
+                       ){
+  ## Critical value:
+  z_crit &lt;-<span class="st"> </span><span class="kw">qnorm</span>(<span class="dv">1</span><span class="op">-</span>alpha, <span class="dt">mean=</span><span class="dv">0</span>, <span class="dt">sd=</span><span class="dv">1</span>)
+  ## Power:
+  Phi &lt;-<span class="st"> </span><span class="kw">pnorm</span>(<span class="dt">q    =</span> z_crit, 
+               <span class="dt">mean =</span> <span class="kw">sqrt</span>(n)<span class="op">*</span>(mu.X.true <span class="op">-</span><span class="st"> </span>mu.X.null)<span class="op">/</span><span class="kw">sqrt</span>(var.X), 
+               <span class="dt">sd   =</span> <span class="dv">1</span>)
+  power &lt;-<span class="st"> </span><span class="dv">1</span><span class="op">-</span><span class="st"> </span>Phi
+  ## Return result:
+  <span class="kw">return</span>(power)
+}</code></pre></div>
+<p>For our purposes, it is convenient to vectorize the <code>Gauss.beta()</code> function with respect to its argument <code>mu.X.true</code>:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">## Vectorization with respect to the argument `mu.X.true`:
+Gauss.beta &lt;-<span class="st"> </span><span class="kw">Vectorize</span>(<span class="dt">FUN=</span>Gauss.beta, <span class="dt">vectorize.args =</span> <span class="st">&quot;mu.X.true&quot;</span>)</code></pre></div>
+<p><strong>Plot:</strong> The function <code>Gauss.beta()</code> allows us now to easily produce a plot of the trajectories of the power function <span class="math inline">\(\beta^{Z}_{n,0.05}(\mu_X)\)</span> for <span class="math inline">\(\mu_X\in\Omega_0\cup\Omega_1\)</span> and for the different sample sizes <span class="math inline">\(n\in\{15,30,50\}\)</span>.</p>
+<p>Here is the R-Code to do this:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">## Sequence of different mu_X values (here from 0 to 1):
+mu.X.true.seq   &lt;-<span class="st"> </span><span class="kw">seq</span>(<span class="dv">0</span>,<span class="dv">1</span>,<span class="dt">len=</span><span class="dv">25</span>)
+
+## Trajectories of the power function for different sample sizes:
+## n=15
+beta.n<span class="fl">.15</span>       &lt;-<span class="st"> </span><span class="kw">Gauss.beta</span>(<span class="dt">n=</span><span class="dv">15</span>, <span class="dt">mu.X.true=</span>mu.X.true.seq)
+## n=30
+beta.n<span class="fl">.30</span>       &lt;-<span class="st"> </span><span class="kw">Gauss.beta</span>(<span class="dt">n=</span><span class="dv">30</span>, <span class="dt">mu.X.true=</span>mu.X.true.seq)
+## n=50
+beta.n<span class="fl">.50</span>       &lt;-<span class="st"> </span><span class="kw">Gauss.beta</span>(<span class="dt">n=</span><span class="dv">50</span>, <span class="dt">mu.X.true=</span>mu.X.true.seq)
+
+## Plot
+<span class="kw">par</span>(<span class="dt">mar=</span><span class="kw">c</span>(<span class="fl">5.1</span>,<span class="fl">4.1</span><span class="op">+</span><span class="dv">1</span>,<span class="fl">4.1</span>,<span class="fl">2.1</span>))
+<span class="kw">plot</span>(<span class="dt">y=</span><span class="dv">0</span>, <span class="dt">x=</span><span class="dv">0</span>, <span class="dt">type=</span><span class="st">&quot;n&quot;</span>,
+     <span class="dt">ylim=</span><span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">1</span>),
+     <span class="dt">xlim=</span><span class="kw">range</span>(mu.X.true.seq), 
+     <span class="dt">xlab=</span><span class="kw">expression</span>(<span class="kw">paste</span>(mu,<span class="st">&quot; (True Mean of &quot;</span>, X[i],<span class="st">&quot;)&quot;</span>)), 
+     ## Labels:
+     <span class="dt">ylab=</span><span class="kw">expression</span>(<span class="kw">paste</span>(<span class="st">&quot;Power function &quot;</span>,beta[n]<span class="op">^</span>Z,(mu))), 
+     <span class="dt">main=</span><span class="st">&quot;Power function of the (One-Sided) Gauss Test&quot;</span>)
+## Null-hypothesis mean:
+<span class="kw">mtext</span>(<span class="dt">text =</span> <span class="kw">expression</span>(mu[<span class="dv">0</span>]<span class="op">==</span><span class="dv">0</span>), <span class="dt">side =</span> <span class="dv">1</span>, <span class="dt">line =</span> <span class="dv">2</span>, <span class="dt">at =</span> <span class="dv">0</span>)
+## Trajectories:
+<span class="kw">lines</span>(<span class="dt">y=</span>beta.n<span class="fl">.15</span>, <span class="dt">x=</span>mu.X.true.seq, <span class="dt">lty=</span><span class="dv">2</span>)
+<span class="kw">lines</span>(<span class="dt">y=</span>beta.n<span class="fl">.30</span>, <span class="dt">x=</span>mu.X.true.seq, <span class="dt">lty=</span><span class="dv">3</span>)
+<span class="kw">lines</span>(<span class="dt">y=</span>beta.n<span class="fl">.50</span>, <span class="dt">x=</span>mu.X.true.seq, <span class="dt">lty=</span><span class="dv">4</span>)
+## Significance Level:
+<span class="kw">axis</span>(<span class="dv">4</span>, <span class="dt">at=</span><span class="fl">0.05</span>, <span class="dt">labels =</span> <span class="kw">expression</span>(alpha<span class="op">==</span><span class="fl">0.05</span>))
+<span class="kw">abline</span>(<span class="dt">h=</span><span class="fl">0.05</span>, <span class="dt">lty=</span><span class="dv">1</span>)
+## Legend:
+<span class="kw">legend</span>(<span class="st">&quot;topleft&quot;</span>, <span class="dt">title =</span> <span class="st">&quot;Sample Sizes&quot;</span>, 
+       <span class="dt">legend =</span> <span class="kw">c</span>(<span class="st">&quot;n=50&quot;</span>,<span class="st">&quot;n=30&quot;</span>,<span class="st">&quot;n=15&quot;</span>), 
+       <span class="dt">lty=</span><span class="kw">c</span>(<span class="dv">4</span><span class="op">:</span><span class="dv">2</span>))</code></pre></div>
+<p><img src="05-Simulations_files/figure-html/unnamed-chunk-6-1.png" width="528" /></p>
+</div>
+<div id="simulated-power-function" class="section level3">
+<h3><span class="header-section-number">5.2.2</span> Simulated Power Function</h3>
+<p>The power function is best suited to compare several test statistics with each other. Very often, however, it is impossible to compute the power function <span class="math inline">\(\beta_{n,\alpha}(\theta)\)</span> analytically. (The Gauss test is a rare exception.) The reason for this is that we often know only the distribution of a test statistic under the null hypothesis, but not under the alternative hypothesis. In fact, things can be even worse: Very often, we only know the <strong>asymptotic distribution</strong> of a test statistic under the null hypothesis. That is, the null distribution is only known for the limiting case of <span class="math inline">\(n\to\infty\)</span>.</p>
+<p><strong>Solution:</strong> Use <strong>Monte-Carlo Simulations</strong> in order approximate the power function.</p>
+<p>For the sake of simplicity let’s approximate the power function <span class="math inline">\(\beta^Z_{n,\alpha}(\theta)\)</span> of the one-sided Gauss-Test. This has the (didactic) advantage that we can compare our MC-approximated power function with the theoretical power function.</p>
+<p><strong>General Idea:</strong> MC-Simulations make use of the <strong>Law of Large Numbers</strong>. For instance, by the <a href="http://www.statlect.com/asylln1.htm">Strong Law of Large Numbers</a> we know that the empirical mean <span class="math display">\[\bar{X}_m\to_{(a.s)}\mu_X\]</span> converges almost surely (a.s.) to the desired limit <span class="math inline">\(\mathbb{E}(X)=\mu_X\)</span> as <span class="math inline">\(m\to\infty\)</span>. The only prerequisites are that <span class="math inline">\(X\)</span> has finite first moments, i.e., <span class="math inline">\(\mathbb{E}(X)=\mu_X&lt;\infty\)</span>, and that <span class="math inline">\(\bar{X}_m\)</span> is constructed from an i.i.d. sample <span class="math inline">\(X_1,\dots,X_m\)</span>. That is, MC-Simulations use averages in order to approximate mean values.</p>
+<p><strong>Approximating a Power Function (Theory):</strong></p>
+<p>Remember that <span class="math display">\[
+\begin{array}{rcl}
+\beta^{Z}_{n,\alpha}(\mu_X)
+&amp;=&amp;\mathbb{P}(Z \geq z_{1-\alpha}).
+\end{array}
+\]</span></p>
+<p>Let us rewrite this probability using the following binary random variable: <span class="math display">\[
+V=1_{(Z \geq z_{1-\alpha})},
+\]</span> where <span class="math inline">\(1_{(\text{TRUE})}=1\)</span> and <span class="math inline">\(1_{(\text{FALSE})}=0\)</span>. Then we have that <span class="math display">\[
+\begin{array}{rcl}
+\beta^{Z}_{n,\alpha}(\mu_X)
+&amp;=&amp;\mathbb{P}(Z \geq z_{1-\alpha})\,=\,\mathbb{E}(V),
+\end{array}
+\]</span> since <span class="math display">\[
+\begin{array}{rcl}
+\mathbb{E}(V)&amp;=&amp;\underbrace{\mathbb{P}(V=1)}_{\mathbb{P}(Z \geq z_{1-\alpha})\cdot 1}+\underbrace{\mathbb{P}(V=0)\cdot 0}_{=0}.%\,=\,\mathbb{P}(Z \geq z_{1-\alpha}).
+\end{array}
+\]</span></p>
+<p>Now we have an expression for the power function <span class="math inline">\(\beta^{Z}_{n,\alpha}(\mu_X)\)</span> in terms of the population mean <span class="math inline">\(\mathbb{E}(V)\)</span>.</p>
+<p>By the <strong>Law of Large Numbers</strong> we know that we can use averages of i.i.d. random variables in order to approximate their population mean. That is, <span class="math display">\[
+\frac{1}{m}\sum_{j=1}^m V_j\to_{(a.s)}\mathbb{E}(V)\quad\text{as}\quad m\to\infty,
+\]</span> where <span class="math inline">\((V_1,\dots,V_m)\)</span> is an iid random sample with <span class="math inline">\(V_j\sim V=1_{(Z \geq z_{1-\alpha})}\)</span>. This approximation can be made <strong>arbitrarily accurate</strong> as <span class="math inline">\(m\to\infty\)</span>.</p>
+<p><br />
+The MC-Simulation proceeds as following:</p>
+<ol style="list-style-type: decimal">
+<li>Choose a large number <span class="math inline">\(m\)</span>, for instance, <span class="math inline">\(m=50,000\)</span>.</li>
+<li>Generate realizations <span class="math display">\[
+(v_1,\dots,v_m)
+\]</span> from the MC random sample <span class="math display">\[
+(V_1,\dots,V_m)=(1_{(Z_1 \geq z_{1-\alpha})},\dots,1_{(Z_m \geq z_{1-\alpha})})
+\]</span></li>
+<li>Approximate <span class="math inline">\(\mathbb{E}(V)=\beta^{Z}_{n,\alpha}(\mu_X)\)</span> using the empirical means. <span class="math display">\[
+\frac{1}{m}\sum_{j=1}^m v_j.
+\]</span></li>
+</ol>
+<p><br />
+</p>
+<p><strong>Approximating a Power Function (Practice):</strong></p>
+<p>Let’s start with approximating only the following value of the power function for the one-sided Gauss-Test: <span class="math display">\[
+\beta^{Z}_{n=15,\alpha=0.05}(0.5)=0.6147.
+\]</span></p>
+<p>First, we set the Monte-Carlo sample size to <span class="math inline">\(m=50,000\)</span>.</p>
+<p>Second, we need a realization from the random sample <span class="math display">\[
+(1_{(Z_1 \geq z_{1-\alpha})},\dots,1_{(Z_m \geq z_{1-\alpha})}).
+\]</span> In R you can do this as following:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">set.seed</span>(<span class="dv">1009</span>)
+## Setup:
+n         &lt;-<span class="st"> </span><span class="dv">15</span>    <span class="co"># Sample Size</span>
+alpha     &lt;-<span class="st">  </span><span class="fl">0.05</span> <span class="co"># Significance Level</span>
+mu.X.true &lt;-<span class="st">  </span><span class="fl">0.5</span>  <span class="co"># The (usually unknown) true mean of X_i</span>
+mu.X.null &lt;-<span class="st">  </span><span class="dv">0</span>    <span class="co"># The null-hypothesis mean of X_i</span>
+var.X     &lt;-<span class="st">  </span><span class="dv">1</span>    <span class="co"># The (assumed known)  var of X_i</span>
+
+## Critical value:
+z_crit &lt;-<span class="st"> </span><span class="kw">qnorm</span>(<span class="dv">1</span><span class="op">-</span>alpha, <span class="dt">mean=</span><span class="dv">0</span>, <span class="dt">sd=</span><span class="dv">1</span>)
+
+## Number of Monte-Carlo Repetitions:
+m         &lt;-<span class="st"> </span><span class="dv">50000</span>
+
+## Container for Z-realizations:
+Z         &lt;-<span class="st"> </span><span class="kw">rep</span>(<span class="ot">NA</span>, m)
+
+## MC-Experiments:
+<span class="cf">for</span>(j <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span>m){
+  ## Generate X-sample:
+  X.sample &lt;-<span class="st"> </span><span class="kw">rnorm</span>(<span class="dt">n=</span>n, <span class="dt">mean=</span>mu.X.true, <span class="dt">sd=</span><span class="kw">sqrt</span>(var.X))
+  ## Compute jth realization of Z:
+  Z[j]     &lt;-<span class="st"> </span><span class="kw">sqrt</span>(n)<span class="op">*</span>(<span class="kw">mean</span>(X.sample) <span class="op">-</span><span class="st"> </span>mu.X.null)<span class="op">/</span><span class="kw">sqrt</span>(var.X)
+}
+
+## Check Z&gt;=z_crit:
+<span class="kw">head</span>(Z <span class="op">&gt;=</span><span class="st"> </span>z_crit)</code></pre></div>
+<pre><code>## [1]  TRUE  TRUE  TRUE FALSE FALSE  TRUE</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">head</span>(<span class="kw">as.numeric</span>(Z <span class="op">&gt;=</span><span class="st"> </span>z_crit))</code></pre></div>
+<pre><code>## [1] 1 1 1 0 0 1</code></pre>
+<p>Third, we need to compute the average <span class="math display">\[
+\frac{1}{m}\sum_{j=1}^m 1_{(Z_j \geq z_{1-\alpha})}
+\]</span> with respect to the simulated realizations <span class="math inline">\(1_{(Z_1 \geq z_{1-\alpha})},\dots,1_{(Z_m \geq z_{1-\alpha})}\)</span>.</p>
+<p>In R you can do this as following:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">## MC-Approximated Power:
+MC_power_n15_mu0<span class="fl">.5</span> &lt;-<span class="st"> </span><span class="kw">mean</span>(Z <span class="op">&gt;=</span><span class="st"> </span>z_crit)
+MC_power_n15_mu0<span class="fl">.5</span></code></pre></div>
+<pre><code>## [1] 0.6139</code></pre>
+<p>Observe that this approximation is really close to the true value:   <span class="math inline">\(\beta^{Z}_{n=15,\alpha=0.05}(0.5)\,=\,0.6147 =\)</span> <code>Gauss.beta(n=15, mu.X.true=0.5)</code>.</p>
+<p><br />
+We can write all this as a practical R function <code>Gauss.MC.beta()</code>:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">Gauss.MC.beta &lt;-<span class="st"> </span><span class="cf">function</span>(
+    <span class="dt">n         =</span> <span class="dv">15</span>,    <span class="co"># Sample Size</span>
+    <span class="dt">alpha     =</span>  <span class="fl">0.05</span>, <span class="co"># Significance Level</span>
+    <span class="dt">mu.X.true =</span>  <span class="fl">0.5</span>,  <span class="co"># The (usually unknown) true mean of X_i</span>
+    <span class="dt">mu.X.null =</span>  <span class="dv">0</span>,    <span class="co"># The null-hypothesis mean of X_i</span>
+    <span class="dt">var.X     =</span>  <span class="dv">1</span>,    <span class="co"># The (assumed known)  var of X_i</span>
+    ##
+    <span class="dt">m         =</span> <span class="dv">50000</span>  <span class="co"># Number of Monte-Carlo Repetitions:</span>
+    ){
+
+  ## Critical value:
+  z_crit &lt;-<span class="st"> </span><span class="kw">qnorm</span>(<span class="dv">1</span><span class="op">-</span>alpha, <span class="dt">mean=</span><span class="dv">0</span>, <span class="dt">sd=</span><span class="dv">1</span>)
+  ## Container for Z-realizations:
+  Z         &lt;-<span class="st"> </span><span class="kw">rep</span>(<span class="ot">NA</span>, m)
+
+  ## MC-Experiments:
+  <span class="cf">for</span>(j <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span>m){
+    ## Generate X-sample:
+    X.sample &lt;-<span class="st"> </span><span class="kw">rnorm</span>(<span class="dt">n=</span>n, <span class="dt">mean=</span>mu.X.true, <span class="dt">sd=</span><span class="kw">sqrt</span>(var.X))
+    ## Compute jth realization of Z:
+    Z[j]     &lt;-<span class="st"> </span><span class="kw">sqrt</span>(n)<span class="op">*</span>(<span class="kw">mean</span>(X.sample) <span class="op">-</span><span class="st"> </span>mu.X.null)<span class="op">/</span><span class="kw">sqrt</span>(var.X)
+  }
+  ## MC-Approx Power
+  MC.power &lt;-<span class="st"> </span><span class="kw">mean</span>(<span class="kw">c</span>(<span class="kw">as.numeric</span>(Z <span class="op">&gt;=</span><span class="st"> </span>z_crit)))
+  ##
+  <span class="kw">return</span>(MC.power)
+}
+
+## Vectorization:
+Gauss.MC.beta &lt;-<span class="st"> </span><span class="kw">Vectorize</span>(<span class="dt">FUN=</span>Gauss.MC.beta, <span class="dt">vectorize.args =</span> <span class="st">&quot;mu.X.true&quot;</span>)</code></pre></div>
+<p><strong>Plot:</strong></p>
+<p>The function <code>Gauss.MC.beta()</code> allows us now to compare the theoretical trajectory of the power function <span class="math inline">\(\beta^{Z}_{n,0.05}(\mu_X)\)</span> for <span class="math inline">\(\mu_X\in\Omega_0\cup\Omega_1\)</span>, e.g., for the sample size <span class="math inline">\(n=30\)</span> with its simulated counterpart.</p>
+<p>Here is the R-Code to do this:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">## Sequence of different mu_X values (here from 0 to 1):
+mu.X.true.seq   &lt;-<span class="st"> </span><span class="kw">seq</span>(<span class="dv">0</span>,<span class="dv">1</span>,<span class="dt">len=</span><span class="dv">25</span>)
+
+## Simulating the trajectory of the power function for n=30:
+## Number of MC-Repetitions:
+m &lt;-<span class="st"> </span><span class="dv">50000</span>  
+## Try also: 
+## m &lt;- 100
+
+beta.MC.n<span class="fl">.30</span>       &lt;-<span class="st"> </span><span class="kw">Gauss.MC.beta</span>(<span class="dt">n         =</span> <span class="dv">30</span>, 
+                                    <span class="dt">mu.X.true =</span> mu.X.true.seq,
+                                    <span class="dt">m         =</span> m)
+
+## Plot
+<span class="kw">par</span>(<span class="dt">mar=</span><span class="kw">c</span>(<span class="fl">5.1</span>,<span class="fl">4.1</span><span class="op">+</span><span class="dv">1</span>,<span class="fl">4.1</span>,<span class="fl">2.1</span>))
+<span class="kw">plot</span>(<span class="dt">y=</span><span class="dv">0</span>, <span class="dt">x=</span><span class="dv">0</span>, <span class="dt">type=</span><span class="st">&quot;n&quot;</span>,
+     <span class="dt">ylim=</span><span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">1</span>),
+     <span class="dt">xlim=</span><span class="kw">range</span>(mu.X.true.seq), 
+     <span class="dt">xlab=</span><span class="kw">expression</span>(<span class="kw">paste</span>(mu,<span class="st">&quot; (True Mean of &quot;</span>, X[i],<span class="st">&quot;)&quot;</span>)), 
+     ## Labels:
+     <span class="dt">ylab=</span><span class="kw">expression</span>(<span class="kw">paste</span>(<span class="st">&quot;Power function &quot;</span>,beta[n]<span class="op">^</span>Z,(mu))), 
+     <span class="dt">main=</span><span class="st">&quot;Power function of the (One-Sided) Gauss Test&quot;</span>)
+## Null-hypothesis mean:
+<span class="kw">mtext</span>(<span class="dt">text =</span> <span class="kw">expression</span>(mu[<span class="dv">0</span>]<span class="op">==</span><span class="dv">0</span>), <span class="dt">side =</span> <span class="dv">1</span>, <span class="dt">line =</span> <span class="dv">2</span>, <span class="dt">at =</span> <span class="dv">0</span>)
+## Trajectories:
+<span class="kw">lines</span>(<span class="dt">y=</span>beta.MC.n<span class="fl">.30</span>, <span class="dt">x=</span>mu.X.true.seq, <span class="dt">lty=</span><span class="dv">1</span>, <span class="dt">lwd=</span><span class="dv">4</span>, <span class="dt">col=</span><span class="st">&quot;darkorange&quot;</span>)
+<span class="kw">lines</span>(<span class="dt">y=</span>beta.n<span class="fl">.30</span>,    <span class="dt">x=</span>mu.X.true.seq, <span class="dt">lty=</span><span class="dv">2</span>)
+## Significance Level:
+<span class="kw">axis</span>(<span class="dv">4</span>, <span class="dt">at=</span><span class="fl">0.05</span>, <span class="dt">labels =</span> <span class="kw">expression</span>(alpha<span class="op">==</span><span class="fl">0.05</span>))
+<span class="kw">abline</span>(<span class="dt">h=</span><span class="fl">0.05</span>, <span class="dt">lty=</span><span class="dv">1</span>)
+## Legend:
+<span class="kw">legend</span>(<span class="st">&quot;topleft&quot;</span>, <span class="dt">title =</span> <span class="st">&quot;Power-Functions (n=30)&quot;</span>, 
+       <span class="dt">legend =</span> <span class="kw">c</span>(<span class="st">&quot;MC-Approx.&quot;</span>,<span class="st">&quot;Theoretical&quot;</span>), 
+       <span class="dt">lty=</span><span class="kw">c</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">2</span>), <span class="dt">lwd=</span><span class="kw">c</span>(<span class="dv">4</span>,<span class="dv">1</span>), <span class="dt">col=</span><span class="kw">c</span>(<span class="st">&quot;darkorange&quot;</span>,<span class="st">&quot;black&quot;</span>))</code></pre></div>
+<p><img src="05-Simulations_files/figure-html/unnamed-chunk-10-1.png" width="528" /></p>
+
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="linear-regression.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="references.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"linkedin": false,
+"weibo": false,
+"instapper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"download": ["RM_ES_Script.pdf"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "";
+    if (src === "" || src === "true") src = "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:" && /^https?:/.test(src))
+      src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

@@ -40,7 +40,8 @@ Furthermore, $z_{1-\alpha}=z_{0.95}$ is the 95% quantile of a standard normal di
 
 **Computation in R:**
 This is how you can use R in order to compute $\beta^{Z}_{n,\alpha}(\mu_X)=1-\Phi_{\mu_Z,1}(z_{1-\alpha})$:
-```{r}
+
+```r
 Gauss.beta <- function(n,             # sample size  
                        alpha=0.05,    # significance level
                        mu.X.true=0,   # The true mean of X_i 
@@ -60,7 +61,8 @@ Gauss.beta <- function(n,             # sample size
 ```
 
 For our purposes, it is convenient to vectorize the `Gauss.beta()` function with respect to its argument `mu.X.true`: 
-```{r}
+
+```r
 ## Vectorization with respect to the argument `mu.X.true`:
 Gauss.beta <- Vectorize(FUN=Gauss.beta, vectorize.args = "mu.X.true")
 ```
@@ -72,7 +74,8 @@ $\beta^{Z}_{n,0.05}(\mu_X)$ for $\mu_X\in\Omega_0\cup\Omega_1$ and for the diffe
 
 
 Here is the R-Code to do this:
-```{r, fig.width=5.5, fig.height=4.5, cache=TRUE}
+
+```r
 ## Sequence of different mu_X values (here from 0 to 1):
 mu.X.true.seq   <- seq(0,1,len=25)
 
@@ -107,6 +110,8 @@ legend("topleft", title = "Sample Sizes",
        legend = c("n=50","n=30","n=15"), 
        lty=c(4:2))
 ```
+
+![](05-Simulations_files/figure-latex/unnamed-chunk-3-1.pdf)<!-- --> 
 
 
 
@@ -194,7 +199,7 @@ The MC-Simulation proceeds as following:
 
 Let's start with approximating only the following value of the power function for the one-sided Gauss-Test: 
 $$
-\beta^{Z}_{n=15,\alpha=0.05}(0.5)=`r round(Gauss.beta(n=15, mu.X.true=0.5), digits=4)`.
+\beta^{Z}_{n=15,\alpha=0.05}(0.5)=0.6147.
 $$
 
 First, we set the Monte-Carlo sample size to $m=50,000$.
@@ -204,7 +209,8 @@ $$
 (1_{(Z_1 \geq z_{1-\alpha})},\dots,1_{(Z_m \geq z_{1-\alpha})}).
 $$
 In R you can do this as following:
-```{r}
+
+```r
 set.seed(1009)
 ## Setup:
 n         <- 15    # Sample Size
@@ -232,7 +238,18 @@ for(j in 1:m){
 
 ## Check Z>=z_crit:
 head(Z >= z_crit)
+```
+
+```
+## [1]  TRUE  TRUE  TRUE FALSE FALSE  TRUE
+```
+
+```r
 head(as.numeric(Z >= z_crit))
+```
+
+```
+## [1] 1 1 1 0 0 1
 ```
 
 Third, we need to compute the average 
@@ -242,10 +259,15 @@ $$
 with respect to the simulated realizations $1_{(Z_1 \geq z_{1-\alpha})},\dots,1_{(Z_m \geq z_{1-\alpha})}$. 
 
 In R you can do this as following:
-```{r}
+
+```r
 ## MC-Approximated Power:
 MC_power_n15_mu0.5 <- mean(Z >= z_crit)
 MC_power_n15_mu0.5
+```
+
+```
+## [1] 0.6139
 ```
 
 Observe that this approximation is really close to the true value:
@@ -256,7 +278,8 @@ $\beta^{Z}_{n=15,\alpha=0.05}(0.5)\,=\,0.6147 =$ `Gauss.beta(n=15, mu.X.true=0.5
 
 We can write all this as a practical R function `Gauss.MC.beta()`:
 
-```{r}
+
+```r
 Gauss.MC.beta <- function(
     n         = 15,    # Sample Size
     alpha     =  0.05, # Significance Level
@@ -298,7 +321,8 @@ $\beta^{Z}_{n,0.05}(\mu_X)$ for $\mu_X\in\Omega_0\cup\Omega_1$, e.g., for the sa
 
 Here is the R-Code to do this:
 
-```{r, fig.width=5.5, fig.height=4.5, cache=TRUE}
+
+```r
 ## Sequence of different mu_X values (here from 0 to 1):
 mu.X.true.seq   <- seq(0,1,len=25)
 
@@ -335,6 +359,8 @@ legend("topleft", title = "Power-Functions (n=30)",
        lty=c(1:2), lwd=c(4,1), col=c("darkorange","black"))
 ```
 
+![](05-Simulations_files/figure-latex/unnamed-chunk-7-1.pdf)<!-- --> 
+
 
 
 
@@ -348,7 +374,8 @@ legend("topleft", title = "Power-Functions (n=30)",
 
 For the following, we use our `myOLSFun()` function to compute OLS estimators.
 
-```{r}
+
+```r
 myOLSFun <- function(y, x, add.intercept=FALSE){
   
   ## Number of Observations:
@@ -392,7 +419,8 @@ This following code generates:
 3. Stores the estimation results in the data-vectors `beta.2.sim` and `beta.3.sim`
 4. Plots the distribution of the estimation results using non-parametric density plots 
 
-```{r}
+
+```r
 ## Simulation parameters:
 set.seed(109)            # Sets the "seed" of the random number generators
 m           <- 5000      # Number of simulation runs
@@ -435,9 +463,9 @@ plot(density(beta.3.sim, bw="SJ"), main=expression(hat(beta)[3]))
 abline(v=beta.vec[3], col="red", lwd=2)
 ```
 
-```{r, echo=FALSE}
-par(mfrow=c(1,1))
-```
+![](05-Simulations_files/figure-latex/unnamed-chunk-9-1.pdf)<!-- --> 
+
+
 
 
 

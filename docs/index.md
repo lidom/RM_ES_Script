@@ -50,7 +50,7 @@ Date        Time               Topic
 22.10.      14:15 - 15:45      Estimation Theory
 24.10.      14:15 - 15:45      Estimation Theory / **Final allocation of topics**
 29.10.      14:15 - 15:45      Regression Analysis
-31.10.      14:15 - 15:45      Simulations
+31.10.      14:15 - 15:45      Monte-Carlo Simulations
 07.11.      14:15 - 15:45      How to Write and Present
 21.01.      14:15 - 15:45      Presentations
 23.01.      14:15 - 15:45      Presentations
@@ -64,7 +64,35 @@ Date        Time               Topic
 
 
 
-<!-- 05.11.      14:15 - 15:45      Bootstrap -->
-<!-- 21.01.      14:15 - 15:45      Presentations -->
-<!-- 23.01.      14:15 - 15:45      Presentations -->
+\
+
+
+**Term Paper:**
+
+Every term paper should consist of the following parts:
+
+* Introduction of the general problem and a short overview about the relevant literature.
+* Detailed description of the considered method(s).
+* Assessment of the method(s) by means of Monte-Carlo simulations.
+* Application to real data.
+
+
+\
+
+Page Count:
+
+* For groups of 1-2: 10-15 pages (plus bibliography and appendix)
+* For groups of 3-4: 15-20 pages (plus bibliography and appendix)
+* Long tables, proofs, additional figures, etc.~should be placed in the appendix.
+* Line-spacing: 1.5
+
+
+\
+
+
+**Presentations:**
+
+* For groups of 1-2: 15 minutes
+* For groups of 3-4: 20-25 minutes
+
 
