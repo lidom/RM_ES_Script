@@ -1,7 +1,7 @@
 --- 
 title: "Research Module in Econometrics & Statistics"
 author: "JProf. Dominik Liebl"
-date: "2018-10-29"
+date: "2018-10-30"
 site: bookdown::bookdown_site
 documentclass: book
 bibliography: [book.bib]
@@ -51,17 +51,22 @@ Date        Time               Topic
 24.10.      14:15 - 15:45      Estimation Theory / **Final allocation of topics**
 29.10.      14:15 - 15:45      Regression Analysis
 31.10.      14:15 - 15:45      Monte-Carlo Simulations
-07.11.      14:15 - 15:45      How to Write and Present
+05.11.      14:15 - 15:45      How to Write and Present
 21.01.      14:15 - 15:45      Presentations
 23.01.      14:15 - 15:45      Presentations
 
 
-- **Location:** Room 0.042
+- **Lecture-Room:** Room 0.042
 - **Supervision meetings:** From Nov. to Jan. at the office of JProf. Liebl
+- **Scheduling of appointments:** (HERE)[https://docs.google.com/spreadsheets/d/1clb0ple3GaRlwod5JOKK84A996p1BKNMSs32JrqBZ_A/edit?usp=sharing]
 
 
-**Deadline for submission of term papers:** Feb. 28, 2019, via e-mail to [dliebl@uni-bonn.de](mailto:dliebl@uni-bonn.de)
+\
 
+**Presentations:**
+
+* For groups of 1-2: 10-15 minutes
+* For groups of 3-4: 20-25 minutes
 
 
 \
@@ -69,30 +74,24 @@ Date        Time               Topic
 
 **Term Paper:**
 
-Every term paper should consist of the following parts:
+* Every term paper should consist of the following parts:
 
-* Introduction of the general problem and a short overview about the relevant literature.
-* Detailed description of the considered method(s).
-* Assessment of the method(s) by means of Monte-Carlo simulations.
-* Application to real data.
+    * Introduction of the general problem and a short overview about the relevant literature.
+    * Detailed description of the considered method(s).
+    * Assessment of the method(s) by means of Monte-Carlo simulations.
+    * Application to real data.
 
+* Page Count:
 
-\
-
-Page Count:
-
-* For groups of 1-2: 10-15 pages (plus bibliography and appendix)
-* For groups of 3-4: 15-20 pages (plus bibliography and appendix)
-* Long tables, proofs, additional figures, etc. should be placed in the appendix.
-* Line-spacing: 1.5
+    * For groups of 1-2: 10-15 pages (plus bibliography and appendix)
+    * For groups of 3-4: 15-20 pages (plus bibliography and appendix)
+    * Long tables, proofs, additional figures, etc. should be placed in the appendix.
+    * Line-spacing: 1.5
 
 
-\
+* **Deadline for submission of term papers:** Feb. 28, 2019, via e-mail to [dliebl@uni-bonn.de](mailto:dliebl@uni-bonn.de)
 
 
-**Presentations:**
 
-* For groups of 1-2: 10-15 minutes
-* For groups of 3-4: 20-25 minutes
 
 
