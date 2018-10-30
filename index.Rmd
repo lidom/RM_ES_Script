@@ -58,7 +58,7 @@ Date        Time               Topic
 
 - **Lecture-Room:** Room 0.042
 - **Supervision meetings:** From Nov. to Jan. at the office of JProf. Liebl
-- **Scheduling of appointments:** (HERE)[https://docs.google.com/spreadsheets/d/1clb0ple3GaRlwod5JOKK84A996p1BKNMSs32JrqBZ_A/edit?usp=sharing]
+- **Scheduling of appointments:** [HERE](https://docs.google.com/spreadsheets/d/1clb0ple3GaRlwod5JOKK84A996p1BKNMSs32JrqBZ_A/edit?usp=sharing)
 
 
 \
@@ -75,20 +75,15 @@ Date        Time               Topic
 **Term Paper:**
 
 * Every term paper should consist of the following parts:
-
     * Introduction of the general problem and a short overview about the relevant literature.
     * Detailed description of the considered method(s).
     * Assessment of the method(s) by means of Monte-Carlo simulations.
     * Application to real data.
-
 * Page Count:
-
     * For groups of 1-2: 10-15 pages (plus bibliography and appendix)
     * For groups of 3-4: 15-20 pages (plus bibliography and appendix)
     * Long tables, proofs, additional figures, etc. should be placed in the appendix.
     * Line-spacing: 1.5
-
-
 * **Deadline for submission of term papers:** Feb. 28, 2019, via e-mail to [dliebl@uni-bonn.de](mailto:dliebl@uni-bonn.de)
 
 
