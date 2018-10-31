@@ -25,7 +25,7 @@
 <meta name="author" content="JProf. Dominik Liebl">
 
 
-<meta name="date" content="2018-10-30">
+<meta name="date" content="2018-10-31">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -176,7 +176,7 @@ code > span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Inf
 <h2><span class="header-section-number">5.1</span> Checking Test Statistics</h2>
 <div id="simple-example-gauss-test" class="section level3">
 <h3><span class="header-section-number">5.1.1</span> Simple Example: Gauss Test</h3>
-<p>First, we repeat some of the things we already know about the Gauss test statistic from <a href="statistical-hypothesis-testing.html#PF1">Chapter</a>.</p>
+<p>First, we repeat some of the things we already know about the Gauss test statistic <span class="math inline">\(Z=\frac{\sqrt{n}(\bar{X}-\mu_{X,0})}{\sigma_X}\)</span> from <a href="statistical-hypothesis-testing.html#PF1">Chapter</a>.</p>
 <p>Let us consider the simple case of the <em>one-sided</em> Gauss (or Z) test statistic under the following following setup:</p>
 <ul>
 <li><span class="math inline">\(X_1,\dots,X_n\)</span> i.i.d. random sample with <span class="math inline">\(X_i\sim N(\mu_X,\sigma_X^2)\)</span> and <span class="math inline">\(\sigma_X^2=1\)</span></li>
@@ -440,8 +440,9 @@ beta.MC.n<span class="fl">.30</span>       &lt;-<span class="st"> </span><span c
 }</code></pre></div>
 <p>Let us consider the multiple regression model:</p>
 <p><span class="math display">\[y_i=\beta_1 +\beta_2 x_{2i}+\beta_3 x_{3i}+\varepsilon_{i},\quad i=1,\dots,n,\]</span> where <span class="math inline">\(\varepsilon_{i}\)</span> is a heteroscedastic error term <span class="math display">\[\varepsilon_{i}\sim N(0,\sigma_i^2),\quad \sigma_i=x_{3i},\]</span></p>
-<p>and where for all <span class="math inline">\(i=1,\dots,n=50\)</span>:</p>
+<p>and where:</p>
 <ul>
+<li><span class="math inline">\(i=1,\dots,n\)</span> with <span class="math inline">\(n=50\)</span></li>
 <li><span class="math inline">\(\beta_1=1\)</span>, <span class="math inline">\(\beta_2=-5\)</span>, and <span class="math inline">\(\beta_3=5\)</span></li>
 <li><span class="math inline">\(x_{2i}\sim N(10,1.5^2)\)</span></li>
 <li><span class="math inline">\(x_{3i}\)</span> comes from a t-distribution with 5 degrees of freedom and non-centrality parameter 2</li>
@@ -488,14 +489,20 @@ X   &lt;-<span class="st"> </span><span class="kw">cbind</span>(X<span class="fl
 }
 <span class="co">#close(pb)# Close progressbar</span>
 
+
+<span class="co"># Theoretical variance covariance matrix of \hat{beta}</span>
+Var_beta_mat &lt;-<span class="st"> </span><span class="kw">solve</span>(<span class="kw">t</span>(X)<span class="op">%*%</span>X) <span class="op">%*%</span><span class="st"> </span><span class="kw">t</span>(X) <span class="op">%*%</span><span class="st"> </span><span class="kw">diag</span>((X<span class="fl">.3</span>)<span class="op">^</span><span class="dv">2</span>) <span class="op">%*%</span><span class="st"> </span>X <span class="op">%*%</span><span class="st"> </span><span class="kw">solve</span>(<span class="kw">t</span>(X)<span class="op">%*%</span>X)
+
 ## Plot results
 <span class="kw">par</span>(<span class="dt">mfrow=</span><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>))
-<span class="kw">plot</span>(<span class="kw">density</span>(beta.<span class="fl">2.</span>sim, <span class="dt">bw=</span><span class="st">&quot;SJ&quot;</span>), <span class="dt">main=</span><span class="kw">expression</span>(<span class="kw">hat</span>(beta)[<span class="dv">2</span>]))
-<span class="kw">abline</span>(<span class="dt">v=</span>beta.vec[<span class="dv">2</span>], <span class="dt">col=</span><span class="st">&quot;red&quot;</span>, <span class="dt">lwd=</span><span class="dv">2</span>)
-##
-<span class="kw">plot</span>(<span class="kw">density</span>(beta.<span class="fl">3.</span>sim, <span class="dt">bw=</span><span class="st">&quot;SJ&quot;</span>), <span class="dt">main=</span><span class="kw">expression</span>(<span class="kw">hat</span>(beta)[<span class="dv">3</span>]))
-<span class="kw">abline</span>(<span class="dt">v=</span>beta.vec[<span class="dv">3</span>], <span class="dt">col=</span><span class="st">&quot;red&quot;</span>, <span class="dt">lwd=</span><span class="dv">2</span>)</code></pre></div>
+<span class="kw">hist</span>(beta.<span class="fl">2.</span>sim, <span class="dt">prob=</span><span class="ot">TRUE</span>, <span class="dt">main=</span><span class="kw">expression</span>(<span class="kw">hat</span>(beta)[<span class="dv">2</span>]), <span class="dt">ylim=</span><span class="kw">c</span>(<span class="dv">0</span>,<span class="fl">1.55</span>))
+<span class="kw">curve</span>(<span class="kw">dnorm</span>(x, <span class="dt">mean=</span>beta.vec[<span class="dv">2</span>], <span class="dt">sd=</span><span class="kw">sqrt</span>(Var_beta_mat[<span class="dv">2</span>,<span class="dv">2</span>])), 
+      <span class="dt">col=</span><span class="st">&quot;darkblue&quot;</span>, <span class="dt">lwd=</span><span class="dv">2</span>, <span class="dt">add=</span><span class="ot">TRUE</span>, <span class="dt">yaxt=</span><span class="st">&quot;n&quot;</span>)
+<span class="kw">hist</span>(beta.<span class="fl">3.</span>sim, <span class="dt">prob=</span><span class="ot">TRUE</span>, <span class="dt">main=</span><span class="kw">expression</span>(<span class="kw">hat</span>(beta)[<span class="dv">3</span>]), <span class="dt">ylim=</span><span class="kw">c</span>(<span class="dv">0</span>,.<span class="dv">75</span>))
+<span class="kw">curve</span>(<span class="kw">dnorm</span>(x, <span class="dt">mean=</span>beta.vec[<span class="dv">3</span>], <span class="dt">sd=</span><span class="kw">sqrt</span>(Var_beta_mat[<span class="dv">3</span>,<span class="dv">3</span>])), 
+      <span class="dt">col=</span><span class="st">&quot;darkblue&quot;</span>, <span class="dt">lwd=</span><span class="dv">2</span>, <span class="dt">add=</span><span class="ot">TRUE</span>, <span class="dt">yaxt=</span><span class="st">&quot;n&quot;</span>)</code></pre></div>
 <p><img src="05-Simulations_files/figure-html/unnamed-chunk-9-1.png" width="672" /></p>
+<p>g = d$mydata m&lt;-mean(g) std&lt;-sqrt(var(g)) hist(g, density=20, breaks=20, prob=TRUE, xlab=“x-variable”, ylim=c(0, 2), main=“normal curve over histogram”) curve(dnorm(x, mean=m, sd=std), col=“darkblue”, lwd=2, add=TRUE, yaxt=“n”)</p>
 
 </div>
 </div>

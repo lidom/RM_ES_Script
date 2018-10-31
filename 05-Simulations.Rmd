@@ -6,7 +6,7 @@
 ### Simple Example: Gauss Test
 
 
-First, we repeat some of the things we already know about the Gauss test statistic from [Chapter](#PF1). 
+First, we repeat some of the things we already know about the Gauss test statistic $Z=\frac{\sqrt{n}(\bar{X}-\mu_{X,0})}{\sigma_X}$ from [Chapter](#PF1). 
 
 
 Let us consider the simple case of the *one-sided* Gauss (or Z) test statistic under the following following setup:
@@ -375,8 +375,9 @@ $$y_i=\beta_1 +\beta_2 x_{2i}+\beta_3 x_{3i}+\varepsilon_{i},\quad i=1,\dots,n,$
 where $\varepsilon_{i}$ is a heteroscedastic error term
 $$\varepsilon_{i}\sim N(0,\sigma_i^2),\quad \sigma_i=x_{3i},$$
 
-and where for all $i=1,\dots,n=50$:
+and where:
 
+* $i=1,\dots,n$ with $n=50$
 * $\beta_1=1$, $\beta_2=-5$, and $\beta_3=5$
 * $x_{2i}\sim N(10,1.5^2)$
 * $x_{3i}$ comes from a t-distribution with 5 degrees of freedom and non-centrality parameter 2
@@ -426,13 +427,18 @@ for(rpt in 1:m){
 }
 #close(pb)# Close progressbar
 
+
+# Theoretical variance covariance matrix of \hat{beta}
+Var_beta_mat <- solve(t(X)%*%X) %*% t(X) %*% diag((X.3)^2) %*% X %*% solve(t(X)%*%X)
+
 ## Plot results
 par(mfrow=c(1,2))
-plot(density(beta.2.sim, bw="SJ"), main=expression(hat(beta)[2]))
-abline(v=beta.vec[2], col="red", lwd=2)
-##
-plot(density(beta.3.sim, bw="SJ"), main=expression(hat(beta)[3]))
-abline(v=beta.vec[3], col="red", lwd=2)
+hist(beta.2.sim, prob=TRUE, main=expression(hat(beta)[2]), ylim=c(0,1.55))
+curve(dnorm(x, mean=beta.vec[2], sd=sqrt(Var_beta_mat[2,2])), 
+      col="darkblue", lwd=2, add=TRUE, yaxt="n")
+hist(beta.3.sim, prob=TRUE, main=expression(hat(beta)[3]), ylim=c(0,.75))
+curve(dnorm(x, mean=beta.vec[3], sd=sqrt(Var_beta_mat[3,3])), 
+      col="darkblue", lwd=2, add=TRUE, yaxt="n")
 ```
 
 ```{r, echo=FALSE}
@@ -445,7 +451,14 @@ par(mfrow=c(1,1))
 
 
 
-
+g = d$mydata
+m<-mean(g)
+std<-sqrt(var(g))
+hist(g, density=20, breaks=20, prob=TRUE, 
+     xlab="x-variable", ylim=c(0, 2), 
+     main="normal curve over histogram")
+curve(dnorm(x, mean=m, sd=std), 
+      col="darkblue", lwd=2, add=TRUE, yaxt="n")
 
 
 
