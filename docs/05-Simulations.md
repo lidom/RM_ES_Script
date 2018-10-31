@@ -473,22 +473,3 @@ curve(dnorm(x, mean=beta.vec[3], sd=sqrt(Var_beta_mat[3,3])),
 
 
 
-
-
-
-
-
-
-g = d$mydata
-m<-mean(g)
-std<-sqrt(var(g))
-hist(g, density=20, breaks=20, prob=TRUE, 
-     xlab="x-variable", ylim=c(0, 2), 
-     main="normal curve over histogram")
-curve(dnorm(x, mean=m, sd=std), 
-      col="darkblue", lwd=2, add=TRUE, yaxt="n")
-
-
-
-
-
