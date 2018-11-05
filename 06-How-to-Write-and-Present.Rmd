@@ -270,7 +270,7 @@ your own.
 1. Start with a motivating example demonstrating the problem you are trying to solve
 2. Explain existing approaches to the problem and their weaknesses
 3. Describe your main contributions
-4. Show how your ideas to solve the problem/example you started with
+4. Show how your ideas solve the problem/example you started with
 
 
 This structure will not necessarily work for every
