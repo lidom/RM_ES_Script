@@ -447,13 +447,16 @@ Afterwards, be available for people to ask you questions.
 
 
 
+\
 
 
+## Final Advice
 
+My final advise for our last two chapters on writing and presenting:
 
+> Everything should be made as simple as possible, but not simpler.
 
-
-
+(Quote by Albert Einstein, [or some other smart person](https://quoteinvestigator.com/2011/05/13/einstein-simple/))
 
 
 
