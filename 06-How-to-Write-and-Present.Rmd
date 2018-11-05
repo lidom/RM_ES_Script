@@ -203,12 +203,12 @@ For help with learning LaTeX, check out Rob J Hyndman's ["Useful LaTeX links"](h
 
 
 
-# Rob J Hyndman: How to Present
+# How to Present
 
 
 The following is heavily based on the paper: 
 
-Rob J Hyndman (2011), (Giving a useR! Talk)[https://journal.r-project.org/archive/2011-1/RJournal_2011-1_Hyndman.pdf], The R Journal, 3(1), 69--71
+Rob J Hyndman (2011), [Giving a useR! Talk](https://journal.r-project.org/archive/2011-1/RJournal_2011-1_Hyndman.pdf), The R Journal, 3(1), 69--71
 
 \
 
@@ -245,8 +245,8 @@ of an academic paper, in all its painful detail.
 
 
 The tiny tricky details are for the people who read
-the paper. There is no point discussing the
-internals of code or algorithm technicalities. Those
+the paper. Generally, there is no point discussing the
+tiny details of proofs, code or algorithm technicalities. Those
 who care will explore the details afterwards.
 
 
