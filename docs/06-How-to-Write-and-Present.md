@@ -450,7 +450,7 @@ Afterwards, be available for people to ask you questions.
 \
 
 
-## Final Advice
+## Final Advice {-}
 
 My final advise for our last two chapters on writing and presenting:
 
