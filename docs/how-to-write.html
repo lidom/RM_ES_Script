@@ -1,15 +1,14 @@
 <!DOCTYPE html>
-<html >
-
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
 <head>
 
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Research Module in Econometrics &amp; Statistics</title>
-  <meta name="description" content="Script for the research module in econometrics &amp; statistics (University Bonn).">
-  <meta name="generator" content="bookdown  and GitBook 2.6.7">
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Ch. 6 How to Write | Research Module in Econometrics &amp; Statistics</title>
+  <meta name="description" content="Script for the research module in econometrics &amp; statistics (University Bonn)." />
+  <meta name="generator" content="bookdown 0.13 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Research Module in Econometrics &amp; Statistics" />
+  <meta property="og:title" content="Ch. 6 How to Write | Research Module in Econometrics &amp; Statistics" />
   <meta property="og:type" content="book" />
   <meta property="og:url" content="http://dliebl.com/RM_ES_Script/" />
   
@@ -17,25 +16,26 @@
   <meta name="github-repo" content="lidom/RM_ES_Script" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Research Module in Econometrics &amp; Statistics" />
+  <meta name="twitter:title" content="Ch. 6 How to Write | Research Module in Econometrics &amp; Statistics" />
   
   <meta name="twitter:description" content="Script for the research module in econometrics &amp; statistics (University Bonn)." />
   
 
-<meta name="author" content="JProf. Dominik Liebl">
+<meta name="author" content="JProf. Dominik Liebl" />
 
 
-<meta name="date" content="2018-11-05">
+<meta name="date" content="2019-10-02" />
 
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="monte-carlo-simulations.html">
-<link rel="next" href="how-to-present.html">
+<link rel="prev" href="monte-carlo-simulations.html"/>
+<link rel="next" href="how-to-present.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
@@ -50,41 +50,65 @@
 
 
 <style type="text/css">
-div.sourceCode { overflow-x: auto; }
-table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
-  margin: 0; padding: 0; vertical-align: baseline; border: none; }
-table.sourceCode { width: 100%; line-height: 100%; background-color: #f8f8f8; }
-td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
-td.sourceCode { padding-left: 5px; }
-pre, code { background-color: #f8f8f8; }
-code > span.kw { color: #204a87; font-weight: bold; } /* Keyword */
-code > span.dt { color: #204a87; } /* DataType */
-code > span.dv { color: #0000cf; } /* DecVal */
-code > span.bn { color: #0000cf; } /* BaseN */
-code > span.fl { color: #0000cf; } /* Float */
-code > span.ch { color: #4e9a06; } /* Char */
-code > span.st { color: #4e9a06; } /* String */
-code > span.co { color: #8f5902; font-style: italic; } /* Comment */
-code > span.ot { color: #8f5902; } /* Other */
-code > span.al { color: #ef2929; } /* Alert */
-code > span.fu { color: #000000; } /* Function */
-code > span.er { color: #a40000; font-weight: bold; } /* Error */
-code > span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warning */
-code > span.cn { color: #000000; } /* Constant */
-code > span.sc { color: #000000; } /* SpecialChar */
-code > span.vs { color: #4e9a06; } /* VerbatimString */
-code > span.ss { color: #4e9a06; } /* SpecialString */
-code > span.im { } /* Import */
-code > span.va { color: #000000; } /* Variable */
-code > span.cf { color: #204a87; font-weight: bold; } /* ControlFlow */
-code > span.op { color: #ce5c00; font-weight: bold; } /* Operator */
-code > span.pp { color: #8f5902; font-style: italic; } /* Preprocessor */
-code > span.ex { } /* Extension */
-code > span.at { color: #c4a000; } /* Attribute */
-code > span.do { color: #8f5902; font-weight: bold; font-style: italic; } /* Documentation */
-code > span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
-code > span.cv { color: #8f5902; font-weight: bold; font-style: italic; } /* CommentVar */
-code > span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Information */
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  { background-color: #f8f8f8; }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ef2929; } /* Alert */
+code span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #c4a000; } /* Attribute */
+code span.bn { color: #0000cf; } /* BaseN */
+code span.cf { color: #204a87; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4e9a06; } /* Char */
+code span.cn { color: #000000; } /* Constant */
+code span.co { color: #8f5902; font-style: italic; } /* Comment */
+code span.cv { color: #8f5902; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #8f5902; font-weight: bold; font-style: italic; } /* Documentation */
+code span.dt { color: #204a87; } /* DataType */
+code span.dv { color: #0000cf; } /* DecVal */
+code span.er { color: #a40000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #0000cf; } /* Float */
+code span.fu { color: #000000; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #204a87; font-weight: bold; } /* Keyword */
+code span.op { color: #ce5c00; font-weight: bold; } /* Operator */
+code span.ot { color: #8f5902; } /* Other */
+code span.pp { color: #8f5902; font-style: italic; } /* Preprocessor */
+code span.sc { color: #000000; } /* SpecialChar */
+code span.ss { color: #4e9a06; } /* SpecialString */
+code span.st { color: #4e9a06; } /* String */
+code span.va { color: #000000; } /* Variable */
+code span.vs { color: #4e9a06; } /* VerbatimString */
+code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
 <link rel="stylesheet" href="style.css" type="text/css" />
@@ -189,16 +213,19 @@ code > span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Inf
 <div id="five-common-writing-mistakes" class="section level2">
 <h2><span class="header-section-number">6.1</span> Five Common Writing Mistakes</h2>
 <p>The following is heavily based on a blog-post of <a href="https://contemplativemammoth.com/2018/08/21/five-common-writing-mistakes-new-scientists-make/">Jacquelyn Gill</a>.</p>
-<p><strong>1. The passive voice is being used.</strong> <br> This is an understandable mistake, because not only are we taught to write passively in primary and secondary school science classes, but many of my colleagues still cling to the idea that solid, objective scientific writing must be in the passive voice. However, the passive voice …</p>
+<p><strong>1. The passive voice is being used.</strong> <br>
+This is an understandable mistake, because not only are we taught to write passively in primary and secondary school science classes, but many of my colleagues still cling to the idea that solid, objective scientific writing must be in the passive voice. However, the passive voice …</p>
 <ul>
-<li>results in unnecessarily long sentences and<br />
-</li>
+<li>results in unnecessarily long sentences and
+<ul>
 <li>makes your prose difficult to follow.</li>
+</ul></li>
 </ul>
 <p>Why is the active voice better? Because science is an active process, done by human beings: “I” and “we” statements are appropriate when describing action. For instance, “We demonstrate the usefulness of our method” is much nicer to read than “The usefulness of the method is demonstrated”. The active voice is more engaging to read by its very nature, which makes otherwise dry methods sections just a bit less tedious. We are a storytelling species – we like a little drama!</p>
 <p><br />
 </p>
-<p><strong>2. Extraneous, superfluous or otherwise unnecessary additions.</strong> <br> <em>Example of bad writting:</em> It is entirely likely that your prose is padded with extraneous, superfluous, or otherwise unnecessary additions; furthermore, the utilization of such redundant verbiage is arguably obfuscating your points (thus, in order to improve the clarity of your writing, it is highly recommended that you eschew such stylistic choices, including run-on sentences filled with fluff, padding, and filler).</p>
+<p><strong>2. Extraneous, superfluous or otherwise unnecessary additions.</strong> <br>
+<em>Example of bad writting:</em> It is entirely likely that your prose is padded with extraneous, superfluous, or otherwise unnecessary additions; furthermore, the utilization of such redundant verbiage is arguably obfuscating your points (thus, in order to improve the clarity of your writing, it is highly recommended that you eschew such stylistic choices, including run-on sentences filled with fluff, padding, and filler).</p>
 <p>Perhaps a consequence of assigning papers with word counts, text padding is one of the most common issues with student writing, especially for those writing their first manuscripts. My example sentence above has a few issues:</p>
 <ol style="list-style-type: decimal">
 <li>Double (or triple)-dipping with adjectives when one would do</li>
@@ -222,7 +249,8 @@ code > span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Inf
 <p>People often assume the thesaurus will help them sound smarter, but instead leaves your reader thinking, “wow, she/he really loves her/his thesaurus.” Use fun words sparingly, and <strong>aim for clarity</strong>.</p>
 <p><br />
 </p>
-<p><strong>3. Your prose contains redundant parts.</strong><br> You keep making the same point over and over again. I often find myself reading prose that has the same idea presented in multiple ways – sometimes word for word, from one paragraph to the next! Regardless of how this happens, redundancy highlights the importance of taking a break from your work. Redundancy is also usually a symptom of poor organization; a lack of structure can lead to circular writing, because you don’t know where you’ve come from and you don’t have a clear sense of where you’re going.</p>
+<p><strong>3. Your prose contains redundant parts.</strong><br>
+You keep making the same point over and over again. I often find myself reading prose that has the same idea presented in multiple ways – sometimes word for word, from one paragraph to the next! Regardless of how this happens, redundancy highlights the importance of taking a break from your work. Redundancy is also usually a symptom of poor organization; a lack of structure can lead to circular writing, because you don’t know where you’ve come from and you don’t have a clear sense of where you’re going.</p>
 <p>How to avoid redundancies:</p>
 <ul>
 <li>If you’re revising your own work, you should be catching the places of redundant text parts.</li>
@@ -232,10 +260,12 @@ code > span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Inf
 <!-- Best tip: don’t write redundant text.  -->
 <p><br />
 </p>
-<p><strong>4. Unclear antecedents.</strong> <br> When you find yourself writing “this,” check to make sure that “this” is clearly linked to an antecedent. Remember that your readers aren’t in your head, and the connections may not be intuitive. In scientific writing, this problem (haha, see what I did there?) often happens in the beginning of sentences and paragraphs. “This is a problem, because…” What’s the problem?</p>
+<p><strong>4. Unclear antecedents.</strong> <br>
+When you find yourself writing “this,” check to make sure that “this” is clearly linked to an antecedent. Remember that your readers aren’t in your head, and the connections may not be intuitive. In scientific writing, this problem (haha, see what I did there?) often happens in the beginning of sentences and paragraphs. “This is a problem, because…” What’s the problem?</p>
 <p><br />
 </p>
-<p><strong>5. Your paragraph lacks of a topic sentence.</strong> <br> Each paragraph should have a topic sentence anticipating the main message of the paragraph. Topic sentences help your reader to follow your writing. Furthermore, topic sentences are useful to diagnose structural problems in writing. The sequence of your topic sentences should represent the roadmap of your paper. Therefore, a very quick test to see if you’ve got organization issues is to check your topic sentences: the first sentence of your paragraph tells your reader what the paragraph is about, and every sentence should serve that topic sentence in some way.</p>
+<p><strong>5. Your paragraph lacks of a topic sentence.</strong> <br>
+Each paragraph should have a topic sentence anticipating the main message of the paragraph. Topic sentences help your reader to follow your writing. Furthermore, topic sentences are useful to diagnose structural problems in writing. The sequence of your topic sentences should represent the roadmap of your paper. Therefore, a very quick test to see if you’ve got organization issues is to check your topic sentences: the first sentence of your paragraph tells your reader what the paragraph is about, and every sentence should serve that topic sentence in some way.</p>
 <p>It’s worth thinking about the structure before you start writing. Otherwise, you end up taking more of a random walk than a straight line to your point, and it definitely shows. Think about organization early and often – your topic sentences can help you with it.</p>
 <p>As with any rule, you can be a little creative here, but checking your topic sentences are a great way to check for structural issues in your writing.</p>
 <!-- \ -->
@@ -303,7 +333,8 @@ code > span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Inf
 <li>Overleaf even allows for collaborative writing.</li>
 </ul>
 <p><br />
-Alternatively, you can also install a LaTeX-distribtion on your computer. The following brief instructions on how to set up a LaTeX system on different operating systems is taken from <a href="https://robjhyndman.com/hyndsight/latex-setup/">Rob J Hyndman’s Blog</a>:</p>
+</p>
+<p>Alternatively, you can also install a LaTeX-distribtion on your computer. The following brief instructions on how to set up a LaTeX system on different operating systems is taken from <a href="https://robjhyndman.com/hyndsight/latex-setup/">Rob J Hyndman’s Blog</a>:</p>
 <p><strong>MS-Windows:</strong></p>
 <ul>
 <li>Download and run the setup program for MikTeX. Choose the “basic” system.</li>
@@ -350,7 +381,7 @@ gitbook.start({
 "google": false,
 "linkedin": false,
 "weibo": false,
-"instapper": false,
+"instapaper": false,
 "vk": false,
 "all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
 },
@@ -360,6 +391,10 @@ gitbook.start({
 "size": 2
 },
 "edit": {
+"link": null,
+"text": null
+},
+"history": {
 "link": null,
 "text": null
 },
@@ -376,10 +411,11 @@ gitbook.start({
   (function () {
     var script = document.createElement("script");
     script.type = "text/javascript";
-    var src = "";
-    if (src === "" || src === "true") src = "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML";
-    if (location.protocol !== "file:" && /^https?:/.test(src))
-      src = src.replace(/^https?:/, '');
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
     script.src = src;
     document.getElementsByTagName("head")[0].appendChild(script);
   })();

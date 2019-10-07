@@ -7,7 +7,8 @@ This tutorial aims to serve as an introduction to the software package R. Other 
 *  [Matlab/R reference card](http://www.math.umaine.edu/~hiebeler/comp/matlabR.pdf) (for those who are more familiar with Matlab)
 *  [The official Introduction to R](https://cran.r-project.org/doc/manuals/r-release/R-intro.pdf) (very detailed)
 *  And many more at [www.r-project.org](https://www.r-project.org/other-docs.html) (see "Documents")
-*  An interactive introduction can be done online at: [www.datacamp.com](https://www.datacamp.com/)
+<!-- *  An interactive introduction can be done online at: [www.datacamp.com](https://www.datacamp.com/) -->
+* An R-package for learning R: [www.swirl.com](https://swirlstats.com/)
 *  An excellent book project which covers also advanced issues such as "writing performant code" and "package development": [adv-r.had.co.nz](http://adv-r.had.co.nz/)  
 
 

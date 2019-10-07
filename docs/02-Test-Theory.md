@@ -104,14 +104,10 @@ Practically important significance levels:
 \
 
 
-\begin{figure}
-
-{\centering \includegraphics{img/xkcd_p_values} 
-
-}
-
-\caption{From: https://xkcd.com/1478/}(\#fig:pvalueFig)
-\end{figure}
+<div class="figure" style="text-align: center">
+<img src="img/xkcd_p_values.png" alt="From: https://xkcd.com/1478/"  />
+<p class="caption">(\#fig:pvalueFig)From: https://xkcd.com/1478/</p>
+</div>
 
 
 \
@@ -342,9 +338,7 @@ ggplot(data = beta_df, aes(x=mu_0, y=Beta)) +
            axis.title = element_text(size=14))
 ```
 
-
-
-\begin{center}\includegraphics{02-Test-Theory_files/figure-latex/unnamed-chunk-4-1} \end{center}
+<img src="02-Test-Theory_files/figure-html/unnamed-chunk-4-1.png" width="672" style="display: block; margin: auto;" />
 
 
 
@@ -474,14 +468,10 @@ $$
 \
 
 
-\begin{figure}
-
-{\centering \includegraphics{img/xkcd_mult_test} 
-
-}
-
-\caption{From: https://xkcd.com/882/}(\#fig:unnamed-chunk-5)
-\end{figure}
+<div class="figure" style="text-align: center">
+<img src="img/xkcd_mult_test.png" alt="From: https://xkcd.com/882/"  />
+<p class="caption">(\#fig:unnamed-chunk-5)From: https://xkcd.com/882/</p>
+</div>
 
 
 
@@ -581,7 +571,14 @@ my_df <- matrix(rnorm(n = n*K), nrow = n, ncol = K) %>%
   as_tibble %>% 
   mutate(Y = rnorm(n)) %>% 
   select(Y, everything())  
+```
 
+```
+## Warning: `as_tibble.matrix()` requires a matrix with column names or a `.name_repair` argument. Using compatibility `.name_repair`.
+## This warning is displayed once per session.
+```
+
+```r
 # OLS regression
 OLS_result_df <- lm(Y ~ . , data = my_df) %>% 
   summary %>% 
@@ -594,16 +591,13 @@ Count_Signif <- OLS_result_df %>%
 ```
 
 
+p.value < 0.05     n
+---------------  ---
+FALSE             96
+TRUE               4
 
 
 
-```
-## # A tibble: 2 x 2
-##   `p.value < 0.05`     n
-##   <lgl>            <int>
-## 1 FALSE               96
-## 2 TRUE                 4
-```
 
 
 
@@ -681,16 +675,9 @@ Z&=\frac{\sqrt{n}\,(\bar{X}_n-\mu_{0})}{\sigma}\\
 \end{align*}
 
 The different distributions (under $H_0$ and $H_1$) of the test statistic $Z$ can be investigated in the following dynamic plot:
+<iframe src="https://dliebl.shinyapps.io/Gauss-Test-Distr/?showcase=0" width="672" height="900px"></iframe>
 
 
-\begin{figure}
-
-{\centering \includegraphics{img/Gauss-Test-Distr} 
-
-}
-
-\caption{See: https://dliebl.shinyapps.io/Gauss-Test-Distr/}(\#fig:unnamed-chunk-10)
-\end{figure}
 
 
 

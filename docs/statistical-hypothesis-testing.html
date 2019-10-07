@@ -1,15 +1,14 @@
 <!DOCTYPE html>
-<html >
-
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
 <head>
 
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Research Module in Econometrics &amp; Statistics</title>
-  <meta name="description" content="Script for the research module in econometrics &amp; statistics (University Bonn).">
-  <meta name="generator" content="bookdown  and GitBook 2.6.7">
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Ch. 2 Statistical Hypothesis Testing | Research Module in Econometrics &amp; Statistics</title>
+  <meta name="description" content="Script for the research module in econometrics &amp; statistics (University Bonn)." />
+  <meta name="generator" content="bookdown 0.13 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Research Module in Econometrics &amp; Statistics" />
+  <meta property="og:title" content="Ch. 2 Statistical Hypothesis Testing | Research Module in Econometrics &amp; Statistics" />
   <meta property="og:type" content="book" />
   <meta property="og:url" content="http://dliebl.com/RM_ES_Script/" />
   
@@ -17,25 +16,26 @@
   <meta name="github-repo" content="lidom/RM_ES_Script" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Research Module in Econometrics &amp; Statistics" />
+  <meta name="twitter:title" content="Ch. 2 Statistical Hypothesis Testing | Research Module in Econometrics &amp; Statistics" />
   
   <meta name="twitter:description" content="Script for the research module in econometrics &amp; statistics (University Bonn)." />
   
 
-<meta name="author" content="JProf. Dominik Liebl">
+<meta name="author" content="JProf. Dominik Liebl" />
 
 
-<meta name="date" content="2018-11-05">
+<meta name="date" content="2019-10-02" />
 
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="introduction-to-r.html">
-<link rel="next" href="estimation-theory.html">
+<link rel="prev" href="introduction-to-r.html"/>
+<link rel="next" href="estimation-theory.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
@@ -50,41 +50,65 @@
 
 
 <style type="text/css">
-div.sourceCode { overflow-x: auto; }
-table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
-  margin: 0; padding: 0; vertical-align: baseline; border: none; }
-table.sourceCode { width: 100%; line-height: 100%; background-color: #f8f8f8; }
-td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
-td.sourceCode { padding-left: 5px; }
-pre, code { background-color: #f8f8f8; }
-code > span.kw { color: #204a87; font-weight: bold; } /* Keyword */
-code > span.dt { color: #204a87; } /* DataType */
-code > span.dv { color: #0000cf; } /* DecVal */
-code > span.bn { color: #0000cf; } /* BaseN */
-code > span.fl { color: #0000cf; } /* Float */
-code > span.ch { color: #4e9a06; } /* Char */
-code > span.st { color: #4e9a06; } /* String */
-code > span.co { color: #8f5902; font-style: italic; } /* Comment */
-code > span.ot { color: #8f5902; } /* Other */
-code > span.al { color: #ef2929; } /* Alert */
-code > span.fu { color: #000000; } /* Function */
-code > span.er { color: #a40000; font-weight: bold; } /* Error */
-code > span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warning */
-code > span.cn { color: #000000; } /* Constant */
-code > span.sc { color: #000000; } /* SpecialChar */
-code > span.vs { color: #4e9a06; } /* VerbatimString */
-code > span.ss { color: #4e9a06; } /* SpecialString */
-code > span.im { } /* Import */
-code > span.va { color: #000000; } /* Variable */
-code > span.cf { color: #204a87; font-weight: bold; } /* ControlFlow */
-code > span.op { color: #ce5c00; font-weight: bold; } /* Operator */
-code > span.pp { color: #8f5902; font-style: italic; } /* Preprocessor */
-code > span.ex { } /* Extension */
-code > span.at { color: #c4a000; } /* Attribute */
-code > span.do { color: #8f5902; font-weight: bold; font-style: italic; } /* Documentation */
-code > span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
-code > span.cv { color: #8f5902; font-weight: bold; font-style: italic; } /* CommentVar */
-code > span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Information */
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  { background-color: #f8f8f8; }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ef2929; } /* Alert */
+code span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #c4a000; } /* Attribute */
+code span.bn { color: #0000cf; } /* BaseN */
+code span.cf { color: #204a87; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4e9a06; } /* Char */
+code span.cn { color: #000000; } /* Constant */
+code span.co { color: #8f5902; font-style: italic; } /* Comment */
+code span.cv { color: #8f5902; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #8f5902; font-weight: bold; font-style: italic; } /* Documentation */
+code span.dt { color: #204a87; } /* DataType */
+code span.dv { color: #0000cf; } /* DecVal */
+code span.er { color: #a40000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #0000cf; } /* Float */
+code span.fu { color: #000000; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #204a87; font-weight: bold; } /* Keyword */
+code span.op { color: #ce5c00; font-weight: bold; } /* Operator */
+code span.ot { color: #8f5902; } /* Other */
+code span.pp { color: #8f5902; font-style: italic; } /* Preprocessor */
+code span.sc { color: #000000; } /* SpecialChar */
+code span.ss { color: #4e9a06; } /* SpecialString */
+code span.st { color: #4e9a06; } /* String */
+code span.va { color: #000000; } /* Variable */
+code span.vs { color: #4e9a06; } /* VerbatimString */
+code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
 <link rel="stylesheet" href="style.css" type="text/css" />
@@ -192,19 +216,29 @@ code > span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Inf
 <p><br />
 </p>
 <p><strong>General Testing Problem:</strong></p>
-<p><span class="math display">\[H_0:\theta\in\Omega_0\]</span> against <span class="math display">\[H_1:\theta\in\Omega_1\]</span></p>
+<p><span class="math display">\[H_0:\theta\in\Omega_0\]</span>
+against
+<span class="math display">\[H_1:\theta\in\Omega_1\]</span></p>
 <p><span class="math inline">\(H_0\)</span> is the null hypothesis, while <span class="math inline">\(H_1\)</span> is the alternative. <span class="math inline">\(\Omega_0\subset\Omega\)</span> and <span class="math inline">\(\Omega_1\subset\Omega\)</span> are used to denote the possible values of <span class="math inline">\(\theta\)</span> under <span class="math inline">\(H_0\)</span> and <span class="math inline">\(H_1\)</span>. Necessarily, <span class="math inline">\(\Omega_0\cap\Omega_1=\emptyset\)</span>.</p>
 <p>For a large number of tests we have <span class="math inline">\(\Omega=\mathbb{R}\)</span> and the respective null hypothesis states that <span class="math inline">\(\theta\)</span> has a specific value <span class="math inline">\(\theta_0\in\mathbb{R}\)</span>, i.e., <span class="math inline">\(\Omega_0=\{\theta_0\}\)</span> and <span class="math inline">\(H_0:\theta=\theta_0\)</span>. Depending on the alternative one then often distinguishes between one-sided (<span class="math inline">\(\Omega_1=(\theta_0,\infty)\)</span> or <span class="math inline">\(\Omega_1=(-\infty,\theta_0)\)</span>) and two-sided tests (<span class="math inline">\(\Omega_1=\{\theta\in\mathbb{R}|\theta\neq \theta_0\}\)</span>).</p>
 <p><br />
 </p>
 <p>The data <span class="math inline">\(X_1,\dots,X_n\)</span> is used in order to decide whether to accept or to reject <span class="math inline">\(H_0\)</span>.</p>
 <p><br />
-<strong>Test Statistic:</strong> Every statistical hypothesis test relies on a corresponding test statistic <span class="math display">\[T=T(X_1,\dots,X_n).\]</span> Any test statistic is a real valued random variable, and for given data the resulting observed value <span class="math inline">\(T_{obs}\)</span> is used to decide between <span class="math inline">\(H_0\)</span> and <span class="math inline">\(H_1\)</span>. Generally, the distribution of <span class="math inline">\(T\)</span> under <span class="math inline">\(H_0\)</span> is analyzed in order to define a <strong>rejection region</strong> <span class="math inline">\(C\)</span>:</p>
+</p>
+<p><strong>Test Statistic:</strong>
+Every statistical hypothesis test relies on a corresponding test statistic
+<span class="math display">\[T=T(X_1,\dots,X_n).\]</span>
+Any test statistic is a real valued random variable, and for given data the resulting observed value <span class="math inline">\(T_{obs}\)</span> is used to decide between
+<span class="math inline">\(H_0\)</span> and <span class="math inline">\(H_1\)</span>. Generally, the distribution of <span class="math inline">\(T\)</span> under <span class="math inline">\(H_0\)</span> is analyzed in order to define a <strong>rejection region</strong> <span class="math inline">\(C\)</span>:</p>
 <ul>
 <li><span class="math inline">\(T_{obs}\not\in C\)</span> <span class="math inline">\(\Rightarrow\)</span> <span class="math inline">\(H_0\)</span> is not rejected</li>
 <li><span class="math inline">\(T_{obs}\in C\)</span> <span class="math inline">\(\Rightarrow\)</span> <span class="math inline">\(H_0\)</span> is rejected</li>
 </ul>
-<p>For one-sided tests <span class="math inline">\(C\)</span> is typically of the form <span class="math inline">\((-\infty,c_0]\)</span> or <span class="math inline">\([c_1,\infty)\)</span>. For two-sided tests <span class="math inline">\(C\)</span> typically takes the form of <span class="math inline">\((-\infty,c_0]\cup [c_1,\infty)\)</span>. The limits <span class="math inline">\(c_0\)</span> and <span class="math inline">\(c_1\)</span> of the respective intervals are called <strong>critical values</strong>, and are obtained from quantiles of the <strong>null distribution</strong>, i.e., the distribution of <span class="math inline">\(T\)</span> under <span class="math inline">\(H_0\)</span>.</p>
+<p>For one-sided tests <span class="math inline">\(C\)</span> is typically of the form <span class="math inline">\((-\infty,c_0]\)</span> or <span class="math inline">\([c_1,\infty)\)</span>.
+For two-sided tests <span class="math inline">\(C\)</span> typically takes the form of <span class="math inline">\((-\infty,c_0]\cup [c_1,\infty)\)</span>.
+The limits <span class="math inline">\(c_0\)</span> and <span class="math inline">\(c_1\)</span> of the respective intervals are called <strong>critical values</strong>,
+and are obtained from quantiles of the <strong>null distribution</strong>, i.e., the distribution of <span class="math inline">\(T\)</span> under <span class="math inline">\(H_0\)</span>.</p>
 <p><br />
 </p>
 <p><strong>Decision Errors:</strong></p>
@@ -232,10 +266,14 @@ code > span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Inf
 </div>
 <div id="significance-level-size-and-p-values" class="section level2">
 <h2><span class="header-section-number">2.2</span> Significance Level, Size and p-Values</h2>
-<p><strong>Significance Level:</strong> In a statistical significance test, the probability of a type I error is controlled by the <em>significance level</em> <span class="math inline">\(\alpha\)</span> (e.g., <span class="math inline">\(\alpha=5\%\)</span>).</p>
+<p><strong>Significance Level:</strong>
+In a statistical significance test, the probability of a type I error is controlled by the <em>significance level</em> <span class="math inline">\(\alpha\)</span> (e.g., <span class="math inline">\(\alpha=5\%\)</span>).</p>
 <p><span class="math display">\[P\left(\text{Type I error}\right)=P\left(T\in C| \ H_0\text{ true}\right)\leq \alpha\]</span></p>
 <p><br />
-<strong>Size:</strong> The <em>size</em> of a statistical test is defined as <span class="math display">\[\sup_{\theta\in\Omega_0} P(T\in C|\theta\in\Omega_0).\]</span></p>
+</p>
+<p><strong>Size:</strong>
+The <em>size</em> of a statistical test is defined as
+<span class="math display">\[\sup_{\theta\in\Omega_0} P(T\in C|\theta\in\Omega_0).\]</span></p>
 <p>That is, the preselected significance level <span class="math inline">\(\alpha\)</span> is an upper bound for the size, which may not be attained (i.e., size <span class="math inline">\(&lt;\alpha\)</span>) if, for instance, the relevant probability function is discrete.</p>
 <p><br />
 </p>
@@ -277,32 +315,40 @@ Figure 2.1: From: <a href="https://xkcd.com/1478/" class="uri">https://xkcd.com/
 </div>
 <p><br />
 </p>
-<p><strong>Example:</strong> Let <span class="math inline">\(X_i\sim N(\mu,\sigma^2)\)</span> independently for all <span class="math inline">\(i=1,\dots,5=n\)</span>. Observed realizations from this i.i.d. random sample: <span class="math inline">\(X_1=19.20\)</span>, <span class="math inline">\(X_2=17.40\)</span>, <span class="math inline">\(X_3=18.50\)</span>, <span class="math inline">\(X_4=16.50\)</span>, <span class="math inline">\(X_5=18.90\)</span>. That is, the empirical mean is given by <span class="math inline">\(\bar X =18.1\)</span>.</p>
+<p><strong>Example:</strong>
+Let <span class="math inline">\(X_i\sim N(\mu,\sigma^2)\)</span> independently for all <span class="math inline">\(i=1,\dots,5=n\)</span>. Observed realizations from this i.i.d. random sample: <span class="math inline">\(X_1=19.20\)</span>, <span class="math inline">\(X_2=17.40\)</span>, <span class="math inline">\(X_3=18.50\)</span>, <span class="math inline">\(X_4=16.50\)</span>, <span class="math inline">\(X_5=18.90\)</span>. That is, the empirical mean is given by <span class="math inline">\(\bar X =18.1\)</span>.</p>
 <p><br />
-Testing problem: <span class="math inline">\(H_0:\mu=\mu_0\)</span> against <span class="math inline">\(H_1:\mu\ne\mu_0 17\)</span> (i.e., a two-sided test), where <span class="math inline">\(\mu_0=17\)</span>.</p>
+</p>
+<p>Testing problem: <span class="math inline">\(H_0:\mu=\mu_0\)</span> against <span class="math inline">\(H_1:\mu\ne\mu_0 17\)</span> (i.e., a two-sided test), where <span class="math inline">\(\mu_0=17\)</span>.</p>
 <p><br />
-Since the variance is unknown, we have to use a <strong>t-test</strong> in order to test <span class="math inline">\(H_0\)</span>. Test statistic of the t-test: <span class="math display">\[T=\frac{\sqrt{n}(\bar X-\mu_0)}{S},\]</span> where <span class="math inline">\(S^2=\frac{1}{n-1}\sum_{i=1}^n (X_i-\bar X)^2\)</span> is the unbiased estimator of <span class="math inline">\(\sigma^2\)</span>. <span class="math display">\[T_{obs}=\frac{\sqrt{5}(18.1-17)}{1.125}=2.187\]</span> <span class="math display">\[\Rightarrow \hbox{p-value}=2\min\{P(T_{n-1}\leq 2.187),\, P(T_{n-1}\geq 2.187)\}=0.094\]</span></p>
+</p>
+<p>Since the variance is unknown, we have to use a <strong>t-test</strong> in order to test <span class="math inline">\(H_0\)</span>. Test statistic of the t-test:
+<span class="math display">\[T=\frac{\sqrt{n}(\bar X-\mu_0)}{S},\]</span>
+where <span class="math inline">\(S^2=\frac{1}{n-1}\sum_{i=1}^n (X_i-\bar X)^2\)</span> is the unbiased estimator of <span class="math inline">\(\sigma^2\)</span>.
+<span class="math display">\[T_{obs}=\frac{\sqrt{5}(18.1-17)}{1.125}=2.187\]</span>
+<span class="math display">\[\Rightarrow \hbox{p-value}=2\min\{P(T_{n-1}\leq 2.187),\, P(T_{n-1}\geq 2.187)\}=0.094\]</span></p>
 <p><br />
-The above computations in R</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(<span class="st">&quot;magrittr&quot;</span>, <span class="dt">quietly =</span> <span class="ot">TRUE</span>)<span class="co"># for using the pipe-operator: %&gt;% </span>
-
-X           &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="fl">19.20</span>, <span class="fl">17.40</span>, <span class="fl">18.50</span>, <span class="fl">16.50</span>, <span class="fl">18.90</span>)
-mu_<span class="dv">0</span>        &lt;-<span class="st"> </span><span class="dv">17</span>        <span class="co"># hypothetical mean</span>
-n           &lt;-<span class="st"> </span><span class="kw">length</span>(X) <span class="co"># sample size</span>
-X_mean      &lt;-<span class="st"> </span><span class="kw">mean</span>(X)   <span class="co"># empirical mean</span>
-X_sd        &lt;-<span class="st"> </span><span class="kw">sd</span>(X)     <span class="co"># empirical sd</span>
-<span class="co"># t-test statistic</span>
-t_test_stat &lt;-<span class="st"> </span><span class="kw">sqrt</span>(n)<span class="op">*</span>(X_mean <span class="op">-</span><span class="st"> </span>mu_<span class="dv">0</span>)<span class="op">/</span>X_sd
-
-<span class="co"># p-value for two-sided test</span>
-<span class="kw">c</span>(<span class="kw">pt</span>(<span class="dt">q =</span> t_test_stat, <span class="dt">df =</span> n<span class="dv">-1</span>, <span class="dt">lower.tail =</span> <span class="ot">TRUE</span>), 
-  <span class="kw">pt</span>(<span class="dt">q =</span> t_test_stat, <span class="dt">df =</span> n<span class="dv">-1</span>, <span class="dt">lower.tail =</span> <span class="ot">FALSE</span>)) <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st">  </span>min <span class="op">*</span><span class="st"> </span><span class="dv">2</span> -&gt;<span class="st"> </span>p_value
-      
-p_value <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">round</span>(., <span class="dt">digits =</span> <span class="dv">3</span>)</code></pre></div>
+</p>
+<p>The above computations in R</p>
+<div class="sourceCode" id="cb122"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb122-1" data-line-number="1"><span class="kw">library</span>(<span class="st">&quot;magrittr&quot;</span>, <span class="dt">quietly =</span> <span class="ot">TRUE</span>)<span class="co"># for using the pipe-operator: %&gt;% </span></a>
+<a class="sourceLine" id="cb122-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb122-3" data-line-number="3">X           &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="fl">19.20</span>, <span class="fl">17.40</span>, <span class="fl">18.50</span>, <span class="fl">16.50</span>, <span class="fl">18.90</span>)</a>
+<a class="sourceLine" id="cb122-4" data-line-number="4">mu_<span class="dv">0</span>        &lt;-<span class="st"> </span><span class="dv">17</span>        <span class="co"># hypothetical mean</span></a>
+<a class="sourceLine" id="cb122-5" data-line-number="5">n           &lt;-<span class="st"> </span><span class="kw">length</span>(X) <span class="co"># sample size</span></a>
+<a class="sourceLine" id="cb122-6" data-line-number="6">X_mean      &lt;-<span class="st"> </span><span class="kw">mean</span>(X)   <span class="co"># empirical mean</span></a>
+<a class="sourceLine" id="cb122-7" data-line-number="7">X_sd        &lt;-<span class="st"> </span><span class="kw">sd</span>(X)     <span class="co"># empirical sd</span></a>
+<a class="sourceLine" id="cb122-8" data-line-number="8"><span class="co"># t-test statistic</span></a>
+<a class="sourceLine" id="cb122-9" data-line-number="9">t_test_stat &lt;-<span class="st"> </span><span class="kw">sqrt</span>(n)<span class="op">*</span>(X_mean <span class="op">-</span><span class="st"> </span>mu_<span class="dv">0</span>)<span class="op">/</span>X_sd</a>
+<a class="sourceLine" id="cb122-10" data-line-number="10"></a>
+<a class="sourceLine" id="cb122-11" data-line-number="11"><span class="co"># p-value for two-sided test</span></a>
+<a class="sourceLine" id="cb122-12" data-line-number="12"><span class="kw">c</span>(<span class="kw">pt</span>(<span class="dt">q =</span> t_test_stat, <span class="dt">df =</span> n<span class="dv">-1</span>, <span class="dt">lower.tail =</span> <span class="ot">TRUE</span>), </a>
+<a class="sourceLine" id="cb122-13" data-line-number="13">  <span class="kw">pt</span>(<span class="dt">q =</span> t_test_stat, <span class="dt">df =</span> n<span class="dv">-1</span>, <span class="dt">lower.tail =</span> <span class="ot">FALSE</span>)) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb122-14" data-line-number="14"><span class="st">  </span>min <span class="op">*</span><span class="st"> </span><span class="dv">2</span> -&gt;<span class="st"> </span>p_value</a>
+<a class="sourceLine" id="cb122-15" data-line-number="15">      </a>
+<a class="sourceLine" id="cb122-16" data-line-number="16">p_value <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">round</span>(., <span class="dt">digits =</span> <span class="dv">3</span>)</a></code></pre></div>
 <pre><code>## [1] 0.094</code></pre>
 <p>Of course, there is also a <code>t.test()</code> function in R:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">t.test</span>(X, <span class="dt">mu =</span> mu_<span class="dv">0</span>, <span class="dt">alternative =</span> <span class="st">&quot;two.sided&quot;</span>)</code></pre></div>
+<div class="sourceCode" id="cb124"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb124-1" data-line-number="1"><span class="kw">t.test</span>(X, <span class="dt">mu =</span> mu_<span class="dv">0</span>, <span class="dt">alternative =</span> <span class="st">&quot;two.sided&quot;</span>)</a></code></pre></div>
 <pre><code>## 
 ##  One Sample t-test
 ## 
@@ -317,94 +363,129 @@ p_value <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">
 </div>
 <div id="PF1" class="section level2">
 <h2><span class="header-section-number">2.3</span> The Power Function</h2>
-<p>For every possible value <span class="math inline">\(\theta\in\Omega_0\cup\Omega_1\)</span>, all sample sizes <span class="math inline">\(n\)</span> and each significance level <span class="math inline">\(\alpha\)</span> the corresponding value of the <strong>power function</strong> <span class="math inline">\(\beta\)</span> is defined by the following probability: <span class="math display">\[
+<p>For every possible value <span class="math inline">\(\theta\in\Omega_0\cup\Omega_1\)</span>,
+all sample sizes <span class="math inline">\(n\)</span> and
+each significance level <span class="math inline">\(\alpha\)</span> the corresponding value of
+the <strong>power function</strong> <span class="math inline">\(\beta\)</span> is defined by the following probability:
+<span class="math display">\[
 \beta_{n,\alpha}(\theta):=P(H_0 \text{ is rejected, if the true parameter value equals }\theta)
 \]</span></p>
-<p>Obviously, <span class="math inline">\(\beta_{n,\alpha}(\theta)\leq \alpha\)</span> for all <span class="math inline">\(\theta\in\Omega_0\)</span>. Furthermore, for any <span class="math inline">\(\theta\in\Omega_1\)</span>, <span class="math inline">\(1-\beta_{n,\alpha}(\theta)\)</span> is the probability of committing a type II error.</p>
-<p><br />
-The power function is an important tool for accessing the quality of a test and for comparing different test procedures.</p>
-<p><br />
-</p>
-<p><strong>Conservative Test:</strong> If possible, a test is constructed in such a way that size equals level, i.e., <span class="math inline">\(\beta_{n,\alpha}(\theta)=\alpha\)</span> for some <span class="math inline">\(\theta\in\Omega_0\)</span>. In some cases, however, as for discrete test statistics or complex, composite null hypothesis, it is not possible to reach the level, and <span class="math inline">\(\sup_{\theta\in\Omega_0}\beta_{n,\alpha}(\theta)&lt;\alpha\)</span>. In this case the test is called <em>conservative</em>.</p>
+<p>Obviously, <span class="math inline">\(\beta_{n,\alpha}(\theta)\leq \alpha\)</span> for all <span class="math inline">\(\theta\in\Omega_0\)</span>.
+Furthermore, for any <span class="math inline">\(\theta\in\Omega_1\)</span>, <span class="math inline">\(1-\beta_{n,\alpha}(\theta)\)</span> is the probability of committing a type II error.</p>
 <p><br />
 </p>
-<p><strong>Unbiased Test:</strong> A significance test of level <span class="math inline">\(\alpha&gt;0\)</span> is called <em>unbiased</em> if <span class="math inline">\(\beta_{n,\alpha}(\theta)\ge\alpha\)</span> for all <span class="math inline">\(\theta\in\Omega_1\)</span>.</p>
-<p><br />
-<strong>Consistent Test:</strong> A significance test of level <span class="math inline">\(\alpha&gt;0\)</span> is called <em>consistent</em> if <span class="math display">\[\lim_{n\rightarrow \infty} \beta_{n,\alpha}(\theta) =1\]</span> for all <span class="math inline">\(\theta\in \Omega_1\)</span>.</p>
+<p>The power function is an important tool for accessing the quality of a test and for comparing different test procedures.</p>
 <p><br />
 </p>
-<p><strong>Most Powerful Test:</strong> When choosing between different testing procedures for the same testing problem, one will usually prefer the <em>most powerful test</em>. Consider a fixed sample size <span class="math inline">\(n\)</span>. For a specified <span class="math inline">\(\theta\in\Omega_1\)</span>, a test with power function <span class="math inline">\(\beta_{n,\alpha}(\theta)\)</span> is said to be <strong>most powerful</strong> for <span class="math inline">\(\theta\)</span> if for any alternative test with power function <span class="math inline">\(\beta^*_{n,\alpha}(\theta)\)</span>, <span class="math display">\[\beta_{n,\alpha}(\theta)\ge \beta^*_{n,\alpha}(\theta)\]</span> holds for all levels <span class="math inline">\(\alpha&gt;0\)</span>.</p>
-<p><strong>Uniformly Most Powerful:</strong> A test with power function <span class="math inline">\(\beta_{n,\alpha}(\theta)\)</span> is said to be <em>uniformly most powerful</em> against the set of alternatives <span class="math inline">\(\Omega_1\)</span> if for any alternative test with power function <span class="math inline">\(\beta^*_{n,\alpha}(\theta)\)</span>, <span class="math display">\[\beta_{n,\alpha}(\theta)\ge \beta^*_{n,\alpha}(\theta)\quad \text{holds for all }\theta\in\Omega_1, \alpha&gt;0\]</span> Unfortunately, uniformly most powerful tests only exist for very special testing problems.</p>
+<p><strong>Conservative Test:</strong>
+If possible, a test is constructed in such a way that size equals level, i.e.,
+<span class="math inline">\(\beta_{n,\alpha}(\theta)=\alpha\)</span> for some <span class="math inline">\(\theta\in\Omega_0\)</span>.
+In some cases, however, as for discrete test statistics or complex, composite null hypothesis, it is not possible to reach the level, and
+<span class="math inline">\(\sup_{\theta\in\Omega_0}\beta_{n,\alpha}(\theta)&lt;\alpha\)</span>.
+In this case the test is called <em>conservative</em>.</p>
 <p><br />
 </p>
-<p><strong>Example:</strong> Let <span class="math inline">\(X_1,\dots,X_n\)</span> be an i.i.d. random sample. Assume that <span class="math inline">\(n=9\)</span>, and that <span class="math inline">\(X_i\sim N(\mu,0.18^2)\)</span>. Hence, in this simple example only the mean <span class="math inline">\(\mu=E(X)\)</span> is unknown, while the standard deviation has the known value <span class="math inline">\(\sigma=0.18\)</span>.</p>
+<p><strong>Unbiased Test:</strong>
+A significance test of level <span class="math inline">\(\alpha&gt;0\)</span> is called <em>unbiased</em> if <span class="math inline">\(\beta_{n,\alpha}(\theta)\ge\alpha\)</span> for all <span class="math inline">\(\theta\in\Omega_1\)</span>.</p>
 <p><br />
-Testing problem: <span class="math inline">\(H_0:\mu=\mu_0\)</span> against <span class="math inline">\(H_1:\mu\neq \mu_0\)</span> for <span class="math inline">\(\mu_0=18.3\)</span> (i.e., a two-sided test).</p>
+</p>
+<p><strong>Consistent Test:</strong>
+A significance test of level <span class="math inline">\(\alpha&gt;0\)</span> is called <em>consistent</em> if
+<span class="math display">\[\lim_{n\rightarrow \infty} \beta_{n,\alpha}(\theta) =1\]</span>
+for all <span class="math inline">\(\theta\in \Omega_1\)</span>.</p>
 <p><br />
-Since the variance is known, a test may rely on the Gauss (or Z) test statistic: <span class="math display">\[Z=\frac{\sqrt{n} (\bar X -\mu_0)}{\sigma} =\frac{3 (\bar X -18.3)}{0.18}\]</span></p>
-<p>Under <span class="math inline">\(H_0\)</span> we have <span class="math inline">\(Z\sim N(0,1)\)</span>, and for the significance level <span class="math inline">\(\alpha=0.05\)</span> the null hypothesis is rejected if <span class="math display">\[|Z|\geq z_{1-\alpha/2}=1.96,\]</span> where <span class="math inline">\(z_{1-\alpha/2}\)</span> denotes the <span class="math inline">\((1-\alpha/2)\)</span>-quantile of the standard normal distribution. Note that the size of this test equals its level <span class="math inline">\(\alpha=0.05\)</span>.</p>
-<br />
-For determining the rejection region of a test it suffices to determine the distribution of the test statistic under <span class="math inline">\(H_0\)</span>. But in order to calculate the power function one needs to quantify the distribution of the test statistic for all possible values <span class="math inline">\(\theta\in\Omega\)</span>. For many important problems this is a formidable task. For the Gauss test, however, it is quite easy. Note that for any (true) mean value <span class="math inline">\(\mu\in\mathbb{R}\)</span> the corresponding distribution of <span class="math inline">\(Z\equiv Z_\mu=\sqrt{n(\bar X-\mu_0)}/\sigma\)</span> is <span class="math display">\[Z_\mu=\frac{\sqrt{n} (\mu -\mu_0)}{\sigma}+\frac{\sqrt{n} (\bar X -\mu)}{\sigma}
-\sim N\left(\frac{\sqrt{n} (\mu -\mu_0)}{\sigma}, 1\right)\]</span> This implies that
+</p>
+<p><strong>Most Powerful Test:</strong>
+When choosing between different testing procedures for the same testing problem, one will usually prefer
+the <em>most powerful test</em>. Consider a fixed sample size <span class="math inline">\(n\)</span>. For a specified <span class="math inline">\(\theta\in\Omega_1\)</span>, a test with power function <span class="math inline">\(\beta_{n,\alpha}(\theta)\)</span> is said to be <strong>most powerful</strong> for <span class="math inline">\(\theta\)</span> if for any alternative test with power function <span class="math inline">\(\beta^*_{n,\alpha}(\theta)\)</span>,
+<span class="math display">\[\beta_{n,\alpha}(\theta)\ge \beta^*_{n,\alpha}(\theta)\]</span>
+holds for all levels <span class="math inline">\(\alpha&gt;0\)</span>.</p>
+<p><strong>Uniformly Most Powerful:</strong>
+A test with power function <span class="math inline">\(\beta_{n,\alpha}(\theta)\)</span> is said to be <em>uniformly most powerful</em> against the set of alternatives <span class="math inline">\(\Omega_1\)</span> if for any alternative test with power function <span class="math inline">\(\beta^*_{n,\alpha}(\theta)\)</span>,
+<span class="math display">\[\beta_{n,\alpha}(\theta)\ge \beta^*_{n,\alpha}(\theta)\quad \text{holds for all }\theta\in\Omega_1, \alpha&gt;0\]</span>
+Unfortunately, uniformly most powerful tests only exist for very special testing problems.</p>
+<p><br />
+</p>
+<p><strong>Example:</strong>
+Let <span class="math inline">\(X_1,\dots,X_n\)</span> be an i.i.d. random sample.
+Assume that <span class="math inline">\(n=9\)</span>, and that <span class="math inline">\(X_i\sim N(\mu,0.18^2)\)</span>.
+Hence, in this simple example only the mean <span class="math inline">\(\mu=E(X)\)</span> is unknown, while
+the standard deviation has the known value <span class="math inline">\(\sigma=0.18\)</span>.</p>
+<p><br />
+</p>
+<p>Testing problem: <span class="math inline">\(H_0:\mu=\mu_0\)</span> against <span class="math inline">\(H_1:\mu\neq \mu_0\)</span> for <span class="math inline">\(\mu_0=18.3\)</span> (i.e., a two-sided test).</p>
+<p><br />
+</p>
+<p>Since the variance is known, a test may rely on the Gauss (or Z) test statistic:
+<span class="math display">\[Z=\frac{\sqrt{n} (\bar X -\mu_0)}{\sigma} =\frac{3 (\bar X -18.3)}{0.18}\]</span></p>
+<p>Under <span class="math inline">\(H_0\)</span> we have <span class="math inline">\(Z\sim N(0,1)\)</span>, and for the significance level <span class="math inline">\(\alpha=0.05\)</span> the null hypothesis is rejected if
+<span class="math display">\[|Z|\geq z_{1-\alpha/2}=1.96,\]</span>
+where <span class="math inline">\(z_{1-\alpha/2}\)</span> denotes the <span class="math inline">\((1-\alpha/2)\)</span>-quantile of the standard normal distribution. Note that the size of this test equals its level <span class="math inline">\(\alpha=0.05\)</span>.</p>
+<p><br />
+</p>
+<p>For determining the rejection region of a test it suffices to determine the distribution of the test statistic under <span class="math inline">\(H_0\)</span>. But in order to calculate the power function one needs to quantify the distribution of the test statistic for all possible values <span class="math inline">\(\theta\in\Omega\)</span>. For many important problems this is a formidable task. For the Gauss test, however, it is quite easy. Note that for any (true) mean value <span class="math inline">\(\mu\in\mathbb{R}\)</span> the corresponding distribution of <span class="math inline">\(Z\equiv Z_\mu=\sqrt{n(\bar X-\mu_0)}/\sigma\)</span> is
+<span class="math display">\[Z_\mu=\frac{\sqrt{n} (\mu -\mu_0)}{\sigma}+\frac{\sqrt{n} (\bar X -\mu)}{\sigma}
+\sim N\left(\frac{\sqrt{n} (\mu -\mu_0)}{\sigma}, 1\right)\]</span>
+This implies that
 <span class="math display">\[\begin{align*}
 \beta_{n,\alpha}(\mu)
 &amp; = P\left(|Z_\mu|&gt;z_{1-\alpha/2}\right)\\
 &amp; = 1-\Phi\left(z_{1-\alpha/2}-\frac{\sqrt{n} (\mu -\mu_0)}{\sigma}\right) + \Phi\left(-z_{1-\alpha/2}-\frac{\sqrt{n} (\mu -\mu_0)}{\sigma}\right),
 \end{align*}\]</span>
-<p>where <span class="math inline">\(\Phi\)</span> denotes the distribution function of the standard normal distribution.</p>
+where <span class="math inline">\(\Phi\)</span> denotes the distribution function of the standard normal distribution.</p>
 <p>Implementing the power function of the two-sided Z-test in <code>R</code>:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># The power function</span>
-beta_Ztest_TwoSided &lt;-<span class="st"> </span><span class="cf">function</span>(n, alpha, sigma, mu_<span class="dv">0</span>, mu){
-  <span class="co"># (1-alpha/2)-quantile of N(0,1):</span>
-  z_upper        &lt;-<span class="st"> </span><span class="kw">qnorm</span>(<span class="dt">p =</span> <span class="dv">1</span><span class="op">-</span>alpha<span class="op">/</span><span class="dv">2</span>)
-  <span class="co"># location shift under H_1:</span>
-  location_shift &lt;-<span class="st"> </span><span class="kw">sqrt</span>(n) <span class="op">*</span><span class="st"> </span>(mu <span class="op">-</span><span class="st"> </span>mu_<span class="dv">0</span>)<span class="op">/</span>sigma
-  <span class="co"># compute power</span>
-  power          &lt;-<span class="st"> </span><span class="dv">1</span> <span class="op">-</span><span class="st"> </span><span class="kw">pnorm</span>( z_upper <span class="op">-</span><span class="st"> </span>location_shift) <span class="op">+</span><span class="st"> </span>
-<span class="st">                        </span><span class="kw">pnorm</span>(<span class="op">-</span>z_upper <span class="op">-</span><span class="st"> </span>location_shift)
-  <span class="kw">return</span>(power)
-}
-
-<span class="co"># Apply the function</span>
-n     &lt;-<span class="st">  </span><span class="dv">9</span>
-sigma &lt;-<span class="st">  </span><span class="fl">0.18</span>
-mu_<span class="dv">0</span>  &lt;-<span class="st"> </span><span class="fl">18.3</span> 
-##
-<span class="kw">c</span>(<span class="kw">beta_Ztest_TwoSided</span>(<span class="dt">n =</span> n, <span class="dt">alpha =</span> <span class="fl">0.05</span>, <span class="dt">sigma =</span> sigma, <span class="dt">mu_0 =</span> mu_<span class="dv">0</span>, <span class="dt">mu=</span><span class="fl">18.35</span>),
-  <span class="kw">beta_Ztest_TwoSided</span>(<span class="dt">n =</span> n, <span class="dt">alpha =</span> <span class="fl">0.05</span>, <span class="dt">sigma =</span> sigma, <span class="dt">mu_0 =</span> mu_<span class="dv">0</span>, <span class="dt">mu=</span><span class="fl">18.50</span>),
-  <span class="kw">beta_Ztest_TwoSided</span>(<span class="dt">n =</span> n, <span class="dt">alpha =</span> <span class="fl">0.01</span>, <span class="dt">sigma =</span> sigma, <span class="dt">mu_0 =</span> mu_<span class="dv">0</span>, <span class="dt">mu=</span><span class="fl">18.50</span>)) <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">round</span>(., <span class="dt">digits =</span> <span class="dv">3</span>)</code></pre></div>
+<div class="sourceCode" id="cb126"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb126-1" data-line-number="1"><span class="co"># The power function</span></a>
+<a class="sourceLine" id="cb126-2" data-line-number="2">beta_Ztest_TwoSided &lt;-<span class="st"> </span><span class="cf">function</span>(n, alpha, sigma, mu_<span class="dv">0</span>, mu){</a>
+<a class="sourceLine" id="cb126-3" data-line-number="3">  <span class="co"># (1-alpha/2)-quantile of N(0,1):</span></a>
+<a class="sourceLine" id="cb126-4" data-line-number="4">  z_upper        &lt;-<span class="st"> </span><span class="kw">qnorm</span>(<span class="dt">p =</span> <span class="dv">1</span><span class="op">-</span>alpha<span class="op">/</span><span class="dv">2</span>)</a>
+<a class="sourceLine" id="cb126-5" data-line-number="5">  <span class="co"># location shift under H_1:</span></a>
+<a class="sourceLine" id="cb126-6" data-line-number="6">  location_shift &lt;-<span class="st"> </span><span class="kw">sqrt</span>(n) <span class="op">*</span><span class="st"> </span>(mu <span class="op">-</span><span class="st"> </span>mu_<span class="dv">0</span>)<span class="op">/</span>sigma</a>
+<a class="sourceLine" id="cb126-7" data-line-number="7">  <span class="co"># compute power</span></a>
+<a class="sourceLine" id="cb126-8" data-line-number="8">  power          &lt;-<span class="st"> </span><span class="dv">1</span> <span class="op">-</span><span class="st"> </span><span class="kw">pnorm</span>( z_upper <span class="op">-</span><span class="st"> </span>location_shift) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb126-9" data-line-number="9"><span class="st">                        </span><span class="kw">pnorm</span>(<span class="op">-</span>z_upper <span class="op">-</span><span class="st"> </span>location_shift)</a>
+<a class="sourceLine" id="cb126-10" data-line-number="10">  <span class="kw">return</span>(power)</a>
+<a class="sourceLine" id="cb126-11" data-line-number="11">}</a>
+<a class="sourceLine" id="cb126-12" data-line-number="12"></a>
+<a class="sourceLine" id="cb126-13" data-line-number="13"><span class="co"># Apply the function</span></a>
+<a class="sourceLine" id="cb126-14" data-line-number="14">n     &lt;-<span class="st">  </span><span class="dv">9</span></a>
+<a class="sourceLine" id="cb126-15" data-line-number="15">sigma &lt;-<span class="st">  </span><span class="fl">0.18</span></a>
+<a class="sourceLine" id="cb126-16" data-line-number="16">mu_<span class="dv">0</span>  &lt;-<span class="st"> </span><span class="fl">18.3</span> </a>
+<a class="sourceLine" id="cb126-17" data-line-number="17"><span class="co">##</span></a>
+<a class="sourceLine" id="cb126-18" data-line-number="18"><span class="kw">c</span>(<span class="kw">beta_Ztest_TwoSided</span>(<span class="dt">n =</span> n, <span class="dt">alpha =</span> <span class="fl">0.05</span>, <span class="dt">sigma =</span> sigma, <span class="dt">mu_0 =</span> mu_<span class="dv">0</span>, <span class="dt">mu=</span><span class="fl">18.35</span>),</a>
+<a class="sourceLine" id="cb126-19" data-line-number="19">  <span class="kw">beta_Ztest_TwoSided</span>(<span class="dt">n =</span> n, <span class="dt">alpha =</span> <span class="fl">0.05</span>, <span class="dt">sigma =</span> sigma, <span class="dt">mu_0 =</span> mu_<span class="dv">0</span>, <span class="dt">mu=</span><span class="fl">18.50</span>),</a>
+<a class="sourceLine" id="cb126-20" data-line-number="20">  <span class="kw">beta_Ztest_TwoSided</span>(<span class="dt">n =</span> n, <span class="dt">alpha =</span> <span class="fl">0.01</span>, <span class="dt">sigma =</span> sigma, <span class="dt">mu_0 =</span> mu_<span class="dv">0</span>, <span class="dt">mu=</span><span class="fl">18.50</span>)) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb126-21" data-line-number="21"><span class="st">  </span><span class="kw">round</span>(., <span class="dt">digits =</span> <span class="dv">3</span>)</a></code></pre></div>
 <pre><code>## [1] 0.133 0.915 0.776</code></pre>
 <p>Plotting the graph of the power function</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">suppressPackageStartupMessages</span>(
-  <span class="kw">library</span>(<span class="st">&quot;tidyverse&quot;</span>)
-)
-<span class="co"># Vectorize the function with respect to mu_0:</span>
-beta_Ztest_TwoSided &lt;-<span class="st"> </span><span class="kw">Vectorize</span>(<span class="dt">FUN =</span> beta_Ztest_TwoSided, 
-                                 <span class="dt">vectorize.args =</span> <span class="st">&quot;mu_0&quot;</span>)
-
-mu_<span class="dv">0</span>_vec &lt;-<span class="st"> </span><span class="kw">seq</span>(<span class="dt">from =</span> <span class="fl">17.75</span>, <span class="dt">to =</span> <span class="fl">18.25</span>, <span class="dt">len =</span> <span class="dv">50</span>)
-
-beta_vec &lt;-<span class="st"> </span><span class="kw">beta_Ztest_TwoSided</span>(<span class="dt">n     =</span>   <span class="dv">10</span>, 
-                                <span class="dt">alpha =</span> <span class="fl">0.05</span>, 
-                                <span class="dt">sigma =</span> <span class="fl">0.18</span>, 
-                                <span class="dt">mu    =</span>  <span class="dv">18</span>, 
-                                <span class="dt">mu_0  =</span> mu_<span class="dv">0</span>_vec)
-
-beta_df &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="st">&quot;mu_0&quot;</span>  =<span class="st"> </span>mu_<span class="dv">0</span>_vec,
-                      <span class="st">&quot;Beta&quot;</span>  =<span class="st"> </span>beta_vec)
-
-<span class="kw">ggplot</span>(<span class="dt">data =</span> beta_df, <span class="kw">aes</span>(<span class="dt">x=</span>mu_<span class="dv">0</span>, <span class="dt">y=</span>Beta)) <span class="op">+</span>
-<span class="st">  </span><span class="kw">geom_line</span>() <span class="op">+</span>
-<span class="st">  </span><span class="kw">geom_hline</span>(<span class="dt">yintercept =</span> <span class="fl">0.05</span>, <span class="dt">lty=</span><span class="dv">2</span>) <span class="op">+</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">geom_text</span>(<span class="kw">aes</span>(<span class="dt">x=</span><span class="fl">17.77</span>, <span class="dt">y=</span><span class="fl">0.07</span>, <span class="dt">label=</span><span class="st">&#39;alpha==0.05&#39;</span>), <span class="dt">parse=</span><span class="ot">TRUE</span>, <span class="dt">size=</span><span class="dv">5</span>) <span class="op">+</span>
-<span class="st">  </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="kw">expression</span>(
-    <span class="kw">paste</span>(<span class="st">&quot;Powerfunction of the two-sided Z-Test (n=10 and &quot;</span>,alpha<span class="op">==</span><span class="fl">0.05</span>,<span class="st">&quot;)&quot;</span>)), 
-       <span class="dt">x =</span> <span class="kw">expression</span>(<span class="kw">paste</span>(mu[<span class="dv">0</span>])),
-       <span class="dt">y =</span> <span class="kw">expression</span>(<span class="kw">paste</span>(beta)), <span class="dt">size=</span><span class="dv">8</span>)    <span class="op">+</span>
-<span class="st">  </span><span class="kw">theme_bw</span>() <span class="op">+</span>
-<span class="st">  </span><span class="kw">theme</span>(<span class="dt">axis.text  =</span> <span class="kw">element_text</span>(<span class="dt">size=</span><span class="dv">12</span>),
-           <span class="dt">axis.title =</span> <span class="kw">element_text</span>(<span class="dt">size=</span><span class="dv">14</span>))</code></pre></div>
+<div class="sourceCode" id="cb128"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb128-1" data-line-number="1"><span class="kw">suppressPackageStartupMessages</span>(</a>
+<a class="sourceLine" id="cb128-2" data-line-number="2">  <span class="kw">library</span>(<span class="st">&quot;tidyverse&quot;</span>)</a>
+<a class="sourceLine" id="cb128-3" data-line-number="3">)</a>
+<a class="sourceLine" id="cb128-4" data-line-number="4"><span class="co"># Vectorize the function with respect to mu_0:</span></a>
+<a class="sourceLine" id="cb128-5" data-line-number="5">beta_Ztest_TwoSided &lt;-<span class="st"> </span><span class="kw">Vectorize</span>(<span class="dt">FUN =</span> beta_Ztest_TwoSided, </a>
+<a class="sourceLine" id="cb128-6" data-line-number="6">                                 <span class="dt">vectorize.args =</span> <span class="st">&quot;mu_0&quot;</span>)</a>
+<a class="sourceLine" id="cb128-7" data-line-number="7"></a>
+<a class="sourceLine" id="cb128-8" data-line-number="8">mu_<span class="dv">0</span>_vec &lt;-<span class="st"> </span><span class="kw">seq</span>(<span class="dt">from =</span> <span class="fl">17.75</span>, <span class="dt">to =</span> <span class="fl">18.25</span>, <span class="dt">len =</span> <span class="dv">50</span>)</a>
+<a class="sourceLine" id="cb128-9" data-line-number="9"></a>
+<a class="sourceLine" id="cb128-10" data-line-number="10">beta_vec &lt;-<span class="st"> </span><span class="kw">beta_Ztest_TwoSided</span>(<span class="dt">n     =</span>   <span class="dv">10</span>, </a>
+<a class="sourceLine" id="cb128-11" data-line-number="11">                                <span class="dt">alpha =</span> <span class="fl">0.05</span>, </a>
+<a class="sourceLine" id="cb128-12" data-line-number="12">                                <span class="dt">sigma =</span> <span class="fl">0.18</span>, </a>
+<a class="sourceLine" id="cb128-13" data-line-number="13">                                <span class="dt">mu    =</span>  <span class="dv">18</span>, </a>
+<a class="sourceLine" id="cb128-14" data-line-number="14">                                <span class="dt">mu_0  =</span> mu_<span class="dv">0</span>_vec)</a>
+<a class="sourceLine" id="cb128-15" data-line-number="15"></a>
+<a class="sourceLine" id="cb128-16" data-line-number="16">beta_df &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="st">&quot;mu_0&quot;</span>  =<span class="st"> </span>mu_<span class="dv">0</span>_vec,</a>
+<a class="sourceLine" id="cb128-17" data-line-number="17">                      <span class="st">&quot;Beta&quot;</span>  =<span class="st"> </span>beta_vec)</a>
+<a class="sourceLine" id="cb128-18" data-line-number="18"></a>
+<a class="sourceLine" id="cb128-19" data-line-number="19"><span class="kw">ggplot</span>(<span class="dt">data =</span> beta_df, <span class="kw">aes</span>(<span class="dt">x=</span>mu_<span class="dv">0</span>, <span class="dt">y=</span>Beta)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb128-20" data-line-number="20"><span class="st">  </span><span class="kw">geom_line</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb128-21" data-line-number="21"><span class="st">  </span><span class="kw">geom_hline</span>(<span class="dt">yintercept =</span> <span class="fl">0.05</span>, <span class="dt">lty=</span><span class="dv">2</span>) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb128-22" data-line-number="22"><span class="st">  </span><span class="kw">geom_text</span>(<span class="kw">aes</span>(<span class="dt">x=</span><span class="fl">17.77</span>, <span class="dt">y=</span><span class="fl">0.07</span>, <span class="dt">label=</span><span class="st">&#39;alpha==0.05&#39;</span>), <span class="dt">parse=</span><span class="ot">TRUE</span>, <span class="dt">size=</span><span class="dv">5</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb128-23" data-line-number="23"><span class="st">  </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="kw">expression</span>(</a>
+<a class="sourceLine" id="cb128-24" data-line-number="24">    <span class="kw">paste</span>(<span class="st">&quot;Powerfunction of the two-sided Z-Test (n=10 and &quot;</span>,alpha<span class="op">==</span><span class="fl">0.05</span>,<span class="st">&quot;)&quot;</span>)), </a>
+<a class="sourceLine" id="cb128-25" data-line-number="25">       <span class="dt">x =</span> <span class="kw">expression</span>(<span class="kw">paste</span>(mu[<span class="dv">0</span>])),</a>
+<a class="sourceLine" id="cb128-26" data-line-number="26">       <span class="dt">y =</span> <span class="kw">expression</span>(<span class="kw">paste</span>(beta)), <span class="dt">size=</span><span class="dv">8</span>)    <span class="op">+</span></a>
+<a class="sourceLine" id="cb128-27" data-line-number="27"><span class="st">  </span><span class="kw">theme_bw</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb128-28" data-line-number="28"><span class="st">  </span><span class="kw">theme</span>(<span class="dt">axis.text  =</span> <span class="kw">element_text</span>(<span class="dt">size=</span><span class="dv">12</span>),</a>
+<a class="sourceLine" id="cb128-29" data-line-number="29">           <span class="dt">axis.title =</span> <span class="kw">element_text</span>(<span class="dt">size=</span><span class="dv">14</span>))</a></code></pre></div>
 <p><img src="02-Test-Theory_files/figure-html/unnamed-chunk-4-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p>This example illustrates the power function of a sensible test, since:</p>
 <ul>
@@ -413,7 +494,8 @@ beta_df &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span c
 <li>The test is consistent, since <span class="math inline">\(\lim_{n\rightarrow\infty} \beta_{n,\alpha}(\mu)=1\)</span> for every fixed <span class="math inline">\(\mu\neq \mu_0\)</span>.</li>
 <li>For fixed sample size <span class="math inline">\(n\)</span>, <span class="math inline">\(\beta_{n,\alpha}(\mu)\)</span> increases as the distance <span class="math inline">\(|\mu-\mu_0|\)</span> increases.</li>
 <li>If <span class="math inline">\(|\mu-\mu_0|&gt;|\mu^*-\mu_0|\)</span> then <span class="math inline">\(\beta_{n,\alpha}(\mu)&gt;\beta_{n,\alpha}(\mu^*)\)</span>.</li>
-<li><span class="math inline">\(\beta_{n,\alpha}(\mu)\)</span> decreases as the significance level <span class="math inline">\(\alpha\)</span> of the test decreases. I.e., if <span class="math inline">\(\alpha&gt;\alpha^*\)</span> then <span class="math inline">\(\beta_{n,\alpha}(\mu)&gt;\beta_{n,\alpha^*}(\mu)\)</span>.</li>
+<li><span class="math inline">\(\beta_{n,\alpha}(\mu)\)</span> decreases as the significance level <span class="math inline">\(\alpha\)</span> of the test decreases. I.e., if <span class="math inline">\(\alpha&gt;\alpha^*\)</span> then
+<span class="math inline">\(\beta_{n,\alpha}(\mu)&gt;\beta_{n,\alpha^*}(\mu)\)</span>.</li>
 </ul>
 <p><br />
 </p>
@@ -422,29 +504,47 @@ beta_df &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span c
 <div id="asymptotic-null-distributions" class="section level2">
 <h2><span class="header-section-number">2.4</span> Asymptotic Null Distributions</h2>
 <p>Generally, the underlying distributions are unknown. In this case it is usually not possible to compute the power function of a test for fixed <span class="math inline">\(n\)</span>. (Exceptions are so called “distribution-free” tests in nonparametric statistics.) The only way out of this difficulty is to rely on large sample asymptotics and corresponding asymptotic distributions, which allow to approximate the power function and to study the <strong>asymptotic efficiency</strong> of a test. The finite sample behavior of a test for different sample sizes <span class="math inline">\(n\)</span> is then evaluated by means of <strong>simulation studies</strong>.</p>
-<p>For a real-valued parameter <span class="math inline">\(\theta\)</span> most tests of <span class="math inline">\(H_0:\theta=\theta_0\)</span> rely on estimators <span class="math inline">\(\hat\theta\)</span> of <span class="math inline">\(\theta\)</span>. Under suitable regularity conditions on the underlying distribution, central limit theorems usually imply that <span class="math display">\[\sqrt{n}(\hat\theta - \theta)\rightarrow_D N(0,v^2)\quad\text{as}\quad n\rightarrow\infty,\]</span> where <span class="math inline">\(v^2\)</span> is the asymptotic variance of the estimator.</p>
+<p>For a real-valued parameter <span class="math inline">\(\theta\)</span> most tests of <span class="math inline">\(H_0:\theta=\theta_0\)</span> rely on estimators <span class="math inline">\(\hat\theta\)</span> of <span class="math inline">\(\theta\)</span>. Under suitable regularity conditions on the underlying distribution, central limit theorems usually imply that
+<span class="math display">\[\sqrt{n}(\hat\theta - \theta)\rightarrow_D N(0,v^2)\quad\text{as}\quad n\rightarrow\infty,\]</span>
+where <span class="math inline">\(v^2\)</span> is the asymptotic variance of the estimator.</p>
 <p><br />
-Often a consistent estimator <span class="math inline">\(\hat v^2\)</span> of <span class="math inline">\(v^2\)</span> can be determined from the data. For large <span class="math inline">\(n\)</span> we then approximately have <span class="math display">\[\frac{\sqrt{n}(\hat\theta - \theta)}{ v}\overset{a}{\sim} N(0,1).\]</span> For a given <span class="math inline">\(\alpha\)</span>, a one-sided test of <span class="math inline">\(H_0:\theta=\theta_0\)</span> against <span class="math inline">\(H_1:\theta&gt;\theta_0\)</span> then rejects <span class="math inline">\(H_0\)</span> if <span class="math display">\[
+</p>
+<p>Often a consistent estimator <span class="math inline">\(\hat v^2\)</span> of <span class="math inline">\(v^2\)</span> can be determined from the data. For large <span class="math inline">\(n\)</span> we then approximately have
+<span class="math display">\[\frac{\sqrt{n}(\hat\theta - \theta)}{ v}\overset{a}{\sim} N(0,1).\]</span>
+For a given <span class="math inline">\(\alpha\)</span>, a one-sided test of <span class="math inline">\(H_0:\theta=\theta_0\)</span> against <span class="math inline">\(H_1:\theta&gt;\theta_0\)</span> then rejects <span class="math inline">\(H_0\)</span> if
+<span class="math display">\[
 Z=\frac{\sqrt{n} (\hat\theta -\theta_0)}{v}&gt;z_{1-\alpha}.
-\]</span> The corresponding asymptotic approximation (valid for sufficiently large <span class="math inline">\(n\)</span>) of the true power function is then given by <span class="math display">\[
+\]</span>
+The corresponding asymptotic approximation (valid for sufficiently large <span class="math inline">\(n\)</span>) of the true power function is then given by
+<span class="math display">\[
 \beta_{n,\alpha}(\theta) = 1-\Phi\left(z_{1-\alpha}-\frac{\sqrt{n} (\theta -\theta_0)}{v}\right)
 \]</span></p>
 <p><br />
-Note that in practice the (unknown) true value <span class="math inline">\(v^2\)</span> is generally replaced by an estimator <span class="math inline">\(\hat v^2\)</span> determined from the data. As long as <span class="math inline">\(\hat v^2\)</span> is a consistent estimator of <span class="math inline">\(v^2\)</span> this leads to the same asymptotic power function. The resulting test is asymptotically unbiased and consistent.</p>
-<br />
-Usually there are many different possible estimators for a parameter <span class="math inline">\(\theta\)</span>. Consider an alternative estimator <span class="math inline">\(\tilde\theta\)</span> of <span class="math inline">\(\theta\)</span> satisfying <span class="math display">\[
+</p>
+<p>Note that in practice the (unknown) true value <span class="math inline">\(v^2\)</span> is generally replaced by an estimator <span class="math inline">\(\hat v^2\)</span> determined from the data. As long as <span class="math inline">\(\hat v^2\)</span> is a consistent estimator of <span class="math inline">\(v^2\)</span> this leads to the same asymptotic power function. The resulting test is asymptotically unbiased and consistent.</p>
+<p><br />
+</p>
+<p>Usually there are many different possible estimators for a parameter <span class="math inline">\(\theta\)</span>. Consider an alternative estimator <span class="math inline">\(\tilde\theta\)</span> of <span class="math inline">\(\theta\)</span> satisfying
+<span class="math display">\[
 \sqrt{n}(\tilde\theta - \theta)\rightarrow_D N(0,\tilde v^2) \quad\text{as}\quad n\rightarrow\infty.
-\]</span> If the asymptotic variance <span class="math inline">\(v^2\)</span> of the estimator <span class="math inline">\(\hat\theta\)</span> is smaller than the asymptotic variance <span class="math inline">\(\tilde v^2\)</span> of <span class="math inline">\(\tilde\theta\)</span>, i.e., <span class="math inline">\(v^2&lt;\tilde v^2\)</span>, then <span class="math inline">\(\hat\theta\)</span> is a <strong>more efficient</strong> estimator of <span class="math inline">\(\theta\)</span>. Then necessarily the test based on <span class="math inline">\(\hat\theta\)</span> is <strong>more powerful</strong> than the test based on <span class="math inline">\(\tilde\theta\)</span>, since asymptotically for all <span class="math inline">\(\theta&gt;\theta_0\)</span>
+\]</span>
+If the asymptotic variance <span class="math inline">\(v^2\)</span> of the estimator <span class="math inline">\(\hat\theta\)</span> is smaller than the asymptotic variance <span class="math inline">\(\tilde v^2\)</span> of <span class="math inline">\(\tilde\theta\)</span>, i.e., <span class="math inline">\(v^2&lt;\tilde v^2\)</span>, then <span class="math inline">\(\hat\theta\)</span> is a <strong>more efficient</strong> estimator of <span class="math inline">\(\theta\)</span>. Then necessarily the test based on <span class="math inline">\(\hat\theta\)</span> is <strong>more powerful</strong> than the test based on <span class="math inline">\(\tilde\theta\)</span>, since asymptotically for all <span class="math inline">\(\theta&gt;\theta_0\)</span>
 <span class="math display">\[\begin{align*}
 \tilde\beta_{n,\alpha}(\theta) &amp;= 1-\Phi\left(z_{1-\alpha}-\frac{\sqrt{n} (\theta -\theta_0)}{\tilde v}\right)\\
 &amp; &lt; 1-\Phi\left(z_{1-\alpha}-\frac{\sqrt{n} (\theta -\theta_0)}{v}\right)=\beta_{n,\alpha}(\theta)
-\end{align*}\]</span>
+\end{align*}\]</span></p>
 <p><br />
-<strong>Example:</strong> Let <span class="math inline">\(X_1,\dots,X_n\)</span> be an iid random sample. Consider testing <span class="math inline">\(H_0:\mu=\mu_0\)</span> against <span class="math inline">\(H_1:\mu&gt;\mu_0\)</span>, where <span class="math inline">\(\mu:=E(X_i)\)</span>. For a given level <span class="math inline">\(\alpha\)</span> the t-test then rejects <span class="math inline">\(H_0\)</span> if <span class="math display">\[
+</p>
+<p><strong>Example:</strong> Let <span class="math inline">\(X_1,\dots,X_n\)</span> be an iid random sample. Consider testing <span class="math inline">\(H_0:\mu=\mu_0\)</span> against <span class="math inline">\(H_1:\mu&gt;\mu_0\)</span>, where <span class="math inline">\(\mu:=E(X_i)\)</span>. For a given level <span class="math inline">\(\alpha\)</span> the t-test then rejects <span class="math inline">\(H_0\)</span> if
+<span class="math display">\[
 T=\frac{\sqrt{n}(\bar X-\mu_0)}{S}&gt;t_{n-1;1-\alpha},
-\]</span> where <span class="math inline">\(t_{n-1;1-\alpha}\)</span> is the <span class="math inline">\(1-\alpha\)</span> quantile of a t-distributions with <span class="math inline">\(n-1\)</span>-degrees of freedom. This is an exact test if the distribution of <span class="math inline">\(X_i\)</span> is normal. In the general case, the justification of the t-test is based on asymptotic arguments. Under some regularity conditions the central limit theorem implies that <span class="math display">\[
+\]</span>
+where <span class="math inline">\(t_{n-1;1-\alpha}\)</span> is the <span class="math inline">\(1-\alpha\)</span> quantile of a t-distributions with <span class="math inline">\(n-1\)</span>-degrees of freedom. This is an exact test if the distribution of <span class="math inline">\(X_i\)</span> is normal. In the general case, the justification of the t-test is based on asymptotic arguments. Under some regularity conditions the central limit theorem implies that
+<span class="math display">\[
 \sqrt{n}(\bar X - \mu)\rightarrow_D N(0,\sigma^2)\quad\text{as}\quad n\rightarrow\infty
-\]</span> with <span class="math inline">\(\sigma^2=Var(X_i)\)</span>. Moreover, <span class="math inline">\(S^2\)</span> is a consistent estimator of <span class="math inline">\(\sigma^2\)</span> and <span class="math inline">\(t_{n-1;1-\alpha}\rightarrow z_{1-\alpha}\)</span> as <span class="math inline">\(n\rightarrow \infty\)</span>. Thus even if the distribution of <span class="math inline">\(X_i\)</span> is non-normal, for sufficiently large <span class="math inline">\(n\)</span>, <span class="math inline">\(T=\frac{\sqrt{n}(\bar X-\mu_0)}{S}\)</span> is approximately <span class="math inline">\(N(0,1)\)</span>-distributed and the asymptotic power function of the t-test is given by <span class="math display">\[
+\]</span>
+with <span class="math inline">\(\sigma^2=Var(X_i)\)</span>. Moreover, <span class="math inline">\(S^2\)</span> is a consistent estimator of <span class="math inline">\(\sigma^2\)</span> and <span class="math inline">\(t_{n-1;1-\alpha}\rightarrow z_{1-\alpha}\)</span> as <span class="math inline">\(n\rightarrow \infty\)</span>. Thus even if the distribution of <span class="math inline">\(X_i\)</span> is non-normal, for sufficiently large <span class="math inline">\(n\)</span>, <span class="math inline">\(T=\frac{\sqrt{n}(\bar X-\mu_0)}{S}\)</span> is approximately <span class="math inline">\(N(0,1)\)</span>-distributed and the asymptotic power function of the t-test is given by
+<span class="math display">\[
 \beta_{n,\alpha}(\theta) = 1-\Phi\left(z_{1-\alpha}-\frac{\sqrt{n} (\mu -\mu_0)}{\sigma}\right).
 \]</span></p>
 </div>
@@ -452,7 +552,8 @@ T=\frac{\sqrt{n}(\bar X-\mu_0)}{S}&gt;t_{n-1;1-\alpha},
 <h2><span class="header-section-number">2.5</span> Multiple Comparisons</h2>
 <p>In statistics, the multiple comparisons, multiplicity or multiple testing problem occurs when one considers a set of statistical inferences simultaneously or infers a subset of parameters selected based on the observed values. Errors in inference, including confidence intervals that fail to include their corresponding population parameters or hypothesis tests that incorrectly reject the null hypothesis are more likely to occur when one considers the set as a whole.</p>
 <!-- This is an important, although largely ignored problem in applied econometric work.  -->
-<p>In empirical studies often dozens or even hundreds of tests are performed for the same data set. When <strong>searching</strong> for significant test results, one may come up with <strong>false discoveries</strong>.</p>
+<p>In empirical studies often dozens or even hundreds of tests are performed for the same data set. When <strong>searching</strong> for
+significant test results, one may come up with <strong>false discoveries</strong>.</p>
 <!-- Multiple tests: In some study many different tests are done simultaneously -->
 <p><strong>Example:</strong> <span class="math inline">\(m\)</span> different, independent test of significance level <span class="math inline">\(\alpha&gt;0\)</span>. (Independence means that the test statistics used are mutually independent – this is usually not true in practice). Let’s assume that a common null hypothesis <span class="math inline">\(H_0\)</span> holds for each of the <span class="math inline">\(m\)</span> tests. Then</p>
 <p><span class="math display">\[
@@ -496,7 +597,8 @@ P \begin{pmatrix}
 </table>
 <p><br />
 </p>
-<p>Analogous problem: Construction of <span class="math inline">\(m\)</span> many <span class="math inline">\((1-\alpha)\)</span> <strong>confidence intervals</strong>. <span class="math display">\[
+<p>Analogous problem: Construction of <span class="math inline">\(m\)</span> many <span class="math inline">\((1-\alpha)\)</span> <strong>confidence intervals</strong>.
+<span class="math display">\[
 P \begin{pmatrix}
       \text{at least one of the $m$ confidence} \\
       \text{intervals does not contain} \\
@@ -512,13 +614,16 @@ Figure 2.2: From: <a href="https://xkcd.com/882/" class="uri">https://xkcd.com/8
 </p>
 </div>
 <p>This represents the general problem of multiple comparisons. In practice, it will not be true that all considered test statistics are mutually independent. (This even complicates the problem.) However, we will still have the effect that the probability of at least one falsely significant result increases with the number <span class="math inline">\(m\)</span> of tests, but it will not be equal to <span class="math inline">\(1-(1-\alpha)^m\)</span>.</p>
-<br />
-A statistically rigorous <strong>solution</strong> of this problem consists in modifying the constructions of tests or confidence intervals in order to arrive at <strong>simultaneous tests</strong>: <span class="math display">\[
+<p><br />
+</p>
+<p>A statistically rigorous <strong>solution</strong> of this problem consists in modifying the constructions of tests or confidence intervals in order to arrive at <strong>simultaneous tests</strong>:
+<span class="math display">\[
 P\begin{pmatrix}
     \text{Type I error by} \\
     \text{at least one of the $m$ tests}
  \end{pmatrix} \leq \alpha
-\]</span> or <strong>simultaneous confidence intervals</strong>:
+\]</span>
+or <strong>simultaneous confidence intervals</strong>:
 <span class="math display">\[\begin{align*}
 &amp;P \begin{pmatrix}
       \text{At least one of the $m$ confidence} \\
@@ -531,25 +636,35 @@ P\begin{pmatrix}
     \text{simultaneously contain the} \\
     \text{true parameter values}
   \end{pmatrix} \geq 1 - \alpha
-\end{align*}\]</span>
+\end{align*}\]</span></p>
 <p><br />
-For certain problems (e.g., analysis of variance) there exist specific procedures for constructing simultaneous confidence intervals. However, the only generally applicable procedure seems to be the <strong>Bonferroni correction</strong>. It is based on Boole’s inequality.</p>
-<p><strong>Theorem (Boole):</strong> Let <span class="math inline">\(A_1, A_2, \dots, A_m\)</span> denote <span class="math inline">\(m\)</span> different events. Then <span class="math display">\[
+</p>
+<p>For certain problems (e.g., analysis of variance) there exist specific procedures for constructing
+simultaneous confidence intervals. However, the only generally applicable procedure seems to be the
+<strong>Bonferroni correction</strong>. It is based on Boole’s inequality.</p>
+<p><strong>Theorem (Boole):</strong> Let <span class="math inline">\(A_1, A_2, \dots, A_m\)</span> denote <span class="math inline">\(m\)</span> different events. Then
+<span class="math display">\[
  P(A_1 \cup A_2 \cup \dots \cup A_m) \leq \sum_{i=1}^m P(A_i).
-\]</span> This inequality also implies that: <span class="math display">\[
+\]</span>
+This inequality also implies that:
+<span class="math display">\[
  P(A_1 \cap A_2 \cap \dots \cap A_m) \ge
   1 - \sum_{i=1}^m P(\bar A_i),
-\]</span> where <span class="math inline">\(\bar A_i\)</span> denotes the complementary event “not <span class="math inline">\(A_i\)</span>”.</p>
+\]</span>
+where <span class="math inline">\(\bar A_i\)</span> denotes the complementary event “not <span class="math inline">\(A_i\)</span>”.</p>
 <p><br />
-<strong>Example: Bonferroni adjustment</strong> for <span class="math inline">\(m\)</span> different tests of level <span class="math inline">\(\alpha^* = \alpha/m\)</span>. <span class="math display">\[
+</p>
+<p><strong>Example: Bonferroni adjustment</strong> for <span class="math inline">\(m\)</span> different tests of level <span class="math inline">\(\alpha^* = \alpha/m\)</span>.
+<span class="math display">\[
 P\begin{pmatrix}
 \text{Type I error by} \\
 \text{at least one of the $m$ tests}
 \end{pmatrix}
 \leq \sum_{i=1}^m \alpha^\ast = \alpha
 \]</span></p>
-<br />
-Analogously: Construction of <span class="math inline">\(m\)</span> many <span class="math inline">\((1-\alpha^*)\)</span>-confidence intervals with <span class="math inline">\(\alpha^* =\alpha/m\)</span>:
+<p><br />
+</p>
+<p>Analogously: Construction of <span class="math inline">\(m\)</span> many <span class="math inline">\((1-\alpha^*)\)</span>-confidence intervals with <span class="math inline">\(\alpha^* =\alpha/m\)</span>:
 <span class="math display">\[\begin{align*}
 &amp;P\begin{pmatrix}
       \text{At least one of the $m$ confidence} \\
@@ -564,31 +679,33 @@ Analogously: Construction of <span class="math inline">\(m\)</span> many <span c
     \text{true parameter values}
   \end{pmatrix}
 \geq 1 - \sum_{i=1}^m \alpha^\ast = 1 - \alpha
-\end{align*}\]</span>
+\end{align*}\]</span></p>
 <!-- \newpage -->
-<p><strong>Example:</strong> Regression analysis with <span class="math inline">\(K=100\)</span> regressors, where none of the variables has an effect on the dependent variable <span class="math inline">\(y\)</span>.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(<span class="st">&quot;tidyverse&quot;</span>, <span class="dt">quietly =</span> <span class="ot">TRUE</span>)
-K &lt;-<span class="st"> </span><span class="dv">100</span>
-n &lt;-<span class="st"> </span><span class="dv">500</span>
-
-<span class="kw">set.seed</span>(<span class="dv">123</span>)
-
-<span class="co"># Generate regression data, where none of the X-variables </span>
-<span class="co"># has an effect on the dependent variable Y:</span>
-my_df &lt;-<span class="st"> </span><span class="kw">matrix</span>(<span class="kw">rnorm</span>(<span class="dt">n =</span> n<span class="op">*</span>K), <span class="dt">nrow =</span> n, <span class="dt">ncol =</span> K) <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st">  </span>as_tibble <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">Y =</span> <span class="kw">rnorm</span>(n)) <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">select</span>(Y, <span class="kw">everything</span>())  
-
-<span class="co"># OLS regression</span>
-OLS_result_df &lt;-<span class="st"> </span><span class="kw">lm</span>(Y <span class="op">~</span><span class="st"> </span>. , <span class="dt">data =</span> my_df) <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st">  </span>summary <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st">  </span>broom<span class="op">::</span><span class="kw">tidy</span>()
-
-
-Count_Signif &lt;-<span class="st"> </span>OLS_result_df <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">filter</span>(term <span class="op">!=</span><span class="st"> &#39;(Intercept)&#39;</span>) <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">count</span>(p.value <span class="op">&lt;</span><span class="st"> </span><span class="fl">0.05</span>)</code></pre></div>
+<p><strong>Example:</strong>
+Regression analysis with <span class="math inline">\(K=100\)</span> regressors, where none of the variables has an effect on the dependent variable <span class="math inline">\(y\)</span>.</p>
+<div class="sourceCode" id="cb129"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb129-1" data-line-number="1"><span class="kw">library</span>(<span class="st">&quot;tidyverse&quot;</span>, <span class="dt">quietly =</span> <span class="ot">TRUE</span>)</a>
+<a class="sourceLine" id="cb129-2" data-line-number="2">K &lt;-<span class="st"> </span><span class="dv">100</span></a>
+<a class="sourceLine" id="cb129-3" data-line-number="3">n &lt;-<span class="st"> </span><span class="dv">500</span></a>
+<a class="sourceLine" id="cb129-4" data-line-number="4"></a>
+<a class="sourceLine" id="cb129-5" data-line-number="5"><span class="kw">set.seed</span>(<span class="dv">123</span>)</a>
+<a class="sourceLine" id="cb129-6" data-line-number="6"></a>
+<a class="sourceLine" id="cb129-7" data-line-number="7"><span class="co"># Generate regression data, where none of the X-variables </span></a>
+<a class="sourceLine" id="cb129-8" data-line-number="8"><span class="co"># has an effect on the dependent variable Y:</span></a>
+<a class="sourceLine" id="cb129-9" data-line-number="9">my_df &lt;-<span class="st"> </span><span class="kw">matrix</span>(<span class="kw">rnorm</span>(<span class="dt">n =</span> n<span class="op">*</span>K), <span class="dt">nrow =</span> n, <span class="dt">ncol =</span> K) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb129-10" data-line-number="10"><span class="st">  </span>as_tibble <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb129-11" data-line-number="11"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">Y =</span> <span class="kw">rnorm</span>(n)) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb129-12" data-line-number="12"><span class="st">  </span><span class="kw">select</span>(Y, <span class="kw">everything</span>())  </a></code></pre></div>
+<pre><code>## Warning: `as_tibble.matrix()` requires a matrix with column names or a `.name_repair` argument. Using compatibility `.name_repair`.
+## This warning is displayed once per session.</code></pre>
+<div class="sourceCode" id="cb131"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb131-1" data-line-number="1"><span class="co"># OLS regression</span></a>
+<a class="sourceLine" id="cb131-2" data-line-number="2">OLS_result_df &lt;-<span class="st"> </span><span class="kw">lm</span>(Y <span class="op">~</span><span class="st"> </span>. , <span class="dt">data =</span> my_df) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb131-3" data-line-number="3"><span class="st">  </span>summary <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb131-4" data-line-number="4"><span class="st">  </span>broom<span class="op">::</span><span class="kw">tidy</span>()</a>
+<a class="sourceLine" id="cb131-5" data-line-number="5"></a>
+<a class="sourceLine" id="cb131-6" data-line-number="6"></a>
+<a class="sourceLine" id="cb131-7" data-line-number="7">Count_Signif &lt;-<span class="st"> </span>OLS_result_df <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb131-8" data-line-number="8"><span class="st">  </span><span class="kw">filter</span>(term <span class="op">!=</span><span class="st"> &#39;(Intercept)&#39;</span>) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb131-9" data-line-number="9"><span class="st">  </span><span class="kw">count</span>(p.value <span class="op">&lt;</span><span class="st"> </span><span class="fl">0.05</span>)</a></code></pre></div>
 <table>
 <thead>
 <tr class="header">
@@ -646,17 +763,21 @@ Count_Signif &lt;-<span class="st"> </span>OLS_result_df <span class="op">%&gt;%
 <li>Under the alternative hypothesis (i.e., <span class="math inline">\(\mu_{0}\neq\mu\)</span>), the difference <span class="math inline">\(\bar{X}_n-\mu_{0}\)</span> should be “large”.</li>
 </ul>
 <p><br />
-Under the null hypothesis <span class="math inline">\(H_0\)</span> we have that <span class="math inline">\(\mu_{0}=\mu\)</span>. Therefore: <span class="math display">\[
+</p>
+<p>Under the null hypothesis <span class="math inline">\(H_0\)</span> we have that <span class="math inline">\(\mu_{0}=\mu\)</span>. Therefore:
+<span class="math display">\[
 Z=\frac{\sqrt{n}\,(\bar{X}_n-\mu_{0})}{\sigma}=\underbrace{\frac{\sqrt{n}\,(\bar{X}_n-\mu)}{\sigma}}_{\sim N(0,1)}
 \]</span></p>
-<br />
-Under the alternative <span class="math inline">\(H_1\)</span> we have that <span class="math inline">\(\;\mu_{0}\neq \mu\)</span>. Therefore:
+<p><br />
+</p>
+<p>Under the alternative <span class="math inline">\(H_1\)</span> we have that <span class="math inline">\(\;\mu_{0}\neq \mu\)</span>. Therefore:
 <span class="math display">\[\begin{align*}
 Z&amp;=\frac{\sqrt{n}\,(\bar{X}_n-\mu_{0})}{\sigma}\\
 &amp;=\frac{\sqrt{n}\,(\bar{X}_n-\mu_{0}+\mu-\mu)}{\sigma}\\
 &amp;=\frac{\sqrt{n}\,(\bar{X}_n-\mu)}{\sigma}+{\color{blue}{ \frac{\sqrt{n}\,(\mu-\mu_{0})}{\sigma} }} \sim N\left({\color{blue}{\frac{\sqrt{n}\,(\mu-\mu_{0})}{\sigma}}},1\right)
-\end{align*}\]</span>
-<p>The different distributions (under <span class="math inline">\(H_0\)</span> and <span class="math inline">\(H_1\)</span>) of the test statistic <span class="math inline">\(Z\)</span> can be investigated in the following dynamic plot: <iframe src="https://dliebl.shinyapps.io/Gauss-Test-Distr/?showcase=0" width="672" height="900px"></iframe></p>
+\end{align*}\]</span></p>
+<p>The different distributions (under <span class="math inline">\(H_0\)</span> and <span class="math inline">\(H_1\)</span>) of the test statistic <span class="math inline">\(Z\)</span> can be investigated in the following dynamic plot:
+<iframe src="https://dliebl.shinyapps.io/Gauss-Test-Distr/?showcase=0" width="672" height="900px"></iframe></p>
 
 </div>
 </div>
@@ -686,7 +807,7 @@ gitbook.start({
 "google": false,
 "linkedin": false,
 "weibo": false,
-"instapper": false,
+"instapaper": false,
 "vk": false,
 "all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
 },
@@ -696,6 +817,10 @@ gitbook.start({
 "size": 2
 },
 "edit": {
+"link": null,
+"text": null
+},
+"history": {
 "link": null,
 "text": null
 },
@@ -712,10 +837,11 @@ gitbook.start({
   (function () {
     var script = document.createElement("script");
     script.type = "text/javascript";
-    var src = "";
-    if (src === "" || src === "true") src = "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML";
-    if (location.protocol !== "file:" && /^https?:/.test(src))
-      src = src.replace(/^https?:/, '');
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
     script.src = src;
     document.getElementsByTagName("head")[0].appendChild(script);
   })();
