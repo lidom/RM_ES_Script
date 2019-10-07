@@ -17,7 +17,7 @@
 
 
 * **Instrumental Variables** <br>
-  Literature: @L1988, Ch. 8
+  Literature: @DMcK2004, Ch. 8
 <br>  
 
 

@@ -10,7 +10,13 @@ This tutorial aims to serve as an introduction to the software package R. Other 
 <!-- *  An interactive introduction can be done online at: [www.datacamp.com](https://www.datacamp.com/) -->
 * An R-package for learning R: [www.swirl.com](https://swirlstats.com/)
 *  An excellent book project which covers also advanced issues such as "writing performant code" and "package development": [adv-r.had.co.nz](http://adv-r.had.co.nz/)  
+* Another excellent book: [R for Data Science](https://r4ds.had.co.nz/)
 
+Some other tutorials:
+
+*  [Introduction to data science](https://idc9.github.io/stor390/)
+*  [Scraping the web using R](https://stat4701.github.io/edav/2015/04/02/rvest_tutorial/)
+*  [Creating dynamic graphics](https://gganimate.com/)
 
 
 Why R? 
