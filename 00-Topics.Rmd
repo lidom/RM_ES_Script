@@ -16,14 +16,20 @@
 <br>  
 
 
-* **Matching**<br>
-  Literature: 
-  
-  Bias-Corrected Matching Estimators for Average
-Treatment Effects
+* **Instrumental Variables** <br>
+  Literature: @L1988, Ch. 8
+<br>  
+
+
+<!-- * **Matching**<br> -->
+<!--   Literature:  -->
+
+<!--   Bias-Corrected Matching Estimators for Average -->
+<!-- Treatment Effects -->
+
 
 * **Multiple Testing** <br>
-  Literature: @RW2005, @BHW2010, and @HT1987
+  Literature: @BHW2010
 <br>  
 
 * **Panel Data Analysis** <br>

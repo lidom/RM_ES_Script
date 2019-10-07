@@ -4,18 +4,38 @@
 * **Regression Discontinuity Designs** <br>
   Literature: @IL2008
 <br>
+
+
 * **Robust Inference** <br>
   Literature: @RobInf2011
 <br>  
+
+
 * **Testing for Systematically Missing Values** <br>
   Literature: @L1988
 <br>  
-* **Multiple Testing** <br>
-  Literature: @RW2005, @BHW2010, and @HT1987
+
+
+* **Instrumental Variables** <br>
+  Literature: @L1988, Ch. 8
 <br>  
+
+
+<!-- * **Matching**<br> -->
+<!--   Literature:  -->
+
+<!--   Bias-Corrected Matching Estimators for Average -->
+<!-- Treatment Effects -->
+
+
+* **Multiple Testing** <br>
+  Literature: @BHW2010
+<br>  
+
 * **Panel Data Analysis** <br>
   Literature: @H2014, @G2003, and @B2008
 <br>  
+
 * **Nonparametric Regression** <br>
   Literature: @LR2007, @FG1996, and @WJ1994
 <br>  
