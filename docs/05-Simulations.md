@@ -111,7 +111,7 @@ legend("topleft", title = "Sample Sizes",
        lty=c(4:2))
 ```
 
-<img src="05-Simulations_files/figure-html/unnamed-chunk-3-1.png" width="528" />
+![](05-Simulations_files/figure-latex/unnamed-chunk-3-1.pdf)<!-- --> 
 
 
 
@@ -359,7 +359,7 @@ legend("topleft", title = "Power-Functions (n=30)",
        lty=c(1:2), lwd=c(4,1), col=c("darkorange","black"))
 ```
 
-<img src="05-Simulations_files/figure-html/unnamed-chunk-7-1.png" width="528" />
+![](05-Simulations_files/figure-latex/unnamed-chunk-7-1.pdf)<!-- --> 
 
 
 
@@ -469,7 +469,7 @@ curve(dnorm(x, mean=beta.vec[3], sd=sqrt(Var_beta_mat[3,3])),
       col="darkblue", lwd=2, add=TRUE, yaxt="n")
 ```
 
-<img src="05-Simulations_files/figure-html/unnamed-chunk-9-1.png" width="672" />
+![](05-Simulations_files/figure-latex/unnamed-chunk-9-1.pdf)<!-- --> 
 
 
 

@@ -89,7 +89,7 @@ Date        Time               Topic
     * Application to real data.
 * Page Count:
     * For groups of 1-2: 10-15 pages (plus bibliography and appendix)
-    * For groups of 3-4: 15-20 pages (plus bibliography and appendix)
+    * For groups of 3: 15-20 pages (plus bibliography and appendix)
     * Long tables, proofs, additional figures, etc. should be placed in the appendix.
     * Line-spacing: 1.5
     
