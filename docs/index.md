@@ -1,7 +1,7 @@
 --- 
 title: "Research Module in Econometrics & Statistics"
 author: "JProf. Dominik Liebl"
-date: "2019-10-07"
+date: "2019-10-08"
 site: bookdown::bookdown_site
 documentclass: book
 bibliography: [book.bib]
@@ -41,7 +41,7 @@ Depending on the actual number of participants, it might be that the project wor
 
 **Important:** You need to register for this course via [BASIS](https://basis.uni-bonn.de/). 
 
-<!-- Registration period: Oct. 15-22.   -->
+Registration period: Oct. 14-21.  
 
 
 \

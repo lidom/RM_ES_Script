@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99998 (TeX Live 2017/Debian) (preloaded format=xelatex 2018.10.15)  7 OCT 2019 16:12
+This is XeTeX, Version 3.14159265-2.6-0.99998 (TeX Live 2017/Debian) (preloaded format=xelatex 2018.10.15)  8 OCT 2019 11:57
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -931,50 +931,50 @@ File: mt-msb.cfg 2005/06/01 v1.0 microtype config. file: AMS symbols (b) (RS)
 [4] [5
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 247--249
+Underfull \hbox (badness 10000) in paragraph at lines 249--251
 
  []
 
-[6] [7
+[6] [7] [8
 
-] [8
+] [9] [10
 
 ]
 Chapter 1.
 
-Underfull \hbox (badness 10000) in paragraph at lines 301--303
+Underfull \hbox (badness 10000) in paragraph at lines 303--305
 
  []
 
 
-Overfull \hbox (3.17284pt too wide) in paragraph at lines 325--327
+Overfull \hbox (3.17284pt too wide) in paragraph at lines 327--329
 []\TU/lmr/m/n/10 The celebrated IDE \TU/lmr/bx/n/10 RStudio \TU/lmr/m/n/10 for 
 R is also \TU/lmr/bx/n/10 free \TU/lmr/m/n/10 of charge: []www.rstudio.com[] 
  []
 
-[9]
+[11]
 LaTeX Font Info:    Font shape `TU/lmtt/bx/n' in size <10> not available
-(Font)              Font shape `TU/lmtt/b/n' tried instead on input line 369.
-[10] [11] [12] [13]
-Underfull \hbox (badness 10000) in paragraph at lines 688--691
+(Font)              Font shape `TU/lmtt/b/n' tried instead on input line 371.
+[12] [13] [14] [15]
+Underfull \hbox (badness 10000) in paragraph at lines 690--693
 
  []
 
-[14]
+[16]
 File: 01-Introduction-to-R_files/figure-latex/fig-margin-1.pdf Graphic file (ty
 pe pdf)
 <use 01-Introduction-to-R_files/figure-latex/fig-margin-1.pdf>
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[15] [16]
-Overfull \hbox (22.5pt too wide) in paragraph at lines 843--843
+[17] [18]
+Overfull \hbox (22.5pt too wide) in paragraph at lines 845--845
 []\TU/lmtt/m/n/10 ##  [1] "call"          "terms"         "residuals"     "coef
 ficients"[] 
  []
 
 
-Overfull \hbox (6.75pt too wide) in paragraph at lines 843--843
+Overfull \hbox (6.75pt too wide) in paragraph at lines 845--845
 []\TU/lmtt/m/n/10 ##  [5] "aliased"       "sigma"         "df"            "r.sq
 uared"[] 
  []
@@ -985,57 +985,57 @@ le (type pdf)
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[17] [18]
+[19] [20]
 File: 01-Introduction-to-R_files/figure-latex/unnamed-chunk-27-1.pdf Graphic fi
 le (type pdf)
 <use 01-Introduction-to-R_files/figure-latex/unnamed-chunk-27-1.pdf>
 File: 01-Introduction-to-R_files/figure-latex/unnamed-chunk-29-1.pdf Graphic fi
 le (type pdf)
 <use 01-Introduction-to-R_files/figure-latex/unnamed-chunk-29-1.pdf>
-[19]
+[21]
 Underfull \vbox (badness 2073) has occurred while \output is active []
 
-[20]
+[22]
 File: 01-Introduction-to-R_files/figure-latex/unnamed-chunk-32-1.pdf Graphic fi
 le (type pdf)
 <use 01-Introduction-to-R_files/figure-latex/unnamed-chunk-32-1.pdf>
 
-Overfull \hbox (80.25pt too wide) in paragraph at lines 1047--1047
+Overfull \hbox (80.25pt too wide) in paragraph at lines 1049--1049
 []\TU/lmtt/m/n/10 ## -- Attaching packages ------------------------------------
 - tidyverse 1.2.1 --[] 
  []
 
-[21]
-Overfull \hbox (80.25pt too wide) in paragraph at lines 1059--1059
+[23]
+Overfull \hbox (80.25pt too wide) in paragraph at lines 1061--1061
 []\TU/lmtt/m/n/10 ## -- Conflicts ---------------------------------------- tidy
 verse_conflicts() --[] 
  []
 
-[22]
-Overfull \hbox (54.0pt too wide) in paragraph at lines 1185--1185
+[24]
+Overfull \hbox (54.0pt too wide) in paragraph at lines 1187--1187
 []\TU/lmtt/m/n/10 ## $ Chick  <dbl> 18, 18, 16, 16, 16, 16, 16, 16, 16, 15, 15,
  15, 15, 15,...[] 
  []
 
 
-Overfull \hbox (54.0pt too wide) in paragraph at lines 1185--1185
+Overfull \hbox (54.0pt too wide) in paragraph at lines 1187--1187
 []\TU/lmtt/m/n/10 ## $ Diet   <dbl> 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1
 , 1, 1, 1, 1...[] 
  []
 
 
-Overfull \hbox (54.0pt too wide) in paragraph at lines 1185--1185
+Overfull \hbox (54.0pt too wide) in paragraph at lines 1187--1187
 []\TU/lmtt/m/n/10 ## $ Time   <dbl> 0, 2, 0, 2, 4, 6, 8, 10, 12, 0, 2, 4, 6, 8,
  10, 12, 14,...[] 
  []
 
 
-Overfull \hbox (54.0pt too wide) in paragraph at lines 1185--1185
+Overfull \hbox (54.0pt too wide) in paragraph at lines 1187--1187
 []\TU/lmtt/m/n/10 ## $ weight <dbl> 39, 35, 41, 45, 49, 51, 57, 51, 54, 41, 49,
  56, 64, 68,...[] 
  []
 
-[23]
+[25]
 File: 01-Introduction-to-R_files/figure-latex/emptyPlot-1.pdf Graphic file (typ
 e pdf)
 <use 01-Introduction-to-R_files/figure-latex/emptyPlot-1.pdf>
@@ -1045,26 +1045,26 @@ e pdf)
 File: 01-Introduction-to-R_files/figure-latex/addColourPlot-1.pdf Graphic file 
 (type pdf)
 <use 01-Introduction-to-R_files/figure-latex/addColourPlot-1.pdf>
-[24]
-Overfull \hbox (54.0pt too wide) in paragraph at lines 1254--1254
+[26]
+Overfull \hbox (54.0pt too wide) in paragraph at lines 1256--1256
 []\TU/lmtt/m/n/10 ## $ Chick  <dbl> 18, 18, 16, 16, 16, 16, 16, 16, 16, 15, 15,
  15, 15, 15,...[] 
  []
 
 
-Overfull \hbox (54.0pt too wide) in paragraph at lines 1254--1254
+Overfull \hbox (54.0pt too wide) in paragraph at lines 1256--1256
 []\TU/lmtt/m/n/10 ## $ Diet   <fct> 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1
 , 1, 1, 1, 1...[] 
  []
 
 
-Overfull \hbox (54.0pt too wide) in paragraph at lines 1254--1254
+Overfull \hbox (54.0pt too wide) in paragraph at lines 1256--1256
 []\TU/lmtt/m/n/10 ## $ Time   <fct> 0, 2, 0, 2, 4, 6, 8, 10, 12, 0, 2, 4, 6, 8,
  10, 12, 14,...[] 
  []
 
 
-Overfull \hbox (54.0pt too wide) in paragraph at lines 1254--1254
+Overfull \hbox (54.0pt too wide) in paragraph at lines 1256--1256
 []\TU/lmtt/m/n/10 ## $ weight <dbl> 39, 35, 41, 45, 49, 51, 57, 51, 54, 41, 49,
  56, 64, 68,...[] 
  []
@@ -1072,157 +1072,157 @@ Overfull \hbox (54.0pt too wide) in paragraph at lines 1254--1254
 File: 01-Introduction-to-R_files/figure-latex/ScatterPlot-1.pdf Graphic file (t
 ype pdf)
 <use 01-Introduction-to-R_files/figure-latex/ScatterPlot-1.pdf>
-[25]
+[27]
 File: 01-Introduction-to-R_files/figure-latex/meanlinesPlot-1.pdf Graphic file 
 (type pdf)
 <use 01-Introduction-to-R_files/figure-latex/meanlinesPlot-1.pdf>
 File: 01-Introduction-to-R_files/figure-latex/boxPlot-1.pdf Graphic file (type 
 pdf)
 <use 01-Introduction-to-R_files/figure-latex/boxPlot-1.pdf>
-[26]
+[28]
 File: 01-Introduction-to-R_files/figure-latex/finalPlot-1.pdf Graphic file (typ
 e pdf)
 <use 01-Introduction-to-R_files/figure-latex/finalPlot-1.pdf>
-[27] [28]
+[29] [30]
 LaTeX Font Info:    Font shape `TU/lmtt/bx/n' in size <12> not available
-(Font)              Font shape `TU/lmtt/b/n' tried instead on input line 1487.
-[29]
+(Font)              Font shape `TU/lmtt/b/n' tried instead on input line 1489.
+[31]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[30] [31]
-Overfull \hbox (0.48999pt too wide) in paragraph at lines 1663--1664
+[32] [33]
+Overfull \hbox (0.48999pt too wide) in paragraph at lines 1665--1666
 [][]$[][][][][] [] [] [] [][][][][][][] [] [][][][][][][] [] [][][] [] [][] [] 
 [][][][][][] [] [][][][][][][][] [] [][][][][][][][][][][][][][][][][][][][][][
 ][][][][]$[] 
  []
 
 
-Overfull \hbox (92.68999pt too wide) in paragraph at lines 1671--1673
+Overfull \hbox (92.68999pt too wide) in paragraph at lines 1673--1675
 [][]$[][][][][] [] [] [] [][][][][][][] [] [][][][][][][] [] [][][] [] [][] [] 
 [][][][][][] [] [][][][][][][][] [] [][][][][][][][][][][][][][][][][][][][][][
 ][][][][][][][][][][][][][][][][][][][][][][][][][][]$[] 
  []
 
-[32] [33] [34
+[34] [35] [36
 
 ]
 Chapter 2.
-[35] [36]
+[37] [38]
 File: img/xkcd_p_values.png Graphic file (type bmp)
 <img/xkcd_p_values.png>
-[37] [38] [39] [40] [41]
+[39] [40] [41] [42] [43]
 File: 02-Test-Theory_files/figure-latex/unnamed-chunk-4-1.pdf Graphic file (typ
 e pdf)
 <use 02-Test-Theory_files/figure-latex/unnamed-chunk-4-1.pdf>
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[42] [43] [44]
+[44] [45] [46]
 File: img/xkcd_mult_test.png Graphic file (type bmp)
 <img/xkcd_mult_test.png>
 
-LaTeX Warning: Float too large for page by 24.4998pt on input line 2126.
+LaTeX Warning: Float too large for page by 24.4998pt on input line 2128.
 
-[45] [46]
-Overfull \hbox (358.5pt too wide) in paragraph at lines 2216--2216
+[47] [48]
+Overfull \hbox (358.5pt too wide) in paragraph at lines 2218--2218
 []\TU/lmtt/m/n/10 ## Warning: []as_tibble.matrix()[] requires a matrix with col
 umn names or a [].name_repair[] argument. Using compatibility [].name_repair[].
 [] 
  []
 
-[47] [48]
+[49] [50]
 File: img/Gauss-Test-Distr.png Graphic file (type bmp)
 <img/Gauss-Test-Distr.png>
-[49] [50
+[51] [52
 
 ]
 Chapter 3.
-[51] [52] [53] [54] [55] [56] [57]
-Underfull \hbox (badness 10000) in paragraph at lines 2600--2601
+[53] [54] [55] [56] [57] [58] [59]
+Underfull \hbox (badness 10000) in paragraph at lines 2602--2603
 
  []
 
-[58] [59] [60]
+[60] [61] [62]
 Chapter 4.
-[61
+[63
 
-] [62
+] [64
 
 ]
 Chapter 5.
-[63] [64]
+[65] [66]
 File: 05-Simulations_files/figure-latex/unnamed-chunk-3-1.pdf Graphic file (typ
 e pdf)
 <use 05-Simulations_files/figure-latex/unnamed-chunk-3-1.pdf>
-[65] [66] [67]
-Overfull \hbox (23.58444pt too wide) in paragraph at lines 2966--2969
+[67] [68] [69]
+Overfull \hbox (23.58444pt too wide) in paragraph at lines 2968--2971
 []\TU/lmr/m/n/10 Observe that this approximation is really close to the true va
 lue:   $\OML/lmm/m/it/10 ^^L[]\OT1/lmr/m/n/10 (0\OML/lmm/m/it/10 :\OT1/lmr/m/n/
 10 5)  =
  []
 
-[68] [69]
+[70] [71]
 File: 05-Simulations_files/figure-latex/unnamed-chunk-7-1.pdf Graphic file (typ
 e pdf)
 <use 05-Simulations_files/figure-latex/unnamed-chunk-7-1.pdf>
-[70]
-Underfull \hbox (badness 1715) in paragraph at lines 3112--3114
+[72]
+Underfull \hbox (badness 1715) in paragraph at lines 3114--3116
 []\TU/lmr/m/n/10 Stores the estimation results in the data-vectors \TU/lmtt/m/n
 /10 beta.2.sim \TU/lmr/m/n/10 and
  []
 
-[71]
+[73]
 File: 05-Simulations_files/figure-latex/unnamed-chunk-9-1.pdf Graphic file (typ
 e pdf)
 <use 05-Simulations_files/figure-latex/unnamed-chunk-9-1.pdf>
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[72] [73] [74
+[74] [75] [76
 
 ]
 Chapter 6.
 
-Underfull \hbox (badness 10000) in paragraph at lines 3183--3185
+Underfull \hbox (badness 10000) in paragraph at lines 3185--3187
 
  []
 
-[75] [76]
-Underfull \hbox (badness 4954) in paragraph at lines 3303--3304
+[77] [78]
+Underfull \hbox (badness 4954) in paragraph at lines 3305--3306
 []\TU/lmr/m/n/10 Buy a copy of Strunk and White’s (Elements of Style)[[]$[][][]
 [][] []
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 3303--3304
+Underfull \hbox (badness 10000) in paragraph at lines 3305--3306
 [] [] [][] [] [][][][][][][][][] [] [][][] [] [][][][] [] [][][] [] [][][][][][
 ][][] [] [][] [] [][][][][]$[]\TU/lmr/m/n/10 ]. Also, William
  []
 
-[77] [78] [79] [80
+[79] [80] [81] [82
 
 ]
 Chapter 7.
-[81] [82] [83]
+[83] [84] [85]
 Underfull \vbox (badness 1715) has occurred while \output is active []
 
-[84] (./RM_ES_Script.bbl [85] [86
+[86] (./RM_ES_Script.bbl [87] [88
 
 ])
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 3649.
-[87]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 3649.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 3651.
+[89]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 3651.
 (./RM_ES_Script.aux)
-Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 3649.
-Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 3649.
+Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 3651.
+Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 3651.
  ) 
 Here is how much of TeX's memory you used:
  22601 strings out of 493007
  423486 string characters out of 6136718
- 553288 words of memory out of 5000000
+ 553289 words of memory out of 5000000
  26310 multiletter control sequences out of 15000+600000
  543047 words of font info for 59 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  45i,19n,54p,10453b,454s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on RM_ES_Script.pdf (87 pages).
+Output written on RM_ES_Script.pdf (89 pages).
