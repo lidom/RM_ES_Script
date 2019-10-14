@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99998 (TeX Live 2017/Debian) (preloaded format=xelatex 2018.10.15)  8 OCT 2019 11:57
+This is XeTeX, Version 3.14159265-2.6-0.99998 (TeX Live 2017/Debian) (preloaded format=xelatex 2018.10.15)  14 OCT 2019 14:15
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1107,16 +1107,23 @@ Overfull \hbox (92.68999pt too wide) in paragraph at lines 1673--1675
 
 ]
 Chapter 2.
-[37] [38]
+[37]
+Overfull \hbox (54.52707pt too wide) in alignment at lines 1730--1734
+ [] [] [] 
+ []
+
+
+Overfull \hbox (54.52707pt too wide) in alignment at lines 1734--1738
+ [] [] [] 
+ []
+
+[38]
 File: img/xkcd_p_values.png Graphic file (type bmp)
 <img/xkcd_p_values.png>
 [39] [40] [41] [42] [43]
 File: 02-Test-Theory_files/figure-latex/unnamed-chunk-4-1.pdf Graphic file (typ
 e pdf)
 <use 02-Test-Theory_files/figure-latex/unnamed-chunk-4-1.pdf>
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
 [44] [45] [46]
 File: img/xkcd_mult_test.png Graphic file (type bmp)
 <img/xkcd_mult_test.png>
@@ -1130,7 +1137,10 @@ umn names or a [].name_repair[] argument. Using compatibility [].name_repair[].
 [] 
  []
 
-[49] [50]
+[49]
+Underfull \vbox (badness 6978) has occurred while \output is active []
+
+[50]
 File: img/Gauss-Test-Distr.png Graphic file (type bmp)
 <img/Gauss-Test-Distr.png>
 [51] [52
@@ -1219,7 +1229,7 @@ Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 3651.
 Here is how much of TeX's memory you used:
  22601 strings out of 493007
  423486 string characters out of 6136718
- 553289 words of memory out of 5000000
+ 553291 words of memory out of 5000000
  26310 multiletter control sequences out of 15000+600000
  543047 words of font info for 59 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191

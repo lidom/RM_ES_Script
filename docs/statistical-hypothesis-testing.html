@@ -24,7 +24,7 @@
 <meta name="author" content="JProf. Dominik Liebl" />
 
 
-<meta name="date" content="2019-10-08" />
+<meta name="date" content="2019-10-14" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -212,7 +212,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <h1><span class="header-section-number">Ch. 2</span> Statistical Hypothesis Testing</h1>
 <div id="hypotheses-and-test-statistics" class="section level2">
 <h2><span class="header-section-number">2.1</span> Hypotheses and Test-Statistics</h2>
-<p>Assume an independently and identically distributed (i.i.d.) random sample <span class="math inline">\(X_1,\dots,X_n\)</span>, where the distributions of <span class="math inline">\(X_1,\dots,X_n\)</span> depend on some unknown parameter <span class="math inline">\(\theta\in\Omega\)</span>, where <span class="math inline">\(\Omega\)</span> is some parameter space.</p>
+<p>Assume an independently and identically distributed (i.i.d.) random sample <span class="math inline">\(X_1,\dots,X_n\)</span>, where the distribution of <span class="math inline">\(X_i\)</span>, <span class="math inline">\(i=1,\dots,n\)</span>, depends on some unknown parameter <span class="math inline">\(\theta\in\Omega\)</span>, and where <span class="math inline">\(\Omega\)</span> is some parameter space.</p>
 <p><br />
 </p>
 <p><strong>General Testing Problem:</strong></p>
@@ -220,7 +220,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 against
 <span class="math display">\[H_1:\theta\in\Omega_1\]</span></p>
 <p><span class="math inline">\(H_0\)</span> is the null hypothesis, while <span class="math inline">\(H_1\)</span> is the alternative. <span class="math inline">\(\Omega_0\subset\Omega\)</span> and <span class="math inline">\(\Omega_1\subset\Omega\)</span> are used to denote the possible values of <span class="math inline">\(\theta\)</span> under <span class="math inline">\(H_0\)</span> and <span class="math inline">\(H_1\)</span>. Necessarily, <span class="math inline">\(\Omega_0\cap\Omega_1=\emptyset\)</span>.</p>
-<p>For a large number of tests we have <span class="math inline">\(\Omega=\mathbb{R}\)</span> and the respective null hypothesis states that <span class="math inline">\(\theta\)</span> has a specific value <span class="math inline">\(\theta_0\in\mathbb{R}\)</span>, i.e., <span class="math inline">\(\Omega_0=\{\theta_0\}\)</span> and <span class="math inline">\(H_0:\theta=\theta_0\)</span>. Depending on the alternative one then often distinguishes between one-sided (<span class="math inline">\(\Omega_1=(\theta_0,\infty)\)</span> or <span class="math inline">\(\Omega_1=(-\infty,\theta_0)\)</span>) and two-sided tests (<span class="math inline">\(\Omega_1=\{\theta\in\mathbb{R}|\theta\neq \theta_0\}\)</span>).</p>
+<p>For a large number of tests we have <span class="math inline">\(\Omega\subseteq\mathbb{R}\)</span> and the respective null hypothesis states that <span class="math inline">\(\theta\)</span> has a specific value <span class="math inline">\(\theta_0\in\mathbb{R}\)</span>, i.e., <span class="math inline">\(\Omega_0=\{\theta_0\}\)</span> and <span class="math inline">\(H_0:\theta=\theta_0\)</span>. Depending on the alternative one then often distinguishes between one-sided (<span class="math inline">\(\Omega_1=(\theta_0,\infty)\)</span> or <span class="math inline">\(\Omega_1=(-\infty,\theta_0)\)</span>) and two-sided tests (<span class="math inline">\(\Omega_1=\{\theta\in\mathbb{R}|\theta\neq \theta_0\}\)</span>).</p>
 <p><br />
 </p>
 <p>The data <span class="math inline">\(X_1,\dots,X_n\)</span> is used in order to decide whether to accept or to reject <span class="math inline">\(H_0\)</span>.</p>
@@ -246,20 +246,20 @@ and are obtained from quantiles of the <strong>null distribution</strong>, i.e.,
 <thead>
 <tr class="header">
 <th align="left">Decision Errors</th>
-<th align="center">Verbal Definition</th>
-<th align="center">Formal Definition</th>
+<th align="left">Verbal Definition</th>
+<th>Probability of a Type I/II Error</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
 <td align="left">Type I error</td>
-<td align="center"><span class="math inline">\(H_0\)</span> is rejected even though <span class="math inline">\(H_0\)</span> is true.</td>
-<td align="center"><span class="math inline">\(P(T\in C |\,H_0\text{ true})\)</span></td>
+<td align="left"><span class="math inline">\(H_0\)</span> is rejected even though <span class="math inline">\(H_0\)</span> is true.</td>
+<td><span class="math inline">\(P(T\in C |\,H_0\text{ true})\)</span></td>
 </tr>
 <tr class="even">
 <td align="left">Type II error</td>
-<td align="center">The test fails to reject a false <span class="math inline">\(H_0\)</span>.</td>
-<td align="center"><span class="math inline">\(P(T\not\in C |\,H_1\text{ true})\)</span></td>
+<td align="left">The test fails to reject a false <span class="math inline">\(H_0\)</span>.</td>
+<td><span class="math inline">\(P(T\not\in C |\,H_1\text{ true})\)</span></td>
 </tr>
 </tbody>
 </table>
@@ -268,7 +268,7 @@ and are obtained from quantiles of the <strong>null distribution</strong>, i.e.,
 <h2><span class="header-section-number">2.2</span> Significance Level, Size and p-Values</h2>
 <p><strong>Significance Level:</strong>
 In a statistical significance test, the probability of a type I error is controlled by the <em>significance level</em> <span class="math inline">\(\alpha\)</span> (e.g., <span class="math inline">\(\alpha=5\%\)</span>).</p>
-<p><span class="math display">\[P\left(\text{Type I error}\right)=P\left(T\in C| \ H_0\text{ true}\right)\leq \alpha\]</span></p>
+<p><span class="math display">\[P\left(\text{Type I error}\right)=\sup_{\theta\in\Omega_0} P(T\in C|\theta\in\Omega_0)\leq \alpha\]</span></p>
 <p><br />
 </p>
 <p><strong>Size:</strong>
@@ -293,7 +293,7 @@ The <em>size</em> of a statistical test is defined as
 </ul></li>
 <li>For two-sided tests:
 <ul>
-<li><span class="math inline">\(2\min\{P(T\leq T_{\text{obs}}|H_0\text{ true}),\,P(T\geq T_{\text{obs}}|H_0\text{ true})\)</span></li>
+<li><span class="math inline">\(2\min\{P(T\leq T_{\text{obs}}|H_0\text{ true}),\,P(T\geq T_{\text{obs}}|H_0\text{ true})\}\)</span></li>
 </ul></li>
 </ul>
 <p><strong>Remarks:</strong></p>
@@ -319,12 +319,12 @@ Figure 2.1: From: <a href="https://xkcd.com/1478/" class="uri">https://xkcd.com/
 Let <span class="math inline">\(X_i\sim N(\mu,\sigma^2)\)</span> independently for all <span class="math inline">\(i=1,\dots,5=n\)</span>. Observed realizations from this i.i.d. random sample: <span class="math inline">\(X_1=19.20\)</span>, <span class="math inline">\(X_2=17.40\)</span>, <span class="math inline">\(X_3=18.50\)</span>, <span class="math inline">\(X_4=16.50\)</span>, <span class="math inline">\(X_5=18.90\)</span>. That is, the empirical mean is given by <span class="math inline">\(\bar X =18.1\)</span>.</p>
 <p><br />
 </p>
-<p>Testing problem: <span class="math inline">\(H_0:\mu=\mu_0\)</span> against <span class="math inline">\(H_1:\mu\ne\mu_0 17\)</span> (i.e., a two-sided test), where <span class="math inline">\(\mu_0=17\)</span>.</p>
+<p>Testing problem: <span class="math inline">\(H_0:\mu=\mu_0\)</span> against <span class="math inline">\(H_1:\mu\ne\mu_0\)</span> (i.e., a two-sided test), where <span class="math inline">\(\mu_0=17\)</span>.</p>
 <p><br />
 </p>
-<p>Since the variance is unknown, we have to use a <strong>t-test</strong> in order to test <span class="math inline">\(H_0\)</span>. Test statistic of the t-test:
-<span class="math display">\[T=\frac{\sqrt{n}(\bar X-\mu_0)}{S},\]</span>
-where <span class="math inline">\(S^2=\frac{1}{n-1}\sum_{i=1}^n (X_i-\bar X)^2\)</span> is the unbiased estimator of <span class="math inline">\(\sigma^2\)</span>.
+<p>Since the variance is unknown, we use the sample standard deviation, <span class="math inline">\(s\)</span>, which then leads to the <strong>t-test</strong> for testing <span class="math inline">\(H_0\)</span>. Test statistic of the t-test:
+<span class="math display">\[T=\frac{\sqrt{n}(\bar X-\mu_0)}{s},\]</span>
+where <span class="math inline">\(s^2=\frac{1}{n-1}\sum_{i=1}^n (X_i-\bar X)^2\)</span> is the unbiased estimator of <span class="math inline">\(\sigma^2\)</span>.
 <span class="math display">\[T_{obs}=\frac{\sqrt{5}(18.1-17)}{1.125}=2.187\]</span>
 <span class="math display">\[\Rightarrow \hbox{p-value}=2\min\{P(T_{n-1}\leq 2.187),\, P(T_{n-1}\geq 2.187)\}=0.094\]</span></p>
 <p><br />
@@ -368,7 +368,7 @@ all sample sizes <span class="math inline">\(n\)</span> and
 each significance level <span class="math inline">\(\alpha\)</span> the corresponding value of
 the <strong>power function</strong> <span class="math inline">\(\beta\)</span> is defined by the following probability:
 <span class="math display">\[
-\beta_{n,\alpha}(\theta):=P(H_0 \text{ is rejected, if the true parameter value equals }\theta)
+\beta_{n,\alpha}(\theta):=P(\text{reject } H_0\; |\; \theta\in\Omega_0\cup\Omega_1)
 \]</span></p>
 <p>Obviously, <span class="math inline">\(\beta_{n,\alpha}(\theta)\leq \alpha\)</span> for all <span class="math inline">\(\theta\in\Omega_0\)</span>.
 Furthermore, for any <span class="math inline">\(\theta\in\Omega_1\)</span>, <span class="math inline">\(1-\beta_{n,\alpha}(\theta)\)</span> is the probability of committing a type II error.</p>

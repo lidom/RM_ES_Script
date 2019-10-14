@@ -4,7 +4,7 @@
 ## Hypotheses and Test-Statistics
 
 
-Assume an independently and identically distributed (i.i.d.) random sample $X_1,\dots,X_n$, where the distributions of $X_1,\dots,X_n$ depend on some unknown parameter $\theta\in\Omega$, where $\Omega$ is some parameter space.
+Assume an independently and identically distributed (i.i.d.) random sample $X_1,\dots,X_n$, where the distribution of $X_i$, $i=1,\dots,n$, depends on some unknown parameter $\theta\in\Omega$, and where $\Omega$ is some parameter space.
 
 \
 
@@ -17,7 +17,7 @@ $$H_1:\theta\in\Omega_1$$
 
 $H_0$ is the null hypothesis, while $H_1$ is the alternative. $\Omega_0\subset\Omega$ and $\Omega_1\subset\Omega$ are used to denote the possible values of $\theta$ under $H_0$ and $H_1$. Necessarily, $\Omega_0\cap\Omega_1=\emptyset$.
 
-For a large number of tests we have $\Omega=\mathbb{R}$ and the respective null hypothesis states that $\theta$ has a specific value $\theta_0\in\mathbb{R}$, i.e., $\Omega_0=\{\theta_0\}$ and $H_0:\theta=\theta_0$. Depending on the alternative one then often distinguishes between one-sided ($\Omega_1=(\theta_0,\infty)$ or $\Omega_1=(-\infty,\theta_0)$) and two-sided tests ($\Omega_1=\{\theta\in\mathbb{R}|\theta\neq \theta_0\}$).
+For a large number of tests we have $\Omega\subseteq\mathbb{R}$ and the respective null hypothesis states that $\theta$ has a specific value $\theta_0\in\mathbb{R}$, i.e., $\Omega_0=\{\theta_0\}$ and $H_0:\theta=\theta_0$. Depending on the alternative one then often distinguishes between one-sided ($\Omega_1=(\theta_0,\infty)$ or $\Omega_1=(-\infty,\theta_0)$) and two-sided tests ($\Omega_1=\{\theta\in\mathbb{R}|\theta\neq \theta_0\}$).
 
 \
 
@@ -47,10 +47,10 @@ and are obtained from quantiles of the **null distribution**, i.e., the distribu
 
 **Decision Errors:** 
 
-Decision Errors      Verbal Definition                              Formal Definition 
-------------------  -------------------------------------------  ----------------------
-Type I error         $H_0$ is rejected even though $H_0$ is true.   $P(T\in C     |\,H_0\text{ true})$  
-Type II error        The test fails to reject a false $H_0$.        $P(T\not\in C |\,H_1\text{ true})$  
+Decision Errors     Verbal Definition                               Probability of a Type I/II Error  
+------------------  ----------------------------------------------  ----------------------
+Type I error        $H_0$ is rejected even though $H_0$ is true.    $P(T\in C     |\,H_0\text{ true})$  
+Type II error       The test fails to reject a false $H_0$.         $P(T\not\in C |\,H_1\text{ true})$  
 
 
 
@@ -60,7 +60,7 @@ Type II error        The test fails to reject a false $H_0$.        $P(T\not\in 
 **Significance Level:**
 In a statistical significance test, the probability of a type I error is controlled by the *significance level* $\alpha$ (e.g., $\alpha=5\%$).
 
-$$P\left(\text{Type I error}\right)=P\left(T\in C| \ H_0\text{ true}\right)\leq \alpha$$
+$$P\left(\text{Type I error}\right)=\sup_{\theta\in\Omega_0} P(T\in C|\theta\in\Omega_0)\leq \alpha$$
 
 \
 
@@ -89,7 +89,7 @@ Practically important significance levels:
     * $P(T\geq T_{\text{obs}}|H_0\text{ true})$ or
     * $P(T\leq T_{\text{obs}}|H_0\text{ true})$ 
 * For two-sided tests:
-    * $2\min\{P(T\leq T_{\text{obs}}|H_0\text{ true}),\,P(T\geq T_{\text{obs}}|H_0\text{ true})$
+    * $2\min\{P(T\leq T_{\text{obs}}|H_0\text{ true}),\,P(T\geq T_{\text{obs}}|H_0\text{ true})\}$
 
 
 **Remarks:**
@@ -123,13 +123,13 @@ Let $X_i\sim N(\mu,\sigma^2)$ independently for all $i=1,\dots,5=n$. Observed re
 
 \
 
-Testing problem: $H_0:\mu=\mu_0$ against $H_1:\mu\ne\mu_0 17$ (i.e., a two-sided test), where $\mu_0=17$.
+Testing problem: $H_0:\mu=\mu_0$ against $H_1:\mu\ne\mu_0$ (i.e., a two-sided test), where $\mu_0=17$.
 
 \
 
-Since the variance is unknown, we have to use a **t-test** in order to test $H_0$. Test statistic of the t-test:
-$$T=\frac{\sqrt{n}(\bar X-\mu_0)}{S},$$
-where $S^2=\frac{1}{n-1}\sum_{i=1}^n (X_i-\bar X)^2$ is the unbiased estimator of $\sigma^2$.
+Since the variance is unknown, we use the sample standard deviation, $s$, which then leads to the **t-test** for testing $H_0$. Test statistic of the t-test:
+$$T=\frac{\sqrt{n}(\bar X-\mu_0)}{s},$$
+where $s^2=\frac{1}{n-1}\sum_{i=1}^n (X_i-\bar X)^2$ is the unbiased estimator of $\sigma^2$.
 $$T_{obs}=\frac{\sqrt{5}(18.1-17)}{1.125}=2.187$$
 $$\Rightarrow \hbox{p-value}=2\min\{P(T_{n-1}\leq 2.187),\, P(T_{n-1}\geq 2.187)\}=0.094$$
 
@@ -190,7 +190,7 @@ all sample sizes $n$ and
 each significance level $\alpha$ the corresponding value of
 the **power function** $\beta$ is defined by the following probability:
 $$
-\beta_{n,\alpha}(\theta):=P(H_0 \text{ is rejected, if the true parameter value equals }\theta)
+\beta_{n,\alpha}(\theta):=P(\text{reject } H_0\; |\; \theta\in\Omega_0\cup\Omega_1)
 $$
 
 Obviously, $\beta_{n,\alpha}(\theta)\leq \alpha$ for all $\theta\in\Omega_0$. 
