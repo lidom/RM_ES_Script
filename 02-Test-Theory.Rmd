@@ -97,8 +97,8 @@ Practically important significance levels:
 - The p-value is random as it depends on the observed data. That is, different random samples will lead to different p-values.
 - For given data, having determined the p-value of a test we also know the test decisions for all possible levels $\alpha$:
 
-    - $\alpha > \text{p-value} \Rightarrow H_0 \text{ is rejected }$ 
-    - $\alpha < \text{p-value} \Rightarrow H_0 \text{ is accepted }$
+    - $\alpha > \text{p-value} \Rightarrow H_0 \text{ is rejected}$ 
+    - $\alpha < \text{p-value} \Rightarrow H_0 \text{ cannot be rejected}$
 
 
 \
