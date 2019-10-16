@@ -21,8 +21,8 @@
 <br>  
 
 
-<!-- * **Matching**<br> -->
-<!--   Literature:  -->
+* **Difference-in-Differences Estimations**<br>
+   Literature: @DID_2004, @cerulli2015, Ch. 3.4
 
 <!--   Bias-Corrected Matching Estimators for Average -->
 <!-- Treatment Effects -->
