@@ -17,19 +17,19 @@
 
 
 * **Instrumental Variables** <br>
-  Literature: @DMcK2004, Ch. 8
+  Literature: @DMcK2004 Ch. 8
 <br>  
 
 
 * **Difference-in-Differences Estimations**<br>
-   Literature: @DID_2004, @cerulli2015, Ch. 3.4
+   Literature: @DID_2004, @cerulli2015 Ch. 3.4
 
 <!--   Bias-Corrected Matching Estimators for Average -->
 <!-- Treatment Effects -->
 
 
 * **Multiple Testing** <br>
-  Literature: @BHW2010
+  Literature: @BHW2010, Lehmann2006 Ch. 9
 <br>  
 
 * **Panel Data Analysis** <br>
