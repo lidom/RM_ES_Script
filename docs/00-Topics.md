@@ -29,7 +29,7 @@
 
 
 * **Multiple Testing** <br>
-  Literature: @BHW2010, Lehmann2006 Ch. 9
+  Literature: @BHW2010, @Lehmann2006 Ch. 9
 <br>  
 
 * **Panel Data Analysis** <br>

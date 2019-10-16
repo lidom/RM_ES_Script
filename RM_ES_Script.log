@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99998 (TeX Live 2017/Debian) (preloaded format=xelatex 2018.10.15)  16 OCT 2019 13:32
+This is XeTeX, Version 3.14159265-2.6-0.99998 (TeX Live 2017/Debian) (preloaded format=xelatex 2018.10.15)  16 OCT 2019 16:18
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1218,21 +1218,21 @@ Underfull \vbox (badness 1715) has occurred while \output is active []
 
 [86] (./RM_ES_Script.bbl [87] [88
 
-])
+] [89])
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 3654.
-[89]
+[90]
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 3654.
 (./RM_ES_Script.aux)
 Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 3654.
 Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 3654.
  ) 
 Here is how much of TeX's memory you used:
- 22607 strings out of 493007
- 423591 string characters out of 6136718
- 553353 words of memory out of 5000000
- 26316 multiletter control sequences out of 15000+600000
+ 22610 strings out of 493007
+ 423648 string characters out of 6136718
+ 553391 words of memory out of 5000000
+ 26319 multiletter control sequences out of 15000+600000
  543047 words of font info for 59 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  45i,19n,54p,10453b,454s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on RM_ES_Script.pdf (89 pages).
+Output written on RM_ES_Script.pdf (90 pages).
