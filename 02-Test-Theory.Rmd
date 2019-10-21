@@ -529,16 +529,19 @@ Analogously: Construction of $m$ many $(1-\alpha^*)$-confidence intervals with $
 Regression analysis with $K=100$ regressors, where none of the variables has an effect on the dependent variable $y$.
 ```{r}
 library("tidyverse", quietly = TRUE)
-K <- 100
-n <- 500
+K <- 100 # number of regressors
+n <- 500 # sample size
 
 set.seed(123)
 
 # Generate regression data, where none of the X-variables 
 # has an effect on the dependent variable Y:
-my_df <- matrix(rnorm(n = n*K), nrow = n, ncol = K) %>% 
-  as_tibble %>% 
-  mutate(Y = rnorm(n)) %>% 
+my_df <- matrix(data = rnorm(n = n*K), 
+                nrow = n, ncol = K, 
+                dimnames = list(paste0("i.",1:n), 
+                                paste0("X.",1:K))) %>% 
+  as_tibble() %>% 
+  mutate(Y = rnorm(n)) %>% # Adding a Y-variable that is independent of the X-variables
   select(Y, everything())  
 
 # OLS regression
