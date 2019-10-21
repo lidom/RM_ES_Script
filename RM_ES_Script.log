@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99998 (TeX Live 2017/Debian) (preloaded format=xelatex 2018.10.15)  16 OCT 2019 16:18
+This is XeTeX, Version 3.14159265-2.6-0.99998 (TeX Live 2017/Debian) (preloaded format=xelatex 2018.10.15)  21 OCT 2019 14:01
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1130,15 +1130,8 @@ File: img/xkcd_mult_test.png Graphic file (type bmp)
 
 LaTeX Warning: Float too large for page by 24.4998pt on input line 2131.
 
-[47] [48]
-Overfull \hbox (358.5pt too wide) in paragraph at lines 2221--2221
-[]\TU/lmtt/m/n/10 ## Warning: []as_tibble.matrix()[] requires a matrix with col
-umn names or a [].name_repair[] argument. Using compatibility [].name_repair[].
-[] 
- []
-
-[49]
-Underfull \vbox (badness 6978) has occurred while \output is active []
+[47] [48] [49]
+Underfull \vbox (badness 4341) has occurred while \output is active []
 
 [50]
 File: img/Gauss-Test-Distr.png Graphic file (type bmp)
@@ -1148,7 +1141,7 @@ File: img/Gauss-Test-Distr.png Graphic file (type bmp)
 ]
 Chapter 3.
 [53] [54] [55] [56] [57] [58] [59]
-Underfull \hbox (badness 10000) in paragraph at lines 2605--2606
+Underfull \hbox (badness 10000) in paragraph at lines 2597--2598
 
  []
 
@@ -1165,7 +1158,7 @@ File: 05-Simulations_files/figure-latex/unnamed-chunk-3-1.pdf Graphic file (typ
 e pdf)
 <use 05-Simulations_files/figure-latex/unnamed-chunk-3-1.pdf>
 [67] [68] [69]
-Overfull \hbox (23.58444pt too wide) in paragraph at lines 2971--2974
+Overfull \hbox (23.58444pt too wide) in paragraph at lines 2963--2966
 []\TU/lmr/m/n/10 Observe that this approximation is really close to the true va
 lue:   $\OML/lmm/m/it/10 ^^L[]\OT1/lmr/m/n/10 (0\OML/lmm/m/it/10 :\OT1/lmr/m/n/
 10 5)  =
@@ -1176,7 +1169,7 @@ File: 05-Simulations_files/figure-latex/unnamed-chunk-7-1.pdf Graphic file (typ
 e pdf)
 <use 05-Simulations_files/figure-latex/unnamed-chunk-7-1.pdf>
 [72]
-Underfull \hbox (badness 1715) in paragraph at lines 3117--3119
+Underfull \hbox (badness 1715) in paragraph at lines 3109--3111
 []\TU/lmr/m/n/10 Stores the estimation results in the data-vectors \TU/lmtt/m/n
 /10 beta.2.sim \TU/lmr/m/n/10 and
  []
@@ -1193,18 +1186,18 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 ]
 Chapter 6.
 
-Underfull \hbox (badness 10000) in paragraph at lines 3188--3190
+Underfull \hbox (badness 10000) in paragraph at lines 3180--3182
 
  []
 
 [77] [78]
-Underfull \hbox (badness 4954) in paragraph at lines 3308--3309
+Underfull \hbox (badness 4954) in paragraph at lines 3300--3301
 []\TU/lmr/m/n/10 Buy a copy of Strunk and White’s (Elements of Style)[[]$[][][]
 [][] []
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 3308--3309
+Underfull \hbox (badness 10000) in paragraph at lines 3300--3301
 [] [] [][] [] [][][][][][][][][] [] [][][] [] [][][][] [] [][][] [] [][][][][][
 ][][] [] [][] [] [][][][][]$[]\TU/lmr/m/n/10 ]. Also, William
  []
@@ -1219,12 +1212,12 @@ Underfull \vbox (badness 1715) has occurred while \output is active []
 [86] (./RM_ES_Script.bbl [87] [88
 
 ] [89])
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 3654.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 3646.
 [90]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 3654.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 3646.
 (./RM_ES_Script.aux)
-Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 3654.
-Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 3654.
+Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 3646.
+Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 3646.
  ) 
 Here is how much of TeX's memory you used:
  22610 strings out of 493007

@@ -24,7 +24,7 @@
 <meta name="author" content="JProf. Dominik Liebl" />
 
 
-<meta name="date" content="2019-10-16" />
+<meta name="date" content="2019-10-21" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -299,7 +299,8 @@ Therefore, <span class="math inline">\(\bar X \to_{q.m.} \mu\)</span>. The latte
 sample size <span class="math inline">\(n\)</span>. This order of magnitude is usually represented using the symbols: <span class="math inline">\(O_P\)</span> and <span class="math inline">\(o_P\)</span>.</p>
 <p><br />
 </p>
-<p>Let <span class="math inline">\(\{Z_n\}_{n=1,2,3,\dots}\)</span> be a sequence of random variables, and let <span class="math inline">\(\{c_n\}_{n=1,2,3,\dots}\)</span> be a sequence of positive numbers (<span class="math inline">\(c_n\)</span> may de a deterministic sequence of real numbers or it may be a sequence of random variables).</p>
+<p>Let <span class="math inline">\(\{Z_n\}_{n=1,2,3,\dots}\)</span> be a sequence of random variables, and let <span class="math inline">\(\{c_n\}_{n=1,2,3,\dots}\)</span> be a sequence of positive (deterministic) numbers.
+<!-- ($c_n$ may de a deterministic sequence of real numbers or it may be a sequence of random variables) --></p>
 <ul>
 <li>We will write <span class="math inline">\(Z_n=O_p(c_n)\)</span> if for any <span class="math inline">\(\epsilon&gt;0\)</span> there exist numbers <span class="math inline">\(0&lt;M&lt;\infty\)</span> and <span class="math inline">\(m\)</span> such that
 <span class="math display">\[P(|Z_n|\ge M\cdot c_n)\leq\epsilon\quad\hbox{ for all }\quad n\geq m.\]</span></li>
@@ -332,9 +333,8 @@ P\left(|\hat\theta_n-\theta|&gt; n^{-1/2}\sqrt{C} \cdot
 \frac{1}{\sqrt{\epsilon}}\right)\leq \epsilon \quad\hbox{ for all }\quad\epsilon&gt;0\]</span></p>
 <p><br />
 </p>
-<p><strong>Generalization:</strong> Let <span class="math inline">\(\hat\theta_n\)</span> be a <em>not necessarily unbiased</em> estimator of an unknown parameter <span class="math inline">\(\theta\)</span>. If <span class="math inline">\(E\left((\hat\theta_n-\theta)^2\right)=Cn^{-2r}\)</span> for some <span class="math inline">\(0&lt;C&lt;\infty\)</span>, then <span class="math inline">\(|\hat\theta_n-\theta|=O_P(n^{-r})\)</span> and <span class="math inline">\(n^{-r}\)</span> is the rate of convergence of <span class="math inline">\(\hat\theta_n\)</span>.</p>
-<p><br />
-</p>
+<!-- **Generalization:** Let $\hat\theta_n$ be a *not necessarily unbiased* estimator of an unknown parameter $\theta$. If $E\left((\hat\theta_n-\theta)^2\right)=Cn^{-2r}$ for some $0<C<\infty$, then $|\hat\theta_n-\theta|=O_P(n^{-r})$ and $n^{-r}$ is the rate of convergence of $\hat\theta_n$. -->
+<!-- \ -->
 <p><strong>Example:</strong> Assume an i.i.d. sample <span class="math inline">\(X_1,\dots,X_n\)</span> with mean <span class="math inline">\(\mu=E(X_i)\)</span> and variance <span class="math inline">\(\sigma^2=\textrm{var}(X_i)&lt;\infty\)</span>. The sample mean <span class="math inline">\(\bar X\)</span> (<span class="math inline">\(\equiv \bar X_n\)</span>) is an unbiased estimator of <span class="math inline">\(\mu\)</span> with variance <span class="math inline">\(\textrm{var}(\bar X)=\sigma^2/n\)</span>.
 For large <span class="math inline">\(n\)</span> we have by the central limit theorem that approximately <span class="math inline">\(\sqrt{n}(\bar X-\mu)\sim N(0,\sigma^2)\)</span>. Therefore, for example:</p>
 <ul>

@@ -119,7 +119,8 @@ sample size $n$. This order of magnitude is usually represented using the symbol
 
 \
 
-Let $\{Z_n\}_{n=1,2,3,\dots}$ be a sequence of random variables, and let $\{c_n\}_{n=1,2,3,\dots}$ be a sequence of positive numbers ($c_n$ may de a deterministic sequence of real numbers or it may be a sequence of random variables).
+Let $\{Z_n\}_{n=1,2,3,\dots}$ be a sequence of random variables, and let $\{c_n\}_{n=1,2,3,\dots}$ be a sequence of positive (deterministic) numbers. 
+<!-- ($c_n$ may de a deterministic sequence of real numbers or it may be a sequence of random variables) -->
 
 * We will write $Z_n=O_p(c_n)$ if for any $\epsilon>0$ there exist numbers $0<M<\infty$ and $m$ such that
 $$P(|Z_n|\ge M\cdot c_n)\leq\epsilon\quad\hbox{ for all }\quad n\geq m.$$
@@ -162,10 +163,10 @@ P\left(|\hat\theta_n-\theta|> n^{-1/2}\sqrt{C} \cdot
 \
 
 
-**Generalization:** Let $\hat\theta_n$ be a *not necessarily unbiased* estimator of an unknown parameter $\theta$. If $E\left((\hat\theta_n-\theta)^2\right)=Cn^{-2r}$ for some $0<C<\infty$, then $|\hat\theta_n-\theta|=O_P(n^{-r})$ and $n^{-r}$ is the rate of convergence of $\hat\theta_n$.
+<!-- **Generalization:** Let $\hat\theta_n$ be a *not necessarily unbiased* estimator of an unknown parameter $\theta$. If $E\left((\hat\theta_n-\theta)^2\right)=Cn^{-2r}$ for some $0<C<\infty$, then $|\hat\theta_n-\theta|=O_P(n^{-r})$ and $n^{-r}$ is the rate of convergence of $\hat\theta_n$. -->
 
 
-\
+<!-- \ -->
 
 
 **Example:** Assume an i.i.d. sample $X_1,\dots,X_n$ with mean $\mu=E(X_i)$ and variance $\sigma^2=\textrm{var}(X_i)<\infty$. The sample mean $\bar X$ ($\equiv \bar X_n$) is an unbiased estimator of $\mu$ with variance $\textrm{var}(\bar X)=\sigma^2/n$.
