@@ -451,7 +451,7 @@ plot(y=gasolin.consumption, x=car.weight,
      main="Buy Light-Weight Cars!")
 ```
 
-![](01-Introduction-to-R_files/figure-latex/fig-margin-1.pdf)<!-- --> 
+<img src="01-Introduction-to-R_files/figure-html/fig-margin-1.png" width="432" />
 
 \
 
@@ -520,9 +520,7 @@ abline(a=alpha,
        b=beta, col="red")
 ```
 
-
-
-\begin{center}\includegraphics[width=\textwidth]{01-Introduction-to-R_files/figure-latex/unnamed-chunk-23-1} \end{center}
+<img src="01-Introduction-to-R_files/figure-html/unnamed-chunk-23-1.png" width="\textwidth" style="display: block; margin: auto;" />
 
 \
 
@@ -585,7 +583,7 @@ plot(y=eps, x=X.3,
      main="Realizations of the \nHeteroscedastic Error Term")
 ```
 
-![](01-Introduction-to-R_files/figure-latex/unnamed-chunk-27-1.pdf)<!-- --> 
+<img src="01-Introduction-to-R_files/figure-html/unnamed-chunk-27-1.png" width="432" />
 
 
 With the (pseudo-random) realizations from $\varepsilon_i$, we can finally generate realizations from the dependent variable $y_i$:
@@ -603,9 +601,7 @@ mydata    <- data.frame("Y"=y, "X.1"=X.1, "X.2"=X.2, "X.3"=X.3)
 pairs(mydata[,-2]) # The '-2' removes the intercept variable "X.1"
 ```
 
-
-
-\begin{center}\includegraphics[width=\textwidth]{01-Introduction-to-R_files/figure-latex/unnamed-chunk-29-1} \end{center}
+<img src="01-Introduction-to-R_files/figure-html/unnamed-chunk-29-1.png" width="\textwidth" style="display: block; margin: auto;" />
 
 \
 
@@ -686,9 +682,7 @@ library("ggplot2")
 qplot(Sepal.Length, Petal.Length, data = iris, color = Species)
 ```
 
-
-
-\begin{center}\includegraphics[width=\textwidth]{01-Introduction-to-R_files/figure-latex/unnamed-chunk-32-1} \end{center}
+<img src="01-Introduction-to-R_files/figure-html/unnamed-chunk-32-1.png" width="\textwidth" style="display: block; margin: auto;" />
 
 \
 
@@ -716,19 +710,19 @@ library(tidyverse)
 ```
 
 ```
-## -- Attaching packages ------------------------------------- tidyverse 1.2.1 --
+## ── Attaching packages ───────────────────────────────────── tidyverse 1.2.1 ──
 ```
 
 ```
-## v tibble  2.1.3     v dplyr   0.8.3
-## v tidyr   1.0.0     v stringr 1.2.0
-## v purrr   0.3.2     v forcats 0.4.0
+## ✔ tibble  2.1.3     ✔ dplyr   0.8.3
+## ✔ tidyr   1.0.0     ✔ stringr 1.2.0
+## ✔ purrr   0.3.2     ✔ forcats 0.4.0
 ```
 
 ```
-## -- Conflicts ---------------------------------------- tidyverse_conflicts() --
-## x dplyr::filter() masks stats::filter()
-## x dplyr::lag()    masks stats::lag()
+## ── Conflicts ──────────────────────────────────────── tidyverse_conflicts() ──
+## ✖ dplyr::filter() masks stats::filter()
+## ✖ dplyr::lag()    masks stats::lag()
 ```
 
 
@@ -826,7 +820,7 @@ CW
 ##  8    16     1    10     51
 ##  9    16     1    12     54
 ## 10    15     1     0     41
-## # ... with 568 more rows
+## # … with 568 more rows
 ```
 
 
@@ -841,10 +835,10 @@ glimpse(CW)
 ```
 ## Observations: 578
 ## Variables: 4
-## $ Chick  <dbl> 18, 18, 16, 16, 16, 16, 16, 16, 16, 15, 15, 15, 15, 15,...
-## $ Diet   <dbl> 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1...
-## $ Time   <dbl> 0, 2, 0, 2, 4, 6, 8, 10, 12, 0, 2, 4, 6, 8, 10, 12, 14,...
-## $ weight <dbl> 39, 35, 41, 45, 49, 51, 57, 51, 54, 41, 49, 56, 64, 68,...
+## $ Chick  <dbl> 18, 18, 16, 16, 16, 16, 16, 16, 16, 15, 15, 15, 15, 15, 1…
+## $ Diet   <dbl> 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, …
+## $ Time   <dbl> 0, 2, 0, 2, 4, 6, 8, 10, 12, 0, 2, 4, 6, 8, 10, 12, 14, 0…
+## $ weight <dbl> 39, 35, 41, 45, 49, 51, 57, 51, 54, 41, 49, 56, 64, 68, 6…
 ```
 
 The function `View()` allows for a spread-sheet type of view on the data:
@@ -873,9 +867,7 @@ ggplot(CW, aes(Time, weight))
 ggplot(CW, aes(Time, weight)) + geom_point() 
 ```
 
-
-
-\begin{center}\includegraphics{01-Introduction-to-R_files/figure-latex/emptyPlot-1} \includegraphics{01-Introduction-to-R_files/figure-latex/emptyPlot-2} \end{center}
+<img src="01-Introduction-to-R_files/figure-html/emptyPlot-1.png" width="167.04" style="display: block; margin: auto;" /><img src="01-Introduction-to-R_files/figure-html/emptyPlot-2.png" width="167.04" style="display: block; margin: auto;" />
 
 
 Add color for `Diet`. The graph above does not differentiate between the diets. Let's use a different color for
@@ -887,7 +879,7 @@ ggplot(CW,aes(Time,weight,colour=factor(Diet))) +
   geom_point() 
 ```
 
-![](01-Introduction-to-R_files/figure-latex/addColourPlot-1.pdf)<!-- --> 
+<img src="01-Introduction-to-R_files/figure-html/addColourPlot-1.png" width="672" />
 
 It is difficult to conclude anything from this graph as the points are printed on top of
 one another (with diet 1 underneath and diet 4 at the top). 
@@ -908,10 +900,10 @@ glimpse(CW)
 ```
 ## Observations: 578
 ## Variables: 4
-## $ Chick  <dbl> 18, 18, 16, 16, 16, 16, 16, 16, 16, 15, 15, 15, 15, 15,...
-## $ Diet   <fct> 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1...
-## $ Time   <fct> 0, 2, 0, 2, 4, 6, 8, 10, 12, 0, 2, 4, 6, 8, 10, 12, 14,...
-## $ weight <dbl> 39, 35, 41, 45, 49, 51, 57, 51, 54, 41, 49, 56, 64, 68,...
+## $ Chick  <dbl> 18, 18, 16, 16, 16, 16, 16, 16, 16, 15, 15, 15, 15, 15, 1…
+## $ Diet   <fct> 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, …
+## $ Time   <fct> 0, 2, 0, 2, 4, 6, 8, 10, 12, 0, 2, 4, 6, 8, 10, 12, 14, 0…
+## $ weight <dbl> 39, 35, 41, 45, 49, 51, 57, 51, 54, 41, 49, 56, 64, 68, 6…
 ```
 
 
@@ -925,7 +917,7 @@ ggplot(CW, aes(Time, weight, colour=Diet)) +
   theme(legend.position = "bottom")
 ```
 
-![](01-Introduction-to-R_files/figure-latex/ScatterPlot-1.pdf)<!-- --> 
+<img src="01-Introduction-to-R_files/figure-html/ScatterPlot-1.png" width="672" />
 
 
 <!-- To overcome the issue of ovelapping points we can ***jitter*** the points using  -->
@@ -955,7 +947,7 @@ ggplot(CW, aes(Time, weight,
   stat_summary(fun.y="mean", geom="line") 
 ```
 
-![](01-Introduction-to-R_files/figure-latex/meanlinesPlot-1.pdf)<!-- --> 
+<img src="01-Introduction-to-R_files/figure-html/meanlinesPlot-1.png" width="672" />
 
 **Interpretation:**
 We can see that diet 3 has the highest mean weight gains by the end of the experiment. However, 
@@ -973,7 +965,7 @@ ggplot(CW, aes(Time, weight, colour=Diet)) +
   ggtitle("Chick Weight over Time by Diet")
 ```
 
-![](01-Introduction-to-R_files/figure-latex/boxPlot-1.pdf)<!-- --> 
+<img src="01-Introduction-to-R_files/figure-html/boxPlot-1.png" width="672" />
 
 
 **Interpretation:**
@@ -998,7 +990,7 @@ ggplot(CW, aes(Time, weight, group=Diet,
   ylab("Weight (grams)")
 ```
 
-![](01-Introduction-to-R_files/figure-latex/finalPlot-1.pdf)<!-- --> 
+<img src="01-Introduction-to-R_files/figure-html/finalPlot-1.png" width="672" />
 
 
 
@@ -1029,7 +1021,7 @@ CWm1
 ## 1    18 1     0         39    0.039
 ## 2    18 1     2         35    0.035
 ## 3    16 1     0         41    0.041
-## # ... with 575 more rows
+## # … with 575 more rows
 ```
 
 ```r
@@ -1045,7 +1037,7 @@ CWm2
 ## 1    18 Diet 1 0         39
 ## 2    18 Diet 1 2         35
 ## 3    16 Diet 1 0         41
-## # ... with 575 more rows
+## # … with 575 more rows
 ```
 
 \
@@ -1064,7 +1056,7 @@ select(CWm1, -weight)
 ## 1    18 1     0        0.039
 ## 2    18 1     2        0.035
 ## 3    16 1     0        0.041
-## # ... with 575 more rows
+## # … with 575 more rows
 ```
 
 ```r
@@ -1079,7 +1071,7 @@ select(CWm1, Chick, Time, Diet, weightKg)
 ## 1    18 0     1        0.039
 ## 2    18 2     1        0.035
 ## 3    16 0     1        0.041
-## # ... with 575 more rows
+## # … with 575 more rows
 ```
 
 \
@@ -1097,7 +1089,7 @@ rename(CW, Group = Diet, Weight = weight)
 ## 1    18 1     0         39
 ## 2    18 1     2         35
 ## 3    16 1     0         41
-## # ... with 575 more rows
+## # … with 575 more rows
 ```
 
 \
@@ -1115,7 +1107,7 @@ filter(CW, Time==21 & weight>300)
 ## 1     7 1     21       305
 ## 2    29 2     21       309
 ## 3    21 2     21       331
-## # ... with 5 more rows
+## # … with 5 more rows
 ```
 
 For comparing values in vectors use: `<` (less than), `>` (greater than), `<=`
@@ -1137,7 +1129,7 @@ arrange(CW, Chick, Time)
 ## 1     1 1     0         42
 ## 2     1 1     2         51
 ## 3     1 1     4         59
-## # ... with 575 more rows
+## # … with 575 more rows
 ```
 
 ```r
@@ -1151,7 +1143,7 @@ arrange(CW, desc(weight))
 ## 1    35 3     21       373
 ## 2    35 3     20       361
 ## 3    34 3     21       341
-## # ... with 575 more rows
+## # … with 575 more rows
 ```
 
 
@@ -1183,7 +1175,7 @@ CW21
 ## 1     1 Diet 1 0         42
 ## 2     1 Diet 1 21       205
 ## 3     2 Diet 1 0         40
-## # ... with 92 more rows
+## # … with 92 more rows
 ```
 
 
@@ -1241,7 +1233,7 @@ mnsdCW
 ## 1 1     0        20  41.4
 ## 2 1     2        20  47.2
 ## 3 1     4        19  56.5
-## # ... with 45 more rows
+## # … with 45 more rows
 ```
 
  
@@ -1274,7 +1266,7 @@ sumCW
 ## 1 1     0        20  41.4  0.995   41      39    43
 ## 2 1     21       16 178.  58.7    166      96   305
 ## 3 2     0        10  40.7  1.49    40.5    39    43
-## # ... with 5 more rows
+## # … with 5 more rows
 ```
 
 Let's make the summaries "prettier", say, for a report or publication.
@@ -1291,28 +1283,84 @@ prettySumCW <- sumCW %>%
 prettySumCW
 ```
 
-
-\begin{tabular}{l|l|r|l|r|l}
-\hline
-Diet & Time & N & Mean (SD) & Median & Range\\
-\hline
-1 & 0 & 20 & 41 ( 0.99) & 41.0 & 39 - 43\\
-\hline
-1 & 21 & 16 & 178 (58.70) & 166.0 & 96 - 305\\
-\hline
-2 & 0 & 10 & 41 ( 1.5) & 40.5 & 39 - 43\\
-\hline
-2 & 21 & 10 & 215 (78.1) & 212.5 & 74 - 331\\
-\hline
-3 & 0 & 10 & 41 ( 1) & 41.0 & 39 - 42\\
-\hline
-3 & 21 & 10 & 270 (72) & 281.0 & 147 - 373\\
-\hline
-4 & 0 & 10 & 41 ( 1.1) & 41.0 & 39 - 42\\
-\hline
-4 & 21 & 9 & 239 (43.3) & 237.0 & 196 - 322\\
-\hline
-\end{tabular}
+<table>
+ <thead>
+  <tr>
+   <th style="text-align:left;"> Diet </th>
+   <th style="text-align:left;"> Time </th>
+   <th style="text-align:right;"> N </th>
+   <th style="text-align:left;"> Mean (SD) </th>
+   <th style="text-align:right;"> Median </th>
+   <th style="text-align:left;"> Range </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:left;"> 1 </td>
+   <td style="text-align:left;"> 0 </td>
+   <td style="text-align:right;"> 20 </td>
+   <td style="text-align:left;"> 41 ( 0.99) </td>
+   <td style="text-align:right;"> 41.0 </td>
+   <td style="text-align:left;"> 39 - 43 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 1 </td>
+   <td style="text-align:left;"> 21 </td>
+   <td style="text-align:right;"> 16 </td>
+   <td style="text-align:left;"> 178 (58.70) </td>
+   <td style="text-align:right;"> 166.0 </td>
+   <td style="text-align:left;"> 96 - 305 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 2 </td>
+   <td style="text-align:left;"> 0 </td>
+   <td style="text-align:right;"> 10 </td>
+   <td style="text-align:left;"> 41 ( 1.5) </td>
+   <td style="text-align:right;"> 40.5 </td>
+   <td style="text-align:left;"> 39 - 43 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 2 </td>
+   <td style="text-align:left;"> 21 </td>
+   <td style="text-align:right;"> 10 </td>
+   <td style="text-align:left;"> 215 (78.1) </td>
+   <td style="text-align:right;"> 212.5 </td>
+   <td style="text-align:left;"> 74 - 331 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 3 </td>
+   <td style="text-align:left;"> 0 </td>
+   <td style="text-align:right;"> 10 </td>
+   <td style="text-align:left;"> 41 ( 1) </td>
+   <td style="text-align:right;"> 41.0 </td>
+   <td style="text-align:left;"> 39 - 42 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 3 </td>
+   <td style="text-align:left;"> 21 </td>
+   <td style="text-align:right;"> 10 </td>
+   <td style="text-align:left;"> 270 (72) </td>
+   <td style="text-align:right;"> 281.0 </td>
+   <td style="text-align:left;"> 147 - 373 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 4 </td>
+   <td style="text-align:left;"> 0 </td>
+   <td style="text-align:right;"> 10 </td>
+   <td style="text-align:left;"> 41 ( 1.1) </td>
+   <td style="text-align:right;"> 41.0 </td>
+   <td style="text-align:left;"> 39 - 42 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 4 </td>
+   <td style="text-align:left;"> 21 </td>
+   <td style="text-align:right;"> 9 </td>
+   <td style="text-align:left;"> 239 (43.3) </td>
+   <td style="text-align:right;"> 237.0 </td>
+   <td style="text-align:left;"> 196 - 322 </td>
+  </tr>
+</tbody>
+</table>
 
 
 <!-- Eventually you should be able to produce a publication ready version as follows: -->

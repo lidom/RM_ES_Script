@@ -1,0 +1,77 @@
+\begin{thebibliography}{}
+
+\bibitem[Baltagi, 2008]{B2008}
+Baltagi, B. (2008).
+\newblock {\em Econometric Analysis of Panel Data}.
+\newblock John Wiley \& Sons.
+
+\bibitem[Bertrand et~al., 2004]{DID_2004}
+Bertrand, M., Duflo, E., and Mullainathan, S. (2004).
+\newblock How much should we trust differences-in-differences estimates?
+\newblock {\em The Quarterly Journal of Economics}, 119(1):249--275.
+
+\bibitem[Cameron et~al., 2011]{RobInf2011}
+Cameron, A.~C., Gelbach, J.~B., and Miller, D.~L. (2011).
+\newblock Robust inference with multiway clustering.
+\newblock {\em Journal of Business \& Economic Statistics}, 29(2):238--249.
+
+\bibitem[Cerulli, 2015]{cerulli2015}
+Cerulli, G. (2015).
+\newblock {\em Econometric Evaluation of Socio-Economic Programs}.
+\newblock Advanced Studies in Theoretical and Applied Econometrics Series.
+  Springer.
+
+\bibitem[Davidson and MacKinnon, 2004]{DMcK2004}
+Davidson, R. and MacKinnon, J.~G. (2004).
+\newblock {\em Econometric Theory and Methods}.
+\newblock Oxford University Press New York.
+
+\bibitem[F.~Bretz, 2010]{BHW2010}
+F.~Bretz, T.~Hothorn, P.~W. (2010).
+\newblock {\em Multiple Comparisons Using R}.
+\newblock Chapman and Hall/CRC.
+
+\bibitem[Fan and Gijbels, 1996]{FG1996}
+Fan, J. and Gijbels, I. (1996).
+\newblock {\em Local Polynomial Modelling and its Applications}, volume~66 of
+  {\em Monographs on Statistics and Applied Probability}.
+\newblock Chapman \& Hall/CRC, 1. edition.
+
+\bibitem[Greene, 2003]{G2003}
+Greene, W. (2003).
+\newblock {\em Econometric Analysis}.
+\newblock Pearson.
+
+\bibitem[Hsiao, 2014]{H2014}
+Hsiao, C. (2014).
+\newblock {\em Analysis of Panel Data}.
+\newblock Cambridge university press.
+
+\bibitem[Imbens and Lemieux, 2008]{IL2008}
+Imbens, G.~W. and Lemieux, T. (2008).
+\newblock Regression discontinuity designs: A guide to practice.
+\newblock {\em Journal of Econometrics}, 142(2):615--635.
+
+\bibitem[Lehmann and Romano, 2006]{Lehmann2006}
+Lehmann, E.~L. and Romano, J.~P. (2006).
+\newblock {\em Testing statistical hypotheses}.
+\newblock Springer.
+
+\bibitem[Li and Racine, 2007]{LR2007}
+Li, Q. and Racine, J. (2007).
+\newblock {\em Nonparametric Econometrics: Theory and Practice}.
+\newblock Princeton University Press.
+
+\bibitem[Little, 1988]{L1988}
+Little, R. J.~A. (1988).
+\newblock A test of missing completely at random for multivariate data with
+  missing values.
+\newblock {\em Journal of the American Statistical Association},
+  83(404):1198--1202.
+
+\bibitem[Wand and Jones, 1994]{WJ1994}
+Wand, M. and Jones, M. (1994).
+\newblock {\em Kernel Smoothing}, volume~60.
+\newblock Chapman \& Hall/CRC.
+
+\end{thebibliography}

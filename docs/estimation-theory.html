@@ -24,7 +24,7 @@
 <meta name="author" content="JProf. Dominik Liebl" />
 
 
-<meta name="date" content="2019-10-21" />
+<meta name="date" content="2019-10-28" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -32,7 +32,7 @@
   
   
 <link rel="prev" href="statistical-hypothesis-testing.html"/>
-<link rel="next" href="linear-regression.html"/>
+<link rel="next" href="ordinary-least-squares.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -168,7 +168,18 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="3.6.3" data-path="estimation-theory.html"><a href="estimation-theory.html#the-delta-method"><i class="fa fa-check"></i><b>3.6.3</b> The Delta-Method</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="linear-regression.html"><a href="linear-regression.html"><i class="fa fa-check"></i><b>4</b> Linear Regression</a></li>
+<li class="chapter" data-level="4" data-path="ordinary-least-squares.html"><a href="ordinary-least-squares.html"><i class="fa fa-check"></i><b>4</b> Ordinary Least Squares</a><ul>
+<li class="chapter" data-level="4.1" data-path="ordinary-least-squares.html"><a href="ordinary-least-squares.html#finite-sample-properties-of-ols"><i class="fa fa-check"></i><b>4.1</b> Finite-Sample Properties of OLS</a><ul>
+<li class="chapter" data-level="4.1.1" data-path="ordinary-least-squares.html"><a href="ordinary-least-squares.html#the-classical-linear-regression-model"><i class="fa fa-check"></i><b>4.1.1</b> The Classical Linear Regression Model</a></li>
+<li class="chapter" data-level="4.1.2" data-path="ordinary-least-squares.html"><a href="ordinary-least-squares.html#the-algebra-of-least-squares"><i class="fa fa-check"></i><b>4.1.2</b> The Algebra of Least Squares</a></li>
+<li class="chapter" data-level="" data-path="ordinary-least-squares.html"><a href="ordinary-least-squares.html#some-quantities-of-interest"><i class="fa fa-check"></i>Some quantities of interest:</a></li>
+<li class="chapter" data-level="4.1.3" data-path="ordinary-least-squares.html"><a href="ordinary-least-squares.html#coefficient-of-determination"><i class="fa fa-check"></i><b>4.1.3</b> Coefficient of determination</a></li>
+<li class="chapter" data-level="" data-path="ordinary-least-squares.html"><a href="ordinary-least-squares.html#partitioned-regression-model"><i class="fa fa-check"></i>Partitioned regression model</a></li>
+<li class="chapter" data-level="4.1.4" data-path="ordinary-least-squares.html"><a href="ordinary-least-squares.html#finite-sample-properties-of-ols-1"><i class="fa fa-check"></i><b>4.1.4</b> Finite-Sample Properties of OLS</a></li>
+<li class="chapter" data-level="4.1.5" data-path="ordinary-least-squares.html"><a href="ordinary-least-squares.html#Testing"><i class="fa fa-check"></i><b>4.1.5</b> Hypothesis Testing under Normality</a></li>
+<li class="chapter" data-level="4.1.6" data-path="ordinary-least-squares.html"><a href="ordinary-least-squares.html#asymptotics-under-the-classic-regression-model"><i class="fa fa-check"></i><b>4.1.6</b> Asymptotics under the Classic Regression Model</a></li>
+</ul></li>
+</ul></li>
 <li class="chapter" data-level="5" data-path="monte-carlo-simulations.html"><a href="monte-carlo-simulations.html"><i class="fa fa-check"></i><b>5</b> Monte-Carlo Simulations</a><ul>
 <li class="chapter" data-level="5.1" data-path="monte-carlo-simulations.html"><a href="monte-carlo-simulations.html#checking-test-statistics"><i class="fa fa-check"></i><b>5.1</b> Checking Test Statistics</a><ul>
 <li class="chapter" data-level="5.1.1" data-path="monte-carlo-simulations.html"><a href="monte-carlo-simulations.html#simple-example-gauss-test"><i class="fa fa-check"></i><b>5.1.1</b> Simple Example: Gauss Test</a></li>
@@ -465,8 +476,8 @@ and where <span class="math inline">\(V_{jk}\)</span> are the elements of the as
 <p>Properties of an asymptotically efficient estimator <span class="math inline">\(\theta_n\)</span>:</p>
 <ul>
 <li>For the estimation problem to be considered <span class="math inline">\(\theta_n\)</span> is consistent and adopts the fastest possible rate of convergence
-(generally:<span class="math inline">\(n^{-1/2}\)</span> in parametric statistics, <span class="math inline">\(n^{-2/5}\)</span> in nonparametric curve estimation problems).</li>
-<li>In most regular situations one is additionally interest in a “best asymptotically normal” (BAN) estimator. Assume that <span class="math inline">\(\sqrt{n}(\theta_n -\theta)\sim N(0,v^2)\)</span>. Then <span class="math inline">\(\theta_n\)</span> is a BAN-estimator if any alternative estimator <span class="math inline">\(\tilde\theta_n\)</span> with
+(generally: <span class="math inline">\(n^{-1/2}\)</span> in parametric statistics; <span class="math inline">\(n^{-2/5}\)</span> can be achieved in nonparametric univariate curve estimation problems).</li>
+<li>In most regular situations one is additionally interested in a “best asymptotically normal” (BAN) estimator. Assume that <span class="math inline">\(\sqrt{n}(\theta_n -\theta)\sim N(0,v^2)\)</span>. Then <span class="math inline">\(\theta_n\)</span> is a BAN-estimator if any alternative estimator <span class="math inline">\(\tilde\theta_n\)</span> with
 <span class="math inline">\(\sqrt{n}(\tilde\theta_n -\theta)\sim N(0,\tilde v^2)\)</span> possesses a larger asymptotic variance, i.e. <span class="math inline">\(\tilde v^2\geq v^2\)</span>.</li>
 <li><strong>Multivariate generalization:</strong> An estimator <span class="math inline">\(\theta_n\)</span> with <span class="math inline">\(\sqrt{n}(\theta_n -\theta)\sim N_p(0,V)\)</span> is best asymptotically normal if
 <span class="math display">\[c&#39;\tilde V c\geq c&#39;Vc\quad\hbox{ for all }\quad c\in\mathbb{R}^p, \Vert c\Vert_2^2=1\]</span>
@@ -542,7 +553,7 @@ V_n:=Z_n\cdot W_n&amp;\to_L N_p(0,CVC&#39;)
 <span class="math display">\[n^{r} \left(g(\widehat{\theta}_n)-g(\theta)\right) \rightarrow_L  N\left(0,g&#39;(\theta)^2v^2\right).\]</span></p>
 <p><br />
 </p>
-<p><strong>Example:</strong> Assume an i.i.d. sample <span class="math inline">\(X_1,\dots,X_n\)</span> from an exponential distribution, i.e., the underlying density of <span class="math inline">\(X_i\)</span> is given by <span class="math inline">\(f(x|\theta)=\theta\exp(-\theta x)\)</span>. We then have <span class="math inline">\(\mu:=E(X_i)=1/\theta\)</span> as well as <span class="math inline">\(\sigma^2_X:=\textrm{var}(X_i)=1/\theta^2\)</span>. The underlying parameter <span class="math inline">\(\theta&gt;0\)</span> is unknown and has to be estimated from the data.</p>
+<p><strong>Example:</strong> Assume an i.i.d. random sample <span class="math inline">\(X_1,\dots,X_n\)</span> from an exponential distribution. That is, the underlying density of <span class="math inline">\(X_i\)</span>, <span class="math inline">\(i=1,\dots,n\)</span>, is given by <span class="math inline">\(f(x|\theta)=\theta\exp(-\theta x)\)</span>. We then have <span class="math inline">\(\mu:=E(X_i)=1/\theta\)</span> as well as <span class="math inline">\(\sigma^2_X:=\textrm{var}(X_i)=1/\theta^2\)</span>. The underlying parameter <span class="math inline">\(\theta&gt;0\)</span> is unknown and has to be estimated from the data.</p>
 <p><br />
 </p>
 <p>The maximum-likelihood estimator of <span class="math inline">\(\theta\)</span> is <span class="math inline">\(\hat\theta=1/\bar X\)</span>.</p>
@@ -675,7 +686,7 @@ V_n:=Z_n\cdot W_n&amp;\to_L N_p(0,CVC&#39;)
         </div>
       </div>
 <a href="statistical-hypothesis-testing.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="linear-regression.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="ordinary-least-squares.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
