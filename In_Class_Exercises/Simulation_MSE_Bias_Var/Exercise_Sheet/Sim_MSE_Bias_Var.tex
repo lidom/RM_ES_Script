@@ -1,0 +1,132 @@
+\documentclass[a4paper]{article}
+\usepackage[]{graphicx}
+\usepackage{amsmath}
+\usepackage[]{color}
+\usepackage{enumitem}
+%% maxwidth is the original width if it is less than linewidth
+%% otherwise use linewidth (to make sure the graphics do not exceed the margin)
+\makeatletter
+\def\maxwidth{ %
+  \ifdim\Gin@nat@width>\linewidth
+    \linewidth
+  \else
+    \Gin@nat@width
+  \fi
+} 
+\makeatother
+
+\definecolor{fgcolor}{rgb}{0, 0, 0}
+\newcommand{\hlnum}[1]{\textcolor[rgb]{0.69,0.494,0}{#1}}%
+\newcommand{\hlstr}[1]{\textcolor[rgb]{0.749,0.012,0.012}{#1}}%
+\newcommand{\hlcom}[1]{\textcolor[rgb]{0.514,0.506,0.514}{\textit{#1}}}%
+\newcommand{\hlopt}[1]{\textcolor[rgb]{0,0,0}{#1}}%
+\newcommand{\hlstd}[1]{\textcolor[rgb]{0,0,0}{#1}}%
+\newcommand{\hlkwa}[1]{\textcolor[rgb]{0,0,0}{\textbf{#1}}}%
+\newcommand{\hlkwb}[1]{\textcolor[rgb]{0,0.341,0.682}{#1}}%
+\newcommand{\hlkwc}[1]{\textcolor[rgb]{0,0,0}{\textbf{#1}}}%
+\newcommand{\hlkwd}[1]{\textcolor[rgb]{0.004,0.004,0.506}{#1}}%
+\let\hlipl\hlkwb
+
+\usepackage{framed}
+\makeatletter
+\newenvironment{kframe}{%
+ \def\at@end@of@kframe{}%
+ \ifinner\ifhmode%
+  \def\at@end@of@kframe{\end{minipage}}%
+  \begin{minipage}{\columnwidth}%
+ \fi\fi%
+ \def\FrameCommand##1{\hskip\@totalleftmargin \hskip-\fboxsep
+ \colorbox{shadecolor}{##1}\hskip-\fboxsep
+     % There is no \\@totalrightmargin, so:
+     \hskip-\linewidth \hskip-\@totalleftmargin \hskip\columnwidth}%
+ \MakeFramed {\advance\hsize-\width
+   \@totalleftmargin\z@ \linewidth\hsize
+   \@setminipage}}%
+ {\par\unskip\endMakeFramed%
+ \at@end@of@kframe}
+\makeatother
+
+\definecolor{shadecolor}{rgb}{.97, .97, .97} 
+\definecolor{messagecolor}{rgb}{0, 0, 0}
+\definecolor{warningcolor}{rgb}{1, 0, 1}
+\definecolor{errorcolor}{rgb}{1, 0, 0}
+\newenvironment{knitrout}{}{} % an empty environment to be redefined in TeX
+
+\usepackage{alltt}
+\usepackage{booktabs} 
+\usepackage{color}
+\usepackage{hyperref}
+\definecolor{britishracinggreen}{rgb}{0.0, 0.26, 0.15}
+\definecolor{ao}{rgb}{0.0, 0.0, 1.0}
+\definecolor{frenchblue}{rgb}{0.0, 0.45, 0.73}
+\definecolor{lapislazuli}{rgb}{0.15, 0.38, 0.61}
+\hypersetup{urlcolor=lapislazuli, colorlinks=TRUE}
+\usepackage[ngerman]{babel}
+\usepackage[T1]{fontenc}        
+\usepackage{ucs}
+\usepackage[utf8x]{inputenc} 
+\usepackage{marginnote}
+%=== bibliography package ===
+\usepackage{natbib}
+\bibliographystyle{harvard}
+%citet and citep
+%=============================
+
+\newcommand{\gqq}[1]{\glqq{}{#1}\grqq{}}
+
+%===================================================  
+\sloppy
+\parindent0pt
+\parskip1.5ex plus.5ex minus.5ex
+\addtolength{\textheight}{2cm} \addtolength{\topmargin}{-1cm} \addtolength{\textwidth}{2cm}
+\addtolength{\oddsidemargin}{-1cm}
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\begin{document}
+
+
+
+Universität Bonn \hfill   \\%\today
+Research Module Econometrics \& Statistics \hfill JProf.~Dominik Liebl
+%=====================================================
+%\vspace {0.5cm}
+\rule{\textwidth}{.2pt}
+\begin{center} 
+\textbf{{\large MSE, Bias$^2$, and Variance of the ML-Estimator\\of the Standard Deviation}}\\[1ex]
+\end{center}
+% \begin{center}
+% \end{center}
+\rule{\textwidth}{.2pt}
+%====================================================
+
+
+{\sc Setup: }
+\begin{itemize}[leftmargin=0.3cm]
+\item Assumptions: iid random sample $(X_1,\dots,X_n)$ with $X_i\sim N(\mu,\sigma^2)$ for all $i=1,\dots,n$.
+\item Fix values for the mean $\mu$, the variance $\sigma^2$, and the sample size $n$. \\
+For instance: $\mu=3$, $\sigma=1.5$, and $n=\{2,4,6,\dots,30\}$.
+\end{itemize}
+
+{\sc Monte-Carlo Algorithm:}
+% Declare a container-variable \texttt{decisions <- integer(length = B)}, where \texttt{B} denotes the number of Monte-Carlo simulations. Choose a large number such as \texttt{B}$=10,000$.
+%In the $\texttt{b}$th simulation run, with $\texttt{b}=1,\dots,\texttt{B}$, do the following:
+\begin{enumerate}
+\item Simulate a realization from the iid random sample $(X_1,\dots,X_n)$.
+\item Compute $s_n=\sqrt{\frac{1}{n}\sum_{i=1}^n(X_i-\bar{X}_n)^2}$, where $\bar{X}_n=n^{-1}\sum_{i=1}^nX_i$
+\end{enumerate}
+
+Repeat Steps 1-2 a large number of times, e.g., $R=10,000$ times and save all estimates $s_{n,1},\dots,s_{n,R}$. Then approximate the Mean Squared Error (MSE), the squared bias (Bias$^2$), and the variance (Var) by
+\begin{align*}
+\operatorname{MSE}(s_n)   &\approx \frac{1}{R}\sum_{r=1}^R (s_{n,r}-\sigma)^2\\
+\operatorname{Bias}^2(s_n)&\approx \left(\left(\frac{1}{R}\sum_{r=1}^R s_{n,r}\right)-\sigma\right)^2\\
+\operatorname{Var}(s_n)&\approx\frac{1}{R}\sum_{r=1}^R \left(s_{n,r}-\left(\frac{1}{R}\sum_{r=1}^R s_{n,r}\right)\right)^2
+\end{align*}
+where $E(s_{n,r})\approx R^{-1}\sum_{r=1}^Rs_{n,r}$. (The \textit{Law of Large Numbers} implies that the approximations become arbitrarily precise for $R\to\infty$.)
+
+\bigskip
+
+{\sc Presentation of the Simulation-Results:}
+\begin{itemize}[leftmargin=0.3cm]
+\item Plot your results (y-axis: MSE, Bias$^2$, and Var; x-axis: $n$)
+\item Add the corresponding results for the unbiased estimator $\tilde{s}_{n}=\sqrt{\frac{1}{n-1}\sum_{i=1}^n(X_i-\bar{X}_n)^2}$.
+\end{itemize}
+\end{document}

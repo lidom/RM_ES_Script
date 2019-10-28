@@ -1,0 +1,69 @@
+\documentclass[a4paper]{article}
+%=================================
+\usepackage{comment}
+\includecomment{Solution}   % Achtung: Innerhalb 'Solutions' sind keine Umlaute erlaubt (ü -> \"u).
+%\excludecomment{Solution}    % Auch nicht im auskommentierten R-Code
+%=================================
+\usepackage{color}
+\usepackage{hyperref}
+\definecolor{britishracinggreen}{rgb}{0.0, 0.26, 0.15}
+\definecolor{ao}{rgb}{0.0, 0.0, 1.0}
+\definecolor{frenchblue}{rgb}{0.0, 0.45, 0.73}
+\definecolor{lapislazuli}{rgb}{0.15, 0.38, 0.61}
+\hypersetup{urlcolor=lapislazuli, colorlinks=TRUE}
+\usepackage[ngerman]{babel}
+\usepackage[T1]{fontenc}        
+\usepackage{ucs}
+\usepackage[utf8x]{inputenc} 
+\usepackage{marginnote}
+%=== bibliography package ===
+\usepackage{natbib}
+\bibliographystyle{harvard}
+%citet and citep
+%=============================
+
+\newcommand{\gqq}[1]{\glqq{}{#1}\grqq{}}
+
+%===================================================  
+\sloppy
+\parindent0pt
+\parskip1.5ex plus.5ex minus.5ex
+\addtolength{\textheight}{2cm} \addtolength{\topmargin}{-1cm} \addtolength{\textwidth}{2cm}
+\addtolength{\oddsidemargin}{-1cm}
+
+\begin{document}
+
+
+
+<<setup-paths-libraries, include=FALSE, cache=FALSE, purl=FALSE>>=
+setwd("/home/dom/Dropbox/Lehre/My_Courses/NPS_BA/")
+library("knitr")   # Combining LaTeX and R-Code
+knit_theme$set("edit-kwrite")
+#set global chunk options
+opts_chunk$set(fig.path='graphs/', fig.align='center', fig.show='hold')
+options(formatR.arrow=TRUE, width=90)
+# Libraries
+library("ggplot2", quietly=TRUE)     #Plotting 
+library("np", quietly=TRUE)          #Nonparametric Statistics
+library("KernSmooth", quietly=TRUE) 
+library("gridExtra", quietly=TRUE)   #Arraging multipl plots 
+library("gtable", quietly=TRUE) 
+library("scales", quietly=TRUE)      #Transparent colors 
+@
+
+
+Universität Bonn \hfill \today  \\
+Reseach Module Econometrics and Statistics \hfill JProf.~Dominik Liebl
+%=====================================================
+%\vspace {0.5cm}
+\rule{\textwidth}{.2pt}
+\begin{center} 
+\textbf{{\large Powerfunction Simulation for the z-Test}}\\[1ex]
+\end{center}
+% \begin{center}
+% \end{center}
+\rule{\textwidth}{.2pt}
+%====================================================
+
+
+\end{document}

@@ -1,0 +1,146 @@
+\documentclass[a4paper]{article}
+\usepackage[]{graphicx}
+\usepackage[]{color}
+\usepackage{enumitem}
+%% maxwidth is the original width if it is less than linewidth
+%% otherwise use linewidth (to make sure the graphics do not exceed the margin)
+\makeatletter
+\def\maxwidth{ %
+  \ifdim\Gin@nat@width>\linewidth
+    \linewidth
+  \else
+    \Gin@nat@width
+  \fi
+} 
+\makeatother
+
+\definecolor{fgcolor}{rgb}{0, 0, 0}
+\newcommand{\hlnum}[1]{\textcolor[rgb]{0.69,0.494,0}{#1}}%
+\newcommand{\hlstr}[1]{\textcolor[rgb]{0.749,0.012,0.012}{#1}}%
+\newcommand{\hlcom}[1]{\textcolor[rgb]{0.514,0.506,0.514}{\textit{#1}}}%
+\newcommand{\hlopt}[1]{\textcolor[rgb]{0,0,0}{#1}}%
+\newcommand{\hlstd}[1]{\textcolor[rgb]{0,0,0}{#1}}%
+\newcommand{\hlkwa}[1]{\textcolor[rgb]{0,0,0}{\textbf{#1}}}%
+\newcommand{\hlkwb}[1]{\textcolor[rgb]{0,0.341,0.682}{#1}}%
+\newcommand{\hlkwc}[1]{\textcolor[rgb]{0,0,0}{\textbf{#1}}}%
+\newcommand{\hlkwd}[1]{\textcolor[rgb]{0.004,0.004,0.506}{#1}}%
+\let\hlipl\hlkwb
+
+\usepackage{framed}
+\makeatletter
+\newenvironment{kframe}{%
+ \def\at@end@of@kframe{}%
+ \ifinner\ifhmode%
+  \def\at@end@of@kframe{\end{minipage}}%
+  \begin{minipage}{\columnwidth}%
+ \fi\fi%
+ \def\FrameCommand##1{\hskip\@totalleftmargin \hskip-\fboxsep
+ \colorbox{shadecolor}{##1}\hskip-\fboxsep
+     % There is no \\@totalrightmargin, so:
+     \hskip-\linewidth \hskip-\@totalleftmargin \hskip\columnwidth}%
+ \MakeFramed {\advance\hsize-\width
+   \@totalleftmargin\z@ \linewidth\hsize
+   \@setminipage}}%
+ {\par\unskip\endMakeFramed%
+ \at@end@of@kframe}
+\makeatother
+
+\definecolor{shadecolor}{rgb}{.97, .97, .97} 
+\definecolor{messagecolor}{rgb}{0, 0, 0}
+\definecolor{warningcolor}{rgb}{1, 0, 1}
+\definecolor{errorcolor}{rgb}{1, 0, 0}
+\newenvironment{knitrout}{}{} % an empty environment to be redefined in TeX
+
+\usepackage{alltt}
+\usepackage{booktabs} 
+\usepackage{color}
+\usepackage{hyperref}
+\definecolor{britishracinggreen}{rgb}{0.0, 0.26, 0.15}
+\definecolor{ao}{rgb}{0.0, 0.0, 1.0}
+\definecolor{frenchblue}{rgb}{0.0, 0.45, 0.73}
+\definecolor{lapislazuli}{rgb}{0.15, 0.38, 0.61}
+\hypersetup{urlcolor=lapislazuli, colorlinks=TRUE}
+\usepackage[ngerman]{babel}
+\usepackage[T1]{fontenc}        
+\usepackage{ucs}
+\usepackage[utf8x]{inputenc} 
+\usepackage{marginnote}
+%=== bibliography package ===
+\usepackage{natbib}
+\bibliographystyle{harvard}
+%citet and citep
+%=============================
+
+\newcommand{\gqq}[1]{\glqq{}{#1}\grqq{}}
+
+%===================================================  
+\sloppy
+\parindent0pt
+\parskip1.5ex plus.5ex minus.5ex
+\addtolength{\textheight}{2cm} \addtolength{\topmargin}{-1cm} \addtolength{\textwidth}{2cm}
+\addtolength{\oddsidemargin}{-1cm}
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\begin{document}
+
+
+
+Universität Bonn \hfill   \\%\today
+Research Module Econometrics \& Statistics \hfill JProf.~Dominik Liebl
+%=====================================================
+%\vspace {0.5cm}
+\rule{\textwidth}{.2pt}
+\begin{center} 
+\textbf{{\large Powerfunction Simulation for the z-Test}}\\[1ex]
+\end{center}
+% \begin{center}
+% \end{center}
+\rule{\textwidth}{.2pt}
+%====================================================
+
+
+{\sc Setup: }
+\begin{itemize}[leftmargin=0.3cm]
+\item Assumptions: Gaussian iid random sample $(X_1,\dots,X_n)$, where $X_i\sim N(\mu,\sigma^2)$ for all $i=1,\dots,n$.
+\item Test H$_0$: $\mu=\mu_0$ versus  H$_1$: $\mu\neq\mu_0$.
+\item Fix values for the significance level $\alpha$, the mean $\mu$, the variance $\sigma^2$, and the sample size $n$. \\
+For instance: $\alpha=0.05$, $\mu\in\{-2,-1.5,\dots,-0.5,0,0.5,\dots,1.5,,2\}$, $\sigma=1$, $\mu_0=0$, and $n=\{10,15,20\}$.
+\end{itemize}
+
+{\sc Monte-Carlo Algorithm:}
+% Declare a container-variable \texttt{decisions <- integer(length = B)}, where \texttt{B} denotes the number of Monte-Carlo simulations. Choose a large number such as \texttt{B}$=10,000$.
+%In the $\texttt{b}$th simulation run, with $\texttt{b}=1,\dots,\texttt{B}$, do the following:
+\begin{enumerate}
+\item Simulate a realization from the iid random sample $(X_1,\dots,X_n)$.
+\item Compute $Z_{obs}=\frac{\sqrt{n}(\bar{X}-\mu_0)}{\sigma}$, where $\bar{X}=n^{-1}\sum_{i=1}^nX_i$
+\item Save test-decision: 
+\begin{center}
+\begin{tabular}{llc}
+Criterion                   & Decision             & Save Value\\ 
+\toprule    
+$|Z_{obs}|>q_{1-\alpha/2}$ & Rejection of $H_0$   & $D=1$\\
+$|Z_{obs}|<q_{1-\alpha/2}$ & No rejection of $H_0$& $D=0$\\   
+\bottomrule
+\end{tabular}  
+\end{center}  
+\end{enumerate}
+
+Repeat Steps 1-3 a large number of times, e.g., $R=10,000$ times and save all binary test-decisions $D_1,\dots,D_R$. Then 
+$$
+\beta_{n,\alpha}(\mu)\approx \bar{D}_R:=\frac{1}{R}\sum_{r=1}^R D_r,
+$$
+where the approximation error $|\beta_{n,\alpha}(\mu)-\bar{D}_R|$ can be made arbitrarily small as $R\to\infty$.
+
+\bigskip
+
+{\sc Theoretical Justification:}
+\begin{itemize}[leftmargin=0.3cm]
+\item $D:=1_{(|Z_{obs}|>q_{1-\alpha/2})}\in\{0,1\}$ is a Bernoulli random variable with  probabilities $P\left(D=1\right)=p$ \quad and \quad $P\left(D=0\right)=1-p$. 
+\item Note that $p$ depends on $\alpha$, $n$, $\sigma^2$, $\mu$, and $\mu_0$.%, that is, $p\equiv p_{\alpha, n, \sigma^2, \mu, \mu_0}$. 
+\item By the Weak Law of Large Numbers\footnote{See, for instance, \url{www.statlect.com/asymptotic-theory/law-of-large-numbers}} we have that 
+\begin{center}
+  $\displaystyle\bar{D}_R\to_{P}E(D)=p$\quad as\quad $\displaystyle R\to\infty,$
+\end{center}
+where $p=\beta_{n,\alpha}(\mu)$.
+\item That is, for instance under H$_0:\mu=\mu_0$, we have that $p=\alpha$. 
+\end{itemize}
+\end{document}
