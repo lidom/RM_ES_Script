@@ -1,0 +1,1201 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Ch. 4 Ordinary Least Squares: The Classical Linear Regression Model | Research Module in Econometrics &amp; Statistics</title>
+  <meta name="description" content="Script for the research module in econometrics &amp; statistics (University Bonn)." />
+  <meta name="generator" content="bookdown 0.13 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Ch. 4 Ordinary Least Squares: The Classical Linear Regression Model | Research Module in Econometrics &amp; Statistics" />
+  <meta property="og:type" content="book" />
+  <meta property="og:url" content="http://dliebl.com/RM_ES_Script/" />
+  
+  <meta property="og:description" content="Script for the research module in econometrics &amp; statistics (University Bonn)." />
+  <meta name="github-repo" content="lidom/RM_ES_Script" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Ch. 4 Ordinary Least Squares: The Classical Linear Regression Model | Research Module in Econometrics &amp; Statistics" />
+  
+  <meta name="twitter:description" content="Script for the research module in econometrics &amp; statistics (University Bonn)." />
+  
+
+<meta name="author" content="JProf. Dominik Liebl" />
+
+
+<meta name="date" content="2019-10-28" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="estimation-theory.html"/>
+<link rel="next" href="monte-carlo-simulations.html"/>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  { background-color: #f8f8f8; }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ef2929; } /* Alert */
+code span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #c4a000; } /* Attribute */
+code span.bn { color: #0000cf; } /* BaseN */
+code span.cf { color: #204a87; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4e9a06; } /* Char */
+code span.cn { color: #000000; } /* Constant */
+code span.co { color: #8f5902; font-style: italic; } /* Comment */
+code span.cv { color: #8f5902; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #8f5902; font-weight: bold; font-style: italic; } /* Documentation */
+code span.dt { color: #204a87; } /* DataType */
+code span.dv { color: #0000cf; } /* DecVal */
+code span.er { color: #a40000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #0000cf; } /* Float */
+code span.fu { color: #000000; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #204a87; font-weight: bold; } /* Keyword */
+code span.op { color: #ce5c00; font-weight: bold; } /* Operator */
+code span.ot { color: #8f5902; } /* Other */
+code span.pp { color: #8f5902; font-style: italic; } /* Preprocessor */
+code span.sc { color: #000000; } /* SpecialChar */
+code span.ss { color: #4e9a06; } /* SpecialString */
+code span.st { color: #4e9a06; } /* String */
+code span.va { color: #000000; } /* Variable */
+code span.vs { color: #4e9a06; } /* VerbatimString */
+code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="http://www.dliebl.com/RM_ES_Script/">Research Module E&S</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a></li>
+<li class="chapter" data-level="" data-path="topics.html"><a href="topics.html"><i class="fa fa-check"></i>Topics</a></li>
+<li class="chapter" data-level="1" data-path="introduction-to-r.html"><a href="introduction-to-r.html"><i class="fa fa-check"></i><b>1</b> Introduction to R</a><ul>
+<li class="chapter" data-level="1.1" data-path="introduction-to-r.html"><a href="introduction-to-r.html#short-glossary"><i class="fa fa-check"></i><b>1.1</b> Short Glossary</a></li>
+<li class="chapter" data-level="1.2" data-path="introduction-to-r.html"><a href="introduction-to-r.html#first-steps"><i class="fa fa-check"></i><b>1.2</b> First Steps</a></li>
+<li class="chapter" data-level="1.3" data-path="introduction-to-r.html"><a href="introduction-to-r.html#further-data-objects"><i class="fa fa-check"></i><b>1.3</b> Further Data Objects</a></li>
+<li class="chapter" data-level="1.4" data-path="introduction-to-r.html"><a href="introduction-to-r.html#simple-regression-analysis-using-r"><i class="fa fa-check"></i><b>1.4</b> Simple Regression Analysis using R</a></li>
+<li class="chapter" data-level="1.5" data-path="introduction-to-r.html"><a href="introduction-to-r.html#programming-in-r"><i class="fa fa-check"></i><b>1.5</b> Programming in R</a></li>
+<li class="chapter" data-level="1.6" data-path="introduction-to-r.html"><a href="introduction-to-r.html#r-packages"><i class="fa fa-check"></i><b>1.6</b> R-packages</a></li>
+<li class="chapter" data-level="1.7" data-path="introduction-to-r.html"><a href="introduction-to-r.html#tidyverse"><i class="fa fa-check"></i><b>1.7</b> Tidyverse</a><ul>
+<li class="chapter" data-level="1.7.1" data-path="introduction-to-r.html"><a href="introduction-to-r.html#tidyverse-plotting-basics"><i class="fa fa-check"></i><b>1.7.1</b> Tidyverse: Plotting Basics</a></li>
+<li class="chapter" data-level="1.7.2" data-path="introduction-to-r.html"><a href="introduction-to-r.html#tidyverse-data-wrangling-basics"><i class="fa fa-check"></i><b>1.7.2</b> Tidyverse: Data Wrangling Basics</a></li>
+<li class="chapter" data-level="1.7.3" data-path="introduction-to-r.html"><a href="introduction-to-r.html#the-pipe-operator"><i class="fa fa-check"></i><b>1.7.3</b> The pipe operator <code>%&gt;%</code></a></li>
+<li class="chapter" data-level="1.7.4" data-path="introduction-to-r.html"><a href="introduction-to-r.html#the-group_by-function"><i class="fa fa-check"></i><b>1.7.4</b> The <code>group_by()</code> function</a></li>
+</ul></li>
+<li class="chapter" data-level="1.8" data-path="introduction-to-r.html"><a href="introduction-to-r.html#further-links"><i class="fa fa-check"></i><b>1.8</b> Further Links</a><ul>
+<li class="chapter" data-level="1.8.1" data-path="introduction-to-r.html"><a href="introduction-to-r.html#further-r-intros"><i class="fa fa-check"></i><b>1.8.1</b> Further R-Intros</a></li>
+<li class="chapter" data-level="1.8.2" data-path="introduction-to-r.html"><a href="introduction-to-r.html#version-control-gitgithub"><i class="fa fa-check"></i><b>1.8.2</b> Version Control (Git/GitHub)</a></li>
+<li class="chapter" data-level="1.8.3" data-path="introduction-to-r.html"><a href="introduction-to-r.html#r-ladies"><i class="fa fa-check"></i><b>1.8.3</b> R-Ladies</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="statistical-hypothesis-testing.html"><a href="statistical-hypothesis-testing.html"><i class="fa fa-check"></i><b>2</b> Statistical Hypothesis Testing</a><ul>
+<li class="chapter" data-level="2.1" data-path="statistical-hypothesis-testing.html"><a href="statistical-hypothesis-testing.html#hypotheses-and-test-statistics"><i class="fa fa-check"></i><b>2.1</b> Hypotheses and Test-Statistics</a></li>
+<li class="chapter" data-level="2.2" data-path="statistical-hypothesis-testing.html"><a href="statistical-hypothesis-testing.html#significance-level-size-and-p-values"><i class="fa fa-check"></i><b>2.2</b> Significance Level, Size and p-Values</a></li>
+<li class="chapter" data-level="2.3" data-path="statistical-hypothesis-testing.html"><a href="statistical-hypothesis-testing.html#PF1"><i class="fa fa-check"></i><b>2.3</b> The Power Function</a></li>
+<li class="chapter" data-level="2.4" data-path="statistical-hypothesis-testing.html"><a href="statistical-hypothesis-testing.html#asymptotic-null-distributions"><i class="fa fa-check"></i><b>2.4</b> Asymptotic Null Distributions</a></li>
+<li class="chapter" data-level="2.5" data-path="statistical-hypothesis-testing.html"><a href="statistical-hypothesis-testing.html#multiple-comparisons"><i class="fa fa-check"></i><b>2.5</b> Multiple Comparisons</a></li>
+<li class="chapter" data-level="2.6" data-path="statistical-hypothesis-testing.html"><a href="statistical-hypothesis-testing.html#r-lab-the-gauss-test"><i class="fa fa-check"></i><b>2.6</b> R-Lab: The Gauss-Test</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="estimation-theory.html"><a href="estimation-theory.html"><i class="fa fa-check"></i><b>3</b> Estimation Theory</a><ul>
+<li class="chapter" data-level="3.1" data-path="estimation-theory.html"><a href="estimation-theory.html#bias-variance-and-mse"><i class="fa fa-check"></i><b>3.1</b> Bias, Variance and MSE</a></li>
+<li class="chapter" data-level="3.2" data-path="estimation-theory.html"><a href="estimation-theory.html#consistency-of-estimators"><i class="fa fa-check"></i><b>3.2</b> Consistency of Estimators</a></li>
+<li class="chapter" data-level="3.3" data-path="estimation-theory.html"><a href="estimation-theory.html#rates-of-convergence"><i class="fa fa-check"></i><b>3.3</b> Rates of Convergence</a></li>
+<li class="chapter" data-level="3.4" data-path="estimation-theory.html"><a href="estimation-theory.html#asymptotic-distributions"><i class="fa fa-check"></i><b>3.4</b> Asymptotic Distributions</a></li>
+<li class="chapter" data-level="3.5" data-path="estimation-theory.html"><a href="estimation-theory.html#asymptotic-theory"><i class="fa fa-check"></i><b>3.5</b> Asymptotic Theory</a></li>
+<li class="chapter" data-level="3.6" data-path="estimation-theory.html"><a href="estimation-theory.html#mathematical-tools"><i class="fa fa-check"></i><b>3.6</b> Mathematical tools</a><ul>
+<li class="chapter" data-level="3.6.1" data-path="estimation-theory.html"><a href="estimation-theory.html#taylor-expansions"><i class="fa fa-check"></i><b>3.6.1</b> Taylor expansions</a></li>
+<li class="chapter" data-level="3.6.2" data-path="estimation-theory.html"><a href="estimation-theory.html#tools-for-deriving-asymptotic-distributions"><i class="fa fa-check"></i><b>3.6.2</b> Tools for deriving asymptotic distributions</a></li>
+<li class="chapter" data-level="3.6.3" data-path="estimation-theory.html"><a href="estimation-theory.html#the-delta-method"><i class="fa fa-check"></i><b>3.6.3</b> The Delta-Method</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="ordinary-least-squares-the-classical-linear-regression-model.html"><a href="ordinary-least-squares-the-classical-linear-regression-model.html"><i class="fa fa-check"></i><b>4</b> Ordinary Least Squares: The Classical Linear Regression Model</a><ul>
+<li class="chapter" data-level="4.1" data-path="ordinary-least-squares-the-classical-linear-regression-model.html"><a href="ordinary-least-squares-the-classical-linear-regression-model.html#finite-sample-properties"><i class="fa fa-check"></i><b>4.1</b> Finite-Sample Properties</a><ul>
+<li class="chapter" data-level="4.1.1" data-path="ordinary-least-squares-the-classical-linear-regression-model.html"><a href="ordinary-least-squares-the-classical-linear-regression-model.html#the-algebra-of-least-squares"><i class="fa fa-check"></i><b>4.1.1</b> The Algebra of Least Squares</a></li>
+<li class="chapter" data-level="" data-path="ordinary-least-squares-the-classical-linear-regression-model.html"><a href="ordinary-least-squares-the-classical-linear-regression-model.html#some-quantities-of-interest"><i class="fa fa-check"></i>Some quantities of interest:</a></li>
+<li class="chapter" data-level="4.1.2" data-path="ordinary-least-squares-the-classical-linear-regression-model.html"><a href="ordinary-least-squares-the-classical-linear-regression-model.html#coefficient-of-determination"><i class="fa fa-check"></i><b>4.1.2</b> Coefficient of determination</a></li>
+<li class="chapter" data-level="" data-path="ordinary-least-squares-the-classical-linear-regression-model.html"><a href="ordinary-least-squares-the-classical-linear-regression-model.html#partitioned-regression-model"><i class="fa fa-check"></i>Partitioned regression model</a></li>
+<li class="chapter" data-level="4.1.3" data-path="ordinary-least-squares-the-classical-linear-regression-model.html"><a href="ordinary-least-squares-the-classical-linear-regression-model.html#finite-sample-properties-of-ols"><i class="fa fa-check"></i><b>4.1.3</b> Finite-Sample Properties of OLS</a></li>
+<li class="chapter" data-level="4.1.4" data-path="ordinary-least-squares-the-classical-linear-regression-model.html"><a href="ordinary-least-squares-the-classical-linear-regression-model.html#Testing"><i class="fa fa-check"></i><b>4.1.4</b> Hypothesis Testing under Normality</a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="ordinary-least-squares-the-classical-linear-regression-model.html"><a href="ordinary-least-squares-the-classical-linear-regression-model.html#asymptotics-under-the-classic-regression-model"><i class="fa fa-check"></i><b>4.2</b> Asymptotics under the Classic Regression Model</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="monte-carlo-simulations.html"><a href="monte-carlo-simulations.html"><i class="fa fa-check"></i><b>5</b> Monte-Carlo Simulations</a><ul>
+<li class="chapter" data-level="5.1" data-path="monte-carlo-simulations.html"><a href="monte-carlo-simulations.html#checking-test-statistics"><i class="fa fa-check"></i><b>5.1</b> Checking Test Statistics</a><ul>
+<li class="chapter" data-level="5.1.1" data-path="monte-carlo-simulations.html"><a href="monte-carlo-simulations.html#simple-example-gauss-test"><i class="fa fa-check"></i><b>5.1.1</b> Simple Example: Gauss Test</a></li>
+<li class="chapter" data-level="5.1.2" data-path="monte-carlo-simulations.html"><a href="monte-carlo-simulations.html#simulated-power-function"><i class="fa fa-check"></i><b>5.1.2</b> Simulated Power Function</a></li>
+</ul></li>
+<li class="chapter" data-level="5.2" data-path="monte-carlo-simulations.html"><a href="monte-carlo-simulations.html#checking-parameter-estimators"><i class="fa fa-check"></i><b>5.2</b> Checking Parameter Estimators</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="how-to-write.html"><a href="how-to-write.html"><i class="fa fa-check"></i><b>6</b> How to Write</a><ul>
+<li class="chapter" data-level="6.1" data-path="how-to-write.html"><a href="how-to-write.html#five-common-writing-mistakes"><i class="fa fa-check"></i><b>6.1</b> Five Common Writing Mistakes</a></li>
+<li class="chapter" data-level="6.2" data-path="how-to-write.html"><a href="how-to-write.html#gregory-mankiw-how-to-write-well"><i class="fa fa-check"></i><b>6.2</b> Gregory Mankiw: How to Write Well</a></li>
+<li class="chapter" data-level="6.3" data-path="how-to-write.html"><a href="how-to-write.html#rob-j-hyndman-avoid-annoying-a-referee"><i class="fa fa-check"></i><b>6.3</b> Rob J Hyndman: Avoid Annoying a Referee</a></li>
+<li class="chapter" data-level="6.4" data-path="how-to-write.html"><a href="how-to-write.html#latex"><i class="fa fa-check"></i><b>6.4</b> LaTeX</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="how-to-present.html"><a href="how-to-present.html"><i class="fa fa-check"></i><b>7</b> How to Present</a><ul>
+<li class="chapter" data-level="7.1" data-path="how-to-present.html"><a href="how-to-present.html#the-aim-of-your-talk"><i class="fa fa-check"></i><b>7.1</b> The Aim of your Talk</a></li>
+<li class="chapter" data-level="7.2" data-path="how-to-present.html"><a href="how-to-present.html#a-suggested-structure"><i class="fa fa-check"></i><b>7.2</b> A Suggested Structure</a></li>
+<li class="chapter" data-level="7.3" data-path="how-to-present.html"><a href="how-to-present.html#preparing-slides"><i class="fa fa-check"></i><b>7.3</b> Preparing Slides</a></li>
+<li class="chapter" data-level="7.4" data-path="how-to-present.html"><a href="how-to-present.html#keeping-to-time"><i class="fa fa-check"></i><b>7.4</b> Keeping to Time</a></li>
+<li class="chapter" data-level="7.5" data-path="how-to-present.html"><a href="how-to-present.html#giving-the-presentation"><i class="fa fa-check"></i><b>7.5</b> Giving the Presentation</a></li>
+<li class="chapter" data-level="" data-path="how-to-present.html"><a href="how-to-present.html#final-advice"><i class="fa fa-check"></i>Final Advice</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Research Module in Econometrics &amp; Statistics</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="ordinary-least-squares-the-classical-linear-regression-model" class="section level1">
+<h1><span class="header-section-number">Ch. 4</span> Ordinary Least Squares: The Classical Linear Regression Model</h1>
+<div id="finite-sample-properties" class="section level2">
+<h2><span class="header-section-number">4.1</span> Finite-Sample Properties</h2>
+<p><strong>Notation:</strong></p>
+<ul>
+<li><p><span class="math inline">\(y_i \,\)</span> dependent variable.</p></li>
+<li><p><span class="math inline">\(x_{ik} \,\)</span> <span class="math inline">\(k\)</span>th independent variable (or regressor) with
+<span class="math inline">\(k=1,\dots,K \,\)</span>.<br />
+Can be stochastic or deterministic.</p></li>
+<li><p><span class="math inline">\(\varepsilon_i \,\)</span> stochastic error term</p></li>
+<li><p><span class="math inline">\(i \,\)</span> indexes the <span class="math inline">\(i\)</span>th individual with <span class="math inline">\(i=1,\dots,n\)</span>, where <span class="math inline">\(n\)</span> is
+the sample size</p></li>
+</ul>
+<p><strong>Assumption 1.1: Linearity</strong></p>
+<p><span class="math display" id="eq:c3e1">\[
+\begin{align*}
+y_i = \sum_{k=1}^K\beta_k x_{ik}+\varepsilon_i, \quad i=1,\dots,n \,.
+\tag{4.1}
+\end{align*}
+\]</span></p>
+<!--
+\BeginKnitrBlock{corollary}\iffalse{-91-76-105-110-101-97-114-105-116-121-93-}\fi{}<div class="corollary"><span class="corollary" id="cor:unnamed-chunk-1"><strong>(\#cor:unnamed-chunk-1)  \iffalse (Linearity) \fi{} </strong></span>\begin{align*}
+y_i = \sum_{k=1}^K\beta_k x_{ik}+\varepsilon_i, \quad i=1,\dots,n \,.
+(\#eq:c3e1)
+\end{align*}</div>\EndKnitrBlock{corollary}
+-->
+<p>Usually, a constant (or intercept) is included, in this case <span class="math inline">\(x_{i1}=1\)</span>
+for all <span class="math inline">\(i\)</span>. In the following we will always assume that a constant is
+included in the linear model, unless otherwise stated. A special case of
+the above defined linear model is the so-called <em>simple linear model</em>,
+defined as</p>
+<p><span class="math display" id="eq:c3e2">\[
+\begin{align*}
+y_i = \beta_1+\beta_2 x_i +\varepsilon_i, \quad i=1,\dots,n \,.
+\tag{4.2}
+\end{align*}
+\]</span></p>
+<p>Often it is convenient to write <a href="ordinary-least-squares-the-classical-linear-regression-model.html#eq:c3e1">(4.1)</a> using matrix notation</p>
+<p><span class="math display" id="eq:c3e3">\[
+\begin{align*}
+y_i = \mathbf{x}_i&#39;\boldsymbol{\beta} +\varepsilon_i, \quad i=1,\dots,n \,,
+\tag{4.3}
+\end{align*}
+\]</span></p>
+<p>where <span class="math inline">\(\mathbf{x}_i=(x_{i1},\dots,x_{iK})&#39;\)</span> and
+<span class="math inline">\(\boldsymbol{\beta}=(\beta_1,\dots,\beta_K)&#39;\)</span>. Stacking all individual rows <span class="math inline">\(i\)</span>
+leads to</p>
+<p><span class="math display">\[
+\begin{align*}
+\underset{(n\times 1)}{\mathbf{y}} = \underset{(n\times K)}{\mathbf{X}}\underset{(K\times 1)}{\boldsymbol{\beta}} + \underset{(n\times 1)}{\boldsymbol{\varepsilon}} \, ,
+\end{align*}
+\]</span></p>
+<p>where</p>
+<p><span class="math display">\[
+\begin{align*}
+\mathbf{y} = \left(\begin{matrix}y_1\\ \vdots\\y_n\end{matrix}\right),\quad
+\mathbf{X} = \left( \begin{matrix}
+x_{11} &amp; \dots &amp; x_{1K} \\ \vdots &amp; \ddots &amp; \vdots \\ x_{n1} &amp;\dots&amp;x_{nK}\\
+\end{matrix}\right),\quad\text{and}\quad \boldsymbol{\varepsilon}=\left(\begin{matrix}\varepsilon_1\\ \vdots\\ \varepsilon_n\end{matrix}\right).
+\end{align*}
+\]</span></p>
+<p>We begin our analysis of the model in Eq. <a href="ordinary-least-squares-the-classical-linear-regression-model.html#eq:c3e3">(4.3)</a> under the
+framework of the so-called <em>classic assumptions</em>.<br />
+<strong>Assumption 1.2: Strict Exogeneity</strong></p>
+<p><span class="math display">\[\mathbb{E}(\varepsilon_i|\mathbf{X}) = 0\]</span>
+or equivalently stated for the vector <span class="math inline">\(\boldsymbol{\varepsilon}\)</span></p>
+<p><span class="math display">\[\mathbb{E}(\boldsymbol{\varepsilon}|\mathbf{X}) = \mathbf{0}.\]</span></p>
+<p>Notice that in the presence of a constant regressor, setting the expectation to zero is a normalization. Note that in econometrics, where we typically have to work with quasi-experimental data, strict exogeneity is a very strong assumption. It also cannot be
+fulfilled when the regressors include lagged dependent variables.</p>
+<p><strong>Some Implications of Strict Exogeneity:</strong></p>
+<ul>
+<li>The unconditional mean of the error term is zero:</li>
+</ul>
+<p><span class="math display" id="eq:c3e4">\[
+\begin{align*} 
+\mathbb{E}(\varepsilon_i) = 0\quad(i=1,\dots,n)
+\tag{4.4}
+\end{align*}
+\]</span></p>
+<!--Proof is done in the lecture.-->
+
+<div class="proof">
+ <span class="proof"><em>Proof. </em></span>  From the <em>Law of Total Expectations</em> (i.e.,
+<span class="math inline">\(\mathbb{E}(\mathbb{E}(y|\mathbf{x}))=\mathbb{E}(y)\)</span>) it follows that
+<span class="math display">\[\mathbb{E}(\varepsilon_i)=\mathbb{E}(\mathbb{E}(\varepsilon_i|\mathbf{X})).\]</span> The strict exogeneity assumption
+then yields <span class="math display">\[\mathbb{E}(\mathbb{E}(\varepsilon_i|\mathbf{X}))=\mathbb{E}(0)=0.\]</span>
+</div>
+
+<ul>
+<li>Generally, two random variables <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span> are said to be
+<strong>orthogonal</strong> if their cross moment is zero: <span class="math inline">\(\mathbb{E}(xy)=0\)</span>. Under
+strict exogeneity, the regressors are orthogonal to the error term
+for <em>all</em> observations, i.e.,
+<span class="math display" id="eq:c3e5">\[\begin{align*}
+\mathbb{E}(x_{jk}\varepsilon_i) = 0\quad(i,j=1,\dots,n; k=1,\dots,K)
+\tag{4.5}
+\end{align*}\]</span></li>
+</ul>
+
+<div class="proof">
+<p> <span class="proof"><em>Proof. </em></span> <span class="math display">\[\begin{align*}
+      \mathbb{E}(x_{jk}\varepsilon_i) &amp;= \mathbb{E}(\mathbb{E}(x_{jk}\varepsilon_i|x_{jk}))\quad{\text{(Law of Total Expect.)}}\\
+       &amp;= \mathbb{E}(x_{jk}\mathbb{E}(\varepsilon_i|x_{jk}))\;\;{\text{(Linearity of $\mathbb{E}$-operator)}}
+\end{align*}\]</span></p>
+Now, to show that <span class="math inline">\(\mathbb{E}(x_{jk}\varepsilon_i)=0\)</span>, we need to show that <span class="math inline">\(\mathbb{E}(\varepsilon_i|x_{jk})=0\)</span>, which is done in the following:
+Since <span class="math inline">\(x_{jk}\)</span> is an element of <span class="math inline">\(\mathbf{X}\)</span>, the <em>Law of Iterated Expectations</em> (i.e., <span class="math inline">\(\mathbb{E}(\mathbb{E}(y|\mathbf{x},\mathbf{z})|\mathbf{x})=\mathbb{E}(y|\mathbf{x})\)</span>)
+implies that <span class="math display">\[\mathbb{E}(\mathbb{E}(\varepsilon_i|\mathbf{X})|x_{jk})=\mathbb{E}(\varepsilon_i|x_{jk}).\]</span> The
+strict exogeneity assumption yields
+<span class="math display">\[\mathbb{E}(\mathbb{E}(\varepsilon_i|\mathbf{X})|x_{jk})=\mathbb{E}(0|x_{jk})=0.\]</span> I.e., we have that
+<span class="math display">\[\mathbb{E}(\varepsilon_i|x_{jk})=0,\]</span> which allows us to conclude that
+<span class="math display">\[\mathbb{E}(x_{jk}\varepsilon_i)=\mathbb{E}(x_{jk}\mathbb{E}(\varepsilon_i|x_{jk}))=\mathbb{E}(x_{jk}0)=0.\]</span>
+</div>
+
+<ul>
+<li>Because the mean of the error term is zero (<span class="math inline">\(\mathbb{E}(\varepsilon_i)=0\)</span> for all
+<span class="math inline">\(i\)</span>), it follows that the orthogonality property
+(<span class="math inline">\(\mathbb{E}(x_{jk}\varepsilon_i)=0\)</span>, for all <span class="math inline">\(i,j,k\)</span>) is equivalent to a
+zero-correlation property. I.e., that
+<span class="math display" id="eq:c3e6">\[\begin{align*}
+  Cov(\varepsilon_i,x_{jk}) = 0;\; i,j=1,\dots,n; k=1,\dots,K
+   \tag{4.6}
+\end{align*}\]</span>
+Therefore, the strict exogeneity assumption implies the requirement
+that regressors are uncorrelated with the current (<span class="math inline">\(i=j\)</span>), the past
+(<span class="math inline">\(i&lt;j\)</span>) and the future (<span class="math inline">\(i&gt;j\)</span>) error terms. Of course, this is
+usually found to be a too strong assumption - particularly in
+time-series contexts.</li>
+</ul>
+
+<div class="proof">
+<p> <span class="proof"><em>Proof. </em></span> <span class="math display">\[\begin{align*}
+      Cov(\varepsilon_i,x_{jk}) &amp;= \mathbb{E}(x_{jk}\varepsilon_i)-\mathbb{E}(x_{jk})\,\mathbb{E}(\varepsilon_i)\quad{\text{(Def.~of Cov)}}\\
+       &amp;= \mathbb{E}(x_{jk}\varepsilon_i)\\
+       &amp;= 0 
+\end{align*}\]</span></p>
+Where the second equal sign holds since <span class="math inline">\(\mathbb{E}(\varepsilon_i)=0\)</span> (see Eq. <a href="ordinary-least-squares-the-classical-linear-regression-model.html#eq:c3e4">(4.4)</a>) and the third because of orthogonality (see Eq. <a href="ordinary-least-squares-the-classical-linear-regression-model.html#eq:c3e5">(4.5)</a>).
+</div>
+
+<p><strong>Assumption 1.3: Rank Condition</strong></p>
+<p><span class="math display">\[rank(\mathbf{X})=K\quad\text{a.s.}\]</span></p>
+<p>This assumption demands that the event of one regressor being linearly
+dependent on the others occurs with a probability equal to zero. (This
+is the literal translation of the &quot;almost surely (a.s.)&quot; concept.)
+This assumption also implies the assumption that <span class="math inline">\(n\geq K\)</span>.<br />
+This assumption is a bit dicey and its violation belongs to one of the
+classic problems in applied econometrics (keywords: multicollinearity,
+dummy variable trap, variance inflation). The violation of this
+assumption harms any economic interpretation as we cannot disentangle
+the regressors’ individual effects on <span class="math inline">\(\mathbf{y}\)</span>. Therefore, this
+assumption is often referred to as an <em>identification</em> assumption.<br />
+</p>
+<p><strong>Assumption 1.4: Spherical Error</strong></p>
+<p><span class="math display">\[
+\begin{align*}
+\mathbb{E}(\varepsilon_i^2|\mathbf{X}) &amp;= \sigma^2&gt;0\\
+\mathbb{E}(\varepsilon_i\varepsilon_j|\mathbf{X}) &amp;= 0,\quad\quad i\neq j.
+\end{align*}
+\]</span></p>
+<p>Or more compactly written as,</p>
+<p><span class="math display">\[
+\begin{align*}
+\mathbb{E}(\boldsymbol{\varepsilon}\boldsymbol{\varepsilon}&#39;|\mathbf{X}) = \sigma^2 I_n,\quad\quad \sigma^2&gt;0.
+\end{align*}
+\]</span></p>
+<p>Thus, we assume that, for a given realization of <span class="math inline">\(\mathbf{X}\)</span>, the error
+process is uncorrelated (<span class="math inline">\(\mathbb{E}(\varepsilon_i\varepsilon_j|\mathbf{X})=0\)</span>, for all
+<span class="math inline">\(i\neq j\)</span>) and homoscedastic (same <span class="math inline">\(\sigma^2\)</span>, for all <span class="math inline">\(i\)</span>).</p>
+<div id="the-algebra-of-least-squares" class="section level3">
+<h3><span class="header-section-number">4.1.1</span> The Algebra of Least Squares</h3>
+<p>The OLS estimator <span class="math inline">\(\mathbf{b}\)</span> is defined as the minimizer of a specific loss
+function termed <em>the sum of squared residuals</em></p>
+<p><span class="math display">\[
+\begin{align*}
+SSR(\mathbf{b}^\ast) = \sum_{i=1}^n(y_i-\mathbf{x}_i&#39;\mathbf{b}^\ast)^2\;=\;(\mathbf{y}-\mathbf{X}\mathbf{b}^\ast)&#39;(\mathbf{y}-\mathbf{X}\mathbf{b}^\ast).
+\end{align*}
+\]</span></p>
+<p>I.e., we have</p>
+<p><span class="math display">\[
+\begin{align*}
+  \mathbf{b}&amp;:=\arg\min_{\mathbf{b}^\ast\in\mathbb{R}^K}SSR(\mathbf{b}^\ast),
+\end{align*}
+\]</span>
+We can easily minimize <span class="math inline">\(SSR(\mathbf{b}^\ast)\)</span> in closed form:</p>
+<p><span class="math display">\[
+\begin{align*}
+SSR(\mathbf{b}^\ast) 
+&amp;= (\mathbf{y}-\mathbf{X}\mathbf{b}^\ast)&#39;(\mathbf{y}-\mathbf{X}\mathbf{b}^\ast)\\
+ &amp;= \mathbf{y}&#39;\mathbf{y}-(\mathbf{X}\mathbf{b}^{\ast})&#39;\mathbf{y}-\mathbf{y}&#39;\mathbf{X}\mathbf{b}^{\ast}+\mathbf{b}^{\ast&#39;}\mathbf{X}&#39;\mathbf{X}\mathbf{b}^{\ast}\\
+    &amp;= \mathbf{y}&#39;\mathbf{y}-2\mathbf{y}&#39;\mathbf{X}\mathbf{b}^{\ast}+\mathbf{b}^{\ast&#39;}\mathbf{X}&#39;\mathbf{X}\mathbf{b}^{\ast}\\[2ex]
+   \Rightarrow\quad\frac{d}{d\mathbf{b}^{\ast}}SSR(\mathbf{b}^{\ast}) &amp;= -2\mathbf{X}&#39;\mathbf{y}+2\mathbf{X}&#39;\mathbf{X}\mathbf{b}^{\ast}
+\end{align*}
+\]</span></p>
+<p>Setting the first derivative so zero yields the so-called <em>normal
+equations</em></p>
+<p><span class="math display">\[
+\begin{align*}
+\mathbf{X}&#39;\mathbf{X}\mathbf{b} = \mathbf{X}&#39;\mathbf{y},
+\end{align*}
+\]</span></p>
+<p>which lead to the OLS estimator</p>
+<p><span class="math display" id="eq:c3e7">\[
+\begin{align*}
+\mathbf{b} = (\mathbf{X}&#39;\mathbf{X})^{-1}\mathbf{X}&#39;\mathbf{y},
+\tag{4.7}
+\end{align*}
+\]</span></p>
+<p>where <span class="math inline">\((\mathbf{X}&#39;\mathbf{X})^{-1}\)</span> exists (a.s.) because of our full
+rank assumption (Assumption 3).<br />
+Often it is useful to express <span class="math inline">\(\mathbf{b}\)</span> (and similar other
+estimators) in sample moment notation:</p>
+<p><span class="math display">\[\mathbf{b}=\mathbf{S}_{\mathbf{x}\mathbf{x}}^{-1}\mathbf{s}_{\mathbf{x}\mathbf{y}},\]</span></p>
+<p>where
+<span class="math inline">\(\mathbf{S}_{\mathbf{x}\mathbf{x}}=n^{-1}\mathbf{X}&#39;\mathbf{X}=n^{-1}\sum_i\mathbf{x}_i\mathbf{x}_i&#39;\)</span>
+and
+<span class="math inline">\(\mathbf{s}_{\mathbf{x}\mathbf{y}}=n^{-1}\mathbf{X}&#39;\mathbf{y}=n^{-1}\sum_i\mathbf{x}_iy_i\)</span>.
+This notation is more convenient for developing our large sample
+results.<br />
+</p>
+</div>
+<div id="some-quantities-of-interest" class="section level3 unnumbered">
+<h3>Some quantities of interest:</h3>
+<ul>
+<li><p>The <em>(OLS) fitted value</em>: <span class="math inline">\(\hat{y}_i=\mathbf{x}_i\mathbf{b}\)</span><br />
+In matrix notation:
+<span class="math inline">\(\hat{\mathbf{y}}=\mathbf{X}(\mathbf{X}&#39;\mathbf{X})^{-1}\mathbf{X}&#39;\mathbf{y} = \mathbf{P}\mathbf{y}\)</span></p></li>
+<li><p>The <em>(OLS) residual</em>: <span class="math inline">\(\hat{\varepsilon_i}=y_i-\hat{y}_i\)</span><br />
+In matrix notation:
+<span class="math inline">\(\hat{\boldsymbol{\varepsilon}} = \mathbf{y}-\hat{\mathbf{y}} = \left(\mathbf{I}_n-\mathbf{X}(\mathbf{X}&#39;\mathbf{X})^{-1}\mathbf{X}&#39;\right)\mathbf{y} = \mathbf{M}\mathbf{y}\)</span>,</p></li>
+</ul>
+<p>where <span class="math inline">\(\mathbf{P}=\mathbf{X}(\mathbf{X}&#39;\mathbf{X})^{-1}\mathbf{X}&#39;\)</span> is
+a so-called orthogonal projection matrix that projects any vector into
+the column space spanned by <span class="math inline">\(\mathbf{X}\)</span> and
+<span class="math inline">\(\mathbf{M}=\mathbf{I}_n-\mathbf{X}(\mathbf{X}&#39;\mathbf{X})^{-1}\mathbf{X}&#39;\)</span>
+is the associated orthogonal projection matrix that projects any vector
+into the vector space that is orthogonal to that spanned by
+<span class="math inline">\(\mathbf{X}\)</span>. Projection matrices have some nice properties, listed in
+the following lemma.</p>
+<p><strong>Lemma 3.1.1 (Orthogonal Projection matrices)</strong>
+For <span class="math inline">\(\mathbf{P}=\mathbf{X}(\mathbf{X}&#39;\mathbf{X})^{-1}\mathbf{X}&#39;\)</span> and
+<span class="math inline">\(\mathbf{M}=\mathbf{I}_n-\mathbf{P}\)</span> with <span class="math inline">\(\mathbf{X}\)</span> being of full
+rank it holds:</p>
+<ul>
+<li><p><span class="math inline">\(\mathbf{P}\)</span> and <span class="math inline">\(\mathbf{M}\)</span> are symmetric and idempotent, i.e.:
+<span class="math display">\[\mathbf{P}\mathbf{P}=\mathbf{P}\quad\text{ and }\quad \mathbf{M}\mathbf{M}=\mathbf{M}.\]</span></p></li>
+<li><p>Further properties:
+<span class="math display">\[\mathbf{X}&#39;\mathbf{P}=\mathbf{X}&#39;,\quad \mathbf{X}&#39;\mathbf{M}=\mathbf{0},\quad\text{ and }\quad \mathbf{P}\mathbf{M}=\mathbf{0}.\]</span></p></li>
+</ul>
+<p>Proofs follow directly from the definitions of <span class="math inline">\(\mathbf{P}\)</span> and
+<span class="math inline">\(\mathbf{M}\)</span>.<br />
+Using these results we obtain the following proposition on the OLS
+residuals and OLS fitted values.</p>
+<p><strong>Proposition 3.1.2 (OLS residuals)</strong>
+For the OLS residuals and the OLS fitted values it holds that</p>
+<p><span class="math display">\[
+\begin{align*}
+    \mathbf{X}&#39;\hat{\boldsymbol{\varepsilon}} &amp;= \mathbf{0}, \quad\text{and}\\
+    \mathbf{y}&#39;\mathbf{y} &amp;= \hat{\mathbf{y}}&#39;\hat{\mathbf{y}}+\hat{\boldsymbol{\varepsilon}}&#39;\hat{\boldsymbol{\varepsilon}}.
+\end{align*}
+\]</span></p>
+
+<div class="proof">
+<p> <span class="proof"><em>Proof. </em></span> The first result can be shown as following:
+<span class="math display">\[\begin{align*}
+  \mathbf{X}&#39;\hat{\boldsymbol{\varepsilon}} 
+   &amp;= \mathbf{X}&#39;\mathbf{M}\mathbf{y}\quad\text{(By Def. of $\mathbf{M}$)}\\
+   &amp;= \mathbf{0}\mathbf{y}\quad\text{(By Lemma 3.1.1 part (ii))}\\
+   &amp;= \underset{(K\times 1)}{\mathbf{0}}
+\end{align*}\]</span>
+The second result follows from:</p>
+<span class="math display">\[\begin{align*}
+  \mathbf{y}&#39;\mathbf{y} &amp;= (\mathbf{P}\mathbf{y}+\mathbf{M}\mathbf{y})&#39;(\mathbf{P}\mathbf{y}+\mathbf{M}\mathbf{y})\quad\text{(By Def.~of $\mathbf{P}$ and $\mathbf{M}$)}\\
+   &amp;= (\mathbf{y}&#39;\mathbf{P}&#39;+\mathbf{y}&#39;\mathbf{M}&#39;)(\mathbf{P}\mathbf{y}+\mathbf{M}\mathbf{y})\\
+   &amp;= \mathbf{y}&#39;\mathbf{P}&#39;\mathbf{P}\mathbf{y}+\mathbf{y}&#39;\mathbf{M}&#39;\mathbf{M}\mathbf{y}+\mathbf{0}\quad\text{(By Lemma 3.1.1 part (ii))}\\
+   &amp;= \hat{\mathbf{y}}&#39;\hat{\mathbf{y}}+\hat{\boldsymbol{\varepsilon}}&#39;\hat{\boldsymbol{\varepsilon}}
+\end{align*}\]</span>
+</div>
+
+<p>The vector of residuals <span class="math inline">\(\hat{\boldsymbol{\varepsilon}}\)</span> has only <span class="math inline">\(n-K\)</span> so-called <em>degrees
+of freedom</em>. The vector looses <span class="math inline">\(K\)</span> degrees of freedom, since it has to
+satisfy the <span class="math inline">\(K\)</span> linear restrictions (<span class="math inline">\(\mathbf{X}&#39;\hat{\boldsymbol{\varepsilon}}=\mathbf{0}\)</span>).
+Particularly, in the case with intercept we have that
+<span class="math inline">\(\sum_{i=1}^n\hat{\boldsymbol{\varepsilon}_i}=\mathbf{0}\)</span>.<br />
+This loss of <span class="math inline">\(K\)</span> degrees of freedom also appears in the definition of
+the <em>unbiased</em> variance estimator</p>
+<p><span class="math display" id="eq:c3e8">\[
+\begin{align*}
+s^2 = \frac{1}{n-K}\sum_{i=1}^n\hat{\varepsilon_i^2}.
+\tag{4.8}
+\end{align*}
+\]</span></p>
+</div>
+<div id="coefficient-of-determination" class="section level3">
+<h3><span class="header-section-number">4.1.2</span> Coefficient of determination</h3>
+<p>The total sample variance of the dependent variable
+<span class="math inline">\(\sum_{i=1}^n\left(y_i-\bar{y}\right)^2\)</span>, where
+<span class="math inline">\(\bar{y}=\frac{1}{n}\sum_{i=1}^ny_i\)</span>, can be decomposed as following:</p>
+<p><strong>Proposition 3.1.3 (Variance decomposition)</strong>
+For the OLS regression of the linear model (<a href="ordinary-least-squares-the-classical-linear-regression-model.html#eq:c3e1">(4.1)</a> with intercept it holds that</p>
+<p><span class="math display">\[
+\begin{align*}
+  \underset{\text{total variance}}{\sum_{i=1}^n\left(y_i-\bar{y}\right)^2} = \underset{\text{explained variance}}{\sum_{i=1}^n\left(\hat{y}_i-\bar{\hat{y}}\right)^2}+\underset{\text{unexplained variance}}{\sum_{i=1}^n\hat{\varepsilon_i^2 \,\,.}}
+\end{align*}
+\]</span></p>
+<!-- Proof is done in the lecture.\ -->
+
+<div class="proof">
+<p> <span class="proof"><em>Proof. </em></span> - As a consequence of Prop. 3.1.2 we have for regressions with intercept:
+<span class="math inline">\(\sum_{i=1}^n\hat{\varepsilon_i=0}\)</span>. Hence, from <span class="math inline">\(y_i=\hat{y}_i+\hat{\varepsilon_i}\)</span>
+it follows that <span class="math display">\[\begin{align*}
+      \frac{1}{n}\sum_{i=1}^n y_i &amp;= \frac{1}{n}\sum_{i=1}^n \hat{y}_i+\frac{1}{n}\sum_{i=1}^n \hat{\varepsilon_i} \\
+      \bar{y} &amp;= \bar{\hat{y}}_i+0 \end{align*}\]</span></p>
+<ul>
+<li>From Prop. 3.1.2 we know that:</li>
+</ul>
+<span class="math display">\[\begin{align*}
+\mathbf{y}&#39;\mathbf{y} &amp;= \hat{\mathbf{y}}&#39;\hat{\mathbf{y}}+\hat{\boldsymbol{\varepsilon}}&#39;\hat{\boldsymbol{\varepsilon}} \\
+       \mathbf{y}&#39;\mathbf{y} -n\bar{y}^2 &amp;= \hat{\mathbf{y}}&#39;\hat{\mathbf{y}}-n\bar{y}^2+\hat{\boldsymbol{\varepsilon}}&#39;\hat{\boldsymbol{\varepsilon}} \\
+       \mathbf{y}&#39;\mathbf{y}-n\bar{y}^2 &amp;= \hat{\mathbf{y}}&#39;\hat{\mathbf{y}}-n\bar{\hat{y}}^2+\hat{\boldsymbol{\varepsilon}}&#39;
+       \hat{\boldsymbol{\varepsilon}}\quad\text{(By our result above.)} \\
+       \sum_{i=1}^n y_i^2-n\bar{y}^2 &amp;= \sum_{i=1}^n\hat{y}_i^2-n\bar{\hat{y}}^2+\sum_{i=1}^n\hat{\varepsilon}_i^2 \\
+       \sum_{i=1}^n (y_i-\bar{y})^2 &amp;= \sum_{i=1}^n (\hat{y}_i-\bar{\hat{y}})^2+\sum_{i=1}^n \hat{\varepsilon}_i^2
+\end{align*}\]</span>
+</div>
+
+<p>The larger the proportion of the explained variance, the better is the
+fit of the model. This motivates the definition of the so-called <span class="math inline">\(R^2\)</span>
+coefficient of determination:</p>
+<p><span class="math display">\[
+\begin{align*}
+  R^2=\frac{\sum_{i=1}^n\left(\hat{y}_i-\bar{\hat{y}}\right)^2}{\sum_{i=1}^n\left(y_i-\bar{y}\right)^2}\;=\;1-\frac{\sum_{i=1}^n\hat{u}_i^2}{\sum_{i=1}^n\left(y_i-\bar{y}\right)^2}
+\end{align*}
+\]</span></p>
+<p>Obviously, we have that <span class="math inline">\(0\leq R^2\leq 1\)</span>. The closer <span class="math inline">\(R^2\)</span> lies to <span class="math inline">\(1\)</span>,
+the better is the fit of the model to the observed data. However, a
+high/low <span class="math inline">\(R^2\)</span> does not mean a validation/falsification of the estimated
+model. Any relation (i.e., model assumption) needs a plausible
+explanation from relevant economic theory.</p>
+<p>The most often criticized disadvantage of the <span class="math inline">\(R^2\)</span> is that additional
+regressors (relevant or not) will always increase the <span class="math inline">\(R^2\)</span>.</p>
+<p><strong>Proposition 3.1.4 (<span class="math inline">\(R^2\)</span> increase)</strong></p>
+<p>Let <span class="math inline">\(R^2_1\)</span> and <span class="math inline">\(R^2_2\)</span> result from</p>
+<p><span class="math display">\[
+\begin{align*}
+    \mathbf{y} &amp;= \mathbf{X}_1\mathbf{b}_{11}+\hat{\boldsymbol{\varepsilon}_1} \quad\text{and}\\
+    \mathbf{y} &amp;= \mathbf{X}_1\mathbf{b}_{21}+\mathbf{X}_2\mathbf{b}_{22}+\hat{\boldsymbol{\varepsilon}_2}.
+\end{align*}
+\]</span></p>
+<p>It then holds that <span class="math inline">\(R^2_2\geq R^2_1\)</span>.</p>
+
+<div class="proof">
+<p> <span class="proof"><em>Proof. </em></span> Consider the sum of squared residuals,</p>
+<p><span class="math display">\[\begin{align*}
+S(\mathbf{\mathfrak{b}}_{21},\mathbf{\mathfrak{b}}_{22})=(\mathbf{y}-\mathbf{X}_1\mathbf{\mathfrak{b}}_{21}+\mathbf{X}_2\mathbf{\mathfrak{b}}_{22})&#39;(\mathbf{y}-\mathbf{X}_1\mathbf{\mathfrak{b}}_{21}+\mathbf{X}_2\mathbf{\mathfrak{b}}_{22})
+\end{align*}\]</span>
+By definition, this sum is minimized by the OLS estimators <span class="math inline">\(\mathbf{b}_{21}\)</span>
+and <span class="math inline">\(\mathbf{b}_{22}\)</span>, i.e.,
+<span class="math inline">\(S(\mathbf{b}_{21},\mathbf{b}_{22})\leq S(\mathbf{\mathfrak{b}}_{21},\mathbf{\mathfrak{b}}_{22})\)</span>.
+Consequently,</p>
+<p><span class="math display">\[\begin{align*}
+\hat{\boldsymbol{\varepsilon}}_{2}&#39;\hat{\boldsymbol{\varepsilon}}_{2}=S(\mathbf{b}_{21},\mathbf{b}_{22})\leq S(\mathbf{b}_{{\color{red}{11}}},0)=\hat{\boldsymbol{\varepsilon}}_{1}&#39;\hat{\boldsymbol{\varepsilon}}_{1}
+\end{align*}\]</span>
+which implies the statement:</p>
+<span class="math display">\[\begin{align*}
+R_2^2=1-\frac{\hat{\boldsymbol{\varepsilon}}_{2}&#39;\hat{\boldsymbol{\varepsilon}}_{2}}{\sum_{i=1}^n\left(y_i-\bar{y}\right)^2}\geq
+1-\frac{\hat{\boldsymbol{\varepsilon}}_{1}&#39;\hat{\boldsymbol{\varepsilon}}_{1}}{\sum_{i=1}^n\left(y_i-\bar{y}\right)^2}=R_1^2
+\end{align*}\]</span>
+</div>
+
+<p>Because of this, the <span class="math inline">\(R^2\)</span> cannot be used as a criterion for model
+selection. Possible solutions are given by penalized criterions such as
+the so-called <em>adjusted <span class="math inline">\(R^2\)</span></em> defined as</p>
+<p><span class="math display">\[
+\begin{align*}
+  \overline{R}^2 &amp;= 1-\frac{ \frac{1}{n-K} \sum_{i=1}^n \hat{u}_i^2}{ \frac{1}{n-1} \sum_{i=1}^n \left(y_i-\bar{y}\right)^2} \\
+   &amp;= 1-\frac{n-1}{n-K}\left(1-R^2\right) \\
+    &amp;= 1-\frac{n-1}{n-K}+\frac{n-1}{n-K}R^2\quad+\frac{K-1}{n-K}R^2-\frac{K-1}{n-K}R^2 \\
+    &amp;= 1-\frac{n-1}{n-K}+R^2\quad+\frac{K-1}{n-K}R^2 \\
+    &amp;= -\frac{K-1}{n-K}+R^2\quad+\frac{K-1}{n-K}R^2 \\
+   &amp;= R^2-\frac{K-1}{n-K}\left(1-R^2\right) \leq R^2
+\end{align*}
+\]</span></p>
+<p>The adjustment is in terms of degrees of freedom.</p>
+</div>
+<div id="partitioned-regression-model" class="section level3 unnumbered">
+<h3>Partitioned regression model</h3>
+<p>Already in the first edition of Econometrica (1933) Frisch and Waugh
+pointed to an interesting property of multivariate linear regression
+analysis, which was later generalized to by Lovell (1963). The so-called
+Frisch-Waugh-Lovell (FWL) theorem points to a property of the OLS
+estimation method, which allows to gain a deeper understanding of the
+estimation method that is useful for the interpretation of the estimated
+coefficients.</p>
+<p><span class="math display" id="eq:c3e9">\[
+\begin{align*}
+  \mathbf{y} &amp;= \mathbf{X}_1\mathbf{b}_1+\mathbf{X}_2\mathbf{b}_2+\hat{\boldsymbol{\varepsilon}} =  (\mathbf{X}_1,\mathbf{X}_2)\left(\begin{matrix}\mathbf{b}_1\\\mathbf{b}_2\end{matrix}\right)+\hat{\boldsymbol{\varepsilon}},
+\tag{4.9}
+\end{align*}
+\]</span></p>
+<p>where <span class="math inline">\(rank(\mathbf{X}_j)=K_j\)</span> for <span class="math inline">\(j=1,2\)</span>.<br />
+A regression of <span class="math inline">\(\mathbf{y}\)</span> only on <span class="math inline">\(\mathbf{X}_2\)</span> (not on <span class="math inline">\(\mathbf{X}_1\)</span>), which
+however <em>takes into account the effect of <span class="math inline">\(\mathbf{X}_1\)</span></em>, has to be done as
+following:</p>
+<p><span class="math display" id="eq:c3e10">\[
+\begin{align*}
+  \mathbf{M}_1\mathbf{y} = \mathbf{M}_1\mathbf{X}_2\hat{\boldsymbol{\beta}}_2+\hat{\mathbf{v}},
+\tag{4.10}
+\end{align*}
+\]</span></p>
+<p>where <span class="math inline">\(\mathbf{M}_1=\mathbf{I}_n-\mathbf{X}_1(\mathbf{X}_1&#39;\mathbf{X}_1)^{-1}\mathbf{X}_1&#39;\)</span>. Note that (<a href="ordinary-least-squares-the-classical-linear-regression-model.html#eq:c3e10">(4.10)</a> is a regression model full of residuals: The dependent variables <span class="math inline">\(\mathbf{M}_1\mathbf{y}\)</span> are the residuals from regressing <span class="math inline">\(\mathbf{y}\)</span> on <span class="math inline">\(\mathbf{X}_1\)</span> and the <span class="math inline">\(K_2\)</span> columns in the matrix of independent variables <span class="math inline">\(\mathbf{M}_1\mathbf{X}_2\)</span> are the residuals from the regressing <span class="math inline">\(\mathbf{X}_2\)</span> column-wise on <span class="math inline">\(\mathbf{X}_1\)</span>. This means that the variables <span class="math inline">\(\mathbf{M}_1\mathbf{y}\)</span> and <span class="math inline">\(\mathbf{M}_1\mathbf{X}_2\)</span> contain only those parts of <span class="math inline">\(\mathbf{y}\)</span> and <span class="math inline">\(\mathbf{X}_2\)</span>, which are orthogonal to <span class="math inline">\(\mathbf{X}_1\)</span>; the effect of <span class="math inline">\(\mathbf{X}_1\)</span> is “<em>partialled out</em>”. By the FWL theorem we have that:</p>
+<p><strong>Proposition 3.1.5 (Frisch-Waugh-Lovell theorem)</strong>
+For the equations (<a href="ordinary-least-squares-the-classical-linear-regression-model.html#eq:c3e9">(4.9)</a>) and <a href="ordinary-least-squares-the-classical-linear-regression-model.html#eq:c3e10">(4.10)</a>) it holds that:
+<span class="math display">\[\hat{\boldsymbol{\beta}}_2=\mathbf{b}_2\quad\text{and}\quad \hat{\boldsymbol{\varepsilon}}=\hat{\mathbf{v}}.\]</span></p>
+
+<div class="proof">
+<p> <span class="proof"><em>Proof. </em></span> The OLS estimator <span class="math inline">\(\hat{\boldsymbol{\beta}}_2\)</span> is given by</p>
+<p><span class="math display" id="eq:c3e11">\[
+\begin{align*}
+\hat{\boldsymbol{\beta}}_2 &amp;= \left((\mathbf{M}_1\mathbf{X}_2)&#39;(\mathbf{M}_1\mathbf{X}_2)\right)^{-1}(\mathbf{M}_1\mathbf{X}_2)&#39;\mathbf{y}\nonumber\\
+ &amp;= \left(\mathbf{X}_2&#39;\mathbf{M}_1\mathbf{X}_2\right)^{-1}\mathbf{X}_2&#39;\mathbf{M}_1\mathbf{y}
+\tag{4.11}
+\end{align*}
+\]</span></p>
+<p>In the following, we show that <span class="math inline">\(\hat{\boldsymbol{\beta}}_2=\mathbf{b}_2\)</span>:<br />
+From the normal equations for <span class="math inline">\(\mathbf{b}\)</span>, we have that (using the partition
+<span class="math inline">\(X =\left[\mathbf{X}_1,\mathbf{X}_2\right]\)</span>):</p>
+<p><span class="math display">\[
+\begin{align*}
+(\mathbf{X}\mathbf{X})^{-1}\mathbf{b}&amp;=\mathbf{X}&#39;\mathbf{y}\\
+\left(\begin{matrix}\mathbf{X}_1&#39;\mathbf{X}_1&amp;\mathbf{X}_1&#39;\mathbf{X}_2\\\mathbf{X}_2&#39;\mathbf{X}_1&amp;\mathbf{X}_2&#39;\mathbf{X}_2\end{matrix}\right)\left(\begin{matrix}\mathbf{b}_1\\\mathbf{b}_2\end{matrix}\right)&amp;=\left(\begin{matrix}\mathbf{X}_1&#39;\mathbf{y}\\\mathbf{X}_2&#39;\mathbf{y}\end{matrix}\right),
+\end{align*}
+\]</span></p>
+<p>which is an equation system with two equations:</p>
+<p><span class="math display" id="eq:c3e12">\[
+\begin{align*}
+\mathbf{X}_1&#39;\mathbf{X}_1\mathbf{b}_1 + \mathbf{X}_1&#39;\mathbf{X}_2\mathbf{b}_2 &amp;=\mathbf{X}_1&#39;\mathbf{y}
+\tag{4.12}
+\end{align*}
+\]</span></p>
+<p><span class="math display" id="eq:c3e13">\[
+\begin{align*}
+\mathbf{X}_2&#39;\mathbf{X}_1\mathbf{b}_1 + \mathbf{X}_2&#39;\mathbf{X}_2\mathbf{b}_2 &amp;=\mathbf{X}_2&#39;\mathbf{y} 
+\tag{4.13}
+\end{align*}
+\]</span></p>
+<blockquote>
+<p>From <a href="ordinary-least-squares-the-classical-linear-regression-model.html#eq:c3e12">(4.12)</a>:</p>
+</blockquote>
+<p><span class="math display" id="eq:c3e14">\[
+\begin{align*}
+\mathbf{b}_1 = \left(\mathbf{X}_1&#39;\mathbf{X}_1\right)^{-1}\left(\mathbf{X}_1&#39;\mathbf{y} - \mathbf{X}_1&#39;\mathbf{X}_2\mathbf{b}_2\right)
+\tag{4.14}
+\end{align*}
+\]</span></p>
+<p>Plugging <a href="ordinary-least-squares-the-classical-linear-regression-model.html#eq:c3e14">(4.14)</a> into <a href="ordinary-least-squares-the-classical-linear-regression-model.html#eq:c3e13">(4.13)</a> yields,</p>
+<p><span class="math display" id="eq:c3e15">\[
+\begin{align*}
+\mathbf{X}_2&#39;\mathbf{X}_1\left\{\left(\mathbf{X}_1&#39;\mathbf{X}_1\right)^{-1}\left(\mathbf{X}_1&#39;\mathbf{y} - \mathbf{X}_1&#39;\mathbf{X}_2\mathbf{b}_2\right)\right\} + \mathbf{X}_2&#39;\mathbf{X}_2\mathbf{b}_2 &amp;=\mathbf{X}_2&#39;\mathbf{y}\nonumber\\
+- \mathbf{X}_2&#39;\mathbf{X}_1\left(\mathbf{X}_1&#39;\mathbf{X}_1\right)^{-1}\mathbf{X}_1&#39;\mathbf{X}_2\mathbf{b}_2 + \mathbf{X}_2&#39;\mathbf{X}_2\mathbf{b}_2 &amp;=\mathbf{X}_2&#39;\mathbf{y}- \mathbf{X}_2&#39;\mathbf{X}_1\left(\mathbf{X}_1&#39;\mathbf{X}_1\right)^{-1}\mathbf{X}_1&#39;\mathbf{y}\nonumber\\
+\left(\mathbf{X}_2&#39;\mathbf{X}_2 - \mathbf{X}_2&#39;\mathbf{X}_1\left(\mathbf{X}_1&#39;\mathbf{X}_1\right)^{-1}\mathbf{X}_1&#39;\mathbf{X}_2\right)\mathbf{b}_2 &amp;=\mathbf{X}_2&#39;\left(I- \mathbf{X}_1\left(\mathbf{X}_1&#39;\mathbf{X}_1\right)^{-1}\mathbf{X}_1&#39;\right)\mathbf{y}\nonumber\\
+\mathbf{X}_2&#39;\left(I - \mathbf{X}_1\left(\mathbf{X}_1&#39;\mathbf{X}_1\right)^{-1}\mathbf{X}_1&#39;\right)\mathbf{X}_2\mathbf{b}_2 &amp;=\mathbf{X}_2&#39;\left(I- \mathbf{X}_1\left(\mathbf{X}_1&#39;\mathbf{X}_1\right)^{-1}\mathbf{X}_1&#39;\right)\mathbf{y}\nonumber\\
+\mathbf{X}_2&#39;\mathbf{M}_1\mathbf{X}_2\mathbf{b}_2 &amp;=\mathbf{X}_2&#39;\mathbf{M}_1\mathbf{y}\nonumber\\
+\Leftrightarrow \mathbf{b}_2 &amp;=\left(\mathbf{X}_2&#39;\mathbf{M}_1\mathbf{X}_2\right)^{-1}\mathbf{X}_2&#39;\mathbf{M}_1\mathbf{y}
+\tag{4.15}
+\end{align*}
+\]</span></p>
+<blockquote>
+<p>From <a href="ordinary-least-squares-the-classical-linear-regression-model.html#eq:c3e11">(4.11)</a> and <a href="ordinary-least-squares-the-classical-linear-regression-model.html#eq:c3e15">(4.15)</a> it follows that <span class="math inline">\(\hat{\boldsymbol{\beta}}_2=\mathbf{b}_2\)</span> as stated by the proposition.<br />
+It remains to show that <span class="math inline">\(\hat{\boldsymbol{\varepsilon}}=\hat{\mathbf{v}}\)</span>:<br />
+Observe that</p>
+</blockquote>
+<p><span class="math display">\[
+\begin{align*}
+\hat{\mathbf{v}} &amp;= \mathbf{M}_1\mathbf{y}-\mathbf{M}_1\mathbf{X}_2\hat{\boldsymbol{\beta}}_2.
+\end{align*}
+\]</span></p>
+<p>But, using <a href="ordinary-least-squares-the-classical-linear-regression-model.html#eq:c3e14">(4.14)</a></p>
+<span class="math display">\[
+\begin{align*}
+\hat{\boldsymbol{\varepsilon}}
+&amp;= \mathbf{y}-\mathbf{X}_1{\color{red}{\mathbf{b}_1}-\mathbf{X}_2\mathbf{b}_2} \\
+&amp;= \mathbf{y}-\mathbf{X}_1{\color{red}{\left(\mathbf{X}_1&#39;\mathbf{X}_1\right)^{-1}\left(\mathbf{X}_1&#39;\mathbf{y}-\mathbf{X}_1&#39;\mathbf{X}_2\mathbf{b}_2\right)}} -\mathbf{X}_2\mathbf{b}_2\\
+&amp;= \mathbf{y}-\mathbf{P}_1\mathbf{y}-\left(\mathbf{X}_2\mathbf{b}_2-\mathbf{P}_1\mathbf{X}_2\mathbf{b}_2 \right)\\
+&amp;= \mathbf{M}_1\mathbf{y}-\mathbf{M}_1\mathbf{X}_2\mathbf{b}_2\\
+&amp;= \hat{\mathbf{v}}
+\end{align*}
+\]</span>
+</div>
+
+</div>
+<div id="finite-sample-properties-of-ols" class="section level3">
+<h3><span class="header-section-number">4.1.3</span> Finite-Sample Properties of OLS</h3>
+<p>Notice that, by contrast to (the true but unknown) parameter vector
+<span class="math inline">\(\boldsymbol{\beta}\)</span>, <span class="math inline">\(\mathbf{b}\)</span> is a stochastic quantity, since it depends on
+<span class="math inline">\(\boldsymbol{\varepsilon}\)</span> through <span class="math inline">\(\mathbf{y}\)</span>. The stochastic difference <span class="math inline">\(\mathbf{b}-\boldsymbol{\beta}\)</span>
+is termed the <strong>sampling error</strong>:</p>
+<p><span class="math display">\[
+\begin{align*}
+\mathbf{b}-\boldsymbol{\beta} &amp;= (\mathbf{X}&#39;\mathbf{X})^{-1}\mathbf{X}&#39;\mathbf{y}-\boldsymbol{\beta}\\
+ &amp;= (\mathbf{X}&#39;\mathbf{X})^{-1}\mathbf{X}&#39;(\mathbf{X}\boldsymbol{\beta}+\boldsymbol{\varepsilon})-\boldsymbol{\beta}\quad\text{(By Assumption 1)}\\
+ &amp;= (\mathbf{X}&#39;\mathbf{X})^{-1}\mathbf{X}&#39;\mathbf{X}\boldsymbol{\beta}+(\mathbf{X}&#39;\mathbf{X})^{-1}\mathbf{X}&#39;\boldsymbol{\varepsilon}-\boldsymbol{\beta}\\
+ &amp;= \boldsymbol{\beta}+(\mathbf{X}&#39;\mathbf{X})^{-1}\mathbf{X}&#39;\boldsymbol{\varepsilon}-\boldsymbol{\beta}\\
+ &amp;= (\mathbf{X}&#39;\mathbf{X})^{-1}\mathbf{X}&#39;\boldsymbol{\varepsilon} \,, 
+\end{align*}
+\]</span></p>
+<p>where the first equality holds by Eq. <a href="ordinary-least-squares-the-classical-linear-regression-model.html#eq:c3e7">(4.7)</a></p>
+<p>The distribution of <span class="math inline">\(\mathbf{b}\)</span> depends (among others) on the sample
+size <span class="math inline">\(n\)</span>, although this is not made explicitly by our notation. In this
+section, we focus on the case of a fix, finite sample size <span class="math inline">\(n\)</span>.</p>
+
+<div class="theorem">
+<p><span id="thm:GMT" class="theorem"><strong>Theorem 4.1  (Finite Sample Properties)  </strong></span>
+The OLS estimator <span class="math inline">\(\mathbf{b}\)</span></p>
+<ul>
+<li><p>is an unbiased estimator: <span class="math inline">\(\mathbb{E}(\mathbf{b}|\mathbf{X})=\boldsymbol{\beta}\)</span></p></li>
+<li><p>has variance: <span class="math inline">\(\mathbb{V}(\mathbf{b}|\mathbf{X})=\sigma^2(\mathbf{X}&#39;\mathbf{X})^{-1}\)</span></p></li>
+<li>(Gauss-Markov Theorem) is efficient in the class of all linear
+unbiased estimators. That is, for any unbiased estimator
+<span class="math inline">\(\tilde{\mathbf{b}}\)</span> that is linear in <span class="math inline">\(\mathbf{y}\)</span>, we have:
+<span class="math inline">\(\mathbb{V}(\tilde{\mathbf{b}}|\mathbf{X}) \geq \mathbb{V}(\mathbf{b} | \mathbf{X})\)</span> in the matrix sense.
+</div></li>
+</ul>
+<p>While part (ii) and (iii) need all of the classical Assumptions 1.1-1.4,
+part (i) needs only the Assumptions 1.1-1.3.</p>
+<p>Note that, by saying: “<span class="math inline">\(\mathbb{V}(\tilde{\mathbf{b}}|\mathbf{X}) \geq \mathbb{V}(\mathbf{b} | \mathbf{X})\)</span> in the
+matrix sense”, we mean that
+<span class="math inline">\(\mathbb{V}(\tilde{\mathbf{b}}|\mathbf{X}) - \mathbb{V}(\mathbf{b} | \mathbf{X}) = \mathbf{D}\)</span>, where <span class="math inline">\(\mathbf{D}\)</span> is
+a <em>positive semidefinite</em> <span class="math inline">\(K\times K\)</span> matrix, i.e.,
+<span class="math inline">\(\mathbf{a}&#39;\mathbf{D}\mathbf{a}\geq 0\)</span> for any <span class="math inline">\(K\)</span>-dimensional vector
+<span class="math inline">\(\mathbf{a}\)</span>. Observe that this implies that
+<span class="math inline">\(\mathbb{V}(\tilde{\text{b}}_k|\mathbf{X}) \geq \mathbb{V}({\textrm{b}}_k | \mathbf{X})\)</span> for any
+<span class="math inline">\(k=1,\dots,K\)</span>.<br />
+</p>
+<p>Proof of Theorem <a href="ordinary-least-squares-the-classical-linear-regression-model.html#thm:GMT">4.1</a>
+is done in the lecture.<br />
+</p>
+<p>Proof:<br />
+<strong>Part (i):</strong></p>
+<p><span class="math display">\[
+\begin{align*}
+\mathbb{E}(\mathbf{b}|\mathbf{X}) &amp;= \mathbb{E}\left((\mathbf{X}&#39;\mathbf{X})^{-1}\mathbf{X}&#39;\mathbf{y}|\mathbf{X}\right)\\
+   &amp;= \mathbb{E}\left((\mathbf{X}&#39;\mathbf{X})^{-1}\mathbf{X}&#39;(\mathbf{X}\boldsymbol{\beta}+\boldsymbol{\varepsilon})|\mathbf{X}\right)\\
+   &amp;= \mathbb{E}\left((\mathbf{X}&#39;\mathbf{X})^{-1}\mathbf{X}&#39;\mathbf{X}\boldsymbol{\beta}+(\mathbf{X}&#39;\mathbf{X})^{-1}\mathbf{X}&#39;\boldsymbol{\varepsilon}|\mathbf{X}\right)\\
+   &amp;= \boldsymbol{\beta}+(\mathbf{X}&#39;\mathbf{X})^{-1}\mathbf{X}&#39;\mathbb{E}\left(\boldsymbol{\varepsilon}|\mathbf{X}\right)\;=\;\boldsymbol{\beta},
+\end{align*}
+\]</span></p>
+<p>where the last step follows from the strict exogeneity assumption.<br />
+<strong>Part (ii):</strong></p>
+<p><span class="math display">\[
+\begin{align*}
+\mathbb{V}(\mathbf{b}|\mathbf{X})
+  &amp;=\mathbb{V}(\mathbf{b}-\boldsymbol{\beta}|\mathbf{X})\quad\left(\text{Since $\boldsymbol{\beta}$ is not random}\right)\\
+  &amp;=\mathbb{V}\left(\left(\mathbf{X}&#39;\mathbf{X}\right)^{-1}\mathbf{X}&#39;\boldsymbol{\varepsilon}|\mathbf{X}\right)\\
+  &amp;=\left(\mathbf{X}&#39;\mathbf{X}\right)^{-1}\mathbf{X}&#39;\mathbb{V}\left(\boldsymbol{\varepsilon}|\mathbf{X}\right)\mathbf{X}\left(\mathbf{X}&#39;\mathbf{X}\right)^{-1}\\
+  &amp;=\sigma^2\left(\mathbf{X}&#39;\mathbf{X}\right)^{-1}\mathbf{X}&#39;I_n\mathbf{X}\left(\mathbf{X}&#39;\mathbf{X}\right)^{-1}\\
+  &amp;=\sigma^2\left(\mathbf{X}&#39;\mathbf{X}\right)^{-1}
+\end{align*}
+\]</span></p>
+<p><strong>Part (iii),
+Gauss-Markov:</strong><br />
+Since <span class="math inline">\(\tilde{\mathbf{b}}\)</span> is assumed to be linear in <span class="math inline">\(\mathbf{y}\)</span>, we can
+write</p>
+<p><span class="math display">\[
+\begin{align*}
+\tilde{\mathbf{b}}=\mathbf{C}\mathbf{y},
+\end{align*}
+\]</span></p>
+<p>where <span class="math inline">\(\mathbf{C}\)</span> is
+some <span class="math inline">\(K\times n\)</span> matrix, which is a function of <span class="math inline">\(\mathbf{X}\)</span> and/or nonrandom
+components.<br />
+Adding a <span class="math inline">\(K\times n\)</span> zero matrix <span class="math inline">\(\mathbf{0}\)</span> yields</p>
+<p><span class="math display">\[
+\begin{align*}
+\tilde{\mathbf{b}}=\Big(\mathbf{C}\overbrace{-\left(\mathbf{X}&#39;\mathbf{X}\right)^{-1}\mathbf{X}&#39;+\left(\mathbf{X}&#39;\mathbf{X}\right)^{-1}\mathbf{X}&#39;}^{=\mathbf{0}}\Big)\mathbf{y}.
+\end{align*}
+\]</span></p>
+<p>Let now <span class="math inline">\(\mathbf{D}=\mathbf{C}-\left(\mathbf{X}&#39;\mathbf{X}\right)^{-1}\mathbf{X}&#39;\)</span>, then</p>
+<p><span class="math display" id="eq:c3e17" id="eq:c3e16">\[
+\begin{align*}
+\tilde{\mathbf{b}}&amp;=\mathbf{D}\mathbf{y} + \left(\mathbf{X}&#39;\mathbf{X}\right)^{-1}\mathbf{X}&#39;\mathbf{y}\nonumber\\
+\tilde{\mathbf{b}}&amp;=\mathbf{D}\left(\mathbf{X}\boldsymbol{\beta}+\boldsymbol{\varepsilon}\right) + \left(\mathbf{X}&#39;\mathbf{X}\right)^{-1}\mathbf{X}&#39;\mathbf{y}\nonumber\\
+\tilde{\mathbf{b}}&amp;=\mathbf{D}\mathbf{X}\boldsymbol{\beta}+\mathbf{D}\boldsymbol{\varepsilon} + \mathbf{b}
+\tag{4.16}\\[2ex]
+\Rightarrow\quad\mathbb{E}(\tilde{\mathbf{b}}|\mathbf{X})&amp;=\mathbb{E}(\mathbf{D}\mathbf{X}\boldsymbol{\beta}|\mathbf{X})+\mathbb{E}(\mathbf{D}\boldsymbol{\varepsilon}|\mathbf{X})+\mathbb{E}(\mathbf{b}|\mathbf{X})\nonumber\\
+&amp;=\mathbf{D}\mathbf{X}\boldsymbol{\beta}+\mathbf{0}+\boldsymbol{\beta}
+\tag{4.17}
+\end{align*}
+\]</span></p>
+<p>Since <span class="math inline">\(\tilde{\mathbf{b}}\)</span> is (by assumption) unbiased, we have that
+<span class="math inline">\(\mathbb{E}(\tilde{\mathbf{b}}|\mathbf{X})=\boldsymbol{\beta}\)</span>. The latter, together with <a href="ordinary-least-squares-the-classical-linear-regression-model.html#eq:c3e17">(4.17)</a>, implies that <span class="math inline">\(\mathbf{D}\mathbf{X}=\mathbf{0}\)</span>. Plugging <span class="math inline">\(\mathbf{D}\mathbf{X}=\mathbf{0}\)</span> into <a href="ordinary-least-squares-the-classical-linear-regression-model.html#eq:c3e16">(4.16)</a> yields,</p>
+<p><span class="math display" id="eq:c3e18">\[
+\begin{align*}
+\tilde{\mathbf{b}}&amp;=\mathbf{D}\boldsymbol{\varepsilon} + \mathbf{b}\nonumber\\
+\tilde{\mathbf{b}}-\boldsymbol{\beta}&amp;=\mathbf{D}\boldsymbol{\varepsilon} + (\mathbf{b}-\boldsymbol{\beta})\quad(\text{Adding a zero vector $\boldsymbol{\beta}-\boldsymbol{\beta}$})\nonumber\\
+\tilde{\mathbf{b}}-\boldsymbol{\beta}&amp;=\mathbf{D}\boldsymbol{\varepsilon} + \left(\mathbf{X}&#39;\mathbf{X}\right)^{-1}\mathbf{X}&#39;\boldsymbol{\varepsilon}\quad(\text{Sampling error expression})\nonumber\\
+\tilde{\mathbf{b}}-\boldsymbol{\beta}&amp;=\left(\mathbf{D} + \left(\mathbf{X}&#39;\mathbf{X}\right)^{-1}\mathbf{X}&#39;\right)\boldsymbol{\varepsilon}
+\tag{4.18}
+\end{align*}
+\]</span></p>
+<p>So,</p>
+<p><span class="math display">\[
+\begin{align*}
+  \mathbb{V}(\tilde{\mathbf{b}}|\mathbf{X})
+  &amp;= \mathbb{V}(\tilde{\mathbf{b}}-\boldsymbol{\beta}|\mathbf{X})\quad\left(\text{Since } \boldsymbol{\beta} \text{ is not random}\right)\\
+  &amp;= \mathbb{V}((\mathbf{D} + (\mathbf{X}&#39;\mathbf{X})^{-1}\mathbf{X}&#39;)\boldsymbol{\varepsilon}|\mathbf{X})\\
+  &amp;= (\mathbf{D} + (\mathbf{X}&#39;\mathbf{X})^{-1}\mathbf{X}&#39;)\mathbb{V}(\boldsymbol{\varepsilon}|\mathbf{X})(\mathbf{D}&#39; + X(\mathbf{X}&#39;\mathbf{X})^{-1})\\
+  &amp;= \sigma^2(\mathbf{D} + (\mathbf{X}&#39;\mathbf{X})^{-1}\mathbf{X}&#39;)I_n(\mathbf{D}&#39; + X(\mathbf{X}&#39;\mathbf{X})^{-1})\\
+  &amp;= \sigma^2\left(\mathbf{D}\mathbf{D}&#39;+(\mathbf{X}&#39;\mathbf{X})^{-1}\right)\quad(\text{using that } \mathbf{D}\mathbf{X}=\mathbf{0}) \\
+  &amp;\geq\sigma^2(\mathbf{X}&#39;\mathbf{X})^{-1} \\
+  &amp;= \mathbb{V}(\mathbf{b}|\mathbf{X}) \quad(\text{Since }\mathbf{D}\mathbf{D}&#39; \text{ is pos.~semidef.})
+\end{align*}
+\]</span></p>
+<p>where the second equality uses Eq. <a href="ordinary-least-squares-the-classical-linear-regression-model.html#eq:c3e18">(4.18)</a>.</p>
+<p>Showing that <span class="math inline">\(\mathbf{D}\mathbf{D}&#39;\)</span> is positive definite:</p>
+<p><span class="math display">\[
+\begin{align*}
+  \mathbf{a}&#39;\mathbf{D}\mathbf{D}&#39;\mathbf{a}=(\mathbf{D}&#39;\mathbf{a})&#39;(\mathbf{D}&#39;\mathbf{a})=\tilde{\mathbf{a}}&#39;\tilde{\mathbf{a}}\geq 0,
+\end{align*}
+\]</span></p>
+<p>where <span class="math inline">\(\tilde{\mathbf{a}}\)</span> is a <span class="math inline">\(K\)</span> dimensional column-vector.<br />
+Remember:</p>
+<ul>
+<li><p><span class="math inline">\((\mathbf{A}+\mathbf{B})&#39;=\mathbf{A}&#39;+\mathbf{B}&#39;\)</span></p></li>
+<li><p><span class="math inline">\((\mathbf{AB})&#39;=\mathbf{B}&#39;\mathbf{A}&#39;\)</span></p></li>
+<li><p><span class="math inline">\(\mathbf{A}&#39; =\mathbf{A}\)</span> <span class="math inline">\(\Leftrightarrow\)</span> <span class="math inline">\(\mathbf{A}\)</span> is a
+symmetric matrix</p></li>
+</ul>
+<p>Under Assumptions 1.1-1.4, we have that: <span class="math display">\[\mathbb{E}(s^2|\mathbf{X})=\sigma^2,\]</span> and
+hence <span class="math inline">\(\mathbb{E}(s^2)=\sigma^2\)</span>, provided that <span class="math inline">\(n&gt;K\)</span> (otherwise <span class="math inline">\(s^2\)</span> isn’t
+well defined).</p>
+<!-- Proof is done in the lecture.\ -->
+
+<div class="proof">
+<p> <span class="proof"><em>Proof. </em></span> In the following we show that <span class="math inline">\(\mathbb{E}(s^2|\mathbf{X})=\sigma^2\)</span>, where
+<span class="math display">\[s^2=\frac{1}{n-K}\sum_{i=1}^n\hat{\varepsilon_i}^2=\frac{\hat{\boldsymbol{\varepsilon}}&#39;\hat{\boldsymbol{\varepsilon}}}{n-K}.\]</span>
+In fact, it will be convenient to show the following equivalent
+statement: <span class="math display">\[\mathbb{E}(\hat{\boldsymbol{\varepsilon}}&#39;\hat{\boldsymbol{\varepsilon}}|\mathbf{X})=\sigma^2(n-K).\]</span> Note that
+<span class="math display">\[\begin{align*}
+\hat{\boldsymbol{\varepsilon}}&#39;\hat{\boldsymbol{\varepsilon}}
+&amp; = (\mathbf{M}\mathbf{y})&#39;\mathbf{M}\mathbf{y}\\
+&amp; = (\mathbf{M}(\mathbf{X}\boldsymbol{\beta}+\boldsymbol{\varepsilon}))&#39;\mathbf{M}(\mathbf{X}\boldsymbol{\beta}+\boldsymbol{\varepsilon})\\
+&amp; = (\mathbf{M}\boldsymbol{\varepsilon})&#39;\mathbf{M}\boldsymbol{\varepsilon}\\
+&amp; = \boldsymbol{\varepsilon}&#39;\mathbf{M}\boldsymbol{\varepsilon}.
+\end{align*}\]</span> First, we show that
+<span class="math inline">\(\mathbb{E}(\boldsymbol{\varepsilon}&#39;\mathbf{M}\boldsymbol{\varepsilon}|\mathbf{X})=\sigma^2trace(\mathbf{M})\)</span>, second, we
+show that <span class="math inline">\(trace(\mathbf{M})=n-K\)</span>.<br />
+1st Part: <span class="math display">\[\begin{align*}
+\boldsymbol{\varepsilon}&#39;\mathbf{M}\boldsymbol{\varepsilon}
+&amp;=\sum_{i=1}^n\sum_{j=1}^n m_{ij}\varepsilon_i\varepsilon_j\quad(\text{All } m_{ij}\text{&#39;s are functions of } \mathbf{X})\\[2ex]
+\Rightarrow\mathbb{E}(\boldsymbol{\varepsilon}&#39;\mathbf{M}\boldsymbol{\varepsilon}|\mathbf{X})
+&amp;=\sum_{i=1}^n\sum_{j=1}^n m_{ij}\mathbb{E}(\varepsilon_i\varepsilon_j|\mathbf{X})\\
+&amp;=\sum_{i=1}^n m_{ii}\sigma^2=\sigma^2trace(\mathbf{M}).
+\end{align*}\]</span>
+2nd Part: <span class="math display">\[\begin{align*}
+trace(\mathbf{M})
+&amp;= trace(I_n-P) \\
+&amp;= trace(I_n)-trace(P)\quad(\text{By linearity of } trace(.))\\
+&amp;= n-trace(P)\\
+&amp;= n-trace(\mathbf{X}(\mathbf{X}&#39;\mathbf{X})^{-1}\mathbf{X}&#39;)\\
+&amp;= n-trace(\mathbf{X}&#39;\mathbf{X}(\mathbf{X}&#39;\mathbf{X})^{-1})\\
+&amp;= n-trace(I_K)\\
+&amp;= n-K.
+\end{align*}\]</span> Such that
+<span class="math display">\[\mathbb{E}(\hat{\boldsymbol{\varepsilon}}&#39;\hat{\boldsymbol{\varepsilon}}|\mathbf{X})=\sigma^2(n-K).\quad\square\]</span> Remember
+(trace-trick):</p>
+<ul>
+<li><span class="math inline">\(trace(AB)=trace(BA)\)</span>
+</div></li>
+</ul>
+</div>
+<div id="Testing" class="section level3">
+<h3><span class="header-section-number">4.1.4</span> Hypothesis Testing under Normality</h3>
+<p><strong>Assumption 1.5: Normality</strong></p>
+<p><span class="math display">\[
+\begin{align*}
+  \boldsymbol{\varepsilon}|\mathbf{X}\sim N(\mathbf{0},\sigma^2 \mathbf{I}_n)
+\end{align*}
+\]</span></p>
+<p>Strictly, speaking, the only aspect of this assumption is that <span class="math inline">\(\varepsilon\)</span> is
+normally distributed. The assumption immediately implies that</p>
+<p><span class="math display">\[
+\begin{align*}
+  ((\mathbf{X}&#39;\mathbf{X})^{-1}\mathbf{X}&#39;\boldsymbol{\varepsilon})|\mathbf{X}\sim N(\mathbf{0},\sigma^2 (\mathbf{X}&#39;\mathbf{X})^{-1}),
+  (\mathbf{b}-\boldsymbol{\beta})|\mathbf{X}\sim N(\mathbf{0},\sigma^2 (\mathbf{X}&#39;\mathbf{X})^{-1}),
+\end{align*}
+\]</span></p>
+<p>which inspires our test statistics. E.g., if we would know <span class="math inline">\(\sigma^2\)</span>,
+we have</p>
+<p><span class="math display">\[
+\begin{align*}
+  z_k=\frac{\text{b}_k-\bar{\beta}_k}{\left(\sigma^2\left[(\mathbf{X}&#39;\mathbf{X})^{-1}\right]_{kk}\right)^{1/2}}\sim N(0,1),
+\end{align*}
+\]</span></p>
+<p>where <span class="math inline">\(\bar{\beta}_k\)</span> is some known value specified by the null
+hypothesis:</p>
+<p><span class="math inline">\(\text{H}_0\)</span>: <span class="math inline">\(\text{b}_k=\bar{\beta}_k\)</span>.</p>
+<p>Usually, we do not know the value of <span class="math inline">\(\sigma^2\)</span> and have to estimate it.
+In this case <span class="math inline">\(\sigma^2\)</span> is termed a <strong>nuisance parameter</strong>. Plugging in
+the OLS estimate <span class="math inline">\(s^2\)</span> leads to</p>
+<p><span class="math display">\[
+\begin{align*}
+  \text{t-ratio}_k=\frac{\text{b}_k-\bar{\beta}_k}{\left(s^2\left[(\mathbf{X}&#39;\mathbf{X})^{-1}\right]_{kk}\right)^{1/2}}\sim t_{n-K},
+\end{align*}
+\]</span></p>
+<p>where <span class="math inline">\(t_{n-K}\)</span> is the (Student) t-distribution with <span class="math inline">\(n-K\)</span> degrees of
+freedom.<br />
+Of course, <strong>confidence intervals</strong> for the single estimators
+<span class="math inline">\(\hat\beta_k\)</span> can also be directly derived using the normality
+assumption:</p>
+<p><span class="math display">\[
+\begin{align*}
+  CI_{1-\alpha} = \left[\mathbf{b}_k\pm t_{1-\frac{\alpha}{2},n-K}\;s^2\sqrt{\left[(\mathbf{X}\mathbf{X})^{-1}\right]_{kk}}\right],
+\end{align*}
+\]</span></p>
+<p>where <span class="math inline">\(CI_{1-\alpha}\)</span> contains the true unknown <span class="math inline">\(\beta_k\)</span> with
+probability <span class="math inline">\(1-\alpha\)</span>.<br />
+Testing linear combinations of hypotheses (so-called <strong>linear
+restrictions</strong>) on <span class="math inline">\(\beta_1,\dots,\beta_K\)</span>:
+<span class="math display">\[\text{H}_0: \mathbf{R}\boldsymbol{\beta}=\mathbf{r},\]</span> where the
+<span class="math inline">\((\#\mathbf{r}\times K)\)</span> dimensional matrix <span class="math inline">\(\mathbf{R}\)</span> and the vector
+<span class="math inline">\(\mathbf{r}\)</span> are known and specified by the hypothesis, and
+<span class="math inline">\(\#\mathbf{r}\)</span> is the number of elements in <span class="math inline">\(\mathbf{r}\)</span> (i.e., the
+number of linear equations in the nullhypothesis). To make sure that
+there are no redundant equations it is required that
+<span class="math inline">\(rank(\mathbf{R})=\#\mathbf{r}\)</span>.<br />
+Based on the normality assumption we can test the nullhypothesis using
+the <span class="math inline">\(\chi^2\)</span>-distributed test statistic</p>
+<p><span class="math display">\[
+\begin{align*}
+  \text{W}=\frac{(\mathbf{R}\mathbf{b}-\mathbf{r})&#39;(\mathbf{R}(\mathbf{X}&#39;\mathbf{X})^{-1}\mathbf{R}&#39;)^{-1}(\mathbf{R}\mathbf{b}-\mathbf{r})}{\sigma^2}\sim \chi^2_{\#\mathbf{r}},
+\end{align*}
+\]</span></p>
+<p>where <span class="math inline">\(\chi^2_{\#\mathbf{r}}\)</span> denotes the <span class="math inline">\(\chi^2\)</span>-distribution with
+<span class="math inline">\(\#\mathbf{r}\)</span> degrees of freedom. If <span class="math inline">\(\sigma^2\)</span> is unknown we have to
+plug-in its estimator <span class="math inline">\(s^2\)</span>, which then changes the distribution of the
+test statistic:
+<span class="math display">\[
+\begin{align*}
+  \text{F}=\frac{(\mathbf{R}\mathbf{b}-\mathbf{r})&#39;(\mathbf{R}(\mathbf{X}&#39;\mathbf{X})^{-1}\mathbf{R}&#39;)^{-1}(\mathbf{R}\mathbf{b}-\mathbf{r})}{s^2 \#\mathbf{r}}\sim F_{\#\mathbf{r},n-K},
+\end{align*}
+\]</span></p>
+<p>where <span class="math inline">\(F_{\#\mathbf{r},n-K}\)</span> is the <span class="math inline">\(F\)</span>-distribution with
+<span class="math inline">\(\#\mathbf{r},n-K\)</span> degrees of freedom.</p>
+</div>
+</div>
+<div id="asymptotics-under-the-classic-regression-model" class="section level2">
+<h2><span class="header-section-number">4.2</span> Asymptotics under the Classic Regression Model</h2>
+<p>In this section we proof that the OLS estimators <span class="math inline">\(\mathbf{b}\)</span> and <span class="math inline">\(s^2\)</span>
+applied to the classic regression model (defined by Assumptions 1.1 to
+1.4) are consistent estimators as <span class="math inline">\(n\to\infty\)</span>. Even better, we can show
+that it is possible to drop the unrealistic normality assumption
+(Assumption 1.5.), but still to use the usual test statistics as long as
+the sample size <span class="math inline">\(n\)</span> is large. Though, before we can formally state the
+asymptotic properties, we first need to adjust the rank assumption
+(Assumption 1.3), such that the full column rank of <span class="math inline">\(\mathbf{X}\)</span> is guaranteed
+for the limiting case as <span class="math inline">\(n\to\infty\)</span>, too. Second, we need to assume
+that the sample <span class="math inline">\((y_i,\mathbf{x}_i)\)</span> is iid, which allows us to apply
+Kolmogorov’s strong LLN and Lindeberg-Levy’s CLT.</p>
+<p><strong>Assumption 1.3<span class="math inline">\(^\ast\)</span>:</strong>
+<span class="math inline">\(\mathbb{E}(\mathbf{x}_i\mathbf{x}_i&#39;)=\boldsymbol{\Sigma}_{\mathbf{x}\mathbf{x}},\)</span><br />
+such that the <span class="math inline">\((K\times K)\)</span> matrix <span class="math inline">\(\boldsymbol{\Sigma}_{\mathbf{x}\mathbf{x}}\)</span> has
+full rank <span class="math inline">\(K\)</span> (i.e., is nonsingular).<br />
+</p>
+<p><strong>Assumption 1.5<span class="math inline">\(^\ast\)</span>:</strong> The sample <span class="math inline">\((\mathbf{x}_i,\varepsilon_i)\)</span>
+(equivalently <span class="math inline">\((y_i,\mathbf{x}_i)\)</span>) is iid for all <span class="math inline">\(i=1,\dots,n\)</span>, with
+existing and finite first, second, third, and fourth moments.<br />
+</p>
+<p>Note that existence and finiteness of the first two moments of
+<span class="math inline">\(\mathbf{x}_i\)</span> is actually already implied by Assumption 1.3<span class="math inline">\(^\ast\)</span>.<br />
+</p>
+<p>Under the Assumptions 1.1, 1.2, 1.3<span class="math inline">\(^\ast\)</span>, 1.4, and, 1.5<span class="math inline">\(^\ast\)</span> we can
+show the following results.</p>
+<p><strong>Proposition 3.1.8 (Consistency of <span class="math inline">\(\mathbf{S}_{\mathbf{x}\mathbf{x}}^{-1}\)</span>)</strong></p>
+<p><span class="math display">\[
+\begin{align*}
+\left( \frac{1}{n} \mathbf{X}&#39;\mathbf{X} \right)^{-1} = \mathbf{S}_{\mathbf{x}\mathbf{x}}^{-1} \quad \overset{p} \longrightarrow \quad\boldsymbol{\Sigma}_{\mathbf{x}\mathbf{x}}^{-1}
+\end{align*}
+\]</span></p>
+
+<div class="proof">
+<p> <span class="proof"><em>Proof. </em></span> 1st Part: Let define <span class="math display">\[\begin{align*}
+[\mathbf{S}_{\mathbf{x}\mathbf{x}}]_{kl}&amp;=\frac{1}{n}\sum_{i=1}^n\underbrace{x_{ik}x_{il}}_{z_{i,kl}}=\bar{z}_{kl}.\end{align*}\]</span></p>
+From: <span class="math display">\[\begin{array}{ll}
+\mathbb{E}[z_{i,kl}]=[\mathbf{S}_{\mathbf{x}\mathbf{x}}]_{kl}&amp;\quad\text{(By Assumption 1.3}^\ast)\\
+\text{and}&amp;\\
+z_{i,kl}\quad\text{is iid and has four moments}      &amp;\quad\text{(By Assumption 1.5}^\ast)
+\end{array}\]</span> it follows by <a href="https://www.statlect.com/asymptotic-theory/law-of-large-numbers">Kolmogorov’s strong law of large numbers</a>
+that <span class="math display">\[\begin{align*}
+\bar{z}_{kl}\overset{a.s.}\longrightarrow \left[\boldsymbol{\Sigma}_{\mathbf{x}\mathbf{x}}\right]_{kl},\quad\text{for any}\quad 1\leq k,l\leq K.
+\end{align*}\]</span>
+Consequently,
+<span class="math inline">\(\mathbf{S}_{\mathbf{x}\mathbf{x}}\overset{a.s.}\longrightarrow\boldsymbol{\Sigma}_{\mathbf{x}\mathbf{x}}\)</span>
+element-wise.<br />
+2nd Part: By the <a href="https://www.statlect.com/asymptotic-theory/continuous-mapping-theorem">Continuous Mapping Theorem</a>
+we have that also <span class="math display">\[\begin{align*}
+\left(\mathbf{S}_{\mathbf{x}\mathbf{x}}\right)^{-1}\overset{a.s.}\longrightarrow\left(\boldsymbol{\Sigma}_{\mathbf{x}\mathbf{x}}\right)^{-1}.
+\end{align*}\]</span>
+3rd Part: Almost-Sure-Convergence implies Convergence-in-Probability
+(<span class="math inline">\(\overset{a.s.}\longrightarrow \, \Rightarrow \, \overset{p}\longrightarrow\)</span>); see <a href="https://www.statlect.com/asymptotic-theory/relations-among-modes-of-convergence">relations among modes of convergence</a>.
+</div>
+
+<p><strong>Proposition 3.1.9 (Consistency of <span class="math inline">\(\mathbf{b}\)</span>)</strong>
+<span class="math display">\[\mathbf{b}\overset{p}\longrightarrow\boldsymbol{\beta}\]</span></p>
+
+<div class="proof">
+ <span class="proof"><em>Proof. </em></span> : We show the equivalent result that
+<span class="math inline">\(\mathbf{b}-\boldsymbol{\beta}\overset{p}\longrightarrow \mathbf{0}\)</span>.<br />
+Remember: <span class="math display">\[\begin{align*}
+\mathbf{b}-\boldsymbol{\beta}
+&amp;=(\mathbf{X}&#39;\mathbf{X})^{-1}\mathbf{X}&#39;\boldsymbol{\varepsilon}\\
+&amp;=(n^{-1}\mathbf{X}&#39;\mathbf{X})^{-1}\frac{1}{n}\mathbf{X}&#39;\boldsymbol{\varepsilon}\\
+&amp;=\left(\mathbf{S}_{\mathbf{x}\mathbf{x}}\right)^{-1}\;\frac{1}{n}\sum_{i=1}^n\mathbf{x}_i\varepsilon_i\end{align*}\]</span>
+From propositions 3.1.8: <span class="math inline">\(\left(\mathbf{S}_{\mathbf{x}\mathbf{x}}\right)^{-1}\overset{p}\longrightarrow\left(\boldsymbol{\Sigma}_{\mathbf{x}\mathbf{x}}\right)^{-1}\)</span>.<br />
+Let us focus on element-by-element asymptotics of
+<span class="math inline">\(\frac{1}{n}\sum_{i=1}^n\mathbf{x}_i\varepsilon_i\)</span>:<br />
+Define <span class="math display">\[\begin{align*}
+\frac{1}{n}\sum_{i=1}^n\underbrace{x_{ik}\varepsilon_i}_{z_{ik}}=\bar{z}_{n,k}.\end{align*}\]</span>
+From: <span class="math display">\[\begin{array}{ll}
+\mathbb{E}[z_{ik}]=\mathbb{E}[x_{ik}\varepsilon_i]=0&amp;\quad\text{(By Str.~Exog.~Ass 1.2)}\\
+\text{and}&amp;\\
+z_{ik}\quad\text{is iid and has four moments}      &amp;\quad\text{(By Assumption 1.5$^\ast$)}
+\end{array}\]</span> it follows by <a href="https://www.statlect.com/asymptotic-theory/law-of-large-numbers">Kolmogorov’s strong law of large numbers</a>
+that <span class="math display">\[\begin{align*}
+\bar{z}_{n,k}=\sum_{i=1}^nx_{ik}\varepsilon_i&amp;\overset{a.s.}\longrightarrow 0\quad\text{for any}\quad 1\leq k\leq K.\end{align*}\]</span>
+Consequently, also <span class="math display">\[\begin{align*}
+\frac{1}{n}\sum_{i=1}^n\mathbf{x}_i\varepsilon_i&amp;\overset{a.s.}\longrightarrow\underset{(K\times 1)}{\mathbf{0}}
+\quad(\text{element-wise}).\end{align*}\]</span> Almost-Sure-Convergence
+implies Convergence-in-Probability (<span class="math inline">\(\overset{a.s.}\longrightarrow \Rightarrow\overset{p}\longrightarrow\)</span>); see <a href="https://www.statlect.com/asymptotic-theory/relations-among-modes-of-convergence">relations among modes of convergence</a>:
+<span class="math display">\[\begin{align*}
+\frac{1}{n}\sum_{i=1}^n\mathbf{x}_i\varepsilon_i&amp;\overset{p}\longrightarrow\underset{(K\times 1)}{\mathbf{0}}
+\quad(\text{element-wise}).\end{align*}\]</span> Final step: From
+<span class="math display">\[\begin{align*}
+&amp;\left(\mathbf{S}_{\mathbf{x}\mathbf{x}}\right)^{-1}\overset{p}\longrightarrow\left(\boldsymbol{\Sigma}_{\mathbf{x}\mathbf{x}}\right)^{-1}\\
+&amp;\text{and}\\
+&amp;\frac{1}{n}\sum_{i=1}^n\mathbf{x}_i\varepsilon_i\overset{p}\longrightarrow\mathbf{0}\end{align*}\]</span>
+it follows by <a href="https://www.statlect.com/asymptotic-theory/Slutsky-theorem">Slutsky’s Theorem</a>
+that
+<span class="math display">\[\begin{align*}
+\mathbf{b}-\boldsymbol{\beta}
+&amp;=\left(\mathbf{S}_{\mathbf{x}\mathbf{x}}\right)^{-1}\;\frac{1}{n}\sum_{i=1}^n\mathbf{x}_i\varepsilon_i\overset{p}\longrightarrow \mathbf{0}.
+\end{align*}\]</span>
+</div>
+
+<p>Furthermore, we can show that the appropriately scaled (by <span class="math inline">\(\sqrt{n}\)</span>)
+sampling error <span class="math inline">\(\mathbf{b}-\boldsymbol{\beta}\)</span> of the OLS estimator is asymptotically
+normal distributed.</p>
+<p><strong>Proposition 3.1.10 (Sampling error limiting normality)</strong>
+<span class="math display">\[\sqrt{n}(\mathbf{b}-\boldsymbol{\beta})\overset{d}\longrightarrow N(\mathbf{0},\sigma^2 \boldsymbol{\Sigma}^{-1}_{\mathbf{x}\mathbf{x}}).\]</span></p>
+<p>In order to show Proposition 3.1.10, we will need to use the so-called Cramér
+Wold Device on multivariate convergence in distribution:<br />
+</p>
+<p><strong>Cramér Wold Device:</strong> Let <span class="math inline">\(\mathbf{z}_n,\mathbf{z}\in\mathbf{R}^K\)</span>,
+then<br />
+<span class="math display">\[\mathbf{z}_n\overset{d}\longrightarrow \mathbf{z} \quad \text{if and only if} \quad \boldsymbol{\lambda}&#39;\mathbf{z}_n\overset{d}\longrightarrow \boldsymbol{\lambda}&#39;\mathbf{z}\]</span>
+for any <span class="math inline">\(\boldsymbol{\lambda}\in\mathbb{R}^K\)</span>.</p>
+<p>The Cramér Wold Device is needed, since <span class="math inline">\(\mathbf{z}_n\overset{d}\longrightarrow \mathbf{z}\)</span>
+implies convergence in distribution element-by-element, <strong>but</strong>
+convergence in distribution element-by-element does not imply
+<span class="math inline">\(\mathbf{z}_n\overset{d}\longrightarrow \mathbf{z}\)</span>.</p>
+
+<div class="proof">
+<p> <span class="proof"><em>Proof. </em></span> Let’s start with some rearrangements: <span class="math display">\[\begin{align*}
+\mathbf{b}-\boldsymbol{\beta}
+&amp;=(\mathbf{X}&#39;\mathbf{X})^{-1}\mathbf{X}&#39;\boldsymbol{\varepsilon}\\
+&amp;=(n^{-1}\mathbf{X}&#39;\mathbf{X})^{-1}\frac{1}{n}\mathbf{X}&#39;\boldsymbol{\varepsilon}\\
+&amp;=\left(\mathbf{S}_{\mathbf{x}\mathbf{x}}\right)^{-1}\;\frac{1}{n}\sum_{i=1}^n\mathbf{x}_i\varepsilon_i\\
+\Leftrightarrow\sqrt{n}(\mathbf{b}-\boldsymbol{\beta})&amp;=\left(\mathbf{S}_{\mathbf{x}\mathbf{x}}\right)^{-1}\;\left(\sqrt{n}\frac{1}{n}\sum_{i=1}^n\mathbf{x}_i\varepsilon_i\right)\end{align*}\]</span></p>
+<blockquote>
+<p>From Proposition 3.1.8, we already know that
+<span class="math display">\[\left(\frac{1}{n}\mathbf{X}&#39;\mathbf{X}\right)^{-1}=\mathbf{S}_{\mathbf{x}\mathbf{x}}^{-1}\quad\overset{p}\longrightarrow \quad\boldsymbol{\Sigma}_{\mathbf{x}\mathbf{x}}^{-1}.\]</span></p>
+</blockquote>
+<p>What happens with <span class="math display">\[\begin{align*}
+\sqrt{n}\underbrace{\frac{1}{n}\sum_{i=1}^n\overbrace{\mathbf{x}_i\varepsilon_i}^{\mathbf{z}_i}}_{\bar{\mathbf{z}}_n}=\sqrt{n}\,\bar{\mathbf{z}}_n\quad ?\end{align*}\]</span>
+In the following we show that
+<span class="math inline">\(\sqrt{n}\,\bar{\mathbf{z}}_n\overset{d}\longrightarrow N(\mathbf{0},\sigma^2\,\boldsymbol{\Sigma}_{\mathbf{x}\mathbf{x}})\)</span>
+using the Cramér Wold Device:<br />
+1st Moment: <span class="math display">\[\begin{align*}
+\mathbb{E}(\boldsymbol{\lambda}&#39;\mathbf{z}_i)&amp;=
+\boldsymbol{\lambda}&#39;\;\underset{\text{(By Str.~Exog.~Ass 1.2)}}{\underbrace{\left(\begin{matrix}\mathbb{E}(\mathbf{x}_{i1}\varepsilon_i)\\\vdots\\\mathbb{E}(\mathbf{x}_{iK}\varepsilon_i)\end{matrix}\right)}_{\mathbf{0}}}=\boldsymbol{\lambda}&#39;\mathbf{0}=0,\end{align*}\]</span>
+for any <span class="math inline">\(\boldsymbol{\lambda}\in\mathbb{R}^{K}\)</span> and for all
+<span class="math inline">\(i=1,2,\dots\)</span><br />
+2nd Moment: <span class="math display">\[\begin{align*}
+\mathbb{V}(\boldsymbol{\lambda}&#39;\mathbf{z}_i)
+&amp;=\boldsymbol{\lambda}&#39;\mathbb{V}(\mathbf{z}_i)\boldsymbol{\lambda}\\
+&amp;=\boldsymbol{\lambda}&#39;\mathbb{E}(\varepsilon_i\mathbf{x}_i\mathbf{x}_i&#39;)\boldsymbol{\lambda}\\
+&amp;=\boldsymbol{\lambda}&#39;\mathbb{E}(\mathbb{E}(\varepsilon_i\mathbf{x}_i\mathbf{x}_i&#39;|\mathbf{X}))\boldsymbol{\lambda}\\
+&amp;=\boldsymbol{\lambda}&#39;\mathbb{E}(\mathbf{x}_i\mathbf{x}_i&#39;\underset{\text{(Ass 1.4)}}{\underbrace{\mathbb{E}(\varepsilon_i|\mathbf{X})}_{=\sigma^2}})\boldsymbol{\lambda}\\
+&amp;=\boldsymbol{\lambda}&#39;\sigma^2\underset{\text{(Ass $1.3^\ast$)}}{\underbrace{\mathbb{E}(\mathbf{x}_i\mathbf{x}_i&#39;)}_{\boldsymbol{\Sigma}_{\mathbf{x}\mathbf{x}}}}\boldsymbol{\lambda}=\sigma^2\boldsymbol{\lambda}&#39;\boldsymbol{\Sigma}_{\mathbf{x}\mathbf{x}}\boldsymbol{\lambda},\end{align*}\]</span>
+for any <span class="math inline">\(\boldsymbol{\lambda}\in\mathbb{R}^{K}\)</span> and for all
+<span class="math inline">\(i=1,2,\dots\)</span><br />
+From <span class="math inline">\(\mathbb{E}(\boldsymbol{\lambda}&#39;\mathbf{z}_i)=0\)</span>,
+<span class="math inline">\(\mathbb{V}(\boldsymbol{\lambda}&#39;\mathbf{z}_i)=\sigma^2\boldsymbol{\lambda}&#39;\boldsymbol{\Sigma}_{\mathbf{x}\mathbf{x}}\boldsymbol{\lambda}\)</span>,
+and <span class="math inline">\(\mathbf{z}_i=(\mathbf{x}_i\varepsilon_i)\)</span> being iid (Ass
+<span class="math inline">\(1.5^\ast\)</span>), it follows by the <a href="https://www.statlect.com/asymptotic-theory/central-limit-theorem">Lindeberg-Levy’s CLT</a>
+and the Cramér Wold Device that <span class="math display">\[\begin{align*}
+\sqrt{n}\boldsymbol{\lambda}&#39;\bar{\mathbf{z}}_n&amp;\overset{d}\longrightarrow N(0,\sigma^2\boldsymbol{\lambda}&#39;\boldsymbol{\Sigma}_{\mathbf{x}\mathbf{x}}\boldsymbol{\lambda})\quad\text{(By Lindeberg-Levy&#39;s CLT)}\\
+\Leftrightarrow
+\underbrace{\sqrt{n}\bar{\mathbf{z}}_n}_{=\sqrt{n}\frac{1}{n}\sum_{i=1}^n\mathbf{x}_i\varepsilon_i}&amp;\overset{d}\longrightarrow N(\mathbf{0},\sigma^2\boldsymbol{\Sigma}_{\mathbf{x}\mathbf{x}})\quad\text{(Cramér Wold Device)}\end{align*}\]</span></p>
+<p>Now, we can conclude the proof:<br />
+From
+<span class="math inline">\(\mathbf{S}_{\mathbf{x}\mathbf{x}}^{-1}\quad\overset{p}\longrightarrow \quad\boldsymbol{\Sigma}_{\mathbf{x}\mathbf{x}}^{-1}\)</span>
+(by Proposition 3.1.8 and<br />
+<span class="math inline">\(\sqrt{n}\frac{1}{n}\sum_{i=1}^n\mathbf{x}_i\varepsilon_i\overset{d}\longrightarrow N(\mathbf{0},\sigma^2\boldsymbol{\Sigma}_{\mathbf{x}\mathbf{x}})\)</span>
+it follows by <a href="https://www.statlect.com/asymptotic-theory/Slutsky-theorem">Slutsky’s Theorem</a>
+that</p>
+<span class="math display">\[\begin{align*}
+\underbrace{\left(\mathbf{S}_{\mathbf{x}\mathbf{x}}\right)^{-1}\;\left(\sqrt{n}\frac{1}{n}\sum_{i=1}^n\mathbf{x}_i\varepsilon_i\right)}_{\sqrt{n}(\mathbf{b}-\boldsymbol{\beta})}\overset{d}\longrightarrow N\left(\mathbf{0},\underbrace{(\boldsymbol{\Sigma}_{\mathbf{x}\mathbf{x}}^{-1})\,(\sigma^2\boldsymbol{\Sigma}_{\mathbf{x}\mathbf{x}})\,(\boldsymbol{\Sigma}_{\mathbf{x}\mathbf{x}}^{-1})&#39;}_{\sigma^2\boldsymbol{\Sigma}_{\mathbf{x}\mathbf{x}}}\right)
+\end{align*}\]</span>
+</div>
+
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="estimation-theory.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="monte-carlo-simulations.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"download": ["RM_ES_Script.pdf"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

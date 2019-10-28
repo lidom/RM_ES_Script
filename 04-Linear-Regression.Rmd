@@ -1,8 +1,6 @@
-# Ordinary Least Squares
+# Ordinary Least Squares: The Classical Linear Regression Model
 
-## Finite-Sample Properties of OLS
-
-### The Classical Linear Regression Model
+## Finite-Sample Properties 
 
 **Notation:**
 
@@ -863,7 +861,7 @@ $$
 where $F_{\#\mathbf{r},n-K}$ is the $F$-distribution with
 $\#\mathbf{r},n-K$ degrees of freedom.
 
-### Asymptotics under the Classic Regression Model
+## Asymptotics under the Classic Regression Model
 
 In this section we proof that the OLS estimators $\mathbf{b}$ and $s^2$
 applied to the classic regression model (defined by Assumptions 1.1 to
