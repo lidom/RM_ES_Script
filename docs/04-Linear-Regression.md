@@ -406,7 +406,7 @@ $S(\mathbf{b}_{21},\mathbf{b}_{22})\leq S(\mathbf{\mathfrak{b}}_{21},\mathbf{\ma
 Consequently, 
 
 \begin{align*}
-\hat{\boldsymbol{\varepsilon}}_{2}'\hat{\boldsymbol{\varepsilon}}_{2}=S(\mathbf{b}_{21},\mathbf{b}_{22})\leq S(\mathbf{b}_{{\color{"red"}11}},0)=\hat{\boldsymbol{\varepsilon}}_{1}'\hat{\boldsymbol{\varepsilon}}_{1}
+\hat{\boldsymbol{\varepsilon}}_{2}'\hat{\boldsymbol{\varepsilon}}_{2}=S(\mathbf{b}_{21},\mathbf{b}_{22})\leq S(\mathbf{b}_{11},0)=\hat{\boldsymbol{\varepsilon}}_{1}'\hat{\boldsymbol{\varepsilon}}_{1}
 \end{align*}
 which implies the statement:
 
