@@ -32,11 +32,7 @@ y_i = \sum_{k=1}^K\beta_k x_{ik}+\varepsilon_i, \quad i=1,\dots,n \,.
 -->
 
 
-Usually, a constant (or intercept) is included, in this case $x_{i1}=1$
-for all $i$. In the following we will always assume that a constant is
-included in the linear model, unless otherwise stated. A special case of
-the above defined linear model is the so-called *simple linear model*,
-defined as
+Usually, a constant (or intercept) is included, in this case $x_{i1}=1$ for all $i$. In the following we will always assume that a constant is included in the linear model, unless otherwise stated. A special case of the above defined linear model is the so-called *simple linear model*, defined as
 
 $$
 \begin{align*}
@@ -55,9 +51,7 @@ y_i = \mathbf{x}_i'\boldsymbol{\beta} +\varepsilon_i, \quad i=1,\dots,n \,,
 \end{align*}
 $$
 
-where $\mathbf{x}_i=(x_{i1},\dots,x_{iK})'$ and
-$\boldsymbol{\beta}=(\beta_1,\dots,\beta_K)'$. Stacking all individual rows $i$
-leads to 
+where $\mathbf{x}_i=(x_{i1},\dots,x_{iK})'$ and $\boldsymbol{\beta}=(\beta_1,\dots,\beta_K)'$. Stacking all individual rows $i$ leads to 
 
 $$
 \begin{align*}
@@ -78,17 +72,20 @@ x_{11} & \dots & x_{1K} \\ \vdots & \ddots & \vdots \\ x_{n1} &\dots&x_{nK}\\
 $$
 
 
-We begin our analysis of the model in Eq. \@ref(eq:c3e3) under the
-framework of the so-called *classic assumptions*.\
+We begin our analysis of the model in Eq. \@ref(eq:c3e3) under the framework of the so-called *classic assumptions*.
+
+\
+
+
 **Assumption 1.2: Strict Exogeneity** 
 
 $$\mathbb{E}(\varepsilon_i|\mathbf{X}) = 0$$ 
+
 or equivalently stated for the vector $\boldsymbol{\varepsilon}$
 
 $$\mathbb{E}(\boldsymbol{\varepsilon}|\mathbf{X}) = \mathbf{0}.$$ 
 
-Notice that in the presence of a constant regressor, setting the expectation to zero is a normalization. Note that in econometrics, where we typically have to work with quasi-experimental data, strict exogeneity is a very strong assumption. It also cannot be
-fulfilled when the regressors include lagged dependent variables.
+Notice that in the presence of a constant regressor, setting the expectation to zero is a normalization. Note that in econometrics, where we typically have to work with quasi-experimental data, strict exogeneity is a very strong assumption. It also cannot be fulfilled when the regressors include lagged dependent variables.
 
 **Some Implications of Strict Exogeneity:**
 
@@ -103,12 +100,11 @@ $$
 
 <!--Proof is done in the lecture.-->
 
-\BeginKnitrBlock{proof}<div class="proof">\iffalse{} <span class="proof"><em>Proof. </em></span>  \fi{} From the *Law of Total Expectations* (i.e.,
-    $\mathbb{E}(\mathbb{E}(y|\mathbf{x}))=\mathbb{E}(y)$) it follows that
-    $$\mathbb{E}(\varepsilon_i)=\mathbb{E}(\mathbb{E}(\varepsilon_i|\mathbf{X})).$$ The strict exogeneity assumption
-    then yields $$\mathbb{E}(\mathbb{E}(\varepsilon_i|\mathbf{X}))=\mathbb{E}(0)=0.$$ </div>\EndKnitrBlock{proof}
+\BeginKnitrBlock{proof}<div class="proof">\iffalse{} <span class="proof"><em>Proof. </em></span>  \fi{}From the *Law of Total Expectations* (i.e., $\mathbb{E}(\mathbb{E}(y|\mathbf{x}))=\mathbb{E}(y)$) it follows that
+$$\mathbb{E}(\varepsilon_i)=\mathbb{E}(\mathbb{E}(\varepsilon_i|\mathbf{X})).$$ 
+The strict exogeneity assumption then yields $$\mathbb{E}(\mathbb{E}(\varepsilon_i|\mathbf{X}))=\mathbb{E}(0)=0.$$ </div>\EndKnitrBlock{proof}
 
--   Generally, two random variables $x$ and $y$ are said to be
+-  Generally, two random variables $x$ and $y$ are said to be
     **orthogonal** if their cross moment is zero: $\mathbb{E}(xy)=0$. Under
     strict exogeneity, the regressors are orthogonal to the error term
     for *all* observations, i.e., 
@@ -314,8 +310,13 @@ The second result follows from:
    &= \hat{\mathbf{y}}'\hat{\mathbf{y}}+\hat{\boldsymbol{\varepsilon}}'\hat{\boldsymbol{\varepsilon}}
 \end{align*}</div>\EndKnitrBlock{proof}
 
-The vector of residuals $\hat{\boldsymbol{\varepsilon}}$ has only $n-K$ so-called *degrees
-of freedom*. The vector looses $K$ degrees of freedom, since it has to
+
+\
+
+\
+
+
+The vector of residuals $\hat{\boldsymbol{\varepsilon}}$ has only $n-K$ so-called *degrees of freedom*. The vector looses $K$ degrees of freedom, since it has to
 satisfy the $K$ linear restrictions ($\mathbf{X}'\hat{\boldsymbol{\varepsilon}}=\mathbf{0}$).
 Particularly, in the case with intercept we have that
 $\sum_{i=1}^n\hat{\boldsymbol{\varepsilon}_i}=\mathbf{0}$.\

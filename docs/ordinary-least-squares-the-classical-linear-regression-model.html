@@ -245,11 +245,7 @@ y_i = \sum_{k=1}^K\beta_k x_{ik}+\varepsilon_i, \quad i=1,\dots,n \,.
 (\#eq:c3e1)
 \end{align*}</div>\EndKnitrBlock{corollary}
 -->
-<p>Usually, a constant (or intercept) is included, in this case <span class="math inline">\(x_{i1}=1\)</span>
-for all <span class="math inline">\(i\)</span>. In the following we will always assume that a constant is
-included in the linear model, unless otherwise stated. A special case of
-the above defined linear model is the so-called <em>simple linear model</em>,
-defined as</p>
+<p>Usually, a constant (or intercept) is included, in this case <span class="math inline">\(x_{i1}=1\)</span> for all <span class="math inline">\(i\)</span>. In the following we will always assume that a constant is included in the linear model, unless otherwise stated. A special case of the above defined linear model is the so-called <em>simple linear model</em>, defined as</p>
 <p><span class="math display" id="eq:c3e2">\[
 \begin{align*}
 y_i = \beta_1+\beta_2 x_i +\varepsilon_i, \quad i=1,\dots,n \,.
@@ -263,9 +259,7 @@ y_i = \mathbf{x}_i&#39;\boldsymbol{\beta} +\varepsilon_i, \quad i=1,\dots,n \,,
 \tag{4.3}
 \end{align*}
 \]</span></p>
-<p>where <span class="math inline">\(\mathbf{x}_i=(x_{i1},\dots,x_{iK})&#39;\)</span> and
-<span class="math inline">\(\boldsymbol{\beta}=(\beta_1,\dots,\beta_K)&#39;\)</span>. Stacking all individual rows <span class="math inline">\(i\)</span>
-leads to</p>
+<p>where <span class="math inline">\(\mathbf{x}_i=(x_{i1},\dots,x_{iK})&#39;\)</span> and <span class="math inline">\(\boldsymbol{\beta}=(\beta_1,\dots,\beta_K)&#39;\)</span>. Stacking all individual rows <span class="math inline">\(i\)</span> leads to</p>
 <p><span class="math display">\[
 \begin{align*}
 \underset{(n\times 1)}{\mathbf{y}} = \underset{(n\times K)}{\mathbf{X}}\underset{(K\times 1)}{\boldsymbol{\beta}} + \underset{(n\times 1)}{\boldsymbol{\varepsilon}} \, ,
@@ -280,14 +274,14 @@ x_{11} &amp; \dots &amp; x_{1K} \\ \vdots &amp; \ddots &amp; \vdots \\ x_{n1} &a
 \end{matrix}\right),\quad\text{and}\quad \boldsymbol{\varepsilon}=\left(\begin{matrix}\varepsilon_1\\ \vdots\\ \varepsilon_n\end{matrix}\right).
 \end{align*}
 \]</span></p>
-<p>We begin our analysis of the model in Eq. <a href="ordinary-least-squares-the-classical-linear-regression-model.html#eq:c3e3">(4.3)</a> under the
-framework of the so-called <em>classic assumptions</em>.<br />
-<strong>Assumption 1.2: Strict Exogeneity</strong></p>
-<p><span class="math display">\[\mathbb{E}(\varepsilon_i|\mathbf{X}) = 0\]</span>
-or equivalently stated for the vector <span class="math inline">\(\boldsymbol{\varepsilon}\)</span></p>
+<p>We begin our analysis of the model in Eq. <a href="ordinary-least-squares-the-classical-linear-regression-model.html#eq:c3e3">(4.3)</a> under the framework of the so-called <em>classic assumptions</em>.</p>
+<p><br />
+</p>
+<p><strong>Assumption 1.2: Strict Exogeneity</strong></p>
+<p><span class="math display">\[\mathbb{E}(\varepsilon_i|\mathbf{X}) = 0\]</span></p>
+<p>or equivalently stated for the vector <span class="math inline">\(\boldsymbol{\varepsilon}\)</span></p>
 <p><span class="math display">\[\mathbb{E}(\boldsymbol{\varepsilon}|\mathbf{X}) = \mathbf{0}.\]</span></p>
-<p>Notice that in the presence of a constant regressor, setting the expectation to zero is a normalization. Note that in econometrics, where we typically have to work with quasi-experimental data, strict exogeneity is a very strong assumption. It also cannot be
-fulfilled when the regressors include lagged dependent variables.</p>
+<p>Notice that in the presence of a constant regressor, setting the expectation to zero is a normalization. Note that in econometrics, where we typically have to work with quasi-experimental data, strict exogeneity is a very strong assumption. It also cannot be fulfilled when the regressors include lagged dependent variables.</p>
 <p><strong>Some Implications of Strict Exogeneity:</strong></p>
 <ul>
 <li>The unconditional mean of the error term is zero:</li>
@@ -301,10 +295,9 @@ fulfilled when the regressors include lagged dependent variables.</p>
 <!--Proof is done in the lecture.-->
 
 <div class="proof">
- <span class="proof"><em>Proof. </em></span>  From the <em>Law of Total Expectations</em> (i.e.,
-<span class="math inline">\(\mathbb{E}(\mathbb{E}(y|\mathbf{x}))=\mathbb{E}(y)\)</span>) it follows that
-<span class="math display">\[\mathbb{E}(\varepsilon_i)=\mathbb{E}(\mathbb{E}(\varepsilon_i|\mathbf{X})).\]</span> The strict exogeneity assumption
-then yields <span class="math display">\[\mathbb{E}(\mathbb{E}(\varepsilon_i|\mathbf{X}))=\mathbb{E}(0)=0.\]</span>
+ <span class="proof"><em>Proof. </em></span> From the <em>Law of Total Expectations</em> (i.e., <span class="math inline">\(\mathbb{E}(\mathbb{E}(y|\mathbf{x}))=\mathbb{E}(y)\)</span>) it follows that
+<span class="math display">\[\mathbb{E}(\varepsilon_i)=\mathbb{E}(\mathbb{E}(\varepsilon_i|\mathbf{X})).\]</span>
+The strict exogeneity assumption then yields <span class="math display">\[\mathbb{E}(\mathbb{E}(\varepsilon_i|\mathbf{X}))=\mathbb{E}(0)=0.\]</span>
 </div>
 
 <ul>
@@ -313,9 +306,9 @@ then yields <span class="math display">\[\mathbb{E}(\mathbb{E}(\varepsilon_i|\ma
 strict exogeneity, the regressors are orthogonal to the error term
 for <em>all</em> observations, i.e.,
 <span class="math display" id="eq:c3e5">\[\begin{align*}
-\mathbb{E}(x_{jk}\varepsilon_i) = 0\quad(i,j=1,\dots,n; k=1,\dots,K)
-\tag{4.5}
-\end{align*}\]</span></li>
+ \mathbb{E}(x_{jk}\varepsilon_i) = 0\quad(i,j=1,\dots,n; k=1,\dots,K)
+ \tag{4.5}
+ \end{align*}\]</span></li>
 </ul>
 
 <div class="proof">
@@ -496,8 +489,11 @@ The second result follows from:</p>
 \end{align*}\]</span>
 </div>
 
-<p>The vector of residuals <span class="math inline">\(\hat{\boldsymbol{\varepsilon}}\)</span> has only <span class="math inline">\(n-K\)</span> so-called <em>degrees
-of freedom</em>. The vector looses <span class="math inline">\(K\)</span> degrees of freedom, since it has to
+<p><br />
+</p>
+<p><br />
+</p>
+<p>The vector of residuals <span class="math inline">\(\hat{\boldsymbol{\varepsilon}}\)</span> has only <span class="math inline">\(n-K\)</span> so-called <em>degrees of freedom</em>. The vector looses <span class="math inline">\(K\)</span> degrees of freedom, since it has to
 satisfy the <span class="math inline">\(K\)</span> linear restrictions (<span class="math inline">\(\mathbf{X}&#39;\hat{\boldsymbol{\varepsilon}}=\mathbf{0}\)</span>).
 Particularly, in the case with intercept we have that
 <span class="math inline">\(\sum_{i=1}^n\hat{\boldsymbol{\varepsilon}_i}=\mathbf{0}\)</span>.<br />
