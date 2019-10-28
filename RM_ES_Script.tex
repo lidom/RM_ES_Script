@@ -1064,7 +1064,7 @@ To use the \texttt{tidyverse} package load it using the \texttt{library()} funct
 \end{Shaded}
 
 \begin{verbatim}
-## -- Attaching packages -------------------------------------------------- tidyverse 1.2.1 --
+## -- Attaching packages -------------------------------------- tidyverse 1.2.1 --
 \end{verbatim}
 
 \begin{verbatim}
@@ -1074,7 +1074,7 @@ To use the \texttt{tidyverse} package load it using the \texttt{library()} funct
 \end{verbatim}
 
 \begin{verbatim}
-## -- Conflicts ----------------------------------------------------- tidyverse_conflicts() --
+## -- Conflicts ----------------------------------------- tidyverse_conflicts() --
 ## x dplyr::filter() masks stats::filter()
 ## x dplyr::lag()    masks stats::lag()
 \end{verbatim}
@@ -3124,7 +3124,7 @@ and \(\mathbf{b}_{22}\), i.e.,
 Consequently,
 
 \begin{align*}
-\hat{\boldsymbol{\varepsilon}}_{2}'\hat{\boldsymbol{\varepsilon}}_{2}=S(\mathbf{b}_{21},\mathbf{b}_{22})\leq S(\mathbf{b}_{{\color{red}11}},0)=\hat{\boldsymbol{\varepsilon}}_{1}'\hat{\boldsymbol{\varepsilon}}_{1}
+\hat{\boldsymbol{\varepsilon}}_{2}'\hat{\boldsymbol{\varepsilon}}_{2}=S(\mathbf{b}_{21},\mathbf{b}_{22})\leq S(\mathbf{b}_{{\color{"red"}11}},0)=\hat{\boldsymbol{\varepsilon}}_{1}'\hat{\boldsymbol{\varepsilon}}_{1}
 \end{align*}
 which implies the statement:
 
@@ -3176,10 +3176,10 @@ however \emph{takes into account the effect of \(\mathbf{X}_1\)}, has to be done
 following:
 
 \[
-\begin{align*}
+\begin{align}
   \mathbf{M}_1\mathbf{y} = \mathbf{M}_1\mathbf{X}_2\hat{\boldsymbol{\beta}}_2+\hat{\mathbf{v}},
 \label{eq:c3e10}
-\end{align*}
+\end{align}
 \]
 
 where \(\mathbf{M}_1=\mathbf{I}_n-\mathbf{X}_1(\mathbf{X}_1'\mathbf{X}_1)^{-1}\mathbf{X}_1'\). Note that (\eqref{eq:c3e10} is a regression model full of residuals: The dependent variables \(\mathbf{M}_1\mathbf{y}\) are the residuals from regressing \(\mathbf{y}\) on \(\mathbf{X}_1\) and the \(K_2\) columns in the matrix of independent variables \(\mathbf{M}_1\mathbf{X}_2\) are the residuals from the regressing \(\mathbf{X}_2\) column-wise on \(\mathbf{X}_1\). This means that the variables \(\mathbf{M}_1\mathbf{y}\) and \(\mathbf{M}_1\mathbf{X}_2\) contain only those parts of \(\mathbf{y}\) and \(\mathbf{X}_2\), which are orthogonal to \(\mathbf{X}_1\); the effect of \(\mathbf{X}_1\) is ``\emph{partialled out}''. By the FWL theorem we have that:
