@@ -341,8 +341,8 @@ Asymptotic theory is used in order to select an appropriate estimation procedure
 Properties of an asymptotically efficient estimator $\theta_n$:
 
 * For the estimation problem to be considered $\theta_n$ is consistent and adopts the fastest possible rate of convergence
-(generally:$n^{-1/2}$ in  parametric statistics, $n^{-2/5}$ in nonparametric curve estimation problems).
-* In most regular situations one is additionally interest in a "best asymptotically normal" (BAN) estimator.  Assume that $\sqrt{n}(\theta_n -\theta)\sim N(0,v^2)$. Then $\theta_n$ is a BAN-estimator if any alternative estimator $\tilde\theta_n$ with
+(generally: $n^{-1/2}$ in  parametric statistics; $n^{-2/5}$ can be achieved in nonparametric univariate curve estimation problems).
+* In most regular situations one is additionally interested in a "best asymptotically normal" (BAN) estimator.  Assume that $\sqrt{n}(\theta_n -\theta)\sim N(0,v^2)$. Then $\theta_n$ is a BAN-estimator if any alternative estimator $\tilde\theta_n$ with
 $\sqrt{n}(\tilde\theta_n -\theta)\sim N(0,\tilde v^2)$ possesses a larger asymptotic variance, i.e. $\tilde v^2\geq v^2$.
 * **Multivariate generalization:** An estimator $\theta_n$ with  $\sqrt{n}(\theta_n -\theta)\sim N_p(0,V)$ is best asymptotically normal if
 $$c'\tilde V c\geq c'Vc\quad\hbox{ for all }\quad c\in\mathbb{R}^p, \Vert c\Vert_2^2=1$$
@@ -445,7 +445,7 @@ $$n^{r} \left(g(\widehat{\theta}_n)-g(\theta)\right) \rightarrow_L  N\left(0,g'(
 \
 
 
-**Example:** Assume an i.i.d. sample $X_1,\dots,X_n$ from an exponential distribution, i.e., the underlying density of $X_i$ is given by $f(x|\theta)=\theta\exp(-\theta x)$. We then have $\mu:=E(X_i)=1/\theta$ as well as $\sigma^2_X:=\textrm{var}(X_i)=1/\theta^2$. The underlying parameter $\theta>0$ is unknown and has to be estimated from the data.
+**Example:** Assume an i.i.d. random sample $X_1,\dots,X_n$ from an exponential distribution. That is, the underlying density of $X_i$, $i=1,\dots,n$, is given by $f(x|\theta)=\theta\exp(-\theta x)$. We then have $\mu:=E(X_i)=1/\theta$ as well as $\sigma^2_X:=\textrm{var}(X_i)=1/\theta^2$. The underlying parameter $\theta>0$ is unknown and has to be estimated from the data.
 
 
 \
