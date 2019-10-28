@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99998 (TeX Live 2017/Debian) (preloaded format=xelatex 2018.10.15)  28 OCT 2019 11:55
+This is XeTeX, Version 3.14159265-2.6-0.99998 (TeX Live 2017/Debian) (preloaded format=xelatex 2018.10.15)  28 OCT 2019 14:02
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1091,15 +1091,15 @@ File: 01-Introduction-to-R_files/figure-latex/unnamed-chunk-32-1.pdf Graphic fi
 le (type pdf)
 <use 01-Introduction-to-R_files/figure-latex/unnamed-chunk-32-1.pdf>
 
-Overfull \hbox (80.25pt too wide) in paragraph at lines 1068--1068
+Overfull \hbox (148.5pt too wide) in paragraph at lines 1068--1068
 []\TU/lmtt/m/n/10 ## -- Attaching packages ------------------------------------
-- tidyverse 1.2.1 --[] 
+-------------- tidyverse 1.2.1 --[] 
  []
 
 [23]
-Overfull \hbox (80.25pt too wide) in paragraph at lines 1080--1080
-[]\TU/lmtt/m/n/10 ## -- Conflicts ---------------------------------------- tidy
-verse_conflicts() --[] 
+Overfull \hbox (148.5pt too wide) in paragraph at lines 1080--1080
+[]\TU/lmtt/m/n/10 ## -- Conflicts ---------------------------------------------
+-------- tidyverse_conflicts() --[] 
  []
 
 [24]
@@ -1245,7 +1245,7 @@ See the amsmath package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.2726 \end{align*}
+l.2723 \end{align*}
                     
 Here is how much of TeX's memory you used:
  22609 strings out of 493007

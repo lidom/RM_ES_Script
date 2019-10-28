@@ -1064,7 +1064,7 @@ To use the \texttt{tidyverse} package load it using the \texttt{library()} funct
 \end{Shaded}
 
 \begin{verbatim}
-## -- Attaching packages ------------------------------------- tidyverse 1.2.1 --
+## -- Attaching packages -------------------------------------------------- tidyverse 1.2.1 --
 \end{verbatim}
 
 \begin{verbatim}
@@ -1074,7 +1074,7 @@ To use the \texttt{tidyverse} package load it using the \texttt{library()} funct
 \end{verbatim}
 
 \begin{verbatim}
-## -- Conflicts ---------------------------------------- tidyverse_conflicts() --
+## -- Conflicts ----------------------------------------------------- tidyverse_conflicts() --
 ## x dplyr::filter() masks stats::filter()
 ## x dplyr::lag()    masks stats::lag()
 \end{verbatim}
@@ -2692,14 +2692,11 @@ The maximum-likelihood estimator of \(\theta\) is \(\hat\theta=1/\bar X\).
 We know that \(\sqrt{n}(\bar X-\frac{1}{\theta})\to_L N(0,\frac{1}{\theta^2})\), but what's about the distribution of \(1/\bar X\)? For this purpose the delta-method can be applied with \(g(x)=1/x\). Then \(g'(x)=-1/x^2\), \(g'(1/\theta)=-\theta^2\), and consequently
 \[n^{1/2} \left(\frac{1}{\bar X}-\theta\right)=n^{1/2}\left(g\left(\bar X\right)-g\left(\frac{1}{\theta}\right)\right)\rightarrow_L N\left(0,\theta^2\right).\]
 
-\hypertarget{ordinary-least-squares}{%
-\chapter{Ordinary Least Squares}\label{ordinary-least-squares}}
+\hypertarget{ordinary-least-squares-the-classical-linear-regression-model}{%
+\chapter{Ordinary Least Squares: The Classical Linear Regression Model}\label{ordinary-least-squares-the-classical-linear-regression-model}}
 
-\hypertarget{finite-sample-properties-of-ols}{%
-\section{Finite-Sample Properties of OLS}\label{finite-sample-properties-of-ols}}
-
-\hypertarget{the-classical-linear-regression-model}{%
-\subsection{The Classical Linear Regression Model}\label{the-classical-linear-regression-model}}
+\hypertarget{finite-sample-properties}{%
+\section{Finite-Sample Properties}\label{finite-sample-properties}}
 
 \textbf{Notation:}
 
@@ -3280,8 +3277,8 @@ But, using \eqref{eq:c3e14}
 \]
 \EndKnitrBlock{proof}
 
-\hypertarget{finite-sample-properties-of-ols-1}{%
-\subsection{Finite-Sample Properties of OLS}\label{finite-sample-properties-of-ols-1}}
+\hypertarget{finite-sample-properties-of-ols}{%
+\subsection{Finite-Sample Properties of OLS}\label{finite-sample-properties-of-ols}}
 
 Notice that, by contrast to (the true but unknown) parameter vector
 \(\boldsymbol{\beta}\), \(\mathbf{b}\) is a stochastic quantity, since it depends on
@@ -3587,7 +3584,7 @@ where \(F_{\#\mathbf{r},n-K}\) is the \(F\)-distribution with
 \(\#\mathbf{r},n-K\) degrees of freedom.
 
 \hypertarget{asymptotics-under-the-classic-regression-model}{%
-\subsection{Asymptotics under the Classic Regression Model}\label{asymptotics-under-the-classic-regression-model}}
+\section{Asymptotics under the Classic Regression Model}\label{asymptotics-under-the-classic-regression-model}}
 
 In this section we proof that the OLS estimators \(\mathbf{b}\) and \(s^2\)
 applied to the classic regression model (defined by Assumptions 1.1 to

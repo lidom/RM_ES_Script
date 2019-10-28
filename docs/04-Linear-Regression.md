@@ -1,6 +1,6 @@
 # Ordinary Least Squares: The Classical Linear Regression Model
 
-## Finite-Sample Properties 
+## Finite-Sample Properties
 
 **Notation:**
 
