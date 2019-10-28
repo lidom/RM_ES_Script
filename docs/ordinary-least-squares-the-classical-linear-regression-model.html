@@ -300,6 +300,8 @@ x_{11} &amp; \dots &amp; x_{1K} \\ \vdots &amp; \ddots &amp; \vdots \\ x_{n1} &a
 The strict exogeneity assumption then yields <span class="math display">\[\mathbb{E}(\mathbb{E}(\varepsilon_i|\mathbf{X}))=\mathbb{E}(0)=0.\]</span>
 </div>
 
+<p><br />
+</p>
 <ul>
 <li>Generally, two random variables <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span> are said to be
 <strong>orthogonal</strong> if their cross moment is zero: <span class="math inline">\(\mathbb{E}(xy)=0\)</span>. Under
@@ -325,6 +327,8 @@ strict exogeneity assumption yields
 <span class="math display">\[\mathbb{E}(x_{jk}\varepsilon_i)=\mathbb{E}(x_{jk}\mathbb{E}(\varepsilon_i|x_{jk}))=\mathbb{E}(x_{jk}0)=0.\]</span>
 </div>
 
+<p><br />
+</p>
 <ul>
 <li>Because the mean of the error term is zero (<span class="math inline">\(\mathbb{E}(\varepsilon_i)=0\)</span> for all
 <span class="math inline">\(i\)</span>), it follows that the orthogonality property
@@ -350,6 +354,8 @@ time-series contexts.</li>
 Where the second equal sign holds since <span class="math inline">\(\mathbb{E}(\varepsilon_i)=0\)</span> (see Eq. <a href="ordinary-least-squares-the-classical-linear-regression-model.html#eq:c3e4">(4.4)</a>) and the third because of orthogonality (see Eq. <a href="ordinary-least-squares-the-classical-linear-regression-model.html#eq:c3e5">(4.5)</a>).
 </div>
 
+<p><br />
+</p>
 <p><strong>Assumption 1.3: Rank Condition</strong></p>
 <p><span class="math display">\[rank(\mathbf{X})=K\quad\text{a.s.}\]</span></p>
 <p>This assumption demands that the event of one regressor being linearly
@@ -491,8 +497,6 @@ The second result follows from:</p>
 
 <p><br />
 </p>
-<p><br />
-</p>
 <p>The vector of residuals <span class="math inline">\(\hat{\boldsymbol{\varepsilon}}\)</span> has only <span class="math inline">\(n-K\)</span> so-called <em>degrees of freedom</em>. The vector looses <span class="math inline">\(K\)</span> degrees of freedom, since it has to
 satisfy the <span class="math inline">\(K\)</span> linear restrictions (<span class="math inline">\(\mathbf{X}&#39;\hat{\boldsymbol{\varepsilon}}=\mathbf{0}\)</span>).
 Particularly, in the case with intercept we have that
@@ -539,6 +543,8 @@ it follows that <span class="math display">\[\begin{align*}
 \end{align*}\]</span>
 </div>
 
+<p><br />
+</p>
 <p>The larger the proportion of the explained variance, the better is the
 fit of the model. This motivates the definition of the so-called <span class="math inline">\(R^2\)</span>
 coefficient of determination:</p>
@@ -583,9 +589,9 @@ R_2^2=1-\frac{\hat{\boldsymbol{\varepsilon}}_{2}&#39;\hat{\boldsymbol{\varepsilo
 \end{align*}\]</span>
 </div>
 
-<p>Because of this, the <span class="math inline">\(R^2\)</span> cannot be used as a criterion for model
-selection. Possible solutions are given by penalized criterions such as
-the so-called <em>adjusted <span class="math inline">\(R^2\)</span></em> defined as</p>
+<p><br />
+</p>
+<p>Because of this, the <span class="math inline">\(R^2\)</span> cannot be used as a criterion for model selection. Possible solutions are given by penalized criterions such as the so-called <em>adjusted <span class="math inline">\(R^2\)</span></em> defined as</p>
 <p><span class="math display">\[
 \begin{align*}
   \overline{R}^2 &amp;= 1-\frac{ \frac{1}{n-K} \sum_{i=1}^n \hat{u}_i^2}{ \frac{1}{n-1} \sum_{i=1}^n \left(y_i-\bar{y}\right)^2} \\
@@ -703,6 +709,8 @@ Observe that</p>
 \]</span>
 </div>
 
+<p><br />
+</p>
 </div>
 <div id="finite-sample-properties-of-ols" class="section level3">
 <h3><span class="header-section-number">4.1.3</span> Finite-Sample Properties of OLS</h3>
@@ -883,6 +891,8 @@ trace(\mathbf{M})
 <li><span class="math inline">\(trace(AB)=trace(BA)\)</span>
 </div></li>
 </ul>
+<p><br />
+</p>
 </div>
 <div id="Testing" class="section level3">
 <h3><span class="header-section-number">4.1.4</span> Hypothesis Testing under Normality</h3>
@@ -1015,6 +1025,8 @@ we have that also <span class="math display">\[\begin{align*}
 (<span class="math inline">\(\overset{a.s.}\longrightarrow \, \Rightarrow \, \overset{p}\longrightarrow\)</span>); see <a href="https://www.statlect.com/asymptotic-theory/relations-among-modes-of-convergence">relations among modes of convergence</a>.
 </div>
 
+<p><br />
+</p>
 <p><strong>Proposition 3.1.9 (Consistency of <span class="math inline">\(\mathbf{b}\)</span>)</strong>
 <span class="math display">\[\mathbf{b}\overset{p}\longrightarrow\boldsymbol{\beta}\]</span></p>
 
@@ -1057,6 +1069,8 @@ that
 \end{align*}\]</span>
 </div>
 
+<p><br />
+</p>
 <p>Furthermore, we can show that the appropriately scaled (by <span class="math inline">\(\sqrt{n}\)</span>)
 sampling error <span class="math inline">\(\mathbf{b}-\boldsymbol{\beta}\)</span> of the OLS estimator is asymptotically
 normal distributed.</p>
@@ -1124,6 +1138,8 @@ that</p>
 \end{align*}\]</span>
 </div>
 
+<p><br />
+</p>
 
 </div>
 </div>

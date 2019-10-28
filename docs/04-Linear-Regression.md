@@ -104,6 +104,9 @@ $$
 $$\mathbb{E}(\varepsilon_i)=\mathbb{E}(\mathbb{E}(\varepsilon_i|\mathbf{X})).$$ 
 The strict exogeneity assumption then yields $$\mathbb{E}(\mathbb{E}(\varepsilon_i|\mathbf{X}))=\mathbb{E}(0)=0.$$ </div>\EndKnitrBlock{proof}
 
+\
+
+
 -  Generally, two random variables $x$ and $y$ are said to be
     **orthogonal** if their cross moment is zero: $\mathbb{E}(xy)=0$. Under
     strict exogeneity, the regressors are orthogonal to the error term
@@ -127,6 +130,9 @@ Since $x_{jk}$ is an element of $\mathbf{X}$, the *Law of Iterated Expectations*
     $$\mathbb{E}(\varepsilon_i|x_{jk})=0,$$ which allows us to conclude that
     $$\mathbb{E}(x_{jk}\varepsilon_i)=\mathbb{E}(x_{jk}\mathbb{E}(\varepsilon_i|x_{jk}))=\mathbb{E}(x_{jk}0)=0.$$</div>\EndKnitrBlock{proof}
 
+\
+
+
 -   Because the mean of the error term is zero ($\mathbb{E}(\varepsilon_i)=0$ for all
     $i$), it follows that the orthogonality property
     ($\mathbb{E}(x_{jk}\varepsilon_i)=0$, for all $i,j,k$) is equivalent to a
@@ -149,7 +155,7 @@ Since $x_{jk}$ is an element of $\mathbf{X}$, the *Law of Iterated Expectations*
       
 Where the second equal sign holds since $\mathbb{E}(\varepsilon_i)=0$ (see Eq. \@ref(eq:c3e4)) and the third because of orthogonality (see Eq. \@ref(eq:c3e5)).</div>\EndKnitrBlock{proof}
 
-
+\
 
 **Assumption 1.3: Rank Condition** 
 
@@ -313,8 +319,6 @@ The second result follows from:
 
 \
 
-\
-
 
 The vector of residuals $\hat{\boldsymbol{\varepsilon}}$ has only $n-K$ so-called *degrees of freedom*. The vector looses $K$ degrees of freedom, since it has to
 satisfy the $K$ linear restrictions ($\mathbf{X}'\hat{\boldsymbol{\varepsilon}}=\mathbf{0}$).
@@ -363,6 +367,8 @@ $$
        \sum_{i=1}^n y_i^2-n\bar{y}^2 &= \sum_{i=1}^n\hat{y}_i^2-n\bar{\hat{y}}^2+\sum_{i=1}^n\hat{\varepsilon}_i^2 \\
        \sum_{i=1}^n (y_i-\bar{y})^2 &= \sum_{i=1}^n (\hat{y}_i-\bar{\hat{y}})^2+\sum_{i=1}^n \hat{\varepsilon}_i^2
 \end{align*}</div>\EndKnitrBlock{proof}
+
+\
 
 The larger the proportion of the explained variance, the better is the
 fit of the model. This motivates the definition of the so-called $R^2$
@@ -416,9 +422,10 @@ R_2^2=1-\frac{\hat{\boldsymbol{\varepsilon}}_{2}'\hat{\boldsymbol{\varepsilon}}_
 1-\frac{\hat{\boldsymbol{\varepsilon}}_{1}'\hat{\boldsymbol{\varepsilon}}_{1}}{\sum_{i=1}^n\left(y_i-\bar{y}\right)^2}=R_1^2
 \end{align*}</div>\EndKnitrBlock{proof}
 
-Because of this, the $R^2$ cannot be used as a criterion for model
-selection. Possible solutions are given by penalized criterions such as
-the so-called *adjusted $R^2$* defined as 
+
+\
+
+Because of this, the $R^2$ cannot be used as a criterion for model selection. Possible solutions are given by penalized criterions such as the so-called *adjusted $R^2$* defined as 
 
 $$
 \begin{align*}
@@ -550,6 +557,9 @@ $$
 &= \hat{\mathbf{v}}
 \end{align*}
 $$</div>\EndKnitrBlock{proof}
+
+\
+
 
 ### Finite-Sample Properties of OLS
 
@@ -752,6 +762,9 @@ $$\mathbb{E}(\hat{\boldsymbol{\varepsilon}}'\hat{\boldsymbol{\varepsilon}}|\math
 
 -   $trace(AB)=trace(BA)$</div>\EndKnitrBlock{proof}
 
+\
+
+
 ### Hypothesis Testing under Normality {#Testing}
 
 **Assumption 1.5: Normality**
@@ -902,6 +915,9 @@ we have that also $$\begin{align*}
 3rd Part: Almost-Sure-Convergence implies Convergence-in-Probability
 ($\overset{a.s.}\longrightarrow \, \Rightarrow \, \overset{p}\longrightarrow$); see [relations among modes of convergence](https://www.statlect.com/asymptotic-theory/relations-among-modes-of-convergence).</div>\EndKnitrBlock{proof}
 
+\
+
+
 **Proposition 3.1.9 (Consistency of $\mathbf{b}$)**
 $$\mathbf{b}\overset{p}\longrightarrow\boldsymbol{\beta}$$
 
@@ -941,6 +957,9 @@ that
 \mathbf{b}-\boldsymbol{\beta}
 &=\left(\mathbf{S}_{\mathbf{x}\mathbf{x}}\right)^{-1}\;\frac{1}{n}\sum_{i=1}^n\mathbf{x}_i\varepsilon_i\overset{p}\longrightarrow \mathbf{0}.
 \end{align*}</div>\EndKnitrBlock{proof}
+
+\
+
 
 Furthermore, we can show that the appropriately scaled (by $\sqrt{n}$)
 sampling error $\mathbf{b}-\boldsymbol{\beta}$ of the OLS estimator is asymptotically
@@ -1011,3 +1030,5 @@ that
 \begin{align*}
 \underbrace{\left(\mathbf{S}_{\mathbf{x}\mathbf{x}}\right)^{-1}\;\left(\sqrt{n}\frac{1}{n}\sum_{i=1}^n\mathbf{x}_i\varepsilon_i\right)}_{\sqrt{n}(\mathbf{b}-\boldsymbol{\beta})}\overset{d}\longrightarrow N\left(\mathbf{0},\underbrace{(\boldsymbol{\Sigma}_{\mathbf{x}\mathbf{x}}^{-1})\,(\sigma^2\boldsymbol{\Sigma}_{\mathbf{x}\mathbf{x}})\,(\boldsymbol{\Sigma}_{\mathbf{x}\mathbf{x}}^{-1})'}_{\sigma^2\boldsymbol{\Sigma}_{\mathbf{x}\mathbf{x}}}\right)
 \end{align*}</div>\EndKnitrBlock{proof}
+
+\
