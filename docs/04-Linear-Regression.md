@@ -351,7 +351,8 @@ $$
 
 <!-- Proof is done in the lecture.\ -->
 
-\BeginKnitrBlock{proof}<div class="proof">\iffalse{} <span class="proof"><em>Proof. </em></span>  \fi{}- As a consequence of Prop. 3.1.2 we have for regressions with intercept:
+\BeginKnitrBlock{proof}<div class="proof">\iffalse{} <span class="proof"><em>Proof. </em></span>  \fi{}
+- As a consequence of Prop. 3.1.2 we have for regressions with intercept:
     $\sum_{i=1}^n\hat{\varepsilon_i=0}$. Hence, from $y_i=\hat{y}_i+\hat{\varepsilon_i}$
     it follows that $$\begin{align*}
       \frac{1}{n}\sum_{i=1}^n y_i &= \frac{1}{n}\sum_{i=1}^n \hat{y}_i+\frac{1}{n}\sum_{i=1}^n \hat{\varepsilon_i} \\
@@ -608,11 +609,11 @@ $\mathbf{a}$. Observe that this implies that
 $\mathbb{V}(\tilde{\text{b}}_k|\mathbf{X}) \geq \mathbb{V}({\textrm{b}}_k | \mathbf{X})$ for any
 $k=1,\dots,K$.\
 
-Proof of Theorem \@ref(thm:GMT)
-is done in the lecture.\
+\
 
-Proof:\
-**Part (i):** 
+<!-- Proof of Theorem \@ref(thm:GMT) is done in the lecture.\ -->
+
+\BeginKnitrBlock{proof}<div class="proof">\iffalse{} <span class="proof"><em>Proof. </em></span>  \fi{}**Part (i):** 
 
 $$
 \begin{align*}
@@ -719,11 +720,17 @@ Remember:
 -   $(\mathbf{AB})'=\mathbf{B}'\mathbf{A}'$
 
 -   $\mathbf{A}' =\mathbf{A}$ $\Leftrightarrow$ $\mathbf{A}$ is a
-    symmetric matrix
+    symmetric matrix</div>\EndKnitrBlock{proof}
 
-Under Assumptions 1.1-1.4, we have that: $$\mathbb{E}(s^2|\mathbf{X})=\sigma^2,$$ and
+
+\
+
+
+\BeginKnitrBlock{theorem}\iffalse{-91-85-110-98-105-97-115-101-100-110-101-115-115-32-111-102-32-36-115-94-50-36-93-}\fi{}<div class="theorem"><span class="theorem" id="thm:UBS"><strong>(\#thm:UBS)  \iffalse (Unbiasedness of $s^2$) \fi{} </strong></span>Under Assumptions 1.1-1.4, we have that: $$\mathbb{E}(s^2|\mathbf{X})=\sigma^2,$$ and
 hence $\mathbb{E}(s^2)=\sigma^2$, provided that $n>K$ (otherwise $s^2$ isn't
-well defined).
+well defined).</div>\EndKnitrBlock{theorem}
+
+\
 
 <!-- Proof is done in the lecture.\ -->
 

@@ -525,7 +525,8 @@ For the OLS regression of the linear model (<a href="ordinary-least-squares-the-
 <!-- Proof is done in the lecture.\ -->
 
 <div class="proof">
-<p> <span class="proof"><em>Proof. </em></span> - As a consequence of Prop. 3.1.2 we have for regressions with intercept:
+<p> <span class="proof"><em>Proof. </em></span> 
+- As a consequence of Prop. 3.1.2 we have for regressions with intercept:
 <span class="math inline">\(\sum_{i=1}^n\hat{\varepsilon_i=0}\)</span>. Hence, from <span class="math inline">\(y_i=\hat{y}_i+\hat{\varepsilon_i}\)</span>
 it follows that <span class="math display">\[\begin{align*}
       \frac{1}{n}\sum_{i=1}^n y_i &amp;= \frac{1}{n}\sum_{i=1}^n \hat{y}_i+\frac{1}{n}\sum_{i=1}^n \hat{\varepsilon_i} \\
@@ -755,11 +756,12 @@ a <em>positive semidefinite</em> <span class="math inline">\(K\times K\)</span> 
 <span class="math inline">\(\mathbb{V}(\tilde{\text{b}}_k|\mathbf{X}) \geq \mathbb{V}({\textrm{b}}_k | \mathbf{X})\)</span> for any
 <span class="math inline">\(k=1,\dots,K\)</span>.<br />
 </p>
-<p>Proof of Theorem <a href="ordinary-least-squares-the-classical-linear-regression-model.html#thm:GMT">4.1</a>
-is done in the lecture.<br />
+<p><br />
 </p>
-<p>Proof:<br />
-<strong>Part (i):</strong></p>
+<!-- Proof of Theorem \@ref(thm:GMT) is done in the lecture.\ -->
+
+<div class="proof">
+<p> <span class="proof"><em>Proof. </em></span> <strong>Part (i):</strong></p>
 <p><span class="math display">\[
 \begin{align*}
 \mathbb{E}(\mathbf{b}|\mathbf{X}) &amp;= \mathbb{E}\left((\mathbf{X}&#39;\mathbf{X})^{-1}\mathbf{X}&#39;\mathbf{y}|\mathbf{X}\right)\\
@@ -846,12 +848,21 @@ Remember:</p>
 <ul>
 <li><p><span class="math inline">\((\mathbf{A}+\mathbf{B})&#39;=\mathbf{A}&#39;+\mathbf{B}&#39;\)</span></p></li>
 <li><p><span class="math inline">\((\mathbf{AB})&#39;=\mathbf{B}&#39;\mathbf{A}&#39;\)</span></p></li>
-<li><p><span class="math inline">\(\mathbf{A}&#39; =\mathbf{A}\)</span> <span class="math inline">\(\Leftrightarrow\)</span> <span class="math inline">\(\mathbf{A}\)</span> is a
-symmetric matrix</p></li>
+<li><span class="math inline">\(\mathbf{A}&#39; =\mathbf{A}\)</span> <span class="math inline">\(\Leftrightarrow\)</span> <span class="math inline">\(\mathbf{A}\)</span> is a
+symmetric matrix
+</div></li>
 </ul>
-<p>Under Assumptions 1.1-1.4, we have that: <span class="math display">\[\mathbb{E}(s^2|\mathbf{X})=\sigma^2,\]</span> and
+<p><br />
+</p>
+
+<div class="theorem">
+<span id="thm:UBS" class="theorem"><strong>Theorem 4.2  (Unbiasedness of <span class="math inline">\(s^2\)</span>)  </strong></span>Under Assumptions 1.1-1.4, we have that: <span class="math display">\[\mathbb{E}(s^2|\mathbf{X})=\sigma^2,\]</span> and
 hence <span class="math inline">\(\mathbb{E}(s^2)=\sigma^2\)</span>, provided that <span class="math inline">\(n&gt;K\)</span> (otherwise <span class="math inline">\(s^2\)</span> isn’t
-well defined).</p>
+well defined).
+</div>
+
+<p><br />
+</p>
 <!-- Proof is done in the lecture.\ -->
 
 <div class="proof">

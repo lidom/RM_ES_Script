@@ -362,6 +362,7 @@ $$
 <!-- Proof is done in the lecture.\ -->
 
 ```{proof}
+
 - As a consequence of Prop. 3.1.2 we have for regressions with intercept:
     $\sum_{i=1}^n\hat{\varepsilon_i=0}$. Hence, from $y_i=\hat{y}_i+\hat{\varepsilon_i}$
     it follows that $$\begin{align*}
@@ -626,10 +627,11 @@ $\mathbf{a}$. Observe that this implies that
 $\mathbb{V}(\tilde{\text{b}}_k|\mathbf{X}) \geq \mathbb{V}({\textrm{b}}_k | \mathbf{X})$ for any
 $k=1,\dots,K$.\
 
-Proof of Theorem \@ref(thm:GMT)
-is done in the lecture.\
+\
 
-Proof:\
+<!-- Proof of Theorem \@ref(thm:GMT) is done in the lecture.\ -->
+
+```{proof}
 **Part (i):** 
 
 $$
@@ -738,10 +740,19 @@ Remember:
 
 -   $\mathbf{A}' =\mathbf{A}$ $\Leftrightarrow$ $\mathbf{A}$ is a
     symmetric matrix
+```
 
+
+\
+
+
+```{theorem, name = "Unbiasedness of $s^2$", label = UBS}
 Under Assumptions 1.1-1.4, we have that: $$\mathbb{E}(s^2|\mathbf{X})=\sigma^2,$$ and
 hence $\mathbb{E}(s^2)=\sigma^2$, provided that $n>K$ (otherwise $s^2$ isn't
 well defined).
+```
+
+\
 
 <!-- Proof is done in the lecture.\ -->
 
