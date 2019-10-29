@@ -32,11 +32,7 @@ y_i = \sum_{k=1}^K\beta_k x_{ik}+\varepsilon_i, \quad i=1,\dots,n \,.
 -->
 
 
-Usually, a constant (or intercept) is included, in this case $x_{i1}=1$
-for all $i$. In the following we will always assume that a constant is
-included in the linear model, unless otherwise stated. A special case of
-the above defined linear model is the so-called *simple linear model*,
-defined as
+Usually, a constant (or intercept) is included, in this case $x_{i1}=1$ for all $i$. In the following we will always assume that a constant is included in the linear model, unless otherwise stated. A special case of the above defined linear model is the so-called *simple linear model*, defined as
 
 $$
 \begin{align*}
@@ -55,9 +51,7 @@ y_i = \mathbf{x}_i'\boldsymbol{\beta} +\varepsilon_i, \quad i=1,\dots,n \,,
 \end{align*}
 $$
 
-where $\mathbf{x}_i=(x_{i1},\dots,x_{iK})'$ and
-$\boldsymbol{\beta}=(\beta_1,\dots,\beta_K)'$. Stacking all individual rows $i$
-leads to 
+where $\mathbf{x}_i=(x_{i1},\dots,x_{iK})'$ and $\boldsymbol{\beta}=(\beta_1,\dots,\beta_K)'$. Stacking all individual rows $i$ leads to 
 
 $$
 \begin{align*}
@@ -78,17 +72,20 @@ x_{11} & \dots & x_{1K} \\ \vdots & \ddots & \vdots \\ x_{n1} &\dots&x_{nK}\\
 $$
 
 
-We begin our analysis of the model in Eq. \@ref(eq:c3e3) under the
-framework of the so-called *classic assumptions*.\
+We begin our analysis of the model in Eq. \@ref(eq:c3e3) under the framework of the so-called *classic assumptions*.
+
+\
+
+
 **Assumption 1.2: Strict Exogeneity** 
 
 $$\mathbb{E}(\varepsilon_i|\mathbf{X}) = 0$$ 
+
 or equivalently stated for the vector $\boldsymbol{\varepsilon}$
 
 $$\mathbb{E}(\boldsymbol{\varepsilon}|\mathbf{X}) = \mathbf{0}.$$ 
 
-Notice that in the presence of a constant regressor, setting the expectation to zero is a normalization. Note that in econometrics, where we typically have to work with quasi-experimental data, strict exogeneity is a very strong assumption. It also cannot be
-fulfilled when the regressors include lagged dependent variables.
+Notice that in the presence of a constant regressor, setting the expectation to zero is a normalization. Note that in econometrics, where we typically have to work with quasi-experimental data, strict exogeneity is a very strong assumption. It also cannot be fulfilled when the regressors include lagged dependent variables.
 
 **Some Implications of Strict Exogeneity:**
 
@@ -103,12 +100,14 @@ $$
 
 <!--Proof is done in the lecture.-->
 
-\BeginKnitrBlock{proof}<div class="proof">\iffalse{} <span class="proof"><em>Proof. </em></span>  \fi{} From the *Law of Total Expectations* (i.e.,
-    $\mathbb{E}(\mathbb{E}(y|\mathbf{x}))=\mathbb{E}(y)$) it follows that
-    $$\mathbb{E}(\varepsilon_i)=\mathbb{E}(\mathbb{E}(\varepsilon_i|\mathbf{X})).$$ The strict exogeneity assumption
-    then yields $$\mathbb{E}(\mathbb{E}(\varepsilon_i|\mathbf{X}))=\mathbb{E}(0)=0.$$ </div>\EndKnitrBlock{proof}
+\BeginKnitrBlock{proof}<div class="proof">\iffalse{} <span class="proof"><em>Proof. </em></span>  \fi{}From the *Law of Total Expectations* (i.e., $\mathbb{E}(\mathbb{E}(y|\mathbf{x}))=\mathbb{E}(y)$) it follows that
+$$\mathbb{E}(\varepsilon_i)=\mathbb{E}(\mathbb{E}(\varepsilon_i|\mathbf{X})).$$ 
+The strict exogeneity assumption then yields $$\mathbb{E}(\mathbb{E}(\varepsilon_i|\mathbf{X}))=\mathbb{E}(0)=0.$$ </div>\EndKnitrBlock{proof}
 
--   Generally, two random variables $x$ and $y$ are said to be
+\
+
+
+-  Generally, two random variables $x$ and $y$ are said to be
     **orthogonal** if their cross moment is zero: $\mathbb{E}(xy)=0$. Under
     strict exogeneity, the regressors are orthogonal to the error term
     for *all* observations, i.e., 
@@ -130,6 +129,9 @@ Since $x_{jk}$ is an element of $\mathbf{X}$, the *Law of Iterated Expectations*
     $$\mathbb{E}(\mathbb{E}(\varepsilon_i|\mathbf{X})|x_{jk})=\mathbb{E}(0|x_{jk})=0.$$ I.e., we have that
     $$\mathbb{E}(\varepsilon_i|x_{jk})=0,$$ which allows us to conclude that
     $$\mathbb{E}(x_{jk}\varepsilon_i)=\mathbb{E}(x_{jk}\mathbb{E}(\varepsilon_i|x_{jk}))=\mathbb{E}(x_{jk}0)=0.$$</div>\EndKnitrBlock{proof}
+
+\
+
 
 -   Because the mean of the error term is zero ($\mathbb{E}(\varepsilon_i)=0$ for all
     $i$), it follows that the orthogonality property
@@ -153,7 +155,7 @@ Since $x_{jk}$ is an element of $\mathbf{X}$, the *Law of Iterated Expectations*
       
 Where the second equal sign holds since $\mathbb{E}(\varepsilon_i)=0$ (see Eq. \@ref(eq:c3e4)) and the third because of orthogonality (see Eq. \@ref(eq:c3e5)).</div>\EndKnitrBlock{proof}
 
-
+\
 
 **Assumption 1.3: Rank Condition** 
 
@@ -314,8 +316,11 @@ The second result follows from:
    &= \hat{\mathbf{y}}'\hat{\mathbf{y}}+\hat{\boldsymbol{\varepsilon}}'\hat{\boldsymbol{\varepsilon}}
 \end{align*}</div>\EndKnitrBlock{proof}
 
-The vector of residuals $\hat{\boldsymbol{\varepsilon}}$ has only $n-K$ so-called *degrees
-of freedom*. The vector looses $K$ degrees of freedom, since it has to
+
+\
+
+
+The vector of residuals $\hat{\boldsymbol{\varepsilon}}$ has only $n-K$ so-called *degrees of freedom*. The vector looses $K$ degrees of freedom, since it has to
 satisfy the $K$ linear restrictions ($\mathbf{X}'\hat{\boldsymbol{\varepsilon}}=\mathbf{0}$).
 Particularly, in the case with intercept we have that
 $\sum_{i=1}^n\hat{\boldsymbol{\varepsilon}_i}=\mathbf{0}$.\
@@ -346,7 +351,8 @@ $$
 
 <!-- Proof is done in the lecture.\ -->
 
-\BeginKnitrBlock{proof}<div class="proof">\iffalse{} <span class="proof"><em>Proof. </em></span>  \fi{}- As a consequence of Prop. 3.1.2 we have for regressions with intercept:
+\BeginKnitrBlock{proof}<div class="proof">\iffalse{} <span class="proof"><em>Proof. </em></span>  \fi{}
+- As a consequence of Prop. 3.1.2 we have for regressions with intercept:
     $\sum_{i=1}^n\hat{\varepsilon_i=0}$. Hence, from $y_i=\hat{y}_i+\hat{\varepsilon_i}$
     it follows that $$\begin{align*}
       \frac{1}{n}\sum_{i=1}^n y_i &= \frac{1}{n}\sum_{i=1}^n \hat{y}_i+\frac{1}{n}\sum_{i=1}^n \hat{\varepsilon_i} \\
@@ -362,6 +368,8 @@ $$
        \sum_{i=1}^n y_i^2-n\bar{y}^2 &= \sum_{i=1}^n\hat{y}_i^2-n\bar{\hat{y}}^2+\sum_{i=1}^n\hat{\varepsilon}_i^2 \\
        \sum_{i=1}^n (y_i-\bar{y})^2 &= \sum_{i=1}^n (\hat{y}_i-\bar{\hat{y}})^2+\sum_{i=1}^n \hat{\varepsilon}_i^2
 \end{align*}</div>\EndKnitrBlock{proof}
+
+\
 
 The larger the proportion of the explained variance, the better is the
 fit of the model. This motivates the definition of the so-called $R^2$
@@ -406,7 +414,7 @@ $S(\mathbf{b}_{21},\mathbf{b}_{22})\leq S(\mathbf{\mathfrak{b}}_{21},\mathbf{\ma
 Consequently, 
 
 \begin{align*}
-\hat{\boldsymbol{\varepsilon}}_{2}'\hat{\boldsymbol{\varepsilon}}_{2}=S(\mathbf{b}_{21},\mathbf{b}_{22})\leq S(\mathbf{b}_{{\color{red}11}},0)=\hat{\boldsymbol{\varepsilon}}_{1}'\hat{\boldsymbol{\varepsilon}}_{1}
+\hat{\boldsymbol{\varepsilon}}_{2}'\hat{\boldsymbol{\varepsilon}}_{2}=S(\mathbf{b}_{21},\mathbf{b}_{22})\leq S(\mathbf{b}_{11},0)=\hat{\boldsymbol{\varepsilon}}_{1}'\hat{\boldsymbol{\varepsilon}}_{1}
 \end{align*}
 which implies the statement:
 
@@ -415,9 +423,10 @@ R_2^2=1-\frac{\hat{\boldsymbol{\varepsilon}}_{2}'\hat{\boldsymbol{\varepsilon}}_
 1-\frac{\hat{\boldsymbol{\varepsilon}}_{1}'\hat{\boldsymbol{\varepsilon}}_{1}}{\sum_{i=1}^n\left(y_i-\bar{y}\right)^2}=R_1^2
 \end{align*}</div>\EndKnitrBlock{proof}
 
-Because of this, the $R^2$ cannot be used as a criterion for model
-selection. Possible solutions are given by penalized criterions such as
-the so-called *adjusted $R^2$* defined as 
+
+\
+
+Because of this, the $R^2$ cannot be used as a criterion for model selection. Possible solutions are given by penalized criterions such as the so-called *adjusted $R^2$* defined as 
 
 $$
 \begin{align*}
@@ -550,6 +559,9 @@ $$
 \end{align*}
 $$</div>\EndKnitrBlock{proof}
 
+\
+
+
 ### Finite-Sample Properties of OLS
 
 Notice that, by contrast to (the true but unknown) parameter vector
@@ -597,11 +609,11 @@ $\mathbf{a}$. Observe that this implies that
 $\mathbb{V}(\tilde{\text{b}}_k|\mathbf{X}) \geq \mathbb{V}({\textrm{b}}_k | \mathbf{X})$ for any
 $k=1,\dots,K$.\
 
-Proof of Theorem \@ref(thm:GMT)
-is done in the lecture.\
+\
 
-Proof:\
-**Part (i):** 
+<!-- Proof of Theorem \@ref(thm:GMT) is done in the lecture.\ -->
+
+\BeginKnitrBlock{proof}<div class="proof">\iffalse{} <span class="proof"><em>Proof. </em></span>  \fi{}**Part (i):** 
 
 $$
 \begin{align*}
@@ -708,11 +720,17 @@ Remember:
 -   $(\mathbf{AB})'=\mathbf{B}'\mathbf{A}'$
 
 -   $\mathbf{A}' =\mathbf{A}$ $\Leftrightarrow$ $\mathbf{A}$ is a
-    symmetric matrix
+    symmetric matrix</div>\EndKnitrBlock{proof}
 
-Under Assumptions 1.1-1.4, we have that: $$\mathbb{E}(s^2|\mathbf{X})=\sigma^2,$$ and
+
+\
+
+
+\BeginKnitrBlock{theorem}\iffalse{-91-85-110-98-105-97-115-101-100-110-101-115-115-32-111-102-32-36-115-94-50-36-93-}\fi{}<div class="theorem"><span class="theorem" id="thm:UBS"><strong>(\#thm:UBS)  \iffalse (Unbiasedness of $s^2$) \fi{} </strong></span>Under Assumptions 1.1-1.4, we have that: $$\mathbb{E}(s^2|\mathbf{X})=\sigma^2,$$ and
 hence $\mathbb{E}(s^2)=\sigma^2$, provided that $n>K$ (otherwise $s^2$ isn't
-well defined).
+well defined).</div>\EndKnitrBlock{theorem}
+
+\
 
 <!-- Proof is done in the lecture.\ -->
 
@@ -750,6 +768,9 @@ $$\mathbb{E}(\hat{\boldsymbol{\varepsilon}}'\hat{\boldsymbol{\varepsilon}}|\math
 (trace-trick):
 
 -   $trace(AB)=trace(BA)$</div>\EndKnitrBlock{proof}
+
+\
+
 
 ### Hypothesis Testing under Normality {#Testing}
 
@@ -901,6 +922,9 @@ we have that also $$\begin{align*}
 3rd Part: Almost-Sure-Convergence implies Convergence-in-Probability
 ($\overset{a.s.}\longrightarrow \, \Rightarrow \, \overset{p}\longrightarrow$); see [relations among modes of convergence](https://www.statlect.com/asymptotic-theory/relations-among-modes-of-convergence).</div>\EndKnitrBlock{proof}
 
+\
+
+
 **Proposition 3.1.9 (Consistency of $\mathbf{b}$)**
 $$\mathbf{b}\overset{p}\longrightarrow\boldsymbol{\beta}$$
 
@@ -940,6 +964,9 @@ that
 \mathbf{b}-\boldsymbol{\beta}
 &=\left(\mathbf{S}_{\mathbf{x}\mathbf{x}}\right)^{-1}\;\frac{1}{n}\sum_{i=1}^n\mathbf{x}_i\varepsilon_i\overset{p}\longrightarrow \mathbf{0}.
 \end{align*}</div>\EndKnitrBlock{proof}
+
+\
+
 
 Furthermore, we can show that the appropriately scaled (by $\sqrt{n}$)
 sampling error $\mathbf{b}-\boldsymbol{\beta}$ of the OLS estimator is asymptotically
@@ -1010,3 +1037,5 @@ that
 \begin{align*}
 \underbrace{\left(\mathbf{S}_{\mathbf{x}\mathbf{x}}\right)^{-1}\;\left(\sqrt{n}\frac{1}{n}\sum_{i=1}^n\mathbf{x}_i\varepsilon_i\right)}_{\sqrt{n}(\mathbf{b}-\boldsymbol{\beta})}\overset{d}\longrightarrow N\left(\mathbf{0},\underbrace{(\boldsymbol{\Sigma}_{\mathbf{x}\mathbf{x}}^{-1})\,(\sigma^2\boldsymbol{\Sigma}_{\mathbf{x}\mathbf{x}})\,(\boldsymbol{\Sigma}_{\mathbf{x}\mathbf{x}}^{-1})'}_{\sigma^2\boldsymbol{\Sigma}_{\mathbf{x}\mathbf{x}}}\right)
 \end{align*}</div>\EndKnitrBlock{proof}
+
+\
