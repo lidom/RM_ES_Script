@@ -1,0 +1,174 @@
+\documentclass{beamer}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{bm}
+\usepackage{xfrac}
+
+\setbeamertemplate{navigation symbols}{}
+\setbeamertemplate{footline}{
+    \hbox{%
+    \begin{beamercolorbox}[wd=\paperwidth,ht=3ex,dp=1.5ex,leftskip=2ex,rightskip=2ex]{page footer}%
+        \usebeamerfont{title in head/foot}%
+           \large \insertsection \hfill
+        \large \insertframenumber{} / \large \inserttotalframenumber
+    \end{beamercolorbox}}%
+}
+
+
+\title{Unbiasedness of $s^2$}
+\author{Linda Maokomatanda, Tim Mensinger, Markus Schick}
+\institute{University of Bonn}
+\date{4. November 2019}
+
+
+\begin{document}
+
+\begin{frame}[noframenumbering,plain]
+    \titlepage
+\end{frame}
+
+\begin{frame}{Content}
+\fontsize{15pt}{10}\selectfont
+\begin{enumerate}
+    \item Introduction (Linda)
+        \begin{itemize}[]
+\fontsize{14pt}{7.2}\selectfont
+            \item[] Assumptions 
+            \item[] Statement of Theorem
+        \end{itemize}
+    \item Proof (Markus)
+    \item Wrap-up (Tim)
+\end{enumerate}
+\end{frame}
+
+\section{Introduction}
+\subsection{Assumptions}
+
+\begin{frame}{Assumption 1 - Linearity}
+\fontsize{15pt}{10}\selectfont
+    \begin{align*}
+    \bm{y} = \mathbf{X} \beta + \bm{\varepsilon}
+    \end{align*}
+\end{frame}
+
+\begin{frame}{Assumption 2 - Strict Exogeneity}
+\fontsize{15pt}{10}\selectfont
+\begin{align*}
+    \mathbb{E}\left [\bm{\varepsilon} \mid \mathbf{X} \right] = \mathbf{0}
+\end{align*}
+\end{frame}
+
+\begin{frame}{Assumption 3 - Rank Condition}
+
+\fontsize{15pt}{10}\selectfont
+\begin{align*}
+    \text{rank}(\mathbf{X})=K\quad\text{a.s.}
+\end{align*}
+\end{frame}
+
+\begin{frame}{Assumption 4 - Spherical Error}
+\fontsize{15pt}{10}\selectfont
+    \begin{align*}
+     \mathbb{E}\left[\bm{\varepsilon} \bm{\varepsilon}' \right] = \sigma^2 \, \mathbf{id}_n
+    \end{align*}
+    \begin{center}
+        for some \emph{fixed} $\sigma > 0$ 
+    \end{center}
+\end{frame}
+
+\subsection{Theorem}
+\begin{frame}{Statement of Theorem}
+\fontsize{15pt}{10}\selectfont
+    \begin{theorem}
+    \vspace{5pt}
+    Under assumptions 1-4, we have that
+    \begin{align*}
+        \mathbb{E} \left[ s^2 \mid \mathbf{X} \right] = \sigma^2 
+    \end{align*}
+    where $s^2 = \bm{\hat{\varepsilon}}' \bm{\hat{\varepsilon}} \sfrac{}{(n-K)}$
+    \end{theorem}
+\end{frame}
+
+
+\section{Proof}
+
+\begin{frame}{Proof}
+\fontsize{15pt}{10}\selectfont
+WTS: 
+\begin{align*}
+\mathbb{E} \left [ s^2 \mid \mathbf{X} \right] = \mathbb{E} \left [ \bm{\hat{\varepsilon}}' \bm{\hat{\varepsilon}} \sfrac{}{(n-K)} \mid \mathbf{X} \right] = \sigma^2
+\end{align*}
+\vspace{5pt}
+Strategy:
+\begin{enumerate}
+    \item Show $\bm{\hat{\varepsilon}}' \bm{\hat{\varepsilon}} = \bm{\varepsilon}'\mathbf{M} \bm{\varepsilon}$
+    \item Show $\mathbb{E} \left[ \bm{\varepsilon}'\mathbf{M} \bm{\varepsilon} \mid \mathbf{X} \right] = \sigma^2 \, \text{trace}(\mathbf{M})$
+    \item Show $\text{trace}(\mathbf{M})=n-K$
+\end{enumerate}
+\end{frame}
+
+\begin{frame}{1.}
+\fontsize{15pt}{10}\selectfont
+
+Remember that $\bm{\hat{\varepsilon}} = \mathbf{M} \bm{y}$. Using $\bm{y} = \mathbf{X} \beta + \bm{\varepsilon}$ and Lemma 3.1.1 it follows trivially that  
+\begin{align*}
+\hat{\boldsymbol{\varepsilon}}'\hat{\boldsymbol{\varepsilon}}
+& = (\mathbf{M}\mathbf{y})'\mathbf{M}\mathbf{y}\\
+& = (\mathbf{M}(\mathbf{X}\boldsymbol{\beta}+\boldsymbol{\varepsilon}))'\mathbf{M}(\mathbf{X}\boldsymbol{\beta}+\boldsymbol{\varepsilon})\\
+& = (\mathbf{M}\boldsymbol{\varepsilon})'\mathbf{M}\boldsymbol{\varepsilon}\\
+& = \boldsymbol{\varepsilon}'\mathbf{M}\boldsymbol{\varepsilon}
+\end{align*}
+\end{frame}
+
+\begin{frame}{2.}
+\fontsize{15pt}{10}\selectfont
+Note that $\mathbf{M} = \mathbf{M}(\mathbf{X})$ and 
+$\bm{\varepsilon}'\mathbf{M}\bm{\varepsilon}
+=\sum_{i,j=1}^n m_{ij} \varepsilon_i\varepsilon_j$. Therefore
+\begin{align*}
+\mathbb{E} \left[ \bm{\varepsilon}'\mathbf{M}\bm{\varepsilon} \mid \mathbf{X} \right]
+&= \sum_{i,j=1}^n m_{ij}\mathbb{E}\left[ \varepsilon_i\varepsilon_j \mid \mathbf{X} \right]\\
+&= \sum_{i=1}^n m_{ii}\sigma^2 \\
+&= \sigma^2 \, \text{trace}(\mathbf{M})
+\end{align*}
+\end{frame}
+
+\begin{frame}{3.}
+\fontsize{15pt}{10}\selectfont
+\begin{align*}
+\text{trace}(\mathbf{M})
+&= \text{trace}(\mathbf{id}_n-\bm{P}) \\
+&= \text{trace}(\mathbf{id}_n)-trace(\bm{P}) \\ 
+&= n-\text{trace}(\bm{P}) \\
+&= n-\text{trace}(\mathbf{X}(\mathbf{X}'\mathbf{X})^{-1}\mathbf{X}') \\
+&= n-\text{trace}(\mathbf{X}'\mathbf{X}(\mathbf{X}'\mathbf{X})^{-1}) \\
+&= n-\text{trace}(\mathbf{id}_K) \\ 
+&= n-K
+\end{align*}
+\end{frame}
+
+\begin{frame}{Proof}
+\fontsize{15pt}{10}\selectfont
+Combining 1 - 3 we get 
+\begin{align*}
+    \mathbb{E} \left [ s^2 \mid \mathbf{X} \right] 
+&= \mathbb{E} \left [ \bm{\hat{\varepsilon}}' \bm{\hat{\varepsilon}} \sfrac{}{(n-K)} \mid \mathbf{X} \right] \\
+&=  \mathbb{E} \left [\bm{\varepsilon}'\mathbf{M} \bm{\varepsilon} \mid \mathbf{X} \right] \sfrac{}{(n-K)} \\
+&= \sigma^2 \, \text{trace}(\mathbf{M}) \sfrac{}{(n-K)} \\
+&= \sigma^2
+\end{align*}
+which was what we wanted
+\end{frame}
+
+\section{Wrap-Up}
+\begin{frame}{Wrap-Up}
+\fontsize{15pt}{10}\selectfont
+\begin{center}
+    \emph{strong} assumptions $\implies$ \emph{weak} results
+\end{center}
+\end{frame}
+
+
+\end{document}

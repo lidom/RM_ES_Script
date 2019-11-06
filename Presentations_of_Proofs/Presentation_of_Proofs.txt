@@ -1,0 +1,27 @@
+Presentation-Topics per groups:
+
+1. Group "Instrumental Variables":
+Lemma 3.1.1 (Orthogonal Projection matrices)
+Proposition 3.1.2 (OLS residuals)
+Proposition 3.1.3 (Variance decomposition) 
+(Note: For Lemma 3.1.1 no proof is given in the script;
+however, you need to present Lemma 3.1.1 (without proofs)
+for the proofs of the Propositions. Of course, if you want
+to present a proof for Lemma 3.1.1 you can do so.)
+
+
+2. Group "Difference-in-Differences Estimation":
+Proposition 3.1.4 (R^2 increase) + adjusted R^2
+(introduction, motivation, explanation)
+
+
+3. Group "Regression discontinuity design":
+Proposition 3.1.5 (Frisch-Waugh-Lovell theorem)
+
+
+4. Group "Random Forest for Classification Problems":
+Theorem 4.1 (Finite Sample Properties)
+
+
+5. Group "Bayesian Hierarchical Models":
+Theorem 4.2 (Unbiasedness of s^2)
