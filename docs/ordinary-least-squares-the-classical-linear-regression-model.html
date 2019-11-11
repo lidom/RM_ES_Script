@@ -24,7 +24,7 @@
 <meta name="author" content="JProf. Dominik Liebl" />
 
 
-<meta name="date" content="2019-10-28" />
+<meta name="date" content="2019-11-11" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -917,23 +917,22 @@ trace(\mathbf{M})
 normally distributed. The assumption immediately implies that</p>
 <p><span class="math display">\[
 \begin{align*}
-  ((\mathbf{X}&#39;\mathbf{X})^{-1}\mathbf{X}&#39;\boldsymbol{\varepsilon})|\mathbf{X}\sim N(\mathbf{0},\sigma^2 (\mathbf{X}&#39;\mathbf{X})^{-1}),
-  (\mathbf{b}-\boldsymbol{\beta})|\mathbf{X}\sim N(\mathbf{0},\sigma^2 (\mathbf{X}&#39;\mathbf{X})^{-1}),
+  ((\mathbf{X}&#39;\mathbf{X})^{-1}\mathbf{X}&#39;\boldsymbol{\varepsilon})|\mathbf{X}&amp;\sim N(\mathbf{0},\sigma^2 (\mathbf{X}&#39;\mathbf{X})^{-1})\\
+  (\mathbf{b}-\boldsymbol{\beta})|\mathbf{X}&amp;\sim N(\mathbf{0},\sigma^2 (\mathbf{X}&#39;\mathbf{X})^{-1})
 \end{align*}
 \]</span></p>
 <p>which inspires our test statistics. E.g., if we would know <span class="math inline">\(\sigma^2\)</span>,
 we have</p>
 <p><span class="math display">\[
 \begin{align*}
-  z_k=\frac{\text{b}_k-\bar{\beta}_k}{\left(\sigma^2\left[(\mathbf{X}&#39;\mathbf{X})^{-1}\right]_{kk}\right)^{1/2}}\sim N(0,1),
+  z_k=\frac{\text{b}_k-\bar{\beta}_k}{\left(\sigma^2\left[(\mathbf{X}&#39;\mathbf{X})^{-1}\right]_{kk}\right)^{1/2}}\overset{H_0}{\sim} N(0,1),
 \end{align*}
 \]</span></p>
 <p>where <span class="math inline">\(\bar{\beta}_k\)</span> is some known value specified by the null
-hypothesis:</p>
-<p><span class="math inline">\(\text{H}_0\)</span>: <span class="math inline">\(\text{b}_k=\bar{\beta}_k\)</span>.</p>
+hypothesis: <span class="math inline">\(\text{H}_0\)</span>: <span class="math inline">\(\text{b}_k=\bar{\beta}_k\)</span>.</p>
 <p>Usually, we do not know the value of <span class="math inline">\(\sigma^2\)</span> and have to estimate it.
-In this case <span class="math inline">\(\sigma^2\)</span> is termed a <strong>nuisance parameter</strong>. Plugging in
-the OLS estimate <span class="math inline">\(s^2\)</span> leads to</p>
+<!-- In this case $\sigma^2$ is termed a **nuisance parameter**.  -->
+Plugging in the OLS estimate <span class="math inline">\(s^2\)</span> leads to</p>
 <p><span class="math display">\[
 \begin{align*}
   \text{t-ratio}_k=\frac{\text{b}_k-\bar{\beta}_k}{\left(s^2\left[(\mathbf{X}&#39;\mathbf{X})^{-1}\right]_{kk}\right)^{1/2}}\sim t_{n-K},
@@ -942,8 +941,7 @@ the OLS estimate <span class="math inline">\(s^2\)</span> leads to</p>
 <p>where <span class="math inline">\(t_{n-K}\)</span> is the (Student) t-distribution with <span class="math inline">\(n-K\)</span> degrees of
 freedom.<br />
 Of course, <strong>confidence intervals</strong> for the single estimators
-<span class="math inline">\(\hat\beta_k\)</span> can also be directly derived using the normality
-assumption:</p>
+<span class="math inline">\(\hat\beta_k\)</span> can also be directly derived using the normality assumption (1.5):</p>
 <p><span class="math display">\[
 \begin{align*}
   CI_{1-\alpha} = \left[\mathbf{b}_k\pm t_{1-\frac{\alpha}{2},n-K}\;s^2\sqrt{\left[(\mathbf{X}\mathbf{X})^{-1}\right]_{kk}}\right],
@@ -998,9 +996,7 @@ Kolmogorov’s strong LLN and Lindeberg-Levy’s CLT.</p>
 such that the <span class="math inline">\((K\times K)\)</span> matrix <span class="math inline">\(\boldsymbol{\Sigma}_{\mathbf{x}\mathbf{x}}\)</span> has
 full rank <span class="math inline">\(K\)</span> (i.e., is nonsingular).<br />
 </p>
-<p><strong>Assumption 1.5<span class="math inline">\(^\ast\)</span>:</strong> The sample <span class="math inline">\((\mathbf{x}_i,\varepsilon_i)\)</span>
-(equivalently <span class="math inline">\((y_i,\mathbf{x}_i)\)</span>) is iid for all <span class="math inline">\(i=1,\dots,n\)</span>, with
-existing and finite first, second, third, and fourth moments.<br />
+<p><strong>Assumption 1.5<span class="math inline">\(^\ast\)</span>:</strong> The sample <span class="math inline">\((\mathbf{x}_i,\varepsilon_i)\)</span>, equivalently <span class="math inline">\((y_i,\mathbf{x}_i)\)</span>, is iid for all <span class="math inline">\(i=1,\dots,n\)</span>, with existing and finite first, second, third, and fourth moments.<br />
 </p>
 <p>Note that existence and finiteness of the first two moments of
 <span class="math inline">\(\mathbf{x}_i\)</span> is actually already implied by Assumption 1.3<span class="math inline">\(^\ast\)</span>.<br />
@@ -1015,8 +1011,14 @@ show the following results.</p>
 \]</span></p>
 
 <div class="proof">
-<p> <span class="proof"><em>Proof. </em></span> 1st Part: Let define <span class="math display">\[\begin{align*}
-[\mathbf{S}_{\mathbf{x}\mathbf{x}}]_{kl}&amp;=\frac{1}{n}\sum_{i=1}^n\underbrace{x_{ik}x_{il}}_{z_{i,kl}}=\bar{z}_{kl}.\end{align*}\]</span></p>
+<p> <span class="proof"><em>Proof. </em></span> <br />
+</p>
+<p>1st Part: Let us define <span class="math inline">\(\bar{z}_{kl}\)</span> as
+<span class="math display">\[
+\begin{align*}
+[\mathbf{S}_{\mathbf{x}\mathbf{x}}]_{kl}&amp;=\frac{1}{n}\sum_{i=1}^n\underbrace{x_{ik}x_{il}}_{z_{i,kl}}=\bar{z}_{kl}.
+\end{align*}
+\]</span></p>
 From: <span class="math display">\[\begin{array}{ll}
 \mathbb{E}[z_{i,kl}]=[\mathbf{S}_{\mathbf{x}\mathbf{x}}]_{kl}&amp;\quad\text{(By Assumption 1.3}^\ast)\\
 \text{and}&amp;\\
@@ -1042,7 +1044,7 @@ we have that also <span class="math display">\[\begin{align*}
 <span class="math display">\[\mathbf{b}\overset{p}\longrightarrow\boldsymbol{\beta}\]</span></p>
 
 <div class="proof">
- <span class="proof"><em>Proof. </em></span> : We show the equivalent result that
+ <span class="proof"><em>Proof. </em></span> We show the equivalent result that
 <span class="math inline">\(\mathbf{b}-\boldsymbol{\beta}\overset{p}\longrightarrow \mathbf{0}\)</span>.<br />
 Remember: <span class="math display">\[\begin{align*}
 \mathbf{b}-\boldsymbol{\beta}
@@ -1055,13 +1057,16 @@ Let us focus on element-by-element asymptotics of
 Define <span class="math display">\[\begin{align*}
 \frac{1}{n}\sum_{i=1}^n\underbrace{x_{ik}\varepsilon_i}_{z_{ik}}=\bar{z}_{n,k}.\end{align*}\]</span>
 From: <span class="math display">\[\begin{array}{ll}
-\mathbb{E}[z_{ik}]=\mathbb{E}[x_{ik}\varepsilon_i]=0&amp;\quad\text{(By Str.~Exog.~Ass 1.2)}\\
+\mathbb{E}[z_{ik}]=\mathbb{E}[x_{ik}\varepsilon_i]=0&amp;\quad\text{(By Str. Exog. Ass 1.2)}\\
 \text{and}&amp;\\
 z_{ik}\quad\text{is iid and has four moments}      &amp;\quad\text{(By Assumption 1.5$^\ast$)}
 \end{array}\]</span> it follows by <a href="https://www.statlect.com/asymptotic-theory/law-of-large-numbers">Kolmogorov’s strong law of large numbers</a>
-that <span class="math display">\[\begin{align*}
-\bar{z}_{n,k}=\sum_{i=1}^nx_{ik}\varepsilon_i&amp;\overset{a.s.}\longrightarrow 0\quad\text{for any}\quad 1\leq k\leq K.\end{align*}\]</span>
-Consequently, also <span class="math display">\[\begin{align*}
+that
+<span class="math display">\[\begin{align*}
+\bar{z}_{n,k}=\frac{1}{n}\sum_{i=1}^nx_{ik}\varepsilon_i&amp;\overset{a.s.}\longrightarrow 0\quad\text{for any}\quad 1\leq k\leq K.\end{align*}
+\]</span>
+Consequently, also
+<span class="math display">\[\begin{align*}
 \frac{1}{n}\sum_{i=1}^n\mathbf{x}_i\varepsilon_i&amp;\overset{a.s.}\longrightarrow\underset{(K\times 1)}{\mathbf{0}}
 \quad(\text{element-wise}).\end{align*}\]</span> Almost-Sure-Convergence
 implies Convergence-in-Probability (<span class="math inline">\(\overset{a.s.}\longrightarrow \Rightarrow\overset{p}\longrightarrow\)</span>); see <a href="https://www.statlect.com/asymptotic-theory/relations-among-modes-of-convergence">relations among modes of convergence</a>:
@@ -1094,10 +1099,7 @@ Wold Device on multivariate convergence in distribution:<br />
 then<br />
 <span class="math display">\[\mathbf{z}_n\overset{d}\longrightarrow \mathbf{z} \quad \text{if and only if} \quad \boldsymbol{\lambda}&#39;\mathbf{z}_n\overset{d}\longrightarrow \boldsymbol{\lambda}&#39;\mathbf{z}\]</span>
 for any <span class="math inline">\(\boldsymbol{\lambda}\in\mathbb{R}^K\)</span>.</p>
-<p>The Cramér Wold Device is needed, since <span class="math inline">\(\mathbf{z}_n\overset{d}\longrightarrow \mathbf{z}\)</span>
-implies convergence in distribution element-by-element, <strong>but</strong>
-convergence in distribution element-by-element does not imply
-<span class="math inline">\(\mathbf{z}_n\overset{d}\longrightarrow \mathbf{z}\)</span>.</p>
+<p>The Cramér Wold Device is needed, since convergence in distribution element-by-element <span class="math inline">\(z_{k,n}\overset{d}\longrightarrow z_k\)</span> for <span class="math inline">\(k=1,\dots,K\)</span>, does not imply multivariate convergence in distribution <span class="math inline">\(\mathbf{z}_n\overset{d}\longrightarrow \mathbf{z}\)</span>.</p>
 
 <div class="proof">
 <p> <span class="proof"><em>Proof. </em></span> Let’s start with some rearrangements: <span class="math display">\[\begin{align*}
@@ -1117,10 +1119,11 @@ In the following we show that
 using the Cramér Wold Device:<br />
 1st Moment: <span class="math display">\[\begin{align*}
 \mathbb{E}(\boldsymbol{\lambda}&#39;\mathbf{z}_i)&amp;=
-\boldsymbol{\lambda}&#39;\;\underset{\text{(By Str.~Exog.~Ass 1.2)}}{\underbrace{\left(\begin{matrix}\mathbb{E}(\mathbf{x}_{i1}\varepsilon_i)\\\vdots\\\mathbb{E}(\mathbf{x}_{iK}\varepsilon_i)\end{matrix}\right)}_{\mathbf{0}}}=\boldsymbol{\lambda}&#39;\mathbf{0}=0,\end{align*}\]</span>
+\boldsymbol{\lambda}&#39;\;\underset{\text{(By Str. Exog. Ass 1.2)}}{\underbrace{\left(\begin{matrix}\mathbb{E}(\mathbf{x}_{i1}\varepsilon_i)\\\vdots\\\mathbb{E}(\mathbf{x}_{iK}\varepsilon_i)\end{matrix}\right)}_{\mathbf{0}}}=\boldsymbol{\lambda}&#39;\mathbf{0}=0,\end{align*}\]</span>
 for any <span class="math inline">\(\boldsymbol{\lambda}\in\mathbb{R}^{K}\)</span> and for all
 <span class="math inline">\(i=1,2,\dots\)</span><br />
-2nd Moment: <span class="math display">\[\begin{align*}
+2nd Moment:
+<span class="math display">\[\begin{align*}
 \mathbb{V}(\boldsymbol{\lambda}&#39;\mathbf{z}_i)
 &amp;=\boldsymbol{\lambda}&#39;\mathbb{V}(\mathbf{z}_i)\boldsymbol{\lambda}\\
 &amp;=\boldsymbol{\lambda}&#39;\mathbb{E}(\varepsilon_i\mathbf{x}_i\mathbf{x}_i&#39;)\boldsymbol{\lambda}\\
@@ -1145,7 +1148,7 @@ From
 it follows by <a href="https://www.statlect.com/asymptotic-theory/Slutsky-theorem">Slutsky’s Theorem</a>
 that</p>
 <span class="math display">\[\begin{align*}
-\underbrace{\left(\mathbf{S}_{\mathbf{x}\mathbf{x}}\right)^{-1}\;\left(\sqrt{n}\frac{1}{n}\sum_{i=1}^n\mathbf{x}_i\varepsilon_i\right)}_{\sqrt{n}(\mathbf{b}-\boldsymbol{\beta})}\overset{d}\longrightarrow N\left(\mathbf{0},\underbrace{(\boldsymbol{\Sigma}_{\mathbf{x}\mathbf{x}}^{-1})\,(\sigma^2\boldsymbol{\Sigma}_{\mathbf{x}\mathbf{x}})\,(\boldsymbol{\Sigma}_{\mathbf{x}\mathbf{x}}^{-1})&#39;}_{\sigma^2\boldsymbol{\Sigma}_{\mathbf{x}\mathbf{x}}}\right)
+\underbrace{\left(\mathbf{S}_{\mathbf{x}\mathbf{x}}\right)^{-1}\;\left(\sqrt{n}\frac{1}{n}\sum_{i=1}^n\mathbf{x}_i\varepsilon_i\right)}_{\sqrt{n}(\mathbf{b}-\boldsymbol{\beta})}\overset{d}\longrightarrow N\left(\mathbf{0},\underbrace{(\boldsymbol{\Sigma}_{\mathbf{x}\mathbf{x}}^{-1})\,(\sigma^2\boldsymbol{\Sigma}_{\mathbf{x}\mathbf{x}})\,(\boldsymbol{\Sigma}_{\mathbf{x}\mathbf{x}}^{-1})&#39;}_{\sigma^2\boldsymbol{\Sigma}^{-1}_{\mathbf{x}\mathbf{x}}}\right)
 \end{align*}\]</span>
 </div>
 

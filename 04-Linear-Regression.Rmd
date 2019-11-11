@@ -811,8 +811,8 @@ normally distributed. The assumption immediately implies that
 
 $$
 \begin{align*}
-  ((\mathbf{X}'\mathbf{X})^{-1}\mathbf{X}'\boldsymbol{\varepsilon})|\mathbf{X}\sim N(\mathbf{0},\sigma^2 (\mathbf{X}'\mathbf{X})^{-1}),
-  (\mathbf{b}-\boldsymbol{\beta})|\mathbf{X}\sim N(\mathbf{0},\sigma^2 (\mathbf{X}'\mathbf{X})^{-1}),
+  ((\mathbf{X}'\mathbf{X})^{-1}\mathbf{X}'\boldsymbol{\varepsilon})|\mathbf{X}&\sim N(\mathbf{0},\sigma^2 (\mathbf{X}'\mathbf{X})^{-1})\\
+  (\mathbf{b}-\boldsymbol{\beta})|\mathbf{X}&\sim N(\mathbf{0},\sigma^2 (\mathbf{X}'\mathbf{X})^{-1})
 \end{align*}
 $$
 
@@ -821,19 +821,17 @@ we have
 
 $$
 \begin{align*}
-  z_k=\frac{\text{b}_k-\bar{\beta}_k}{\left(\sigma^2\left[(\mathbf{X}'\mathbf{X})^{-1}\right]_{kk}\right)^{1/2}}\sim N(0,1),
+  z_k=\frac{\text{b}_k-\bar{\beta}_k}{\left(\sigma^2\left[(\mathbf{X}'\mathbf{X})^{-1}\right]_{kk}\right)^{1/2}}\overset{H_0}{\sim} N(0,1),
 \end{align*}
 $$
 
 where $\bar{\beta}_k$ is some known value specified by the null
-hypothesis:
-
-$\text{H}_0$: $\text{b}_k=\bar{\beta}_k$.
+hypothesis: $\text{H}_0$: $\text{b}_k=\bar{\beta}_k$.
 
 
 Usually, we do not know the value of $\sigma^2$ and have to estimate it.
-In this case $\sigma^2$ is termed a **nuisance parameter**. Plugging in
-the OLS estimate $s^2$ leads to
+<!-- In this case $\sigma^2$ is termed a **nuisance parameter**.  -->
+Plugging in the OLS estimate $s^2$ leads to
 
 $$
 \begin{align*}
@@ -844,8 +842,7 @@ $$
 where $t_{n-K}$ is the (Student) t-distribution with $n-K$ degrees of
 freedom.\
 Of course, **confidence intervals** for the single estimators
-$\hat\beta_k$ can also be directly derived using the normality
-assumption:
+$\hat\beta_k$ can also be directly derived using the normality assumption (1.5):
 
 $$
 \begin{align*}
@@ -905,9 +902,7 @@ $\mathbb{E}(\mathbf{x}_i\mathbf{x}_i')=\boldsymbol{\Sigma}_{\mathbf{x}\mathbf{x}
 such that the $(K\times K)$ matrix $\boldsymbol{\Sigma}_{\mathbf{x}\mathbf{x}}$ has
 full rank $K$ (i.e., is nonsingular).\
 
-**Assumption 1.5$^\ast$:** The sample $(\mathbf{x}_i,\varepsilon_i)$
-(equivalently $(y_i,\mathbf{x}_i)$) is iid for all $i=1,\dots,n$, with
-existing and finite first, second, third, and fourth moments.\
+**Assumption 1.5$^\ast$:** The sample $(\mathbf{x}_i,\varepsilon_i)$, equivalently $(y_i,\mathbf{x}_i)$, is iid for all $i=1,\dots,n$, with existing and finite first, second, third, and fourth moments.\
 
 
 Note that existence and finiteness of the first two moments of
@@ -926,8 +921,14 @@ $$
 $$
 
 ```{proof}
-1st Part: Let define $$\begin{align*}
-[\mathbf{S}_{\mathbf{x}\mathbf{x}}]_{kl}&=\frac{1}{n}\sum_{i=1}^n\underbrace{x_{ik}x_{il}}_{z_{i,kl}}=\bar{z}_{kl}.\end{align*}$$
+\
+
+1st Part: Let us define $\bar{z}_{kl}$ as 
+$$
+\begin{align*}
+[\mathbf{S}_{\mathbf{x}\mathbf{x}}]_{kl}&=\frac{1}{n}\sum_{i=1}^n\underbrace{x_{ik}x_{il}}_{z_{i,kl}}=\bar{z}_{kl}.
+\end{align*}
+$$
 
 From: $$\begin{array}{ll}
 \mathbb{E}[z_{i,kl}]=[\mathbf{S}_{\mathbf{x}\mathbf{x}}]_{kl}&\quad\text{(By Assumption 1.3}^\ast)\\
@@ -955,7 +956,7 @@ we have that also $$\begin{align*}
 $$\mathbf{b}\overset{p}\longrightarrow\boldsymbol{\beta}$$
 
 ```{proof}
-: We show the equivalent result that
+We show the equivalent result that
 $\mathbf{b}-\boldsymbol{\beta}\overset{p}\longrightarrow \mathbf{0}$.\
 Remember: $$\begin{align*}
 \mathbf{b}-\boldsymbol{\beta}
@@ -968,13 +969,16 @@ $\frac{1}{n}\sum_{i=1}^n\mathbf{x}_i\varepsilon_i$:\
 Define $$\begin{align*}
 \frac{1}{n}\sum_{i=1}^n\underbrace{x_{ik}\varepsilon_i}_{z_{ik}}=\bar{z}_{n,k}.\end{align*}$$
 From: $$\begin{array}{ll}
-\mathbb{E}[z_{ik}]=\mathbb{E}[x_{ik}\varepsilon_i]=0&\quad\text{(By Str.~Exog.~Ass 1.2)}\\
+\mathbb{E}[z_{ik}]=\mathbb{E}[x_{ik}\varepsilon_i]=0&\quad\text{(By Str. Exog. Ass 1.2)}\\
 \text{and}&\\
 z_{ik}\quad\text{is iid and has four moments}      &\quad\text{(By Assumption 1.5$^\ast$)}
 \end{array}$$ it follows by [Kolmogorov's strong law of large numbers](https://www.statlect.com/asymptotic-theory/law-of-large-numbers)
-that $$\begin{align*}
-\bar{z}_{n,k}=\sum_{i=1}^nx_{ik}\varepsilon_i&\overset{a.s.}\longrightarrow 0\quad\text{for any}\quad 1\leq k\leq K.\end{align*}$$
-Consequently, also $$\begin{align*}
+that 
+$$\begin{align*}
+\bar{z}_{n,k}=\frac{1}{n}\sum_{i=1}^nx_{ik}\varepsilon_i&\overset{a.s.}\longrightarrow 0\quad\text{for any}\quad 1\leq k\leq K.\end{align*}
+$$
+Consequently, also 
+$$\begin{align*}
 \frac{1}{n}\sum_{i=1}^n\mathbf{x}_i\varepsilon_i&\overset{a.s.}\longrightarrow\underset{(K\times 1)}{\mathbf{0}}
 \quad(\text{element-wise}).\end{align*}$$ Almost-Sure-Convergence
 implies Convergence-in-Probability ($\overset{a.s.}\longrightarrow \Rightarrow\overset{p}\longrightarrow$); see [relations among modes of convergence](https://www.statlect.com/asymptotic-theory/relations-among-modes-of-convergence):
@@ -1011,10 +1015,7 @@ then\
 $$\mathbf{z}_n\overset{d}\longrightarrow \mathbf{z} \quad \text{if and only if} \quad \boldsymbol{\lambda}'\mathbf{z}_n\overset{d}\longrightarrow \boldsymbol{\lambda}'\mathbf{z}$$
 for any $\boldsymbol{\lambda}\in\mathbb{R}^K$.
 
-The Cramér Wold Device is needed, since $\mathbf{z}_n\overset{d}\longrightarrow \mathbf{z}$
-implies convergence in distribution element-by-element, **but**
-convergence in distribution element-by-element does not imply
-$\mathbf{z}_n\overset{d}\longrightarrow \mathbf{z}$.
+The Cramér Wold Device is needed, since convergence in distribution element-by-element  $z_{k,n}\overset{d}\longrightarrow z_k$ for $k=1,\dots,K$, does not imply multivariate convergence in distribution $\mathbf{z}_n\overset{d}\longrightarrow \mathbf{z}$.
 
 ```{proof}
 Let's start with some rearrangements: $$\begin{align*}
@@ -1034,10 +1035,11 @@ $\sqrt{n}\,\bar{\mathbf{z}}_n\overset{d}\longrightarrow N(\mathbf{0},\sigma^2\,\
 using the Cramér Wold Device:\
 1st Moment: $$\begin{align*}
 \mathbb{E}(\boldsymbol{\lambda}'\mathbf{z}_i)&=
-\boldsymbol{\lambda}'\;\underset{\text{(By Str.~Exog.~Ass 1.2)}}{\underbrace{\left(\begin{matrix}\mathbb{E}(\mathbf{x}_{i1}\varepsilon_i)\\\vdots\\\mathbb{E}(\mathbf{x}_{iK}\varepsilon_i)\end{matrix}\right)}_{\mathbf{0}}}=\boldsymbol{\lambda}'\mathbf{0}=0,\end{align*}$$
+\boldsymbol{\lambda}'\;\underset{\text{(By Str. Exog. Ass 1.2)}}{\underbrace{\left(\begin{matrix}\mathbb{E}(\mathbf{x}_{i1}\varepsilon_i)\\\vdots\\\mathbb{E}(\mathbf{x}_{iK}\varepsilon_i)\end{matrix}\right)}_{\mathbf{0}}}=\boldsymbol{\lambda}'\mathbf{0}=0,\end{align*}$$
 for any $\boldsymbol{\lambda}\in\mathbb{R}^{K}$ and for all
 $i=1,2,\dots$\
-2nd Moment: $$\begin{align*}
+2nd Moment: 
+$$\begin{align*}
 \mathbb{V}(\boldsymbol{\lambda}'\mathbf{z}_i)
 &=\boldsymbol{\lambda}'\mathbb{V}(\mathbf{z}_i)\boldsymbol{\lambda}\\
 &=\boldsymbol{\lambda}'\mathbb{E}(\varepsilon_i\mathbf{x}_i\mathbf{x}_i')\boldsymbol{\lambda}\\
@@ -1064,7 +1066,7 @@ it follows by [Slutsky's Theorem](https://www.statlect.com/asymptotic-theory/Slu
 that
 
 \begin{align*}
-\underbrace{\left(\mathbf{S}_{\mathbf{x}\mathbf{x}}\right)^{-1}\;\left(\sqrt{n}\frac{1}{n}\sum_{i=1}^n\mathbf{x}_i\varepsilon_i\right)}_{\sqrt{n}(\mathbf{b}-\boldsymbol{\beta})}\overset{d}\longrightarrow N\left(\mathbf{0},\underbrace{(\boldsymbol{\Sigma}_{\mathbf{x}\mathbf{x}}^{-1})\,(\sigma^2\boldsymbol{\Sigma}_{\mathbf{x}\mathbf{x}})\,(\boldsymbol{\Sigma}_{\mathbf{x}\mathbf{x}}^{-1})'}_{\sigma^2\boldsymbol{\Sigma}_{\mathbf{x}\mathbf{x}}}\right)
+\underbrace{\left(\mathbf{S}_{\mathbf{x}\mathbf{x}}\right)^{-1}\;\left(\sqrt{n}\frac{1}{n}\sum_{i=1}^n\mathbf{x}_i\varepsilon_i\right)}_{\sqrt{n}(\mathbf{b}-\boldsymbol{\beta})}\overset{d}\longrightarrow N\left(\mathbf{0},\underbrace{(\boldsymbol{\Sigma}_{\mathbf{x}\mathbf{x}}^{-1})\,(\sigma^2\boldsymbol{\Sigma}_{\mathbf{x}\mathbf{x}})\,(\boldsymbol{\Sigma}_{\mathbf{x}\mathbf{x}}^{-1})'}_{\sigma^2\boldsymbol{\Sigma}^{-1}_{\mathbf{x}\mathbf{x}}}\right)
 \end{align*}
 ```
 
