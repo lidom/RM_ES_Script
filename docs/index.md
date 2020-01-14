@@ -1,7 +1,7 @@
 --- 
 title: "Research Module in Econometrics & Statistics"
 author: "JProf. Dominik Liebl"
-date: "2019-11-11"
+date: "2020-01-14"
 site: bookdown::bookdown_site
 documentclass: book
 bibliography: [book.bib]
@@ -73,7 +73,7 @@ Date        Time               Topic
 
 **Presentations:**
 
-* For groups of 1-2: 10-15 minutes
+* For groups of 1-2: 15-25 minutes
 * For groups of   3: 20-25 minutes
 
 
@@ -94,7 +94,7 @@ Date        Time               Topic
     * Line-spacing: 1.5
     
 * **Deadline for submission of slides:** Jan. 19, 2020, via e-mail to [dliebl@uni-bonn.de](mailto:dliebl@uni-bonn.de)    
-* **Deadline for submission of term papers:** Jan. 24, 2020, via e-mail to [dliebl@uni-bonn.de](mailto:dliebl@uni-bonn.de)
+* **Deadline for submission of term papers:** Feb. 5, 2020, via e-mail to [dliebl@uni-bonn.de](mailto:dliebl@uni-bonn.de)
 
 
 
