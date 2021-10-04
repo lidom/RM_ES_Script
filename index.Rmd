@@ -66,11 +66,9 @@ Date        Time               Topics$^*$
 $^*$ This is just the approximate general structure. Depending on your pre-knowledge, we may deviate from this.
 
 
-- **Virtual Lecture-Room (Zoom):**\
-[Zoom-Meeting Link](https://uni-bonn.zoom.us/j/91400665510?pwd=RUl5NW9mMjcyQlk2VkRGbXFrSmJlQT09) \
-
+- **Virtual Lecture-Room (Zoom):** [Zoom-Meeting Link](https://uni-bonn.zoom.us/j/91400665510?pwd=RUl5NW9mMjcyQlk2VkRGbXFrSmJlQT09) \
 Meeting-ID: 914 0066 5510\
-Kenncode: 544848
+Password: 544848
 
 - **Supervision meetings:** From Nov. to Jan. 
 - **Scheduling of appointments:** [HERE](https://docs.google.com/spreadsheets/d/1clb0ple3GaRlwod5JOKK84A996p1BKNMSs32JrqBZ_A/edit?usp=sharing)
