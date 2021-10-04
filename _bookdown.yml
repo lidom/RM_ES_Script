@@ -2,7 +2,15 @@ book_filename: "RM_ES_Script"
 chapter_name: "Ch. "
 repo: https://github.com/lidom/RM_ES_Script/docs/index.html
 output_dir: docs
-rmd_files: ["index.Rmd", "00-Topics.Rmd", "01-Introduction-to-R.Rmd", "02-Test-Theory.Rmd", "03-Estimation-Theory.Rmd", "04-Linear-Regression.Rmd", "05-Simulations.Rmd", "06-How-to-Write-and-Present.Rmd", "References.Rmd"]
+rmd_files: ["index.Rmd",
+"00-Topics.Rmd",
+"01-Introduction-to-R.Rmd",
+"02-Estimation-Theory.Rmd",
+"03-Test-Theory.Rmd",
+"04-Linear-Regression.Rmd",
+"05-Simulations.Rmd",
+"06-How-to-Write-and-Present.Rmd",
+"References.Rmd"]
 clean: [packages.bib, bookdown.bbl]
 new_session: yes
 delete_merged_file: true

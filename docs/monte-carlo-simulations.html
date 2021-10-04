@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<html lang="" xml:lang="">
 <head>
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Ch. 5 Monte-Carlo Simulations | Research Module in Econometrics &amp; Statistics</title>
   <meta name="description" content="Script for the research module in econometrics &amp; statistics (University Bonn)." />
-  <meta name="generator" content="bookdown 0.13 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Ch. 5 Monte-Carlo Simulations | Research Module in Econometrics &amp; Statistics" />
   <meta property="og:type" content="book" />
@@ -21,10 +21,10 @@
   <meta name="twitter:description" content="Script for the research module in econometrics &amp; statistics (University Bonn)." />
   
 
-<meta name="author" content="JProf. Dominik Liebl" />
+<meta name="author" content="Prof. Dominik Liebl (dliebl@uni-bonn.de) and Christopher Walsh" />
 
 
-<meta name="date" content="2020-01-14" />
+<meta name="date" content="2021-10-04" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -33,13 +33,16 @@
   
 <link rel="prev" href="ordinary-least-squares-the-classical-linear-regression-model.html"/>
 <link rel="next" href="how-to-write.html"/>
-<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<script src="libs/header-attrs-2.11/header-attrs.js"></script>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
 
 
 
@@ -47,28 +50,33 @@
 
 
 
+
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
 
 
 <style type="text/css">
-a.sourceLine { display: inline-block; line-height: 1.25; }
-a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
-a.sourceLine:empty { height: 1.2em; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
-code.sourceCode { white-space: pre; position: relative; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
 pre.sourceCode { margin: 0; }
 @media screen {
 div.sourceCode { overflow: auto; }
 }
 @media print {
-code.sourceCode { white-space: pre-wrap; }
-a.sourceLine { text-indent: -1em; padding-left: 1em; }
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
-pre.numberSource a.sourceLine
-  { position: relative; left: -4em; }
-pre.numberSource a.sourceLine::before
-  { content: attr(data-line-number);
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
     position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; pointer-events: all; display: inline-block;
+    border: none; display: inline-block;
     -webkit-touch-callout: none; -webkit-user-select: none;
     -khtml-user-select: none; -moz-user-select: none;
     -ms-user-select: none; user-select: none;
@@ -77,9 +85,9 @@ pre.numberSource a.sourceLine::before
   }
 pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
 div.sourceCode
-  { background-color: #f8f8f8; }
+  {  background-color: #f8f8f8; }
 @media screen {
-a.sourceLine::before { text-decoration: underline; }
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 code span.al { color: #ef2929; } /* Alert */
 code span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
@@ -111,6 +119,29 @@ code span.vs { color: #4e9a06; } /* VerbatimString */
 code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
+
 <link rel="stylesheet" href="style.css" type="text/css" />
 </head>
 
@@ -129,47 +160,55 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <li class="divider"></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a></li>
 <li class="chapter" data-level="" data-path="topics.html"><a href="topics.html"><i class="fa fa-check"></i>Topics</a></li>
-<li class="chapter" data-level="1" data-path="introduction-to-r.html"><a href="introduction-to-r.html"><i class="fa fa-check"></i><b>1</b> Introduction to R</a><ul>
+<li class="chapter" data-level="1" data-path="introduction-to-r.html"><a href="introduction-to-r.html"><i class="fa fa-check"></i><b>1</b> Introduction to R</a>
+<ul>
 <li class="chapter" data-level="1.1" data-path="introduction-to-r.html"><a href="introduction-to-r.html#short-glossary"><i class="fa fa-check"></i><b>1.1</b> Short Glossary</a></li>
 <li class="chapter" data-level="1.2" data-path="introduction-to-r.html"><a href="introduction-to-r.html#first-steps"><i class="fa fa-check"></i><b>1.2</b> First Steps</a></li>
 <li class="chapter" data-level="1.3" data-path="introduction-to-r.html"><a href="introduction-to-r.html#further-data-objects"><i class="fa fa-check"></i><b>1.3</b> Further Data Objects</a></li>
 <li class="chapter" data-level="1.4" data-path="introduction-to-r.html"><a href="introduction-to-r.html#simple-regression-analysis-using-r"><i class="fa fa-check"></i><b>1.4</b> Simple Regression Analysis using R</a></li>
 <li class="chapter" data-level="1.5" data-path="introduction-to-r.html"><a href="introduction-to-r.html#programming-in-r"><i class="fa fa-check"></i><b>1.5</b> Programming in R</a></li>
 <li class="chapter" data-level="1.6" data-path="introduction-to-r.html"><a href="introduction-to-r.html#r-packages"><i class="fa fa-check"></i><b>1.6</b> R-packages</a></li>
-<li class="chapter" data-level="1.7" data-path="introduction-to-r.html"><a href="introduction-to-r.html#tidyverse"><i class="fa fa-check"></i><b>1.7</b> Tidyverse</a><ul>
+<li class="chapter" data-level="1.7" data-path="introduction-to-r.html"><a href="introduction-to-r.html#tidyverse"><i class="fa fa-check"></i><b>1.7</b> Tidyverse</a>
+<ul>
 <li class="chapter" data-level="1.7.1" data-path="introduction-to-r.html"><a href="introduction-to-r.html#tidyverse-plotting-basics"><i class="fa fa-check"></i><b>1.7.1</b> Tidyverse: Plotting Basics</a></li>
 <li class="chapter" data-level="1.7.2" data-path="introduction-to-r.html"><a href="introduction-to-r.html#tidyverse-data-wrangling-basics"><i class="fa fa-check"></i><b>1.7.2</b> Tidyverse: Data Wrangling Basics</a></li>
 <li class="chapter" data-level="1.7.3" data-path="introduction-to-r.html"><a href="introduction-to-r.html#the-pipe-operator"><i class="fa fa-check"></i><b>1.7.3</b> The pipe operator <code>%&gt;%</code></a></li>
 <li class="chapter" data-level="1.7.4" data-path="introduction-to-r.html"><a href="introduction-to-r.html#the-group_by-function"><i class="fa fa-check"></i><b>1.7.4</b> The <code>group_by()</code> function</a></li>
 </ul></li>
-<li class="chapter" data-level="1.8" data-path="introduction-to-r.html"><a href="introduction-to-r.html#further-links"><i class="fa fa-check"></i><b>1.8</b> Further Links</a><ul>
+<li class="chapter" data-level="1.8" data-path="introduction-to-r.html"><a href="introduction-to-r.html#further-links"><i class="fa fa-check"></i><b>1.8</b> Further Links</a>
+<ul>
 <li class="chapter" data-level="1.8.1" data-path="introduction-to-r.html"><a href="introduction-to-r.html#further-r-intros"><i class="fa fa-check"></i><b>1.8.1</b> Further R-Intros</a></li>
 <li class="chapter" data-level="1.8.2" data-path="introduction-to-r.html"><a href="introduction-to-r.html#version-control-gitgithub"><i class="fa fa-check"></i><b>1.8.2</b> Version Control (Git/GitHub)</a></li>
 <li class="chapter" data-level="1.8.3" data-path="introduction-to-r.html"><a href="introduction-to-r.html#r-ladies"><i class="fa fa-check"></i><b>1.8.3</b> R-Ladies</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="2" data-path="statistical-hypothesis-testing.html"><a href="statistical-hypothesis-testing.html"><i class="fa fa-check"></i><b>2</b> Statistical Hypothesis Testing</a><ul>
-<li class="chapter" data-level="2.1" data-path="statistical-hypothesis-testing.html"><a href="statistical-hypothesis-testing.html#hypotheses-and-test-statistics"><i class="fa fa-check"></i><b>2.1</b> Hypotheses and Test-Statistics</a></li>
-<li class="chapter" data-level="2.2" data-path="statistical-hypothesis-testing.html"><a href="statistical-hypothesis-testing.html#significance-level-size-and-p-values"><i class="fa fa-check"></i><b>2.2</b> Significance Level, Size and p-Values</a></li>
-<li class="chapter" data-level="2.3" data-path="statistical-hypothesis-testing.html"><a href="statistical-hypothesis-testing.html#PF1"><i class="fa fa-check"></i><b>2.3</b> The Power Function</a></li>
-<li class="chapter" data-level="2.4" data-path="statistical-hypothesis-testing.html"><a href="statistical-hypothesis-testing.html#asymptotic-null-distributions"><i class="fa fa-check"></i><b>2.4</b> Asymptotic Null Distributions</a></li>
-<li class="chapter" data-level="2.5" data-path="statistical-hypothesis-testing.html"><a href="statistical-hypothesis-testing.html#multiple-comparisons"><i class="fa fa-check"></i><b>2.5</b> Multiple Comparisons</a></li>
-<li class="chapter" data-level="2.6" data-path="statistical-hypothesis-testing.html"><a href="statistical-hypothesis-testing.html#r-lab-the-gauss-test"><i class="fa fa-check"></i><b>2.6</b> R-Lab: The Gauss-Test</a></li>
-</ul></li>
-<li class="chapter" data-level="3" data-path="estimation-theory.html"><a href="estimation-theory.html"><i class="fa fa-check"></i><b>3</b> Estimation Theory</a><ul>
-<li class="chapter" data-level="3.1" data-path="estimation-theory.html"><a href="estimation-theory.html#bias-variance-and-mse"><i class="fa fa-check"></i><b>3.1</b> Bias, Variance and MSE</a></li>
-<li class="chapter" data-level="3.2" data-path="estimation-theory.html"><a href="estimation-theory.html#consistency-of-estimators"><i class="fa fa-check"></i><b>3.2</b> Consistency of Estimators</a></li>
-<li class="chapter" data-level="3.3" data-path="estimation-theory.html"><a href="estimation-theory.html#rates-of-convergence"><i class="fa fa-check"></i><b>3.3</b> Rates of Convergence</a></li>
-<li class="chapter" data-level="3.4" data-path="estimation-theory.html"><a href="estimation-theory.html#asymptotic-distributions"><i class="fa fa-check"></i><b>3.4</b> Asymptotic Distributions</a></li>
-<li class="chapter" data-level="3.5" data-path="estimation-theory.html"><a href="estimation-theory.html#asymptotic-theory"><i class="fa fa-check"></i><b>3.5</b> Asymptotic Theory</a></li>
-<li class="chapter" data-level="3.6" data-path="estimation-theory.html"><a href="estimation-theory.html#mathematical-tools"><i class="fa fa-check"></i><b>3.6</b> Mathematical tools</a><ul>
-<li class="chapter" data-level="3.6.1" data-path="estimation-theory.html"><a href="estimation-theory.html#taylor-expansions"><i class="fa fa-check"></i><b>3.6.1</b> Taylor expansions</a></li>
-<li class="chapter" data-level="3.6.2" data-path="estimation-theory.html"><a href="estimation-theory.html#tools-for-deriving-asymptotic-distributions"><i class="fa fa-check"></i><b>3.6.2</b> Tools for deriving asymptotic distributions</a></li>
-<li class="chapter" data-level="3.6.3" data-path="estimation-theory.html"><a href="estimation-theory.html#the-delta-method"><i class="fa fa-check"></i><b>3.6.3</b> The Delta-Method</a></li>
+<li class="chapter" data-level="2" data-path="estimation-theory.html"><a href="estimation-theory.html"><i class="fa fa-check"></i><b>2</b> Estimation Theory</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="estimation-theory.html"><a href="estimation-theory.html#bias-variance-and-mse"><i class="fa fa-check"></i><b>2.1</b> Bias, Variance and MSE</a></li>
+<li class="chapter" data-level="2.2" data-path="estimation-theory.html"><a href="estimation-theory.html#consistency-of-estimators"><i class="fa fa-check"></i><b>2.2</b> Consistency of Estimators</a></li>
+<li class="chapter" data-level="2.3" data-path="estimation-theory.html"><a href="estimation-theory.html#rates-of-convergence"><i class="fa fa-check"></i><b>2.3</b> Rates of Convergence</a></li>
+<li class="chapter" data-level="2.4" data-path="estimation-theory.html"><a href="estimation-theory.html#asymptotic-distributions"><i class="fa fa-check"></i><b>2.4</b> Asymptotic Distributions</a></li>
+<li class="chapter" data-level="2.5" data-path="estimation-theory.html"><a href="estimation-theory.html#asymptotic-theory"><i class="fa fa-check"></i><b>2.5</b> Asymptotic Theory</a></li>
+<li class="chapter" data-level="2.6" data-path="estimation-theory.html"><a href="estimation-theory.html#mathematical-tools"><i class="fa fa-check"></i><b>2.6</b> Mathematical tools</a>
+<ul>
+<li class="chapter" data-level="2.6.1" data-path="estimation-theory.html"><a href="estimation-theory.html#taylor-expansions"><i class="fa fa-check"></i><b>2.6.1</b> Taylor expansions</a></li>
+<li class="chapter" data-level="2.6.2" data-path="estimation-theory.html"><a href="estimation-theory.html#tools-for-deriving-asymptotic-distributions"><i class="fa fa-check"></i><b>2.6.2</b> Tools for deriving asymptotic distributions</a></li>
+<li class="chapter" data-level="2.6.3" data-path="estimation-theory.html"><a href="estimation-theory.html#the-delta-method"><i class="fa fa-check"></i><b>2.6.3</b> The Delta-Method</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="ordinary-least-squares-the-classical-linear-regression-model.html"><a href="ordinary-least-squares-the-classical-linear-regression-model.html"><i class="fa fa-check"></i><b>4</b> Ordinary Least Squares: The Classical Linear Regression Model</a><ul>
-<li class="chapter" data-level="4.1" data-path="ordinary-least-squares-the-classical-linear-regression-model.html"><a href="ordinary-least-squares-the-classical-linear-regression-model.html#finite-sample-properties"><i class="fa fa-check"></i><b>4.1</b> Finite-Sample Properties</a><ul>
+<li class="chapter" data-level="3" data-path="statistical-hypothesis-testing.html"><a href="statistical-hypothesis-testing.html"><i class="fa fa-check"></i><b>3</b> Statistical Hypothesis Testing</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="statistical-hypothesis-testing.html"><a href="statistical-hypothesis-testing.html#hypotheses-and-test-statistics"><i class="fa fa-check"></i><b>3.1</b> Hypotheses and Test-Statistics</a></li>
+<li class="chapter" data-level="3.2" data-path="statistical-hypothesis-testing.html"><a href="statistical-hypothesis-testing.html#significance-level-size-and-p-values"><i class="fa fa-check"></i><b>3.2</b> Significance Level, Size and p-Values</a></li>
+<li class="chapter" data-level="3.3" data-path="statistical-hypothesis-testing.html"><a href="statistical-hypothesis-testing.html#PF1"><i class="fa fa-check"></i><b>3.3</b> The Power Function</a></li>
+<li class="chapter" data-level="3.4" data-path="statistical-hypothesis-testing.html"><a href="statistical-hypothesis-testing.html#asymptotic-null-distributions"><i class="fa fa-check"></i><b>3.4</b> Asymptotic Null Distributions</a></li>
+<li class="chapter" data-level="3.5" data-path="statistical-hypothesis-testing.html"><a href="statistical-hypothesis-testing.html#multiple-comparisons"><i class="fa fa-check"></i><b>3.5</b> Multiple Comparisons</a></li>
+<li class="chapter" data-level="3.6" data-path="statistical-hypothesis-testing.html"><a href="statistical-hypothesis-testing.html#r-lab-the-gauss-test"><i class="fa fa-check"></i><b>3.6</b> R-Lab: The Gauss-Test</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="ordinary-least-squares-the-classical-linear-regression-model.html"><a href="ordinary-least-squares-the-classical-linear-regression-model.html"><i class="fa fa-check"></i><b>4</b> Ordinary Least Squares: The Classical Linear Regression Model</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="ordinary-least-squares-the-classical-linear-regression-model.html"><a href="ordinary-least-squares-the-classical-linear-regression-model.html#finite-sample-properties"><i class="fa fa-check"></i><b>4.1</b> Finite-Sample Properties</a>
+<ul>
 <li class="chapter" data-level="4.1.1" data-path="ordinary-least-squares-the-classical-linear-regression-model.html"><a href="ordinary-least-squares-the-classical-linear-regression-model.html#the-algebra-of-least-squares"><i class="fa fa-check"></i><b>4.1.1</b> The Algebra of Least Squares</a></li>
 <li class="chapter" data-level="" data-path="ordinary-least-squares-the-classical-linear-regression-model.html"><a href="ordinary-least-squares-the-classical-linear-regression-model.html#some-quantities-of-interest"><i class="fa fa-check"></i>Some quantities of interest:</a></li>
 <li class="chapter" data-level="4.1.2" data-path="ordinary-least-squares-the-classical-linear-regression-model.html"><a href="ordinary-least-squares-the-classical-linear-regression-model.html#coefficient-of-determination"><i class="fa fa-check"></i><b>4.1.2</b> Coefficient of determination</a></li>
@@ -179,20 +218,24 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="4.2" data-path="ordinary-least-squares-the-classical-linear-regression-model.html"><a href="ordinary-least-squares-the-classical-linear-regression-model.html#asymptotics-under-the-classic-regression-model"><i class="fa fa-check"></i><b>4.2</b> Asymptotics under the Classic Regression Model</a></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="monte-carlo-simulations.html"><a href="monte-carlo-simulations.html"><i class="fa fa-check"></i><b>5</b> Monte-Carlo Simulations</a><ul>
-<li class="chapter" data-level="5.1" data-path="monte-carlo-simulations.html"><a href="monte-carlo-simulations.html#checking-test-statistics"><i class="fa fa-check"></i><b>5.1</b> Checking Test Statistics</a><ul>
+<li class="chapter" data-level="5" data-path="monte-carlo-simulations.html"><a href="monte-carlo-simulations.html"><i class="fa fa-check"></i><b>5</b> Monte-Carlo Simulations</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="monte-carlo-simulations.html"><a href="monte-carlo-simulations.html#checking-test-statistics"><i class="fa fa-check"></i><b>5.1</b> Checking Test Statistics</a>
+<ul>
 <li class="chapter" data-level="5.1.1" data-path="monte-carlo-simulations.html"><a href="monte-carlo-simulations.html#simple-example-gauss-test"><i class="fa fa-check"></i><b>5.1.1</b> Simple Example: Gauss Test</a></li>
 <li class="chapter" data-level="5.1.2" data-path="monte-carlo-simulations.html"><a href="monte-carlo-simulations.html#simulated-power-function"><i class="fa fa-check"></i><b>5.1.2</b> Simulated Power Function</a></li>
 </ul></li>
 <li class="chapter" data-level="5.2" data-path="monte-carlo-simulations.html"><a href="monte-carlo-simulations.html#checking-parameter-estimators"><i class="fa fa-check"></i><b>5.2</b> Checking Parameter Estimators</a></li>
 </ul></li>
-<li class="chapter" data-level="6" data-path="how-to-write.html"><a href="how-to-write.html"><i class="fa fa-check"></i><b>6</b> How to Write</a><ul>
+<li class="chapter" data-level="6" data-path="how-to-write.html"><a href="how-to-write.html"><i class="fa fa-check"></i><b>6</b> How to Write</a>
+<ul>
 <li class="chapter" data-level="6.1" data-path="how-to-write.html"><a href="how-to-write.html#five-common-writing-mistakes"><i class="fa fa-check"></i><b>6.1</b> Five Common Writing Mistakes</a></li>
 <li class="chapter" data-level="6.2" data-path="how-to-write.html"><a href="how-to-write.html#gregory-mankiw-how-to-write-well"><i class="fa fa-check"></i><b>6.2</b> Gregory Mankiw: How to Write Well</a></li>
 <li class="chapter" data-level="6.3" data-path="how-to-write.html"><a href="how-to-write.html#rob-j-hyndman-avoid-annoying-a-referee"><i class="fa fa-check"></i><b>6.3</b> Rob J Hyndman: Avoid Annoying a Referee</a></li>
 <li class="chapter" data-level="6.4" data-path="how-to-write.html"><a href="how-to-write.html#latex"><i class="fa fa-check"></i><b>6.4</b> LaTeX</a></li>
 </ul></li>
-<li class="chapter" data-level="7" data-path="how-to-present.html"><a href="how-to-present.html"><i class="fa fa-check"></i><b>7</b> How to Present</a><ul>
+<li class="chapter" data-level="7" data-path="how-to-present.html"><a href="how-to-present.html"><i class="fa fa-check"></i><b>7</b> How to Present</a>
+<ul>
 <li class="chapter" data-level="7.1" data-path="how-to-present.html"><a href="how-to-present.html#the-aim-of-your-talk"><i class="fa fa-check"></i><b>7.1</b> The Aim of your Talk</a></li>
 <li class="chapter" data-level="7.2" data-path="how-to-present.html"><a href="how-to-present.html#a-suggested-structure"><i class="fa fa-check"></i><b>7.2</b> A Suggested Structure</a></li>
 <li class="chapter" data-level="7.3" data-path="how-to-present.html"><a href="how-to-present.html#preparing-slides"><i class="fa fa-check"></i><b>7.3</b> Preparing Slides</a></li>
@@ -218,11 +261,11 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="monte-carlo-simulations" class="section level1">
+<div id="monte-carlo-simulations" class="section level1" number="5">
 <h1><span class="header-section-number">Ch. 5</span> Monte-Carlo Simulations</h1>
-<div id="checking-test-statistics" class="section level2">
+<div id="checking-test-statistics" class="section level2" number="5.1">
 <h2><span class="header-section-number">5.1</span> Checking Test Statistics</h2>
-<div id="simple-example-gauss-test" class="section level3">
+<div id="simple-example-gauss-test" class="section level3" number="5.1.1">
 <h3><span class="header-section-number">5.1.1</span> Simple Example: Gauss Test</h3>
 <p>First, we repeat some of the things we already know about the Gauss test statistic <span class="math inline">\(Z=\frac{\sqrt{n}(\bar{X}-\mu_{X,0})}{\sigma_X}\)</span> from <a href="statistical-hypothesis-testing.html#PF1">Chapter</a>.</p>
 <p>Let us consider the simple case of the <em>one-sided</em> Gauss (or Z) test statistic under the following following setup:</p>
@@ -252,65 +295,65 @@ where <span class="math inline">\(\Phi_{\mu_Z,\sigma_Z^2}\)</span> denotes the d
 Furthermore, <span class="math inline">\(z_{1-\alpha}=z_{0.95}\)</span> is the 95% quantile of a standard normal distribution.</p>
 <p><strong>Computation in R:</strong>
 This is how you can use R in order to compute <span class="math inline">\(\beta^{Z}_{n,\alpha}(\mu_X)=1-\Phi_{\mu_Z,1}(z_{1-\alpha})\)</span>:</p>
-<div class="sourceCode" id="cb130"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb130-1" data-line-number="1">Gauss.beta &lt;-<span class="st"> </span><span class="cf">function</span>(n,             <span class="co"># sample size  </span></a>
-<a class="sourceLine" id="cb130-2" data-line-number="2">                       <span class="dt">alpha=</span><span class="fl">0.05</span>,    <span class="co"># significance level</span></a>
-<a class="sourceLine" id="cb130-3" data-line-number="3">                       <span class="dt">mu.X.true=</span><span class="dv">0</span>,   <span class="co"># The true mean of X_i </span></a>
-<a class="sourceLine" id="cb130-4" data-line-number="4">                       <span class="dt">mu.X.null=</span><span class="dv">0</span>,   <span class="co"># The null-hypothesis mean of X_i</span></a>
-<a class="sourceLine" id="cb130-5" data-line-number="5">                       <span class="dt">var.X    =</span><span class="dv">1</span>    <span class="co"># The assumed known var of X_i</span></a>
-<a class="sourceLine" id="cb130-6" data-line-number="6">                       ){</a>
-<a class="sourceLine" id="cb130-7" data-line-number="7">  <span class="co">## Critical value:</span></a>
-<a class="sourceLine" id="cb130-8" data-line-number="8">  z_crit &lt;-<span class="st"> </span><span class="kw">qnorm</span>(<span class="dv">1</span><span class="op">-</span>alpha, <span class="dt">mean=</span><span class="dv">0</span>, <span class="dt">sd=</span><span class="dv">1</span>)</a>
-<a class="sourceLine" id="cb130-9" data-line-number="9">  <span class="co">## Power:</span></a>
-<a class="sourceLine" id="cb130-10" data-line-number="10">  Phi &lt;-<span class="st"> </span><span class="kw">pnorm</span>(<span class="dt">q    =</span> z_crit, </a>
-<a class="sourceLine" id="cb130-11" data-line-number="11">               <span class="dt">mean =</span> <span class="kw">sqrt</span>(n)<span class="op">*</span>(mu.X.true <span class="op">-</span><span class="st"> </span>mu.X.null)<span class="op">/</span><span class="kw">sqrt</span>(var.X), </a>
-<a class="sourceLine" id="cb130-12" data-line-number="12">               <span class="dt">sd   =</span> <span class="dv">1</span>)</a>
-<a class="sourceLine" id="cb130-13" data-line-number="13">  power &lt;-<span class="st"> </span><span class="dv">1</span><span class="op">-</span><span class="st"> </span>Phi</a>
-<a class="sourceLine" id="cb130-14" data-line-number="14">  <span class="co">## Return result:</span></a>
-<a class="sourceLine" id="cb130-15" data-line-number="15">  <span class="kw">return</span>(power)</a>
-<a class="sourceLine" id="cb130-16" data-line-number="16">}</a></code></pre></div>
+<div class="sourceCode" id="cb136"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb136-1"><a href="monte-carlo-simulations.html#cb136-1" aria-hidden="true" tabindex="-1"></a>Gauss.beta <span class="ot">&lt;-</span> <span class="cf">function</span>(n,             <span class="co"># sample size  </span></span>
+<span id="cb136-2"><a href="monte-carlo-simulations.html#cb136-2" aria-hidden="true" tabindex="-1"></a>                       <span class="at">alpha=</span><span class="fl">0.05</span>,    <span class="co"># significance level</span></span>
+<span id="cb136-3"><a href="monte-carlo-simulations.html#cb136-3" aria-hidden="true" tabindex="-1"></a>                       <span class="at">mu.X.true=</span><span class="dv">0</span>,   <span class="co"># The true mean of X_i </span></span>
+<span id="cb136-4"><a href="monte-carlo-simulations.html#cb136-4" aria-hidden="true" tabindex="-1"></a>                       <span class="at">mu.X.null=</span><span class="dv">0</span>,   <span class="co"># The null-hypothesis mean of X_i</span></span>
+<span id="cb136-5"><a href="monte-carlo-simulations.html#cb136-5" aria-hidden="true" tabindex="-1"></a>                       <span class="at">var.X    =</span><span class="dv">1</span>    <span class="co"># The assumed known var of X_i</span></span>
+<span id="cb136-6"><a href="monte-carlo-simulations.html#cb136-6" aria-hidden="true" tabindex="-1"></a>                       ){</span>
+<span id="cb136-7"><a href="monte-carlo-simulations.html#cb136-7" aria-hidden="true" tabindex="-1"></a>  <span class="do">## Critical value:</span></span>
+<span id="cb136-8"><a href="monte-carlo-simulations.html#cb136-8" aria-hidden="true" tabindex="-1"></a>  z_crit <span class="ot">&lt;-</span> <span class="fu">qnorm</span>(<span class="dv">1</span><span class="sc">-</span>alpha, <span class="at">mean=</span><span class="dv">0</span>, <span class="at">sd=</span><span class="dv">1</span>)</span>
+<span id="cb136-9"><a href="monte-carlo-simulations.html#cb136-9" aria-hidden="true" tabindex="-1"></a>  <span class="do">## Power:</span></span>
+<span id="cb136-10"><a href="monte-carlo-simulations.html#cb136-10" aria-hidden="true" tabindex="-1"></a>  Phi <span class="ot">&lt;-</span> <span class="fu">pnorm</span>(<span class="at">q    =</span> z_crit, </span>
+<span id="cb136-11"><a href="monte-carlo-simulations.html#cb136-11" aria-hidden="true" tabindex="-1"></a>               <span class="at">mean =</span> <span class="fu">sqrt</span>(n)<span class="sc">*</span>(mu.X.true <span class="sc">-</span> mu.X.null)<span class="sc">/</span><span class="fu">sqrt</span>(var.X), </span>
+<span id="cb136-12"><a href="monte-carlo-simulations.html#cb136-12" aria-hidden="true" tabindex="-1"></a>               <span class="at">sd   =</span> <span class="dv">1</span>)</span>
+<span id="cb136-13"><a href="monte-carlo-simulations.html#cb136-13" aria-hidden="true" tabindex="-1"></a>  power <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">-</span> Phi</span>
+<span id="cb136-14"><a href="monte-carlo-simulations.html#cb136-14" aria-hidden="true" tabindex="-1"></a>  <span class="do">## Return result:</span></span>
+<span id="cb136-15"><a href="monte-carlo-simulations.html#cb136-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(power)</span>
+<span id="cb136-16"><a href="monte-carlo-simulations.html#cb136-16" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
 <p>For our purposes, it is convenient to vectorize the <code>Gauss.beta()</code> function with respect to its argument <code>mu.X.true</code>:</p>
-<div class="sourceCode" id="cb131"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb131-1" data-line-number="1"><span class="co">## Vectorization with respect to the argument `mu.X.true`:</span></a>
-<a class="sourceLine" id="cb131-2" data-line-number="2">Gauss.beta &lt;-<span class="st"> </span><span class="kw">Vectorize</span>(<span class="dt">FUN=</span>Gauss.beta, <span class="dt">vectorize.args =</span> <span class="st">&quot;mu.X.true&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb137"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb137-1"><a href="monte-carlo-simulations.html#cb137-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Vectorization with respect to the argument `mu.X.true`:</span></span>
+<span id="cb137-2"><a href="monte-carlo-simulations.html#cb137-2" aria-hidden="true" tabindex="-1"></a>Gauss.beta <span class="ot">&lt;-</span> <span class="fu">Vectorize</span>(<span class="at">FUN=</span>Gauss.beta, <span class="at">vectorize.args =</span> <span class="st">&quot;mu.X.true&quot;</span>)</span></code></pre></div>
 <p><strong>Plot:</strong>
 The function <code>Gauss.beta()</code> allows us now to easily produce a plot of the trajectories of the power function
 <span class="math inline">\(\beta^{Z}_{n,0.05}(\mu_X)\)</span> for <span class="math inline">\(\mu_X\in\Omega_0\cup\Omega_1\)</span> and for the different sample sizes <span class="math inline">\(n\in\{15,30,50\}\)</span>.</p>
 <p>Here is the R-Code to do this:</p>
-<div class="sourceCode" id="cb132"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb132-1" data-line-number="1"><span class="co">## Sequence of different mu_X values (here from 0 to 1):</span></a>
-<a class="sourceLine" id="cb132-2" data-line-number="2">mu.X.true.seq   &lt;-<span class="st"> </span><span class="kw">seq</span>(<span class="dv">0</span>,<span class="dv">1</span>,<span class="dt">len=</span><span class="dv">25</span>)</a>
-<a class="sourceLine" id="cb132-3" data-line-number="3"></a>
-<a class="sourceLine" id="cb132-4" data-line-number="4"><span class="co">## Trajectories of the power function for different sample sizes:</span></a>
-<a class="sourceLine" id="cb132-5" data-line-number="5"><span class="co">## n=15</span></a>
-<a class="sourceLine" id="cb132-6" data-line-number="6">beta.n<span class="fl">.15</span>       &lt;-<span class="st"> </span><span class="kw">Gauss.beta</span>(<span class="dt">n=</span><span class="dv">15</span>, <span class="dt">mu.X.true=</span>mu.X.true.seq)</a>
-<a class="sourceLine" id="cb132-7" data-line-number="7"><span class="co">## n=30</span></a>
-<a class="sourceLine" id="cb132-8" data-line-number="8">beta.n<span class="fl">.30</span>       &lt;-<span class="st"> </span><span class="kw">Gauss.beta</span>(<span class="dt">n=</span><span class="dv">30</span>, <span class="dt">mu.X.true=</span>mu.X.true.seq)</a>
-<a class="sourceLine" id="cb132-9" data-line-number="9"><span class="co">## n=50</span></a>
-<a class="sourceLine" id="cb132-10" data-line-number="10">beta.n<span class="fl">.50</span>       &lt;-<span class="st"> </span><span class="kw">Gauss.beta</span>(<span class="dt">n=</span><span class="dv">50</span>, <span class="dt">mu.X.true=</span>mu.X.true.seq)</a>
-<a class="sourceLine" id="cb132-11" data-line-number="11"></a>
-<a class="sourceLine" id="cb132-12" data-line-number="12"><span class="co">## Plot</span></a>
-<a class="sourceLine" id="cb132-13" data-line-number="13"><span class="kw">par</span>(<span class="dt">mar=</span><span class="kw">c</span>(<span class="fl">5.1</span>,<span class="fl">4.1</span><span class="op">+</span><span class="dv">1</span>,<span class="fl">4.1</span>,<span class="fl">2.1</span>))</a>
-<a class="sourceLine" id="cb132-14" data-line-number="14"><span class="kw">plot</span>(<span class="dt">y=</span><span class="dv">0</span>, <span class="dt">x=</span><span class="dv">0</span>, <span class="dt">type=</span><span class="st">&quot;n&quot;</span>,</a>
-<a class="sourceLine" id="cb132-15" data-line-number="15">     <span class="dt">ylim=</span><span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">1</span>),</a>
-<a class="sourceLine" id="cb132-16" data-line-number="16">     <span class="dt">xlim=</span><span class="kw">range</span>(mu.X.true.seq), </a>
-<a class="sourceLine" id="cb132-17" data-line-number="17">     <span class="dt">xlab=</span><span class="kw">expression</span>(<span class="kw">paste</span>(mu,<span class="st">&quot; (True Mean of &quot;</span>, X[i],<span class="st">&quot;)&quot;</span>)), </a>
-<a class="sourceLine" id="cb132-18" data-line-number="18">     <span class="co">## Labels:</span></a>
-<a class="sourceLine" id="cb132-19" data-line-number="19">     <span class="dt">ylab=</span><span class="kw">expression</span>(<span class="kw">paste</span>(<span class="st">&quot;Power function &quot;</span>,beta[n]<span class="op">^</span>Z,(mu))), </a>
-<a class="sourceLine" id="cb132-20" data-line-number="20">     <span class="dt">main=</span><span class="st">&quot;Power function of the (One-Sided) Gauss Test&quot;</span>)</a>
-<a class="sourceLine" id="cb132-21" data-line-number="21"><span class="co">## Null-hypothesis mean:</span></a>
-<a class="sourceLine" id="cb132-22" data-line-number="22"><span class="kw">mtext</span>(<span class="dt">text =</span> <span class="kw">expression</span>(mu[<span class="dv">0</span>]<span class="op">==</span><span class="dv">0</span>), <span class="dt">side =</span> <span class="dv">1</span>, <span class="dt">line =</span> <span class="dv">2</span>, <span class="dt">at =</span> <span class="dv">0</span>)</a>
-<a class="sourceLine" id="cb132-23" data-line-number="23"><span class="co">## Trajectories:</span></a>
-<a class="sourceLine" id="cb132-24" data-line-number="24"><span class="kw">lines</span>(<span class="dt">y=</span>beta.n<span class="fl">.15</span>, <span class="dt">x=</span>mu.X.true.seq, <span class="dt">lty=</span><span class="dv">2</span>)</a>
-<a class="sourceLine" id="cb132-25" data-line-number="25"><span class="kw">lines</span>(<span class="dt">y=</span>beta.n<span class="fl">.30</span>, <span class="dt">x=</span>mu.X.true.seq, <span class="dt">lty=</span><span class="dv">3</span>)</a>
-<a class="sourceLine" id="cb132-26" data-line-number="26"><span class="kw">lines</span>(<span class="dt">y=</span>beta.n<span class="fl">.50</span>, <span class="dt">x=</span>mu.X.true.seq, <span class="dt">lty=</span><span class="dv">4</span>)</a>
-<a class="sourceLine" id="cb132-27" data-line-number="27"><span class="co">## Significance Level:</span></a>
-<a class="sourceLine" id="cb132-28" data-line-number="28"><span class="kw">axis</span>(<span class="dv">4</span>, <span class="dt">at=</span><span class="fl">0.05</span>, <span class="dt">labels =</span> <span class="kw">expression</span>(alpha<span class="op">==</span><span class="fl">0.05</span>))</a>
-<a class="sourceLine" id="cb132-29" data-line-number="29"><span class="kw">abline</span>(<span class="dt">h=</span><span class="fl">0.05</span>, <span class="dt">lty=</span><span class="dv">1</span>)</a>
-<a class="sourceLine" id="cb132-30" data-line-number="30"><span class="co">## Legend:</span></a>
-<a class="sourceLine" id="cb132-31" data-line-number="31"><span class="kw">legend</span>(<span class="st">&quot;topleft&quot;</span>, <span class="dt">title =</span> <span class="st">&quot;Sample Sizes&quot;</span>, </a>
-<a class="sourceLine" id="cb132-32" data-line-number="32">       <span class="dt">legend =</span> <span class="kw">c</span>(<span class="st">&quot;n=50&quot;</span>,<span class="st">&quot;n=30&quot;</span>,<span class="st">&quot;n=15&quot;</span>), </a>
-<a class="sourceLine" id="cb132-33" data-line-number="33">       <span class="dt">lty=</span><span class="kw">c</span>(<span class="dv">4</span><span class="op">:</span><span class="dv">2</span>))</a></code></pre></div>
+<div class="sourceCode" id="cb138"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb138-1"><a href="monte-carlo-simulations.html#cb138-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Sequence of different mu_X values (here from 0 to 1):</span></span>
+<span id="cb138-2"><a href="monte-carlo-simulations.html#cb138-2" aria-hidden="true" tabindex="-1"></a>mu.X.true.seq   <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="dv">0</span>,<span class="dv">1</span>,<span class="at">len=</span><span class="dv">25</span>)</span>
+<span id="cb138-3"><a href="monte-carlo-simulations.html#cb138-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb138-4"><a href="monte-carlo-simulations.html#cb138-4" aria-hidden="true" tabindex="-1"></a><span class="do">## Trajectories of the power function for different sample sizes:</span></span>
+<span id="cb138-5"><a href="monte-carlo-simulations.html#cb138-5" aria-hidden="true" tabindex="-1"></a><span class="do">## n=15</span></span>
+<span id="cb138-6"><a href="monte-carlo-simulations.html#cb138-6" aria-hidden="true" tabindex="-1"></a>beta.n<span class="fl">.15</span>       <span class="ot">&lt;-</span> <span class="fu">Gauss.beta</span>(<span class="at">n=</span><span class="dv">15</span>, <span class="at">mu.X.true=</span>mu.X.true.seq)</span>
+<span id="cb138-7"><a href="monte-carlo-simulations.html#cb138-7" aria-hidden="true" tabindex="-1"></a><span class="do">## n=30</span></span>
+<span id="cb138-8"><a href="monte-carlo-simulations.html#cb138-8" aria-hidden="true" tabindex="-1"></a>beta.n<span class="fl">.30</span>       <span class="ot">&lt;-</span> <span class="fu">Gauss.beta</span>(<span class="at">n=</span><span class="dv">30</span>, <span class="at">mu.X.true=</span>mu.X.true.seq)</span>
+<span id="cb138-9"><a href="monte-carlo-simulations.html#cb138-9" aria-hidden="true" tabindex="-1"></a><span class="do">## n=50</span></span>
+<span id="cb138-10"><a href="monte-carlo-simulations.html#cb138-10" aria-hidden="true" tabindex="-1"></a>beta.n<span class="fl">.50</span>       <span class="ot">&lt;-</span> <span class="fu">Gauss.beta</span>(<span class="at">n=</span><span class="dv">50</span>, <span class="at">mu.X.true=</span>mu.X.true.seq)</span>
+<span id="cb138-11"><a href="monte-carlo-simulations.html#cb138-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb138-12"><a href="monte-carlo-simulations.html#cb138-12" aria-hidden="true" tabindex="-1"></a><span class="do">## Plot</span></span>
+<span id="cb138-13"><a href="monte-carlo-simulations.html#cb138-13" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mar=</span><span class="fu">c</span>(<span class="fl">5.1</span>,<span class="fl">4.1</span><span class="sc">+</span><span class="dv">1</span>,<span class="fl">4.1</span>,<span class="fl">2.1</span>))</span>
+<span id="cb138-14"><a href="monte-carlo-simulations.html#cb138-14" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="at">y=</span><span class="dv">0</span>, <span class="at">x=</span><span class="dv">0</span>, <span class="at">type=</span><span class="st">&quot;n&quot;</span>,</span>
+<span id="cb138-15"><a href="monte-carlo-simulations.html#cb138-15" aria-hidden="true" tabindex="-1"></a>     <span class="at">ylim=</span><span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">1</span>),</span>
+<span id="cb138-16"><a href="monte-carlo-simulations.html#cb138-16" aria-hidden="true" tabindex="-1"></a>     <span class="at">xlim=</span><span class="fu">range</span>(mu.X.true.seq), </span>
+<span id="cb138-17"><a href="monte-carlo-simulations.html#cb138-17" aria-hidden="true" tabindex="-1"></a>     <span class="at">xlab=</span><span class="fu">expression</span>(<span class="fu">paste</span>(mu,<span class="st">&quot; (True Mean of &quot;</span>, X[i],<span class="st">&quot;)&quot;</span>)), </span>
+<span id="cb138-18"><a href="monte-carlo-simulations.html#cb138-18" aria-hidden="true" tabindex="-1"></a>     <span class="do">## Labels:</span></span>
+<span id="cb138-19"><a href="monte-carlo-simulations.html#cb138-19" aria-hidden="true" tabindex="-1"></a>     <span class="at">ylab=</span><span class="fu">expression</span>(<span class="fu">paste</span>(<span class="st">&quot;Power function &quot;</span>,beta[n]<span class="sc">^</span>Z,(mu))), </span>
+<span id="cb138-20"><a href="monte-carlo-simulations.html#cb138-20" aria-hidden="true" tabindex="-1"></a>     <span class="at">main=</span><span class="st">&quot;Power function of the (One-Sided) Gauss Test&quot;</span>)</span>
+<span id="cb138-21"><a href="monte-carlo-simulations.html#cb138-21" aria-hidden="true" tabindex="-1"></a><span class="do">## Null-hypothesis mean:</span></span>
+<span id="cb138-22"><a href="monte-carlo-simulations.html#cb138-22" aria-hidden="true" tabindex="-1"></a><span class="fu">mtext</span>(<span class="at">text =</span> <span class="fu">expression</span>(mu[<span class="dv">0</span>]<span class="sc">==</span><span class="dv">0</span>), <span class="at">side =</span> <span class="dv">1</span>, <span class="at">line =</span> <span class="dv">2</span>, <span class="at">at =</span> <span class="dv">0</span>)</span>
+<span id="cb138-23"><a href="monte-carlo-simulations.html#cb138-23" aria-hidden="true" tabindex="-1"></a><span class="do">## Trajectories:</span></span>
+<span id="cb138-24"><a href="monte-carlo-simulations.html#cb138-24" aria-hidden="true" tabindex="-1"></a><span class="fu">lines</span>(<span class="at">y=</span>beta.n<span class="fl">.15</span>, <span class="at">x=</span>mu.X.true.seq, <span class="at">lty=</span><span class="dv">2</span>)</span>
+<span id="cb138-25"><a href="monte-carlo-simulations.html#cb138-25" aria-hidden="true" tabindex="-1"></a><span class="fu">lines</span>(<span class="at">y=</span>beta.n<span class="fl">.30</span>, <span class="at">x=</span>mu.X.true.seq, <span class="at">lty=</span><span class="dv">3</span>)</span>
+<span id="cb138-26"><a href="monte-carlo-simulations.html#cb138-26" aria-hidden="true" tabindex="-1"></a><span class="fu">lines</span>(<span class="at">y=</span>beta.n<span class="fl">.50</span>, <span class="at">x=</span>mu.X.true.seq, <span class="at">lty=</span><span class="dv">4</span>)</span>
+<span id="cb138-27"><a href="monte-carlo-simulations.html#cb138-27" aria-hidden="true" tabindex="-1"></a><span class="do">## Significance Level:</span></span>
+<span id="cb138-28"><a href="monte-carlo-simulations.html#cb138-28" aria-hidden="true" tabindex="-1"></a><span class="fu">axis</span>(<span class="dv">4</span>, <span class="at">at=</span><span class="fl">0.05</span>, <span class="at">labels =</span> <span class="fu">expression</span>(alpha<span class="sc">==</span><span class="fl">0.05</span>))</span>
+<span id="cb138-29"><a href="monte-carlo-simulations.html#cb138-29" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">h=</span><span class="fl">0.05</span>, <span class="at">lty=</span><span class="dv">1</span>)</span>
+<span id="cb138-30"><a href="monte-carlo-simulations.html#cb138-30" aria-hidden="true" tabindex="-1"></a><span class="do">## Legend:</span></span>
+<span id="cb138-31"><a href="monte-carlo-simulations.html#cb138-31" aria-hidden="true" tabindex="-1"></a><span class="fu">legend</span>(<span class="st">&quot;topleft&quot;</span>, <span class="at">title =</span> <span class="st">&quot;Sample Sizes&quot;</span>, </span>
+<span id="cb138-32"><a href="monte-carlo-simulations.html#cb138-32" aria-hidden="true" tabindex="-1"></a>       <span class="at">legend =</span> <span class="fu">c</span>(<span class="st">&quot;n=50&quot;</span>,<span class="st">&quot;n=30&quot;</span>,<span class="st">&quot;n=15&quot;</span>), </span>
+<span id="cb138-33"><a href="monte-carlo-simulations.html#cb138-33" aria-hidden="true" tabindex="-1"></a>       <span class="at">lty=</span><span class="fu">c</span>(<span class="dv">4</span><span class="sc">:</span><span class="dv">2</span>))</span></code></pre></div>
 <p><img src="05-Simulations_files/figure-html/unnamed-chunk-3-1.png" width="528" /></p>
 </div>
-<div id="simulated-power-function" class="section level3">
+<div id="simulated-power-function" class="section level3" number="5.1.2">
 <h3><span class="header-section-number">5.1.2</span> Simulated Power Function</h3>
 <p>The power function is best suited to compare several test statistics with each other. Very often, however, it is impossible to compute the power function <span class="math inline">\(\beta_{n,\alpha}(\theta)\)</span> analytically. (The Gauss test is a rare exception.) The reason for this is that we often know only the distribution of a test statistic under the null hypothesis, but not under the alternative hypothesis. In fact, things can be even worse: Very often, we only know the <strong>asymptotic distribution</strong> of a test statistic under the null hypothesis. That is, the null distribution is only known for the limiting case of <span class="math inline">\(n\to\infty\)</span>.</p>
 <p><strong>Solution:</strong>
@@ -383,35 +426,35 @@ from the MC random sample
 (1_{(Z_1 \geq z_{1-\alpha})},\dots,1_{(Z_m \geq z_{1-\alpha})}).
 \]</span>
 In R you can do this as following:</p>
-<div class="sourceCode" id="cb133"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb133-1" data-line-number="1"><span class="kw">set.seed</span>(<span class="dv">1009</span>)</a>
-<a class="sourceLine" id="cb133-2" data-line-number="2"><span class="co">## Setup:</span></a>
-<a class="sourceLine" id="cb133-3" data-line-number="3">n         &lt;-<span class="st"> </span><span class="dv">15</span>    <span class="co"># Sample Size</span></a>
-<a class="sourceLine" id="cb133-4" data-line-number="4">alpha     &lt;-<span class="st">  </span><span class="fl">0.05</span> <span class="co"># Significance Level</span></a>
-<a class="sourceLine" id="cb133-5" data-line-number="5">mu.X.true &lt;-<span class="st">  </span><span class="fl">0.5</span>  <span class="co"># The (usually unknown) true mean of X_i</span></a>
-<a class="sourceLine" id="cb133-6" data-line-number="6">mu.X.null &lt;-<span class="st">  </span><span class="dv">0</span>    <span class="co"># The null-hypothesis mean of X_i</span></a>
-<a class="sourceLine" id="cb133-7" data-line-number="7">var.X     &lt;-<span class="st">  </span><span class="dv">1</span>    <span class="co"># The (assumed known)  var of X_i</span></a>
-<a class="sourceLine" id="cb133-8" data-line-number="8"></a>
-<a class="sourceLine" id="cb133-9" data-line-number="9"><span class="co">## Critical value:</span></a>
-<a class="sourceLine" id="cb133-10" data-line-number="10">z_crit &lt;-<span class="st"> </span><span class="kw">qnorm</span>(<span class="dv">1</span><span class="op">-</span>alpha, <span class="dt">mean=</span><span class="dv">0</span>, <span class="dt">sd=</span><span class="dv">1</span>)</a>
-<a class="sourceLine" id="cb133-11" data-line-number="11"></a>
-<a class="sourceLine" id="cb133-12" data-line-number="12"><span class="co">## Number of Monte-Carlo Repetitions:</span></a>
-<a class="sourceLine" id="cb133-13" data-line-number="13">m         &lt;-<span class="st"> </span><span class="dv">50000</span></a>
-<a class="sourceLine" id="cb133-14" data-line-number="14"></a>
-<a class="sourceLine" id="cb133-15" data-line-number="15"><span class="co">## Container for Z-realizations:</span></a>
-<a class="sourceLine" id="cb133-16" data-line-number="16">Z         &lt;-<span class="st"> </span><span class="kw">rep</span>(<span class="ot">NA</span>, m)</a>
-<a class="sourceLine" id="cb133-17" data-line-number="17"></a>
-<a class="sourceLine" id="cb133-18" data-line-number="18"><span class="co">## MC-Experiments:</span></a>
-<a class="sourceLine" id="cb133-19" data-line-number="19"><span class="cf">for</span>(j <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span>m){</a>
-<a class="sourceLine" id="cb133-20" data-line-number="20">  <span class="co">## Generate X-sample:</span></a>
-<a class="sourceLine" id="cb133-21" data-line-number="21">  X.sample &lt;-<span class="st"> </span><span class="kw">rnorm</span>(<span class="dt">n=</span>n, <span class="dt">mean=</span>mu.X.true, <span class="dt">sd=</span><span class="kw">sqrt</span>(var.X))</a>
-<a class="sourceLine" id="cb133-22" data-line-number="22">  <span class="co">## Compute jth realization of Z:</span></a>
-<a class="sourceLine" id="cb133-23" data-line-number="23">  Z[j]     &lt;-<span class="st"> </span><span class="kw">sqrt</span>(n)<span class="op">*</span>(<span class="kw">mean</span>(X.sample) <span class="op">-</span><span class="st"> </span>mu.X.null)<span class="op">/</span><span class="kw">sqrt</span>(var.X)</a>
-<a class="sourceLine" id="cb133-24" data-line-number="24">}</a>
-<a class="sourceLine" id="cb133-25" data-line-number="25"></a>
-<a class="sourceLine" id="cb133-26" data-line-number="26"><span class="co">## Check Z&gt;=z_crit:</span></a>
-<a class="sourceLine" id="cb133-27" data-line-number="27"><span class="kw">head</span>(Z <span class="op">&gt;=</span><span class="st"> </span>z_crit)</a></code></pre></div>
+<div class="sourceCode" id="cb139"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb139-1"><a href="monte-carlo-simulations.html#cb139-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">1009</span>)</span>
+<span id="cb139-2"><a href="monte-carlo-simulations.html#cb139-2" aria-hidden="true" tabindex="-1"></a><span class="do">## Setup:</span></span>
+<span id="cb139-3"><a href="monte-carlo-simulations.html#cb139-3" aria-hidden="true" tabindex="-1"></a>n         <span class="ot">&lt;-</span> <span class="dv">15</span>    <span class="co"># Sample Size</span></span>
+<span id="cb139-4"><a href="monte-carlo-simulations.html#cb139-4" aria-hidden="true" tabindex="-1"></a>alpha     <span class="ot">&lt;-</span>  <span class="fl">0.05</span> <span class="co"># Significance Level</span></span>
+<span id="cb139-5"><a href="monte-carlo-simulations.html#cb139-5" aria-hidden="true" tabindex="-1"></a>mu.X.true <span class="ot">&lt;-</span>  <span class="fl">0.5</span>  <span class="co"># The (usually unknown) true mean of X_i</span></span>
+<span id="cb139-6"><a href="monte-carlo-simulations.html#cb139-6" aria-hidden="true" tabindex="-1"></a>mu.X.null <span class="ot">&lt;-</span>  <span class="dv">0</span>    <span class="co"># The null-hypothesis mean of X_i</span></span>
+<span id="cb139-7"><a href="monte-carlo-simulations.html#cb139-7" aria-hidden="true" tabindex="-1"></a>var.X     <span class="ot">&lt;-</span>  <span class="dv">1</span>    <span class="co"># The (assumed known)  var of X_i</span></span>
+<span id="cb139-8"><a href="monte-carlo-simulations.html#cb139-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb139-9"><a href="monte-carlo-simulations.html#cb139-9" aria-hidden="true" tabindex="-1"></a><span class="do">## Critical value:</span></span>
+<span id="cb139-10"><a href="monte-carlo-simulations.html#cb139-10" aria-hidden="true" tabindex="-1"></a>z_crit <span class="ot">&lt;-</span> <span class="fu">qnorm</span>(<span class="dv">1</span><span class="sc">-</span>alpha, <span class="at">mean=</span><span class="dv">0</span>, <span class="at">sd=</span><span class="dv">1</span>)</span>
+<span id="cb139-11"><a href="monte-carlo-simulations.html#cb139-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb139-12"><a href="monte-carlo-simulations.html#cb139-12" aria-hidden="true" tabindex="-1"></a><span class="do">## Number of Monte-Carlo Repetitions:</span></span>
+<span id="cb139-13"><a href="monte-carlo-simulations.html#cb139-13" aria-hidden="true" tabindex="-1"></a>m         <span class="ot">&lt;-</span> <span class="dv">50000</span></span>
+<span id="cb139-14"><a href="monte-carlo-simulations.html#cb139-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb139-15"><a href="monte-carlo-simulations.html#cb139-15" aria-hidden="true" tabindex="-1"></a><span class="do">## Container for Z-realizations:</span></span>
+<span id="cb139-16"><a href="monte-carlo-simulations.html#cb139-16" aria-hidden="true" tabindex="-1"></a>Z         <span class="ot">&lt;-</span> <span class="fu">rep</span>(<span class="cn">NA</span>, m)</span>
+<span id="cb139-17"><a href="monte-carlo-simulations.html#cb139-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb139-18"><a href="monte-carlo-simulations.html#cb139-18" aria-hidden="true" tabindex="-1"></a><span class="do">## MC-Experiments:</span></span>
+<span id="cb139-19"><a href="monte-carlo-simulations.html#cb139-19" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span>(j <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>m){</span>
+<span id="cb139-20"><a href="monte-carlo-simulations.html#cb139-20" aria-hidden="true" tabindex="-1"></a>  <span class="do">## Generate X-sample:</span></span>
+<span id="cb139-21"><a href="monte-carlo-simulations.html#cb139-21" aria-hidden="true" tabindex="-1"></a>  X.sample <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="at">n=</span>n, <span class="at">mean=</span>mu.X.true, <span class="at">sd=</span><span class="fu">sqrt</span>(var.X))</span>
+<span id="cb139-22"><a href="monte-carlo-simulations.html#cb139-22" aria-hidden="true" tabindex="-1"></a>  <span class="do">## Compute jth realization of Z:</span></span>
+<span id="cb139-23"><a href="monte-carlo-simulations.html#cb139-23" aria-hidden="true" tabindex="-1"></a>  Z[j]     <span class="ot">&lt;-</span> <span class="fu">sqrt</span>(n)<span class="sc">*</span>(<span class="fu">mean</span>(X.sample) <span class="sc">-</span> mu.X.null)<span class="sc">/</span><span class="fu">sqrt</span>(var.X)</span>
+<span id="cb139-24"><a href="monte-carlo-simulations.html#cb139-24" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb139-25"><a href="monte-carlo-simulations.html#cb139-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb139-26"><a href="monte-carlo-simulations.html#cb139-26" aria-hidden="true" tabindex="-1"></a><span class="do">## Check Z&gt;=z_crit:</span></span>
+<span id="cb139-27"><a href="monte-carlo-simulations.html#cb139-27" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(Z <span class="sc">&gt;=</span> z_crit)</span></code></pre></div>
 <pre><code>## [1]  TRUE  TRUE  TRUE FALSE FALSE  TRUE</code></pre>
-<div class="sourceCode" id="cb135"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb135-1" data-line-number="1"><span class="kw">head</span>(<span class="kw">as.numeric</span>(Z <span class="op">&gt;=</span><span class="st"> </span>z_crit))</a></code></pre></div>
+<div class="sourceCode" id="cb141"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb141-1"><a href="monte-carlo-simulations.html#cb141-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(<span class="fu">as.numeric</span>(Z <span class="sc">&gt;=</span> z_crit))</span></code></pre></div>
 <pre><code>## [1] 1 1 1 0 0 1</code></pre>
 <p>Third, we need to compute the average
 <span class="math display">\[
@@ -419,9 +462,9 @@ In R you can do this as following:</p>
 \]</span>
 with respect to the simulated realizations <span class="math inline">\(1_{(Z_1 \geq z_{1-\alpha})},\dots,1_{(Z_m \geq z_{1-\alpha})}\)</span>.</p>
 <p>In R you can do this as following:</p>
-<div class="sourceCode" id="cb137"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb137-1" data-line-number="1"><span class="co">## MC-Approximated Power:</span></a>
-<a class="sourceLine" id="cb137-2" data-line-number="2">MC_power_n15_mu0<span class="fl">.5</span> &lt;-<span class="st"> </span><span class="kw">mean</span>(Z <span class="op">&gt;=</span><span class="st"> </span>z_crit)</a>
-<a class="sourceLine" id="cb137-3" data-line-number="3">MC_power_n15_mu0<span class="fl">.5</span></a></code></pre></div>
+<div class="sourceCode" id="cb143"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb143-1"><a href="monte-carlo-simulations.html#cb143-1" aria-hidden="true" tabindex="-1"></a><span class="do">## MC-Approximated Power:</span></span>
+<span id="cb143-2"><a href="monte-carlo-simulations.html#cb143-2" aria-hidden="true" tabindex="-1"></a>MC_power_n15_mu0<span class="fl">.5</span> <span class="ot">&lt;-</span> <span class="fu">mean</span>(Z <span class="sc">&gt;=</span> z_crit)</span>
+<span id="cb143-3"><a href="monte-carlo-simulations.html#cb143-3" aria-hidden="true" tabindex="-1"></a>MC_power_n15_mu0<span class="fl">.5</span></span></code></pre></div>
 <pre><code>## [1] 0.6139</code></pre>
 <p>Observe that this approximation is really close to the true value:
  
@@ -429,97 +472,97 @@ with respect to the simulated realizations <span class="math inline">\(1_{(Z_1 \
 <p><br />
 </p>
 <p>We can write all this as a practical R function <code>Gauss.MC.beta()</code>:</p>
-<div class="sourceCode" id="cb139"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb139-1" data-line-number="1">Gauss.MC.beta &lt;-<span class="st"> </span><span class="cf">function</span>(</a>
-<a class="sourceLine" id="cb139-2" data-line-number="2">    <span class="dt">n         =</span> <span class="dv">15</span>,    <span class="co"># Sample Size</span></a>
-<a class="sourceLine" id="cb139-3" data-line-number="3">    <span class="dt">alpha     =</span>  <span class="fl">0.05</span>, <span class="co"># Significance Level</span></a>
-<a class="sourceLine" id="cb139-4" data-line-number="4">    <span class="dt">mu.X.true =</span>  <span class="fl">0.5</span>,  <span class="co"># The (usually unknown) true mean of X_i</span></a>
-<a class="sourceLine" id="cb139-5" data-line-number="5">    <span class="dt">mu.X.null =</span>  <span class="dv">0</span>,    <span class="co"># The null-hypothesis mean of X_i</span></a>
-<a class="sourceLine" id="cb139-6" data-line-number="6">    <span class="dt">var.X     =</span>  <span class="dv">1</span>,    <span class="co"># The (assumed known)  var of X_i</span></a>
-<a class="sourceLine" id="cb139-7" data-line-number="7">    <span class="co">##</span></a>
-<a class="sourceLine" id="cb139-8" data-line-number="8">    <span class="dt">m         =</span> <span class="dv">50000</span>  <span class="co"># Number of Monte-Carlo Repetitions:</span></a>
-<a class="sourceLine" id="cb139-9" data-line-number="9">    ){</a>
-<a class="sourceLine" id="cb139-10" data-line-number="10"></a>
-<a class="sourceLine" id="cb139-11" data-line-number="11">  <span class="co">## Critical value:</span></a>
-<a class="sourceLine" id="cb139-12" data-line-number="12">  z_crit &lt;-<span class="st"> </span><span class="kw">qnorm</span>(<span class="dv">1</span><span class="op">-</span>alpha, <span class="dt">mean=</span><span class="dv">0</span>, <span class="dt">sd=</span><span class="dv">1</span>)</a>
-<a class="sourceLine" id="cb139-13" data-line-number="13">  <span class="co">## Container for Z-realizations:</span></a>
-<a class="sourceLine" id="cb139-14" data-line-number="14">  Z         &lt;-<span class="st"> </span><span class="kw">rep</span>(<span class="ot">NA</span>, m)</a>
-<a class="sourceLine" id="cb139-15" data-line-number="15"></a>
-<a class="sourceLine" id="cb139-16" data-line-number="16">  <span class="co">## MC-Experiments:</span></a>
-<a class="sourceLine" id="cb139-17" data-line-number="17">  <span class="cf">for</span>(j <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span>m){</a>
-<a class="sourceLine" id="cb139-18" data-line-number="18">    <span class="co">## Generate X-sample:</span></a>
-<a class="sourceLine" id="cb139-19" data-line-number="19">    X.sample &lt;-<span class="st"> </span><span class="kw">rnorm</span>(<span class="dt">n=</span>n, <span class="dt">mean=</span>mu.X.true, <span class="dt">sd=</span><span class="kw">sqrt</span>(var.X))</a>
-<a class="sourceLine" id="cb139-20" data-line-number="20">    <span class="co">## Compute jth realization of Z:</span></a>
-<a class="sourceLine" id="cb139-21" data-line-number="21">    Z[j]     &lt;-<span class="st"> </span><span class="kw">sqrt</span>(n)<span class="op">*</span>(<span class="kw">mean</span>(X.sample) <span class="op">-</span><span class="st"> </span>mu.X.null)<span class="op">/</span><span class="kw">sqrt</span>(var.X)</a>
-<a class="sourceLine" id="cb139-22" data-line-number="22">  }</a>
-<a class="sourceLine" id="cb139-23" data-line-number="23">  <span class="co">## MC-Approx Power</span></a>
-<a class="sourceLine" id="cb139-24" data-line-number="24">  MC.power &lt;-<span class="st"> </span><span class="kw">mean</span>(<span class="kw">c</span>(<span class="kw">as.numeric</span>(Z <span class="op">&gt;=</span><span class="st"> </span>z_crit)))</a>
-<a class="sourceLine" id="cb139-25" data-line-number="25">  <span class="co">##</span></a>
-<a class="sourceLine" id="cb139-26" data-line-number="26">  <span class="kw">return</span>(MC.power)</a>
-<a class="sourceLine" id="cb139-27" data-line-number="27">}</a>
-<a class="sourceLine" id="cb139-28" data-line-number="28"></a>
-<a class="sourceLine" id="cb139-29" data-line-number="29"><span class="co">## Vectorization:</span></a>
-<a class="sourceLine" id="cb139-30" data-line-number="30">Gauss.MC.beta &lt;-<span class="st"> </span><span class="kw">Vectorize</span>(<span class="dt">FUN=</span>Gauss.MC.beta, <span class="dt">vectorize.args =</span> <span class="st">&quot;mu.X.true&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb145"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb145-1"><a href="monte-carlo-simulations.html#cb145-1" aria-hidden="true" tabindex="-1"></a>Gauss.MC.beta <span class="ot">&lt;-</span> <span class="cf">function</span>(</span>
+<span id="cb145-2"><a href="monte-carlo-simulations.html#cb145-2" aria-hidden="true" tabindex="-1"></a>    <span class="at">n         =</span> <span class="dv">15</span>,    <span class="co"># Sample Size</span></span>
+<span id="cb145-3"><a href="monte-carlo-simulations.html#cb145-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">alpha     =</span>  <span class="fl">0.05</span>, <span class="co"># Significance Level</span></span>
+<span id="cb145-4"><a href="monte-carlo-simulations.html#cb145-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">mu.X.true =</span>  <span class="fl">0.5</span>,  <span class="co"># The (usually unknown) true mean of X_i</span></span>
+<span id="cb145-5"><a href="monte-carlo-simulations.html#cb145-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">mu.X.null =</span>  <span class="dv">0</span>,    <span class="co"># The null-hypothesis mean of X_i</span></span>
+<span id="cb145-6"><a href="monte-carlo-simulations.html#cb145-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">var.X     =</span>  <span class="dv">1</span>,    <span class="co"># The (assumed known)  var of X_i</span></span>
+<span id="cb145-7"><a href="monte-carlo-simulations.html#cb145-7" aria-hidden="true" tabindex="-1"></a>    <span class="do">##</span></span>
+<span id="cb145-8"><a href="monte-carlo-simulations.html#cb145-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">m         =</span> <span class="dv">50000</span>  <span class="co"># Number of Monte-Carlo Repetitions:</span></span>
+<span id="cb145-9"><a href="monte-carlo-simulations.html#cb145-9" aria-hidden="true" tabindex="-1"></a>    ){</span>
+<span id="cb145-10"><a href="monte-carlo-simulations.html#cb145-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb145-11"><a href="monte-carlo-simulations.html#cb145-11" aria-hidden="true" tabindex="-1"></a>  <span class="do">## Critical value:</span></span>
+<span id="cb145-12"><a href="monte-carlo-simulations.html#cb145-12" aria-hidden="true" tabindex="-1"></a>  z_crit <span class="ot">&lt;-</span> <span class="fu">qnorm</span>(<span class="dv">1</span><span class="sc">-</span>alpha, <span class="at">mean=</span><span class="dv">0</span>, <span class="at">sd=</span><span class="dv">1</span>)</span>
+<span id="cb145-13"><a href="monte-carlo-simulations.html#cb145-13" aria-hidden="true" tabindex="-1"></a>  <span class="do">## Container for Z-realizations:</span></span>
+<span id="cb145-14"><a href="monte-carlo-simulations.html#cb145-14" aria-hidden="true" tabindex="-1"></a>  Z         <span class="ot">&lt;-</span> <span class="fu">rep</span>(<span class="cn">NA</span>, m)</span>
+<span id="cb145-15"><a href="monte-carlo-simulations.html#cb145-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb145-16"><a href="monte-carlo-simulations.html#cb145-16" aria-hidden="true" tabindex="-1"></a>  <span class="do">## MC-Experiments:</span></span>
+<span id="cb145-17"><a href="monte-carlo-simulations.html#cb145-17" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span>(j <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>m){</span>
+<span id="cb145-18"><a href="monte-carlo-simulations.html#cb145-18" aria-hidden="true" tabindex="-1"></a>    <span class="do">## Generate X-sample:</span></span>
+<span id="cb145-19"><a href="monte-carlo-simulations.html#cb145-19" aria-hidden="true" tabindex="-1"></a>    X.sample <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="at">n=</span>n, <span class="at">mean=</span>mu.X.true, <span class="at">sd=</span><span class="fu">sqrt</span>(var.X))</span>
+<span id="cb145-20"><a href="monte-carlo-simulations.html#cb145-20" aria-hidden="true" tabindex="-1"></a>    <span class="do">## Compute jth realization of Z:</span></span>
+<span id="cb145-21"><a href="monte-carlo-simulations.html#cb145-21" aria-hidden="true" tabindex="-1"></a>    Z[j]     <span class="ot">&lt;-</span> <span class="fu">sqrt</span>(n)<span class="sc">*</span>(<span class="fu">mean</span>(X.sample) <span class="sc">-</span> mu.X.null)<span class="sc">/</span><span class="fu">sqrt</span>(var.X)</span>
+<span id="cb145-22"><a href="monte-carlo-simulations.html#cb145-22" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb145-23"><a href="monte-carlo-simulations.html#cb145-23" aria-hidden="true" tabindex="-1"></a>  <span class="do">## MC-Approx Power</span></span>
+<span id="cb145-24"><a href="monte-carlo-simulations.html#cb145-24" aria-hidden="true" tabindex="-1"></a>  MC.power <span class="ot">&lt;-</span> <span class="fu">mean</span>(<span class="fu">c</span>(<span class="fu">as.numeric</span>(Z <span class="sc">&gt;=</span> z_crit)))</span>
+<span id="cb145-25"><a href="monte-carlo-simulations.html#cb145-25" aria-hidden="true" tabindex="-1"></a>  <span class="do">##</span></span>
+<span id="cb145-26"><a href="monte-carlo-simulations.html#cb145-26" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(MC.power)</span>
+<span id="cb145-27"><a href="monte-carlo-simulations.html#cb145-27" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb145-28"><a href="monte-carlo-simulations.html#cb145-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb145-29"><a href="monte-carlo-simulations.html#cb145-29" aria-hidden="true" tabindex="-1"></a><span class="do">## Vectorization:</span></span>
+<span id="cb145-30"><a href="monte-carlo-simulations.html#cb145-30" aria-hidden="true" tabindex="-1"></a>Gauss.MC.beta <span class="ot">&lt;-</span> <span class="fu">Vectorize</span>(<span class="at">FUN=</span>Gauss.MC.beta, <span class="at">vectorize.args =</span> <span class="st">&quot;mu.X.true&quot;</span>)</span></code></pre></div>
 <p><strong>Plot:</strong></p>
 <p>The function <code>Gauss.MC.beta()</code> allows us now to compare the theoretical trajectory of the power function
 <span class="math inline">\(\beta^{Z}_{n,0.05}(\mu_X)\)</span> for <span class="math inline">\(\mu_X\in\Omega_0\cup\Omega_1\)</span>, e.g., for the sample size <span class="math inline">\(n=30\)</span> with its simulated counterpart.</p>
 <p>Here is the R-Code to do this:</p>
-<div class="sourceCode" id="cb140"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb140-1" data-line-number="1"><span class="co">## Sequence of different mu_X values (here from 0 to 1):</span></a>
-<a class="sourceLine" id="cb140-2" data-line-number="2">mu.X.true.seq   &lt;-<span class="st"> </span><span class="kw">seq</span>(<span class="dv">0</span>,<span class="dv">1</span>,<span class="dt">len=</span><span class="dv">25</span>)</a>
-<a class="sourceLine" id="cb140-3" data-line-number="3"></a>
-<a class="sourceLine" id="cb140-4" data-line-number="4"><span class="co">## Simulating the trajectory of the power function for n=30:</span></a>
-<a class="sourceLine" id="cb140-5" data-line-number="5"><span class="co">## Number of MC-Repetitions:</span></a>
-<a class="sourceLine" id="cb140-6" data-line-number="6">m &lt;-<span class="st"> </span><span class="dv">50000</span>  </a>
-<a class="sourceLine" id="cb140-7" data-line-number="7"><span class="co">## Try also: </span></a>
-<a class="sourceLine" id="cb140-8" data-line-number="8"><span class="co">## m &lt;- 100</span></a>
-<a class="sourceLine" id="cb140-9" data-line-number="9"></a>
-<a class="sourceLine" id="cb140-10" data-line-number="10">beta.MC.n<span class="fl">.30</span>       &lt;-<span class="st"> </span><span class="kw">Gauss.MC.beta</span>(<span class="dt">n         =</span> <span class="dv">30</span>, </a>
-<a class="sourceLine" id="cb140-11" data-line-number="11">                                    <span class="dt">mu.X.true =</span> mu.X.true.seq,</a>
-<a class="sourceLine" id="cb140-12" data-line-number="12">                                    <span class="dt">m         =</span> m)</a>
-<a class="sourceLine" id="cb140-13" data-line-number="13"></a>
-<a class="sourceLine" id="cb140-14" data-line-number="14"><span class="co">## Plot</span></a>
-<a class="sourceLine" id="cb140-15" data-line-number="15"><span class="kw">par</span>(<span class="dt">mar=</span><span class="kw">c</span>(<span class="fl">5.1</span>,<span class="fl">4.1</span><span class="op">+</span><span class="dv">1</span>,<span class="fl">4.1</span>,<span class="fl">2.1</span>))</a>
-<a class="sourceLine" id="cb140-16" data-line-number="16"><span class="kw">plot</span>(<span class="dt">y=</span><span class="dv">0</span>, <span class="dt">x=</span><span class="dv">0</span>, <span class="dt">type=</span><span class="st">&quot;n&quot;</span>,</a>
-<a class="sourceLine" id="cb140-17" data-line-number="17">     <span class="dt">ylim=</span><span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">1</span>),</a>
-<a class="sourceLine" id="cb140-18" data-line-number="18">     <span class="dt">xlim=</span><span class="kw">range</span>(mu.X.true.seq), </a>
-<a class="sourceLine" id="cb140-19" data-line-number="19">     <span class="dt">xlab=</span><span class="kw">expression</span>(<span class="kw">paste</span>(mu,<span class="st">&quot; (True Mean of &quot;</span>, X[i],<span class="st">&quot;)&quot;</span>)), </a>
-<a class="sourceLine" id="cb140-20" data-line-number="20">     <span class="co">## Labels:</span></a>
-<a class="sourceLine" id="cb140-21" data-line-number="21">     <span class="dt">ylab=</span><span class="kw">expression</span>(<span class="kw">paste</span>(<span class="st">&quot;Power function &quot;</span>,beta[n]<span class="op">^</span>Z,(mu))), </a>
-<a class="sourceLine" id="cb140-22" data-line-number="22">     <span class="dt">main=</span><span class="st">&quot;Power function of the (One-Sided) Gauss Test&quot;</span>)</a>
-<a class="sourceLine" id="cb140-23" data-line-number="23"><span class="co">## Null-hypothesis mean:</span></a>
-<a class="sourceLine" id="cb140-24" data-line-number="24"><span class="kw">mtext</span>(<span class="dt">text =</span> <span class="kw">expression</span>(mu[<span class="dv">0</span>]<span class="op">==</span><span class="dv">0</span>), <span class="dt">side =</span> <span class="dv">1</span>, <span class="dt">line =</span> <span class="dv">2</span>, <span class="dt">at =</span> <span class="dv">0</span>)</a>
-<a class="sourceLine" id="cb140-25" data-line-number="25"><span class="co">## Trajectories:</span></a>
-<a class="sourceLine" id="cb140-26" data-line-number="26"><span class="kw">lines</span>(<span class="dt">y=</span>beta.MC.n<span class="fl">.30</span>, <span class="dt">x=</span>mu.X.true.seq, <span class="dt">lty=</span><span class="dv">1</span>, <span class="dt">lwd=</span><span class="dv">4</span>, <span class="dt">col=</span><span class="st">&quot;darkorange&quot;</span>)</a>
-<a class="sourceLine" id="cb140-27" data-line-number="27"><span class="kw">lines</span>(<span class="dt">y=</span>beta.n<span class="fl">.30</span>,    <span class="dt">x=</span>mu.X.true.seq, <span class="dt">lty=</span><span class="dv">2</span>)</a>
-<a class="sourceLine" id="cb140-28" data-line-number="28"><span class="co">## Significance Level:</span></a>
-<a class="sourceLine" id="cb140-29" data-line-number="29"><span class="kw">axis</span>(<span class="dv">4</span>, <span class="dt">at=</span><span class="fl">0.05</span>, <span class="dt">labels =</span> <span class="kw">expression</span>(alpha<span class="op">==</span><span class="fl">0.05</span>))</a>
-<a class="sourceLine" id="cb140-30" data-line-number="30"><span class="kw">abline</span>(<span class="dt">h=</span><span class="fl">0.05</span>, <span class="dt">lty=</span><span class="dv">1</span>)</a>
-<a class="sourceLine" id="cb140-31" data-line-number="31"><span class="co">## Legend:</span></a>
-<a class="sourceLine" id="cb140-32" data-line-number="32"><span class="kw">legend</span>(<span class="st">&quot;topleft&quot;</span>, <span class="dt">title =</span> <span class="st">&quot;Power-Functions (n=30)&quot;</span>, </a>
-<a class="sourceLine" id="cb140-33" data-line-number="33">       <span class="dt">legend =</span> <span class="kw">c</span>(<span class="st">&quot;MC-Approx.&quot;</span>,<span class="st">&quot;Theoretical&quot;</span>), </a>
-<a class="sourceLine" id="cb140-34" data-line-number="34">       <span class="dt">lty=</span><span class="kw">c</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">2</span>), <span class="dt">lwd=</span><span class="kw">c</span>(<span class="dv">4</span>,<span class="dv">1</span>), <span class="dt">col=</span><span class="kw">c</span>(<span class="st">&quot;darkorange&quot;</span>,<span class="st">&quot;black&quot;</span>))</a></code></pre></div>
+<div class="sourceCode" id="cb146"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb146-1"><a href="monte-carlo-simulations.html#cb146-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Sequence of different mu_X values (here from 0 to 1):</span></span>
+<span id="cb146-2"><a href="monte-carlo-simulations.html#cb146-2" aria-hidden="true" tabindex="-1"></a>mu.X.true.seq   <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="dv">0</span>,<span class="dv">1</span>,<span class="at">len=</span><span class="dv">25</span>)</span>
+<span id="cb146-3"><a href="monte-carlo-simulations.html#cb146-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb146-4"><a href="monte-carlo-simulations.html#cb146-4" aria-hidden="true" tabindex="-1"></a><span class="do">## Simulating the trajectory of the power function for n=30:</span></span>
+<span id="cb146-5"><a href="monte-carlo-simulations.html#cb146-5" aria-hidden="true" tabindex="-1"></a><span class="do">## Number of MC-Repetitions:</span></span>
+<span id="cb146-6"><a href="monte-carlo-simulations.html#cb146-6" aria-hidden="true" tabindex="-1"></a>m <span class="ot">&lt;-</span> <span class="dv">50000</span>  </span>
+<span id="cb146-7"><a href="monte-carlo-simulations.html#cb146-7" aria-hidden="true" tabindex="-1"></a><span class="do">## Try also: </span></span>
+<span id="cb146-8"><a href="monte-carlo-simulations.html#cb146-8" aria-hidden="true" tabindex="-1"></a><span class="do">## m &lt;- 100</span></span>
+<span id="cb146-9"><a href="monte-carlo-simulations.html#cb146-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb146-10"><a href="monte-carlo-simulations.html#cb146-10" aria-hidden="true" tabindex="-1"></a>beta.MC.n<span class="fl">.30</span>       <span class="ot">&lt;-</span> <span class="fu">Gauss.MC.beta</span>(<span class="at">n         =</span> <span class="dv">30</span>, </span>
+<span id="cb146-11"><a href="monte-carlo-simulations.html#cb146-11" aria-hidden="true" tabindex="-1"></a>                                    <span class="at">mu.X.true =</span> mu.X.true.seq,</span>
+<span id="cb146-12"><a href="monte-carlo-simulations.html#cb146-12" aria-hidden="true" tabindex="-1"></a>                                    <span class="at">m         =</span> m)</span>
+<span id="cb146-13"><a href="monte-carlo-simulations.html#cb146-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb146-14"><a href="monte-carlo-simulations.html#cb146-14" aria-hidden="true" tabindex="-1"></a><span class="do">## Plot</span></span>
+<span id="cb146-15"><a href="monte-carlo-simulations.html#cb146-15" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mar=</span><span class="fu">c</span>(<span class="fl">5.1</span>,<span class="fl">4.1</span><span class="sc">+</span><span class="dv">1</span>,<span class="fl">4.1</span>,<span class="fl">2.1</span>))</span>
+<span id="cb146-16"><a href="monte-carlo-simulations.html#cb146-16" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="at">y=</span><span class="dv">0</span>, <span class="at">x=</span><span class="dv">0</span>, <span class="at">type=</span><span class="st">&quot;n&quot;</span>,</span>
+<span id="cb146-17"><a href="monte-carlo-simulations.html#cb146-17" aria-hidden="true" tabindex="-1"></a>     <span class="at">ylim=</span><span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">1</span>),</span>
+<span id="cb146-18"><a href="monte-carlo-simulations.html#cb146-18" aria-hidden="true" tabindex="-1"></a>     <span class="at">xlim=</span><span class="fu">range</span>(mu.X.true.seq), </span>
+<span id="cb146-19"><a href="monte-carlo-simulations.html#cb146-19" aria-hidden="true" tabindex="-1"></a>     <span class="at">xlab=</span><span class="fu">expression</span>(<span class="fu">paste</span>(mu,<span class="st">&quot; (True Mean of &quot;</span>, X[i],<span class="st">&quot;)&quot;</span>)), </span>
+<span id="cb146-20"><a href="monte-carlo-simulations.html#cb146-20" aria-hidden="true" tabindex="-1"></a>     <span class="do">## Labels:</span></span>
+<span id="cb146-21"><a href="monte-carlo-simulations.html#cb146-21" aria-hidden="true" tabindex="-1"></a>     <span class="at">ylab=</span><span class="fu">expression</span>(<span class="fu">paste</span>(<span class="st">&quot;Power function &quot;</span>,beta[n]<span class="sc">^</span>Z,(mu))), </span>
+<span id="cb146-22"><a href="monte-carlo-simulations.html#cb146-22" aria-hidden="true" tabindex="-1"></a>     <span class="at">main=</span><span class="st">&quot;Power function of the (One-Sided) Gauss Test&quot;</span>)</span>
+<span id="cb146-23"><a href="monte-carlo-simulations.html#cb146-23" aria-hidden="true" tabindex="-1"></a><span class="do">## Null-hypothesis mean:</span></span>
+<span id="cb146-24"><a href="monte-carlo-simulations.html#cb146-24" aria-hidden="true" tabindex="-1"></a><span class="fu">mtext</span>(<span class="at">text =</span> <span class="fu">expression</span>(mu[<span class="dv">0</span>]<span class="sc">==</span><span class="dv">0</span>), <span class="at">side =</span> <span class="dv">1</span>, <span class="at">line =</span> <span class="dv">2</span>, <span class="at">at =</span> <span class="dv">0</span>)</span>
+<span id="cb146-25"><a href="monte-carlo-simulations.html#cb146-25" aria-hidden="true" tabindex="-1"></a><span class="do">## Trajectories:</span></span>
+<span id="cb146-26"><a href="monte-carlo-simulations.html#cb146-26" aria-hidden="true" tabindex="-1"></a><span class="fu">lines</span>(<span class="at">y=</span>beta.MC.n<span class="fl">.30</span>, <span class="at">x=</span>mu.X.true.seq, <span class="at">lty=</span><span class="dv">1</span>, <span class="at">lwd=</span><span class="dv">4</span>, <span class="at">col=</span><span class="st">&quot;darkorange&quot;</span>)</span>
+<span id="cb146-27"><a href="monte-carlo-simulations.html#cb146-27" aria-hidden="true" tabindex="-1"></a><span class="fu">lines</span>(<span class="at">y=</span>beta.n<span class="fl">.30</span>,    <span class="at">x=</span>mu.X.true.seq, <span class="at">lty=</span><span class="dv">2</span>)</span>
+<span id="cb146-28"><a href="monte-carlo-simulations.html#cb146-28" aria-hidden="true" tabindex="-1"></a><span class="do">## Significance Level:</span></span>
+<span id="cb146-29"><a href="monte-carlo-simulations.html#cb146-29" aria-hidden="true" tabindex="-1"></a><span class="fu">axis</span>(<span class="dv">4</span>, <span class="at">at=</span><span class="fl">0.05</span>, <span class="at">labels =</span> <span class="fu">expression</span>(alpha<span class="sc">==</span><span class="fl">0.05</span>))</span>
+<span id="cb146-30"><a href="monte-carlo-simulations.html#cb146-30" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">h=</span><span class="fl">0.05</span>, <span class="at">lty=</span><span class="dv">1</span>)</span>
+<span id="cb146-31"><a href="monte-carlo-simulations.html#cb146-31" aria-hidden="true" tabindex="-1"></a><span class="do">## Legend:</span></span>
+<span id="cb146-32"><a href="monte-carlo-simulations.html#cb146-32" aria-hidden="true" tabindex="-1"></a><span class="fu">legend</span>(<span class="st">&quot;topleft&quot;</span>, <span class="at">title =</span> <span class="st">&quot;Power-Functions (n=30)&quot;</span>, </span>
+<span id="cb146-33"><a href="monte-carlo-simulations.html#cb146-33" aria-hidden="true" tabindex="-1"></a>       <span class="at">legend =</span> <span class="fu">c</span>(<span class="st">&quot;MC-Approx.&quot;</span>,<span class="st">&quot;Theoretical&quot;</span>), </span>
+<span id="cb146-34"><a href="monte-carlo-simulations.html#cb146-34" aria-hidden="true" tabindex="-1"></a>       <span class="at">lty=</span><span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>), <span class="at">lwd=</span><span class="fu">c</span>(<span class="dv">4</span>,<span class="dv">1</span>), <span class="at">col=</span><span class="fu">c</span>(<span class="st">&quot;darkorange&quot;</span>,<span class="st">&quot;black&quot;</span>))</span></code></pre></div>
 <p><img src="05-Simulations_files/figure-html/unnamed-chunk-7-1.png" width="528" /></p>
 </div>
 </div>
-<div id="checking-parameter-estimators" class="section level2">
+<div id="checking-parameter-estimators" class="section level2" number="5.2">
 <h2><span class="header-section-number">5.2</span> Checking Parameter Estimators</h2>
 <p>For the following, we use our <code>myOLSFun()</code> function to compute OLS estimators.</p>
-<div class="sourceCode" id="cb141"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb141-1" data-line-number="1">myOLSFun &lt;-<span class="st"> </span><span class="cf">function</span>(y, x, <span class="dt">add.intercept=</span><span class="ot">FALSE</span>){</a>
-<a class="sourceLine" id="cb141-2" data-line-number="2">  </a>
-<a class="sourceLine" id="cb141-3" data-line-number="3">  <span class="co">## Number of Observations:</span></a>
-<a class="sourceLine" id="cb141-4" data-line-number="4">  n         &lt;-<span class="st"> </span><span class="kw">length</span>(y)</a>
-<a class="sourceLine" id="cb141-5" data-line-number="5">  </a>
-<a class="sourceLine" id="cb141-6" data-line-number="6">  <span class="co">## Add an intercept to x:</span></a>
-<a class="sourceLine" id="cb141-7" data-line-number="7">  <span class="cf">if</span>(add.intercept){</a>
-<a class="sourceLine" id="cb141-8" data-line-number="8">    Intercept &lt;-<span class="st"> </span><span class="kw">rep</span>(<span class="dv">1</span>, n)</a>
-<a class="sourceLine" id="cb141-9" data-line-number="9">    x         &lt;-<span class="st"> </span><span class="kw">cbind</span>(Intercept, x)</a>
-<a class="sourceLine" id="cb141-10" data-line-number="10">  }</a>
-<a class="sourceLine" id="cb141-11" data-line-number="11">  </a>
-<a class="sourceLine" id="cb141-12" data-line-number="12">  <span class="co">## Estimation of the slope-parameters:</span></a>
-<a class="sourceLine" id="cb141-13" data-line-number="13">  beta.hat.vec &lt;-<span class="st"> </span><span class="kw">solve</span>(<span class="kw">t</span>(x) <span class="op">%*%</span><span class="st"> </span>x) <span class="op">%*%</span><span class="st"> </span><span class="kw">t</span>(x) <span class="op">%*%</span><span class="st"> </span>y</a>
-<a class="sourceLine" id="cb141-14" data-line-number="14">  </a>
-<a class="sourceLine" id="cb141-15" data-line-number="15">  <span class="co">## Return the result:</span></a>
-<a class="sourceLine" id="cb141-16" data-line-number="16">  <span class="kw">return</span>(beta.hat.vec)</a>
-<a class="sourceLine" id="cb141-17" data-line-number="17">}</a></code></pre></div>
+<div class="sourceCode" id="cb147"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb147-1"><a href="monte-carlo-simulations.html#cb147-1" aria-hidden="true" tabindex="-1"></a>myOLSFun <span class="ot">&lt;-</span> <span class="cf">function</span>(y, x, <span class="at">add.intercept=</span><span class="cn">FALSE</span>){</span>
+<span id="cb147-2"><a href="monte-carlo-simulations.html#cb147-2" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb147-3"><a href="monte-carlo-simulations.html#cb147-3" aria-hidden="true" tabindex="-1"></a>  <span class="do">## Number of Observations:</span></span>
+<span id="cb147-4"><a href="monte-carlo-simulations.html#cb147-4" aria-hidden="true" tabindex="-1"></a>  n         <span class="ot">&lt;-</span> <span class="fu">length</span>(y)</span>
+<span id="cb147-5"><a href="monte-carlo-simulations.html#cb147-5" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb147-6"><a href="monte-carlo-simulations.html#cb147-6" aria-hidden="true" tabindex="-1"></a>  <span class="do">## Add an intercept to x:</span></span>
+<span id="cb147-7"><a href="monte-carlo-simulations.html#cb147-7" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span>(add.intercept){</span>
+<span id="cb147-8"><a href="monte-carlo-simulations.html#cb147-8" aria-hidden="true" tabindex="-1"></a>    Intercept <span class="ot">&lt;-</span> <span class="fu">rep</span>(<span class="dv">1</span>, n)</span>
+<span id="cb147-9"><a href="monte-carlo-simulations.html#cb147-9" aria-hidden="true" tabindex="-1"></a>    x         <span class="ot">&lt;-</span> <span class="fu">cbind</span>(Intercept, x)</span>
+<span id="cb147-10"><a href="monte-carlo-simulations.html#cb147-10" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb147-11"><a href="monte-carlo-simulations.html#cb147-11" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb147-12"><a href="monte-carlo-simulations.html#cb147-12" aria-hidden="true" tabindex="-1"></a>  <span class="do">## Estimation of the slope-parameters:</span></span>
+<span id="cb147-13"><a href="monte-carlo-simulations.html#cb147-13" aria-hidden="true" tabindex="-1"></a>  beta.hat.vec <span class="ot">&lt;-</span> <span class="fu">solve</span>(<span class="fu">t</span>(x) <span class="sc">%*%</span> x) <span class="sc">%*%</span> <span class="fu">t</span>(x) <span class="sc">%*%</span> y</span>
+<span id="cb147-14"><a href="monte-carlo-simulations.html#cb147-14" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb147-15"><a href="monte-carlo-simulations.html#cb147-15" aria-hidden="true" tabindex="-1"></a>  <span class="do">## Return the result:</span></span>
+<span id="cb147-16"><a href="monte-carlo-simulations.html#cb147-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(beta.hat.vec)</span>
+<span id="cb147-17"><a href="monte-carlo-simulations.html#cb147-17" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
 <p>Let us consider the multiple regression model:</p>
 <p><span class="math display">\[y_i=\beta_1 +\beta_2 x_{2i}+\beta_3 x_{3i}+\varepsilon_{i},\quad i=1,\dots,n,\]</span>
 where <span class="math inline">\(\varepsilon_{i}\)</span> is a heteroscedastic error term
@@ -540,51 +583,51 @@ where <span class="math inline">\(\varepsilon_{i}\)</span> is a heteroscedastic 
 <li>Stores the estimation results in the data-vectors <code>beta.2.sim</code> and <code>beta.3.sim</code></li>
 <li>Plots the distribution of the estimation results using non-parametric density plots</li>
 </ol>
-<div class="sourceCode" id="cb142"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb142-1" data-line-number="1"><span class="co">## Simulation parameters:</span></a>
-<a class="sourceLine" id="cb142-2" data-line-number="2"><span class="kw">set.seed</span>(<span class="dv">109</span>)            <span class="co"># Sets the &quot;seed&quot; of the random number generators</span></a>
-<a class="sourceLine" id="cb142-3" data-line-number="3">m           &lt;-<span class="st"> </span><span class="dv">5000</span>      <span class="co"># Number of simulation runs</span></a>
-<a class="sourceLine" id="cb142-4" data-line-number="4"><span class="co">## Model parameters:</span></a>
-<a class="sourceLine" id="cb142-5" data-line-number="5">beta.vec    &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span>,<span class="op">-</span><span class="dv">5</span>,<span class="dv">5</span>) <span class="co"># Slope coefficients</span></a>
-<a class="sourceLine" id="cb142-6" data-line-number="6">n           &lt;-<span class="st"> </span><span class="dv">50</span>        <span class="co"># Number of observations</span></a>
-<a class="sourceLine" id="cb142-7" data-line-number="7"><span class="co">## Containers to save simulation results:</span></a>
-<a class="sourceLine" id="cb142-8" data-line-number="8">beta.<span class="fl">2.</span>sim  &lt;-<span class="st"> </span><span class="kw">rep</span>(<span class="ot">NA</span>,m) </a>
-<a class="sourceLine" id="cb142-9" data-line-number="9">beta.<span class="fl">3.</span>sim  &lt;-<span class="st"> </span><span class="kw">rep</span>(<span class="ot">NA</span>,m) </a>
-<a class="sourceLine" id="cb142-10" data-line-number="10"></a>
-<a class="sourceLine" id="cb142-11" data-line-number="11"><span class="co">## Generate the regressors: </span></a>
-<a class="sourceLine" id="cb142-12" data-line-number="12"><span class="co">## Outside of the loop (i.e., &#39;conditional on X&#39;)</span></a>
-<a class="sourceLine" id="cb142-13" data-line-number="13">X<span class="fl">.1</span> &lt;-<span class="st"> </span><span class="kw">rep</span>(<span class="dv">1</span>, n)</a>
-<a class="sourceLine" id="cb142-14" data-line-number="14">X<span class="fl">.2</span> &lt;-<span class="st"> </span><span class="kw">rnorm</span>(n, <span class="dt">mean=</span><span class="dv">10</span>, <span class="dt">sd=</span><span class="fl">1.5</span>)    <span class="co"># Draw realizations form a normal distr.</span></a>
-<a class="sourceLine" id="cb142-15" data-line-number="15">X<span class="fl">.3</span> &lt;-<span class="st"> </span><span class="kw">rt</span>(n, <span class="dt">df=</span><span class="dv">5</span>, <span class="dt">ncp=</span><span class="dv">2</span>)           <span class="co"># Draw realizations form a t-distr.</span></a>
-<a class="sourceLine" id="cb142-16" data-line-number="16">X   &lt;-<span class="st"> </span><span class="kw">cbind</span>(X<span class="fl">.1</span>, X<span class="fl">.2</span>, X<span class="fl">.3</span>)         <span class="co"># Save as a Nx3-dimensional matrix.</span></a>
-<a class="sourceLine" id="cb142-17" data-line-number="17"></a>
-<a class="sourceLine" id="cb142-18" data-line-number="18"><span class="co">## Setup a progressbar</span></a>
-<a class="sourceLine" id="cb142-19" data-line-number="19"><span class="co">#pb &lt;- txtProgressBar(min = 0, max = m, style = 3)</span></a>
-<a class="sourceLine" id="cb142-20" data-line-number="20"></a>
-<a class="sourceLine" id="cb142-21" data-line-number="21"><span class="cf">for</span>(rpt <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span>m){</a>
-<a class="sourceLine" id="cb142-22" data-line-number="22">  eps &lt;-<span class="st"> </span>(X<span class="fl">.3</span>)<span class="op">*</span><span class="kw">rnorm</span>(n, <span class="dt">mean=</span><span class="dv">0</span>, <span class="dt">sd=</span><span class="dv">1</span>) <span class="co"># heteroscadastic error term</span></a>
-<a class="sourceLine" id="cb142-23" data-line-number="23">  y   &lt;-<span class="st"> </span>X <span class="op">%*%</span><span class="st"> </span>beta.vec <span class="op">+</span><span class="st"> </span>eps         <span class="co"># Dependent variable</span></a>
-<a class="sourceLine" id="cb142-24" data-line-number="24">  <span class="co">## Estimation</span></a>
-<a class="sourceLine" id="cb142-25" data-line-number="25">  beta.hat &lt;-<span class="st"> </span><span class="kw">myOLSFun</span>(<span class="dt">y=</span>y,<span class="dt">x=</span>X)</a>
-<a class="sourceLine" id="cb142-26" data-line-number="26">  <span class="co">## Save results</span></a>
-<a class="sourceLine" id="cb142-27" data-line-number="27">  beta.<span class="fl">2.</span>sim[rpt] &lt;-<span class="st"> </span>beta.hat[<span class="dv">2</span>]</a>
-<a class="sourceLine" id="cb142-28" data-line-number="28">  beta.<span class="fl">3.</span>sim[rpt] &lt;-<span class="st"> </span>beta.hat[<span class="dv">3</span>]</a>
-<a class="sourceLine" id="cb142-29" data-line-number="29">  <span class="co">## Progress bar</span></a>
-<a class="sourceLine" id="cb142-30" data-line-number="30">  <span class="co">#setTxtProgressBar(pb, rpt)</span></a>
-<a class="sourceLine" id="cb142-31" data-line-number="31">}</a>
-<a class="sourceLine" id="cb142-32" data-line-number="32"><span class="co">#close(pb)# Close progressbar</span></a>
-<a class="sourceLine" id="cb142-33" data-line-number="33"></a>
-<a class="sourceLine" id="cb142-34" data-line-number="34"></a>
-<a class="sourceLine" id="cb142-35" data-line-number="35"><span class="co"># Theoretical variance covariance matrix of \hat{beta}</span></a>
-<a class="sourceLine" id="cb142-36" data-line-number="36">Var_beta_mat &lt;-<span class="st"> </span><span class="kw">solve</span>(<span class="kw">t</span>(X)<span class="op">%*%</span>X) <span class="op">%*%</span><span class="st"> </span><span class="kw">t</span>(X) <span class="op">%*%</span><span class="st"> </span><span class="kw">diag</span>((X<span class="fl">.3</span>)<span class="op">^</span><span class="dv">2</span>) <span class="op">%*%</span><span class="st"> </span>X <span class="op">%*%</span><span class="st"> </span><span class="kw">solve</span>(<span class="kw">t</span>(X)<span class="op">%*%</span>X)</a>
-<a class="sourceLine" id="cb142-37" data-line-number="37"></a>
-<a class="sourceLine" id="cb142-38" data-line-number="38"><span class="co">## Plot results</span></a>
-<a class="sourceLine" id="cb142-39" data-line-number="39"><span class="kw">par</span>(<span class="dt">mfrow=</span><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>))</a>
-<a class="sourceLine" id="cb142-40" data-line-number="40"><span class="kw">hist</span>(beta.<span class="fl">2.</span>sim, <span class="dt">prob=</span><span class="ot">TRUE</span>, <span class="dt">main=</span><span class="kw">expression</span>(<span class="kw">hat</span>(beta)[<span class="dv">2</span>]), <span class="dt">ylim=</span><span class="kw">c</span>(<span class="dv">0</span>,<span class="fl">1.55</span>))</a>
-<a class="sourceLine" id="cb142-41" data-line-number="41"><span class="kw">curve</span>(<span class="kw">dnorm</span>(x, <span class="dt">mean=</span>beta.vec[<span class="dv">2</span>], <span class="dt">sd=</span><span class="kw">sqrt</span>(Var_beta_mat[<span class="dv">2</span>,<span class="dv">2</span>])), </a>
-<a class="sourceLine" id="cb142-42" data-line-number="42">      <span class="dt">col=</span><span class="st">&quot;darkblue&quot;</span>, <span class="dt">lwd=</span><span class="dv">2</span>, <span class="dt">add=</span><span class="ot">TRUE</span>, <span class="dt">yaxt=</span><span class="st">&quot;n&quot;</span>)</a>
-<a class="sourceLine" id="cb142-43" data-line-number="43"><span class="kw">hist</span>(beta.<span class="fl">3.</span>sim, <span class="dt">prob=</span><span class="ot">TRUE</span>, <span class="dt">main=</span><span class="kw">expression</span>(<span class="kw">hat</span>(beta)[<span class="dv">3</span>]), <span class="dt">ylim=</span><span class="kw">c</span>(<span class="dv">0</span>,.<span class="dv">75</span>))</a>
-<a class="sourceLine" id="cb142-44" data-line-number="44"><span class="kw">curve</span>(<span class="kw">dnorm</span>(x, <span class="dt">mean=</span>beta.vec[<span class="dv">3</span>], <span class="dt">sd=</span><span class="kw">sqrt</span>(Var_beta_mat[<span class="dv">3</span>,<span class="dv">3</span>])), </a>
-<a class="sourceLine" id="cb142-45" data-line-number="45">      <span class="dt">col=</span><span class="st">&quot;darkblue&quot;</span>, <span class="dt">lwd=</span><span class="dv">2</span>, <span class="dt">add=</span><span class="ot">TRUE</span>, <span class="dt">yaxt=</span><span class="st">&quot;n&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb148"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb148-1"><a href="monte-carlo-simulations.html#cb148-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Simulation parameters:</span></span>
+<span id="cb148-2"><a href="monte-carlo-simulations.html#cb148-2" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">109</span>)            <span class="co"># Sets the &quot;seed&quot; of the random number generators</span></span>
+<span id="cb148-3"><a href="monte-carlo-simulations.html#cb148-3" aria-hidden="true" tabindex="-1"></a>m           <span class="ot">&lt;-</span> <span class="dv">5000</span>      <span class="co"># Number of simulation runs</span></span>
+<span id="cb148-4"><a href="monte-carlo-simulations.html#cb148-4" aria-hidden="true" tabindex="-1"></a><span class="do">## Model parameters:</span></span>
+<span id="cb148-5"><a href="monte-carlo-simulations.html#cb148-5" aria-hidden="true" tabindex="-1"></a>beta.vec    <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="sc">-</span><span class="dv">5</span>,<span class="dv">5</span>) <span class="co"># Slope coefficients</span></span>
+<span id="cb148-6"><a href="monte-carlo-simulations.html#cb148-6" aria-hidden="true" tabindex="-1"></a>n           <span class="ot">&lt;-</span> <span class="dv">50</span>        <span class="co"># Number of observations</span></span>
+<span id="cb148-7"><a href="monte-carlo-simulations.html#cb148-7" aria-hidden="true" tabindex="-1"></a><span class="do">## Containers to save simulation results:</span></span>
+<span id="cb148-8"><a href="monte-carlo-simulations.html#cb148-8" aria-hidden="true" tabindex="-1"></a>beta.<span class="fl">2.</span>sim  <span class="ot">&lt;-</span> <span class="fu">rep</span>(<span class="cn">NA</span>,m) </span>
+<span id="cb148-9"><a href="monte-carlo-simulations.html#cb148-9" aria-hidden="true" tabindex="-1"></a>beta.<span class="fl">3.</span>sim  <span class="ot">&lt;-</span> <span class="fu">rep</span>(<span class="cn">NA</span>,m) </span>
+<span id="cb148-10"><a href="monte-carlo-simulations.html#cb148-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb148-11"><a href="monte-carlo-simulations.html#cb148-11" aria-hidden="true" tabindex="-1"></a><span class="do">## Generate the regressors: </span></span>
+<span id="cb148-12"><a href="monte-carlo-simulations.html#cb148-12" aria-hidden="true" tabindex="-1"></a><span class="do">## Outside of the loop (i.e., &#39;conditional on X&#39;)</span></span>
+<span id="cb148-13"><a href="monte-carlo-simulations.html#cb148-13" aria-hidden="true" tabindex="-1"></a>X<span class="fl">.1</span> <span class="ot">&lt;-</span> <span class="fu">rep</span>(<span class="dv">1</span>, n)</span>
+<span id="cb148-14"><a href="monte-carlo-simulations.html#cb148-14" aria-hidden="true" tabindex="-1"></a>X<span class="fl">.2</span> <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(n, <span class="at">mean=</span><span class="dv">10</span>, <span class="at">sd=</span><span class="fl">1.5</span>)    <span class="co"># Draw realizations form a normal distr.</span></span>
+<span id="cb148-15"><a href="monte-carlo-simulations.html#cb148-15" aria-hidden="true" tabindex="-1"></a>X<span class="fl">.3</span> <span class="ot">&lt;-</span> <span class="fu">rt</span>(n, <span class="at">df=</span><span class="dv">5</span>, <span class="at">ncp=</span><span class="dv">2</span>)           <span class="co"># Draw realizations form a t-distr.</span></span>
+<span id="cb148-16"><a href="monte-carlo-simulations.html#cb148-16" aria-hidden="true" tabindex="-1"></a>X   <span class="ot">&lt;-</span> <span class="fu">cbind</span>(X<span class="fl">.1</span>, X<span class="fl">.2</span>, X<span class="fl">.3</span>)         <span class="co"># Save as a Nx3-dimensional matrix.</span></span>
+<span id="cb148-17"><a href="monte-carlo-simulations.html#cb148-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb148-18"><a href="monte-carlo-simulations.html#cb148-18" aria-hidden="true" tabindex="-1"></a><span class="do">## Setup a progressbar</span></span>
+<span id="cb148-19"><a href="monte-carlo-simulations.html#cb148-19" aria-hidden="true" tabindex="-1"></a><span class="co">#pb &lt;- txtProgressBar(min = 0, max = m, style = 3)</span></span>
+<span id="cb148-20"><a href="monte-carlo-simulations.html#cb148-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb148-21"><a href="monte-carlo-simulations.html#cb148-21" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span>(rpt <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>m){</span>
+<span id="cb148-22"><a href="monte-carlo-simulations.html#cb148-22" aria-hidden="true" tabindex="-1"></a>  eps <span class="ot">&lt;-</span> (X<span class="fl">.3</span>)<span class="sc">*</span><span class="fu">rnorm</span>(n, <span class="at">mean=</span><span class="dv">0</span>, <span class="at">sd=</span><span class="dv">1</span>) <span class="co"># heteroscadastic error term</span></span>
+<span id="cb148-23"><a href="monte-carlo-simulations.html#cb148-23" aria-hidden="true" tabindex="-1"></a>  y   <span class="ot">&lt;-</span> X <span class="sc">%*%</span> beta.vec <span class="sc">+</span> eps         <span class="co"># Dependent variable</span></span>
+<span id="cb148-24"><a href="monte-carlo-simulations.html#cb148-24" aria-hidden="true" tabindex="-1"></a>  <span class="do">## Estimation</span></span>
+<span id="cb148-25"><a href="monte-carlo-simulations.html#cb148-25" aria-hidden="true" tabindex="-1"></a>  beta.hat <span class="ot">&lt;-</span> <span class="fu">myOLSFun</span>(<span class="at">y=</span>y,<span class="at">x=</span>X)</span>
+<span id="cb148-26"><a href="monte-carlo-simulations.html#cb148-26" aria-hidden="true" tabindex="-1"></a>  <span class="do">## Save results</span></span>
+<span id="cb148-27"><a href="monte-carlo-simulations.html#cb148-27" aria-hidden="true" tabindex="-1"></a>  beta.<span class="fl">2.</span>sim[rpt] <span class="ot">&lt;-</span> beta.hat[<span class="dv">2</span>]</span>
+<span id="cb148-28"><a href="monte-carlo-simulations.html#cb148-28" aria-hidden="true" tabindex="-1"></a>  beta.<span class="fl">3.</span>sim[rpt] <span class="ot">&lt;-</span> beta.hat[<span class="dv">3</span>]</span>
+<span id="cb148-29"><a href="monte-carlo-simulations.html#cb148-29" aria-hidden="true" tabindex="-1"></a>  <span class="do">## Progress bar</span></span>
+<span id="cb148-30"><a href="monte-carlo-simulations.html#cb148-30" aria-hidden="true" tabindex="-1"></a>  <span class="co">#setTxtProgressBar(pb, rpt)</span></span>
+<span id="cb148-31"><a href="monte-carlo-simulations.html#cb148-31" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb148-32"><a href="monte-carlo-simulations.html#cb148-32" aria-hidden="true" tabindex="-1"></a><span class="co">#close(pb)# Close progressbar</span></span>
+<span id="cb148-33"><a href="monte-carlo-simulations.html#cb148-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb148-34"><a href="monte-carlo-simulations.html#cb148-34" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb148-35"><a href="monte-carlo-simulations.html#cb148-35" aria-hidden="true" tabindex="-1"></a><span class="co"># Theoretical variance covariance matrix of \hat{beta}</span></span>
+<span id="cb148-36"><a href="monte-carlo-simulations.html#cb148-36" aria-hidden="true" tabindex="-1"></a>Var_beta_mat <span class="ot">&lt;-</span> <span class="fu">solve</span>(<span class="fu">t</span>(X)<span class="sc">%*%</span>X) <span class="sc">%*%</span> <span class="fu">t</span>(X) <span class="sc">%*%</span> <span class="fu">diag</span>((X<span class="fl">.3</span>)<span class="sc">^</span><span class="dv">2</span>) <span class="sc">%*%</span> X <span class="sc">%*%</span> <span class="fu">solve</span>(<span class="fu">t</span>(X)<span class="sc">%*%</span>X)</span>
+<span id="cb148-37"><a href="monte-carlo-simulations.html#cb148-37" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb148-38"><a href="monte-carlo-simulations.html#cb148-38" aria-hidden="true" tabindex="-1"></a><span class="do">## Plot results</span></span>
+<span id="cb148-39"><a href="monte-carlo-simulations.html#cb148-39" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow=</span><span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>))</span>
+<span id="cb148-40"><a href="monte-carlo-simulations.html#cb148-40" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(beta.<span class="fl">2.</span>sim, <span class="at">prob=</span><span class="cn">TRUE</span>, <span class="at">main=</span><span class="fu">expression</span>(<span class="fu">hat</span>(beta)[<span class="dv">2</span>]), <span class="at">ylim=</span><span class="fu">c</span>(<span class="dv">0</span>,<span class="fl">1.55</span>))</span>
+<span id="cb148-41"><a href="monte-carlo-simulations.html#cb148-41" aria-hidden="true" tabindex="-1"></a><span class="fu">curve</span>(<span class="fu">dnorm</span>(x, <span class="at">mean=</span>beta.vec[<span class="dv">2</span>], <span class="at">sd=</span><span class="fu">sqrt</span>(Var_beta_mat[<span class="dv">2</span>,<span class="dv">2</span>])), </span>
+<span id="cb148-42"><a href="monte-carlo-simulations.html#cb148-42" aria-hidden="true" tabindex="-1"></a>      <span class="at">col=</span><span class="st">&quot;darkblue&quot;</span>, <span class="at">lwd=</span><span class="dv">2</span>, <span class="at">add=</span><span class="cn">TRUE</span>, <span class="at">yaxt=</span><span class="st">&quot;n&quot;</span>)</span>
+<span id="cb148-43"><a href="monte-carlo-simulations.html#cb148-43" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(beta.<span class="fl">3.</span>sim, <span class="at">prob=</span><span class="cn">TRUE</span>, <span class="at">main=</span><span class="fu">expression</span>(<span class="fu">hat</span>(beta)[<span class="dv">3</span>]), <span class="at">ylim=</span><span class="fu">c</span>(<span class="dv">0</span>,.<span class="dv">75</span>))</span>
+<span id="cb148-44"><a href="monte-carlo-simulations.html#cb148-44" aria-hidden="true" tabindex="-1"></a><span class="fu">curve</span>(<span class="fu">dnorm</span>(x, <span class="at">mean=</span>beta.vec[<span class="dv">3</span>], <span class="at">sd=</span><span class="fu">sqrt</span>(Var_beta_mat[<span class="dv">3</span>,<span class="dv">3</span>])), </span>
+<span id="cb148-45"><a href="monte-carlo-simulations.html#cb148-45" aria-hidden="true" tabindex="-1"></a>      <span class="at">col=</span><span class="st">&quot;darkblue&quot;</span>, <span class="at">lwd=</span><span class="dv">2</span>, <span class="at">add=</span><span class="cn">TRUE</span>, <span class="at">yaxt=</span><span class="st">&quot;n&quot;</span>)</span></code></pre></div>
 <p><img src="05-Simulations_files/figure-html/unnamed-chunk-9-1.png" width="672" /></p>
 
 </div>
@@ -599,12 +642,13 @@ where <span class="math inline">\(\varepsilon_{i}\)</span> is a heteroscedastic 
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
-<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
 <script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
 <script>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
@@ -612,12 +656,12 @@ gitbook.start({
 "github": false,
 "facebook": true,
 "twitter": true,
-"google": false,
 "linkedin": false,
 "weibo": false,
 "instapaper": false,
 "vk": false,
-"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
 },
 "fontsettings": {
 "theme": "white",
@@ -632,7 +676,15 @@ gitbook.start({
 "link": null,
 "text": null
 },
+"view": {
+"link": null,
+"text": null
+},
 "download": ["RM_ES_Script.pdf"],
+"search": {
+"engine": "fuse",
+"options": null
+},
 "toc": {
 "collapse": "subsection"
 }

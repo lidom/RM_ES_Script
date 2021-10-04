@@ -1,14 +1,14 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<html lang="" xml:lang="">
 <head>
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Ch. 3 Estimation Theory | Research Module in Econometrics &amp; Statistics</title>
+  <title>Ch. 2 Estimation Theory | Research Module in Econometrics &amp; Statistics</title>
   <meta name="description" content="Script for the research module in econometrics &amp; statistics (University Bonn)." />
-  <meta name="generator" content="bookdown 0.13 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Ch. 3 Estimation Theory | Research Module in Econometrics &amp; Statistics" />
+  <meta property="og:title" content="Ch. 2 Estimation Theory | Research Module in Econometrics &amp; Statistics" />
   <meta property="og:type" content="book" />
   <meta property="og:url" content="http://dliebl.com/RM_ES_Script/" />
   
@@ -16,30 +16,33 @@
   <meta name="github-repo" content="lidom/RM_ES_Script" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Ch. 3 Estimation Theory | Research Module in Econometrics &amp; Statistics" />
+  <meta name="twitter:title" content="Ch. 2 Estimation Theory | Research Module in Econometrics &amp; Statistics" />
   
   <meta name="twitter:description" content="Script for the research module in econometrics &amp; statistics (University Bonn)." />
   
 
-<meta name="author" content="JProf. Dominik Liebl" />
+<meta name="author" content="Prof. Dominik Liebl (dliebl@uni-bonn.de) and Christopher Walsh" />
 
 
-<meta name="date" content="2020-01-14" />
+<meta name="date" content="2021-10-04" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="statistical-hypothesis-testing.html"/>
-<link rel="next" href="ordinary-least-squares-the-classical-linear-regression-model.html"/>
-<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link rel="prev" href="introduction-to-r.html"/>
+<link rel="next" href="statistical-hypothesis-testing.html"/>
+<script src="libs/header-attrs-2.11/header-attrs.js"></script>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
 
 
 
@@ -47,28 +50,33 @@
 
 
 
+
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
 
 
 <style type="text/css">
-a.sourceLine { display: inline-block; line-height: 1.25; }
-a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
-a.sourceLine:empty { height: 1.2em; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
-code.sourceCode { white-space: pre; position: relative; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
 pre.sourceCode { margin: 0; }
 @media screen {
 div.sourceCode { overflow: auto; }
 }
 @media print {
-code.sourceCode { white-space: pre-wrap; }
-a.sourceLine { text-indent: -1em; padding-left: 1em; }
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
-pre.numberSource a.sourceLine
-  { position: relative; left: -4em; }
-pre.numberSource a.sourceLine::before
-  { content: attr(data-line-number);
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
     position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; pointer-events: all; display: inline-block;
+    border: none; display: inline-block;
     -webkit-touch-callout: none; -webkit-user-select: none;
     -khtml-user-select: none; -moz-user-select: none;
     -ms-user-select: none; user-select: none;
@@ -77,9 +85,9 @@ pre.numberSource a.sourceLine::before
   }
 pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
 div.sourceCode
-  { background-color: #f8f8f8; }
+  {  background-color: #f8f8f8; }
 @media screen {
-a.sourceLine::before { text-decoration: underline; }
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 code span.al { color: #ef2929; } /* Alert */
 code span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
@@ -111,6 +119,29 @@ code span.vs { color: #4e9a06; } /* VerbatimString */
 code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
+
 <link rel="stylesheet" href="style.css" type="text/css" />
 </head>
 
@@ -129,47 +160,55 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <li class="divider"></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a></li>
 <li class="chapter" data-level="" data-path="topics.html"><a href="topics.html"><i class="fa fa-check"></i>Topics</a></li>
-<li class="chapter" data-level="1" data-path="introduction-to-r.html"><a href="introduction-to-r.html"><i class="fa fa-check"></i><b>1</b> Introduction to R</a><ul>
+<li class="chapter" data-level="1" data-path="introduction-to-r.html"><a href="introduction-to-r.html"><i class="fa fa-check"></i><b>1</b> Introduction to R</a>
+<ul>
 <li class="chapter" data-level="1.1" data-path="introduction-to-r.html"><a href="introduction-to-r.html#short-glossary"><i class="fa fa-check"></i><b>1.1</b> Short Glossary</a></li>
 <li class="chapter" data-level="1.2" data-path="introduction-to-r.html"><a href="introduction-to-r.html#first-steps"><i class="fa fa-check"></i><b>1.2</b> First Steps</a></li>
 <li class="chapter" data-level="1.3" data-path="introduction-to-r.html"><a href="introduction-to-r.html#further-data-objects"><i class="fa fa-check"></i><b>1.3</b> Further Data Objects</a></li>
 <li class="chapter" data-level="1.4" data-path="introduction-to-r.html"><a href="introduction-to-r.html#simple-regression-analysis-using-r"><i class="fa fa-check"></i><b>1.4</b> Simple Regression Analysis using R</a></li>
 <li class="chapter" data-level="1.5" data-path="introduction-to-r.html"><a href="introduction-to-r.html#programming-in-r"><i class="fa fa-check"></i><b>1.5</b> Programming in R</a></li>
 <li class="chapter" data-level="1.6" data-path="introduction-to-r.html"><a href="introduction-to-r.html#r-packages"><i class="fa fa-check"></i><b>1.6</b> R-packages</a></li>
-<li class="chapter" data-level="1.7" data-path="introduction-to-r.html"><a href="introduction-to-r.html#tidyverse"><i class="fa fa-check"></i><b>1.7</b> Tidyverse</a><ul>
+<li class="chapter" data-level="1.7" data-path="introduction-to-r.html"><a href="introduction-to-r.html#tidyverse"><i class="fa fa-check"></i><b>1.7</b> Tidyverse</a>
+<ul>
 <li class="chapter" data-level="1.7.1" data-path="introduction-to-r.html"><a href="introduction-to-r.html#tidyverse-plotting-basics"><i class="fa fa-check"></i><b>1.7.1</b> Tidyverse: Plotting Basics</a></li>
 <li class="chapter" data-level="1.7.2" data-path="introduction-to-r.html"><a href="introduction-to-r.html#tidyverse-data-wrangling-basics"><i class="fa fa-check"></i><b>1.7.2</b> Tidyverse: Data Wrangling Basics</a></li>
 <li class="chapter" data-level="1.7.3" data-path="introduction-to-r.html"><a href="introduction-to-r.html#the-pipe-operator"><i class="fa fa-check"></i><b>1.7.3</b> The pipe operator <code>%&gt;%</code></a></li>
 <li class="chapter" data-level="1.7.4" data-path="introduction-to-r.html"><a href="introduction-to-r.html#the-group_by-function"><i class="fa fa-check"></i><b>1.7.4</b> The <code>group_by()</code> function</a></li>
 </ul></li>
-<li class="chapter" data-level="1.8" data-path="introduction-to-r.html"><a href="introduction-to-r.html#further-links"><i class="fa fa-check"></i><b>1.8</b> Further Links</a><ul>
+<li class="chapter" data-level="1.8" data-path="introduction-to-r.html"><a href="introduction-to-r.html#further-links"><i class="fa fa-check"></i><b>1.8</b> Further Links</a>
+<ul>
 <li class="chapter" data-level="1.8.1" data-path="introduction-to-r.html"><a href="introduction-to-r.html#further-r-intros"><i class="fa fa-check"></i><b>1.8.1</b> Further R-Intros</a></li>
 <li class="chapter" data-level="1.8.2" data-path="introduction-to-r.html"><a href="introduction-to-r.html#version-control-gitgithub"><i class="fa fa-check"></i><b>1.8.2</b> Version Control (Git/GitHub)</a></li>
 <li class="chapter" data-level="1.8.3" data-path="introduction-to-r.html"><a href="introduction-to-r.html#r-ladies"><i class="fa fa-check"></i><b>1.8.3</b> R-Ladies</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="2" data-path="statistical-hypothesis-testing.html"><a href="statistical-hypothesis-testing.html"><i class="fa fa-check"></i><b>2</b> Statistical Hypothesis Testing</a><ul>
-<li class="chapter" data-level="2.1" data-path="statistical-hypothesis-testing.html"><a href="statistical-hypothesis-testing.html#hypotheses-and-test-statistics"><i class="fa fa-check"></i><b>2.1</b> Hypotheses and Test-Statistics</a></li>
-<li class="chapter" data-level="2.2" data-path="statistical-hypothesis-testing.html"><a href="statistical-hypothesis-testing.html#significance-level-size-and-p-values"><i class="fa fa-check"></i><b>2.2</b> Significance Level, Size and p-Values</a></li>
-<li class="chapter" data-level="2.3" data-path="statistical-hypothesis-testing.html"><a href="statistical-hypothesis-testing.html#PF1"><i class="fa fa-check"></i><b>2.3</b> The Power Function</a></li>
-<li class="chapter" data-level="2.4" data-path="statistical-hypothesis-testing.html"><a href="statistical-hypothesis-testing.html#asymptotic-null-distributions"><i class="fa fa-check"></i><b>2.4</b> Asymptotic Null Distributions</a></li>
-<li class="chapter" data-level="2.5" data-path="statistical-hypothesis-testing.html"><a href="statistical-hypothesis-testing.html#multiple-comparisons"><i class="fa fa-check"></i><b>2.5</b> Multiple Comparisons</a></li>
-<li class="chapter" data-level="2.6" data-path="statistical-hypothesis-testing.html"><a href="statistical-hypothesis-testing.html#r-lab-the-gauss-test"><i class="fa fa-check"></i><b>2.6</b> R-Lab: The Gauss-Test</a></li>
-</ul></li>
-<li class="chapter" data-level="3" data-path="estimation-theory.html"><a href="estimation-theory.html"><i class="fa fa-check"></i><b>3</b> Estimation Theory</a><ul>
-<li class="chapter" data-level="3.1" data-path="estimation-theory.html"><a href="estimation-theory.html#bias-variance-and-mse"><i class="fa fa-check"></i><b>3.1</b> Bias, Variance and MSE</a></li>
-<li class="chapter" data-level="3.2" data-path="estimation-theory.html"><a href="estimation-theory.html#consistency-of-estimators"><i class="fa fa-check"></i><b>3.2</b> Consistency of Estimators</a></li>
-<li class="chapter" data-level="3.3" data-path="estimation-theory.html"><a href="estimation-theory.html#rates-of-convergence"><i class="fa fa-check"></i><b>3.3</b> Rates of Convergence</a></li>
-<li class="chapter" data-level="3.4" data-path="estimation-theory.html"><a href="estimation-theory.html#asymptotic-distributions"><i class="fa fa-check"></i><b>3.4</b> Asymptotic Distributions</a></li>
-<li class="chapter" data-level="3.5" data-path="estimation-theory.html"><a href="estimation-theory.html#asymptotic-theory"><i class="fa fa-check"></i><b>3.5</b> Asymptotic Theory</a></li>
-<li class="chapter" data-level="3.6" data-path="estimation-theory.html"><a href="estimation-theory.html#mathematical-tools"><i class="fa fa-check"></i><b>3.6</b> Mathematical tools</a><ul>
-<li class="chapter" data-level="3.6.1" data-path="estimation-theory.html"><a href="estimation-theory.html#taylor-expansions"><i class="fa fa-check"></i><b>3.6.1</b> Taylor expansions</a></li>
-<li class="chapter" data-level="3.6.2" data-path="estimation-theory.html"><a href="estimation-theory.html#tools-for-deriving-asymptotic-distributions"><i class="fa fa-check"></i><b>3.6.2</b> Tools for deriving asymptotic distributions</a></li>
-<li class="chapter" data-level="3.6.3" data-path="estimation-theory.html"><a href="estimation-theory.html#the-delta-method"><i class="fa fa-check"></i><b>3.6.3</b> The Delta-Method</a></li>
+<li class="chapter" data-level="2" data-path="estimation-theory.html"><a href="estimation-theory.html"><i class="fa fa-check"></i><b>2</b> Estimation Theory</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="estimation-theory.html"><a href="estimation-theory.html#bias-variance-and-mse"><i class="fa fa-check"></i><b>2.1</b> Bias, Variance and MSE</a></li>
+<li class="chapter" data-level="2.2" data-path="estimation-theory.html"><a href="estimation-theory.html#consistency-of-estimators"><i class="fa fa-check"></i><b>2.2</b> Consistency of Estimators</a></li>
+<li class="chapter" data-level="2.3" data-path="estimation-theory.html"><a href="estimation-theory.html#rates-of-convergence"><i class="fa fa-check"></i><b>2.3</b> Rates of Convergence</a></li>
+<li class="chapter" data-level="2.4" data-path="estimation-theory.html"><a href="estimation-theory.html#asymptotic-distributions"><i class="fa fa-check"></i><b>2.4</b> Asymptotic Distributions</a></li>
+<li class="chapter" data-level="2.5" data-path="estimation-theory.html"><a href="estimation-theory.html#asymptotic-theory"><i class="fa fa-check"></i><b>2.5</b> Asymptotic Theory</a></li>
+<li class="chapter" data-level="2.6" data-path="estimation-theory.html"><a href="estimation-theory.html#mathematical-tools"><i class="fa fa-check"></i><b>2.6</b> Mathematical tools</a>
+<ul>
+<li class="chapter" data-level="2.6.1" data-path="estimation-theory.html"><a href="estimation-theory.html#taylor-expansions"><i class="fa fa-check"></i><b>2.6.1</b> Taylor expansions</a></li>
+<li class="chapter" data-level="2.6.2" data-path="estimation-theory.html"><a href="estimation-theory.html#tools-for-deriving-asymptotic-distributions"><i class="fa fa-check"></i><b>2.6.2</b> Tools for deriving asymptotic distributions</a></li>
+<li class="chapter" data-level="2.6.3" data-path="estimation-theory.html"><a href="estimation-theory.html#the-delta-method"><i class="fa fa-check"></i><b>2.6.3</b> The Delta-Method</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="ordinary-least-squares-the-classical-linear-regression-model.html"><a href="ordinary-least-squares-the-classical-linear-regression-model.html"><i class="fa fa-check"></i><b>4</b> Ordinary Least Squares: The Classical Linear Regression Model</a><ul>
-<li class="chapter" data-level="4.1" data-path="ordinary-least-squares-the-classical-linear-regression-model.html"><a href="ordinary-least-squares-the-classical-linear-regression-model.html#finite-sample-properties"><i class="fa fa-check"></i><b>4.1</b> Finite-Sample Properties</a><ul>
+<li class="chapter" data-level="3" data-path="statistical-hypothesis-testing.html"><a href="statistical-hypothesis-testing.html"><i class="fa fa-check"></i><b>3</b> Statistical Hypothesis Testing</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="statistical-hypothesis-testing.html"><a href="statistical-hypothesis-testing.html#hypotheses-and-test-statistics"><i class="fa fa-check"></i><b>3.1</b> Hypotheses and Test-Statistics</a></li>
+<li class="chapter" data-level="3.2" data-path="statistical-hypothesis-testing.html"><a href="statistical-hypothesis-testing.html#significance-level-size-and-p-values"><i class="fa fa-check"></i><b>3.2</b> Significance Level, Size and p-Values</a></li>
+<li class="chapter" data-level="3.3" data-path="statistical-hypothesis-testing.html"><a href="statistical-hypothesis-testing.html#PF1"><i class="fa fa-check"></i><b>3.3</b> The Power Function</a></li>
+<li class="chapter" data-level="3.4" data-path="statistical-hypothesis-testing.html"><a href="statistical-hypothesis-testing.html#asymptotic-null-distributions"><i class="fa fa-check"></i><b>3.4</b> Asymptotic Null Distributions</a></li>
+<li class="chapter" data-level="3.5" data-path="statistical-hypothesis-testing.html"><a href="statistical-hypothesis-testing.html#multiple-comparisons"><i class="fa fa-check"></i><b>3.5</b> Multiple Comparisons</a></li>
+<li class="chapter" data-level="3.6" data-path="statistical-hypothesis-testing.html"><a href="statistical-hypothesis-testing.html#r-lab-the-gauss-test"><i class="fa fa-check"></i><b>3.6</b> R-Lab: The Gauss-Test</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="ordinary-least-squares-the-classical-linear-regression-model.html"><a href="ordinary-least-squares-the-classical-linear-regression-model.html"><i class="fa fa-check"></i><b>4</b> Ordinary Least Squares: The Classical Linear Regression Model</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="ordinary-least-squares-the-classical-linear-regression-model.html"><a href="ordinary-least-squares-the-classical-linear-regression-model.html#finite-sample-properties"><i class="fa fa-check"></i><b>4.1</b> Finite-Sample Properties</a>
+<ul>
 <li class="chapter" data-level="4.1.1" data-path="ordinary-least-squares-the-classical-linear-regression-model.html"><a href="ordinary-least-squares-the-classical-linear-regression-model.html#the-algebra-of-least-squares"><i class="fa fa-check"></i><b>4.1.1</b> The Algebra of Least Squares</a></li>
 <li class="chapter" data-level="" data-path="ordinary-least-squares-the-classical-linear-regression-model.html"><a href="ordinary-least-squares-the-classical-linear-regression-model.html#some-quantities-of-interest"><i class="fa fa-check"></i>Some quantities of interest:</a></li>
 <li class="chapter" data-level="4.1.2" data-path="ordinary-least-squares-the-classical-linear-regression-model.html"><a href="ordinary-least-squares-the-classical-linear-regression-model.html#coefficient-of-determination"><i class="fa fa-check"></i><b>4.1.2</b> Coefficient of determination</a></li>
@@ -179,20 +218,24 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="4.2" data-path="ordinary-least-squares-the-classical-linear-regression-model.html"><a href="ordinary-least-squares-the-classical-linear-regression-model.html#asymptotics-under-the-classic-regression-model"><i class="fa fa-check"></i><b>4.2</b> Asymptotics under the Classic Regression Model</a></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="monte-carlo-simulations.html"><a href="monte-carlo-simulations.html"><i class="fa fa-check"></i><b>5</b> Monte-Carlo Simulations</a><ul>
-<li class="chapter" data-level="5.1" data-path="monte-carlo-simulations.html"><a href="monte-carlo-simulations.html#checking-test-statistics"><i class="fa fa-check"></i><b>5.1</b> Checking Test Statistics</a><ul>
+<li class="chapter" data-level="5" data-path="monte-carlo-simulations.html"><a href="monte-carlo-simulations.html"><i class="fa fa-check"></i><b>5</b> Monte-Carlo Simulations</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="monte-carlo-simulations.html"><a href="monte-carlo-simulations.html#checking-test-statistics"><i class="fa fa-check"></i><b>5.1</b> Checking Test Statistics</a>
+<ul>
 <li class="chapter" data-level="5.1.1" data-path="monte-carlo-simulations.html"><a href="monte-carlo-simulations.html#simple-example-gauss-test"><i class="fa fa-check"></i><b>5.1.1</b> Simple Example: Gauss Test</a></li>
 <li class="chapter" data-level="5.1.2" data-path="monte-carlo-simulations.html"><a href="monte-carlo-simulations.html#simulated-power-function"><i class="fa fa-check"></i><b>5.1.2</b> Simulated Power Function</a></li>
 </ul></li>
 <li class="chapter" data-level="5.2" data-path="monte-carlo-simulations.html"><a href="monte-carlo-simulations.html#checking-parameter-estimators"><i class="fa fa-check"></i><b>5.2</b> Checking Parameter Estimators</a></li>
 </ul></li>
-<li class="chapter" data-level="6" data-path="how-to-write.html"><a href="how-to-write.html"><i class="fa fa-check"></i><b>6</b> How to Write</a><ul>
+<li class="chapter" data-level="6" data-path="how-to-write.html"><a href="how-to-write.html"><i class="fa fa-check"></i><b>6</b> How to Write</a>
+<ul>
 <li class="chapter" data-level="6.1" data-path="how-to-write.html"><a href="how-to-write.html#five-common-writing-mistakes"><i class="fa fa-check"></i><b>6.1</b> Five Common Writing Mistakes</a></li>
 <li class="chapter" data-level="6.2" data-path="how-to-write.html"><a href="how-to-write.html#gregory-mankiw-how-to-write-well"><i class="fa fa-check"></i><b>6.2</b> Gregory Mankiw: How to Write Well</a></li>
 <li class="chapter" data-level="6.3" data-path="how-to-write.html"><a href="how-to-write.html#rob-j-hyndman-avoid-annoying-a-referee"><i class="fa fa-check"></i><b>6.3</b> Rob J Hyndman: Avoid Annoying a Referee</a></li>
 <li class="chapter" data-level="6.4" data-path="how-to-write.html"><a href="how-to-write.html#latex"><i class="fa fa-check"></i><b>6.4</b> LaTeX</a></li>
 </ul></li>
-<li class="chapter" data-level="7" data-path="how-to-present.html"><a href="how-to-present.html"><i class="fa fa-check"></i><b>7</b> How to Present</a><ul>
+<li class="chapter" data-level="7" data-path="how-to-present.html"><a href="how-to-present.html"><i class="fa fa-check"></i><b>7</b> How to Present</a>
+<ul>
 <li class="chapter" data-level="7.1" data-path="how-to-present.html"><a href="how-to-present.html#the-aim-of-your-talk"><i class="fa fa-check"></i><b>7.1</b> The Aim of your Talk</a></li>
 <li class="chapter" data-level="7.2" data-path="how-to-present.html"><a href="how-to-present.html#a-suggested-structure"><i class="fa fa-check"></i><b>7.2</b> A Suggested Structure</a></li>
 <li class="chapter" data-level="7.3" data-path="how-to-present.html"><a href="how-to-present.html#preparing-slides"><i class="fa fa-check"></i><b>7.3</b> Preparing Slides</a></li>
@@ -218,10 +261,10 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="estimation-theory" class="section level1">
-<h1><span class="header-section-number">Ch. 3</span> Estimation Theory</h1>
-<div id="bias-variance-and-mse" class="section level2">
-<h2><span class="header-section-number">3.1</span> Bias, Variance and MSE</h2>
+<div id="estimation-theory" class="section level1" number="2">
+<h1><span class="header-section-number">Ch. 2</span> Estimation Theory</h1>
+<div id="bias-variance-and-mse" class="section level2" number="2.1">
+<h2><span class="header-section-number">2.1</span> Bias, Variance and MSE</h2>
 <p>Given a sample <span class="math inline">\(X_1,\dots,X_n\)</span> consider an estimator <span class="math inline">\(\widehat{\theta}_n\equiv\widehat{\theta}(X_1,\dots,X_n)\)</span> of a real-valued parameter <span class="math inline">\(\theta\in\Omega\subset\mathbb{R}\)</span>.</p>
 <p>The distribution of any estimator of course depends on the true parameter vector <span class="math inline">\(\theta\)</span>, i.e., more precisely, <span class="math display">\[\widehat{\theta}_n\equiv \widehat{\theta}(X_1,\dots,X_n;\theta).\]</span>
 This dependence is usually not explicitly written, but all properties of estimators discussed below have to hold for all possible parameter values <span class="math inline">\(\theta\in\Omega\)</span>. This will go without saying.</p>
@@ -258,8 +301,8 @@ holds for any possible value of the true mean <span class="math inline">\(\mu\)<
 <span class="math display">\[E\left((\bar X-\mu)^2\right)=\textrm{var}(\bar X)=\sigma^2/n\]</span></li>
 </ul>
 </div>
-<div id="consistency-of-estimators" class="section level2">
-<h2><span class="header-section-number">3.2</span> Consistency of Estimators</h2>
+<div id="consistency-of-estimators" class="section level2" number="2.2">
+<h2><span class="header-section-number">2.2</span> Consistency of Estimators</h2>
 <p>Asymptotic theory is concerned with theoretical results valid for “large sample sizes”. Important keywords of asymptotic theory are:</p>
 <ul>
 <li>consistency</li>
@@ -301,10 +344,10 @@ Let <span class="math inline">\(\{Z_n\}_{n=1,2,3,\dots}\)</span> be a sequence o
 </p>
 <p><strong>Example:</strong> Assume again an i.i.d. sample <span class="math inline">\(X_1,\dots,X_n\)</span> with mean <span class="math inline">\(\mu=E(X_i)\)</span> and variance <span class="math inline">\(\sigma^2=\textrm{var}(X_i)&lt;\infty\)</span>. As stated above we then have
 <span class="math display">\[E\left((\bar X-\mu)^2\right)=\textrm{var}(\bar X)=\sigma^2/n\rightarrow 0 \quad \text{as } n\rightarrow\infty.\]</span>
-Therefore, <span class="math inline">\(\bar X \to_{q.m.} \mu\)</span>. The latter implies that <span class="math inline">\(\bar X \to_{P} \mu\)</span>, i.e. <span class="math inline">\(\bar X\)</span> is a (weakly) consistent estimator of <span class="math inline">\(\mu\)</span>.</p>
+Therefore, <span class="math inline">\(\bar X \to_{q.m.} \mu\)</span>. The latter implies that <span class="math inline">\(\bar X \to_{P} \mu\)</span>, i.e. <span class="math inline">\(\bar X\)</span> is a (weakly) consistent estimator of <span class="math inline">\(\mu\)</span>.</p>
 </div>
-<div id="rates-of-convergence" class="section level2">
-<h2><span class="header-section-number">3.3</span> Rates of Convergence</h2>
+<div id="rates-of-convergence" class="section level2" number="2.3">
+<h2><span class="header-section-number">2.3</span> Rates of Convergence</h2>
 <p>Rates of convergence quantify the (stochastic) order of magnitude of an estimation error in dependence of the
 sample size <span class="math inline">\(n\)</span>. This order of magnitude is usually represented using the symbols: <span class="math inline">\(O_P\)</span> and <span class="math inline">\(o_P\)</span>.</p>
 <p><br />
@@ -407,8 +450,8 @@ Z_nV_n &amp;  =O_P(r_ns_n)
 <li>If <span class="math inline">\(E(|Z_n|^k)=O(r_n)\)</span>, then <span class="math inline">\(Z_n=O_p(|r_n|^{1/k})\)</span> for <span class="math inline">\(k=1,2,3,\dots\)</span></li>
 </ul>
 </div>
-<div id="asymptotic-distributions" class="section level2">
-<h2><span class="header-section-number">3.4</span> Asymptotic Distributions</h2>
+<div id="asymptotic-distributions" class="section level2" number="2.4">
+<h2><span class="header-section-number">2.4</span> Asymptotic Distributions</h2>
 <p>The practically most important version of stochastic convergence is convergence in distribution. Knowledge about the “asymptotic distribution” of an estimator allows to construct confidence intervals and tests.</p>
 <p><br />
 </p>
@@ -461,8 +504,8 @@ and where <span class="math inline">\(V_{jk}\)</span> are the elements of the as
 </p>
 <p>Note that asymptotic normality usually also holds for nonparametric curve estimators with convergence rates slower than <span class="math inline">\(n^{-1/2}\)</span>.</p>
 </div>
-<div id="asymptotic-theory" class="section level2">
-<h2><span class="header-section-number">3.5</span> Asymptotic Theory</h2>
+<div id="asymptotic-theory" class="section level2" number="2.5">
+<h2><span class="header-section-number">2.5</span> Asymptotic Theory</h2>
 <p>Many estimation procedures in modern statistics rely on fairly general assumptions. For a given sample size <span class="math inline">\(n\)</span> it is then often impossible to derive the exact distribution of <span class="math inline">\(\theta_n\)</span>. Necessary calculations are too complex, and finite sample distributions usually depend on unknown characteristics of the distribution of the underlying data.</p>
 <p><br />
 </p>
@@ -477,7 +520,7 @@ and where <span class="math inline">\(V_{jk}\)</span> are the elements of the as
 <li>For the estimation problem to be considered <span class="math inline">\(\theta_n\)</span> is consistent and adopts the fastest possible rate of convergence
 (generally: <span class="math inline">\(n^{-1/2}\)</span> in parametric statistics; <span class="math inline">\(n^{-2/5}\)</span> can be achieved in nonparametric univariate curve estimation problems).</li>
 <li>In most regular situations one is additionally interested in a “best asymptotically normal” (BAN) estimator. Assume that <span class="math inline">\(\sqrt{n}(\theta_n -\theta)\sim N(0,v^2)\)</span>. Then <span class="math inline">\(\theta_n\)</span> is a BAN-estimator if any alternative estimator <span class="math inline">\(\tilde\theta_n\)</span> with
-<span class="math inline">\(\sqrt{n}(\tilde\theta_n -\theta)\sim N(0,\tilde v^2)\)</span> possesses a larger asymptotic variance, i.e. <span class="math inline">\(\tilde v^2\geq v^2\)</span>.</li>
+<span class="math inline">\(\sqrt{n}(\tilde\theta_n -\theta)\sim N(0,\tilde v^2)\)</span> possesses a larger asymptotic variance, i.e. <span class="math inline">\(\tilde v^2\geq v^2\)</span>.</li>
 <li><strong>Multivariate generalization:</strong> An estimator <span class="math inline">\(\theta_n\)</span> with <span class="math inline">\(\sqrt{n}(\theta_n -\theta)\sim N_p(0,V)\)</span> is best asymptotically normal if
 <span class="math display">\[c&#39;\tilde V c\geq c&#39;Vc\quad\hbox{ for all }\quad c\in\mathbb{R}^p, \Vert c\Vert_2^2=1\]</span>
 for any other estimator <span class="math inline">\(\tilde\theta_n\)</span> satisfying <span class="math inline">\(\sqrt{n}(\tilde\theta_n -\theta)\sim N_p(0,\tilde V)\)</span>.</li>
@@ -486,10 +529,10 @@ for any other estimator <span class="math inline">\(\tilde\theta_n\)</span> sati
 </p>
 <p>For most estimation problems in parametric statistics maximum-likelihood estimators are best asymptotically normal.</p>
 </div>
-<div id="mathematical-tools" class="section level2">
-<h2><span class="header-section-number">3.6</span> Mathematical tools</h2>
-<div id="taylor-expansions" class="section level3">
-<h3><span class="header-section-number">3.6.1</span> Taylor expansions</h3>
+<div id="mathematical-tools" class="section level2" number="2.6">
+<h2><span class="header-section-number">2.6</span> Mathematical tools</h2>
+<div id="taylor-expansions" class="section level3" number="2.6.1">
+<h3><span class="header-section-number">2.6.1</span> Taylor expansions</h3>
 <p>Taylors’ theorem: Let <span class="math inline">\(f\)</span> be a real-valued function which is
 <span class="math inline">\(k+1\)</span> continuously differentiable in the interior of an interval <span class="math inline">\([a,b]\)</span>. Consider a point
 <span class="math inline">\(x_0\in (a,b)\)</span>. For any other value <span class="math inline">\(x\in (a,b)\)</span> there exists some <span class="math inline">\(\psi\in [x_0,x]\)</span> such that
@@ -526,8 +569,8 @@ for any other estimator <span class="math inline">\(\tilde\theta_n\)</span> sati
 <p>Second order Taylor approximation:
 <span class="math display">\[f(x)=f(x_0)+f&#39;(x_0)\cdot(x-x_0)+\frac{1}{2} (x-x_0)^T f&#39;&#39;(x_0)(x-x_0)+O(\Vert x-x_0\Vert_2^3)\]</span></p>
 </div>
-<div id="tools-for-deriving-asymptotic-distributions" class="section level3">
-<h3><span class="header-section-number">3.6.2</span> Tools for deriving asymptotic distributions</h3>
+<div id="tools-for-deriving-asymptotic-distributions" class="section level3" number="2.6.2">
+<h3><span class="header-section-number">2.6.2</span> Tools for deriving asymptotic distributions</h3>
 <p>Let <span class="math inline">\(\{W_n\}\)</span>, <span class="math inline">\(\{Z_n\}\)</span> be sequences of random variables, then:</p>
 <ul>
 <li><span class="math inline">\(Z_n=W_n+o_P(1)\quad \Leftrightarrow \quad Z_n-W_n\to_P 0\)</span>. If additionally <span class="math inline">\(W_n\to_L N(0,v^2)\)</span> then <span class="math inline">\(Z_n\to_L N(0,v^2)\)</span>.</li>
@@ -544,8 +587,8 @@ V_n:=Z_n\cdot W_n&amp;\to_L N_p(0,CVC&#39;)
 </ul>
 <!-- For any fixed constant  $c\neq 0$: $W_n\to_L N(0,v^2)$ implies $cW_n\to_L N(0,c^2v^2)$ -->
 </div>
-<div id="the-delta-method" class="section level3">
-<h3><span class="header-section-number">3.6.3</span> The Delta-Method</h3>
+<div id="the-delta-method" class="section level3" number="2.6.3">
+<h3><span class="header-section-number">2.6.3</span> The Delta-Method</h3>
 <p>A further tool which is frequently used in asymptotic statistics is the so-called delta-method.</p>
 <p><strong>Delta-Method:</strong> Let <span class="math inline">\(\widehat{\theta}_n\)</span> be a sequence of estimators of a one-dimensional parameter <span class="math inline">\(\theta\)</span> satisfying
 <span class="math inline">\(n^{r} (\widehat{\theta}_n-\theta)\rightarrow_L N(0,v^2),\)</span> and let <span class="math inline">\(g(.)\)</span> be a real-valued function which is continuously differentiable at <span class="math inline">\(\theta\)</span> and satisfies <span class="math inline">\(g&#39;(\theta)\neq 0\)</span>. Then
@@ -684,17 +727,18 @@ V_n:=Z_n\cdot W_n&amp;\to_L N_p(0,CVC&#39;)
           </div>
         </div>
       </div>
-<a href="statistical-hypothesis-testing.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="ordinary-least-squares-the-classical-linear-regression-model.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="introduction-to-r.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="statistical-hypothesis-testing.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
-<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
 <script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
 <script>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
@@ -702,12 +746,12 @@ gitbook.start({
 "github": false,
 "facebook": true,
 "twitter": true,
-"google": false,
 "linkedin": false,
 "weibo": false,
 "instapaper": false,
 "vk": false,
-"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
 },
 "fontsettings": {
 "theme": "white",
@@ -722,7 +766,15 @@ gitbook.start({
 "link": null,
 "text": null
 },
+"view": {
+"link": null,
+"text": null
+},
 "download": ["RM_ES_Script.pdf"],
+"search": {
+"engine": "fuse",
+"options": null
+},
 "toc": {
 "collapse": "subsection"
 }

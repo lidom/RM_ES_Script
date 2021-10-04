@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<html lang="" xml:lang="">
 <head>
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Research Module in Econometrics &amp; Statistics</title>
   <meta name="description" content="Script for the research module in econometrics &amp; statistics (University Bonn)." />
-  <meta name="generator" content="bookdown 0.13 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Research Module in Econometrics &amp; Statistics" />
   <meta property="og:type" content="book" />
@@ -21,10 +21,10 @@
   <meta name="twitter:description" content="Script for the research module in econometrics &amp; statistics (University Bonn)." />
   
 
-<meta name="author" content="JProf. Dominik Liebl" />
+<meta name="author" content="Prof. Dominik Liebl (dliebl@uni-bonn.de) and Christopher Walsh" />
 
 
-<meta name="date" content="2020-01-14" />
+<meta name="date" content="2021-10-04" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -33,13 +33,16 @@
   
 
 <link rel="next" href="topics.html"/>
-<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<script src="libs/header-attrs-2.11/header-attrs.js"></script>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
 
 
 
@@ -47,28 +50,33 @@
 
 
 
+
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
 
 
 <style type="text/css">
-a.sourceLine { display: inline-block; line-height: 1.25; }
-a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
-a.sourceLine:empty { height: 1.2em; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
-code.sourceCode { white-space: pre; position: relative; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
 pre.sourceCode { margin: 0; }
 @media screen {
 div.sourceCode { overflow: auto; }
 }
 @media print {
-code.sourceCode { white-space: pre-wrap; }
-a.sourceLine { text-indent: -1em; padding-left: 1em; }
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
-pre.numberSource a.sourceLine
-  { position: relative; left: -4em; }
-pre.numberSource a.sourceLine::before
-  { content: attr(data-line-number);
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
     position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; pointer-events: all; display: inline-block;
+    border: none; display: inline-block;
     -webkit-touch-callout: none; -webkit-user-select: none;
     -khtml-user-select: none; -moz-user-select: none;
     -ms-user-select: none; user-select: none;
@@ -77,9 +85,9 @@ pre.numberSource a.sourceLine::before
   }
 pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
 div.sourceCode
-  { background-color: #f8f8f8; }
+  {  background-color: #f8f8f8; }
 @media screen {
-a.sourceLine::before { text-decoration: underline; }
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 code span.al { color: #ef2929; } /* Alert */
 code span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
@@ -111,6 +119,29 @@ code span.vs { color: #4e9a06; } /* VerbatimString */
 code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
+
 <link rel="stylesheet" href="style.css" type="text/css" />
 </head>
 
@@ -129,47 +160,55 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <li class="divider"></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a></li>
 <li class="chapter" data-level="" data-path="topics.html"><a href="topics.html"><i class="fa fa-check"></i>Topics</a></li>
-<li class="chapter" data-level="1" data-path="introduction-to-r.html"><a href="introduction-to-r.html"><i class="fa fa-check"></i><b>1</b> Introduction to R</a><ul>
+<li class="chapter" data-level="1" data-path="introduction-to-r.html"><a href="introduction-to-r.html"><i class="fa fa-check"></i><b>1</b> Introduction to R</a>
+<ul>
 <li class="chapter" data-level="1.1" data-path="introduction-to-r.html"><a href="introduction-to-r.html#short-glossary"><i class="fa fa-check"></i><b>1.1</b> Short Glossary</a></li>
 <li class="chapter" data-level="1.2" data-path="introduction-to-r.html"><a href="introduction-to-r.html#first-steps"><i class="fa fa-check"></i><b>1.2</b> First Steps</a></li>
 <li class="chapter" data-level="1.3" data-path="introduction-to-r.html"><a href="introduction-to-r.html#further-data-objects"><i class="fa fa-check"></i><b>1.3</b> Further Data Objects</a></li>
 <li class="chapter" data-level="1.4" data-path="introduction-to-r.html"><a href="introduction-to-r.html#simple-regression-analysis-using-r"><i class="fa fa-check"></i><b>1.4</b> Simple Regression Analysis using R</a></li>
 <li class="chapter" data-level="1.5" data-path="introduction-to-r.html"><a href="introduction-to-r.html#programming-in-r"><i class="fa fa-check"></i><b>1.5</b> Programming in R</a></li>
 <li class="chapter" data-level="1.6" data-path="introduction-to-r.html"><a href="introduction-to-r.html#r-packages"><i class="fa fa-check"></i><b>1.6</b> R-packages</a></li>
-<li class="chapter" data-level="1.7" data-path="introduction-to-r.html"><a href="introduction-to-r.html#tidyverse"><i class="fa fa-check"></i><b>1.7</b> Tidyverse</a><ul>
+<li class="chapter" data-level="1.7" data-path="introduction-to-r.html"><a href="introduction-to-r.html#tidyverse"><i class="fa fa-check"></i><b>1.7</b> Tidyverse</a>
+<ul>
 <li class="chapter" data-level="1.7.1" data-path="introduction-to-r.html"><a href="introduction-to-r.html#tidyverse-plotting-basics"><i class="fa fa-check"></i><b>1.7.1</b> Tidyverse: Plotting Basics</a></li>
 <li class="chapter" data-level="1.7.2" data-path="introduction-to-r.html"><a href="introduction-to-r.html#tidyverse-data-wrangling-basics"><i class="fa fa-check"></i><b>1.7.2</b> Tidyverse: Data Wrangling Basics</a></li>
 <li class="chapter" data-level="1.7.3" data-path="introduction-to-r.html"><a href="introduction-to-r.html#the-pipe-operator"><i class="fa fa-check"></i><b>1.7.3</b> The pipe operator <code>%&gt;%</code></a></li>
 <li class="chapter" data-level="1.7.4" data-path="introduction-to-r.html"><a href="introduction-to-r.html#the-group_by-function"><i class="fa fa-check"></i><b>1.7.4</b> The <code>group_by()</code> function</a></li>
 </ul></li>
-<li class="chapter" data-level="1.8" data-path="introduction-to-r.html"><a href="introduction-to-r.html#further-links"><i class="fa fa-check"></i><b>1.8</b> Further Links</a><ul>
+<li class="chapter" data-level="1.8" data-path="introduction-to-r.html"><a href="introduction-to-r.html#further-links"><i class="fa fa-check"></i><b>1.8</b> Further Links</a>
+<ul>
 <li class="chapter" data-level="1.8.1" data-path="introduction-to-r.html"><a href="introduction-to-r.html#further-r-intros"><i class="fa fa-check"></i><b>1.8.1</b> Further R-Intros</a></li>
 <li class="chapter" data-level="1.8.2" data-path="introduction-to-r.html"><a href="introduction-to-r.html#version-control-gitgithub"><i class="fa fa-check"></i><b>1.8.2</b> Version Control (Git/GitHub)</a></li>
 <li class="chapter" data-level="1.8.3" data-path="introduction-to-r.html"><a href="introduction-to-r.html#r-ladies"><i class="fa fa-check"></i><b>1.8.3</b> R-Ladies</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="2" data-path="statistical-hypothesis-testing.html"><a href="statistical-hypothesis-testing.html"><i class="fa fa-check"></i><b>2</b> Statistical Hypothesis Testing</a><ul>
-<li class="chapter" data-level="2.1" data-path="statistical-hypothesis-testing.html"><a href="statistical-hypothesis-testing.html#hypotheses-and-test-statistics"><i class="fa fa-check"></i><b>2.1</b> Hypotheses and Test-Statistics</a></li>
-<li class="chapter" data-level="2.2" data-path="statistical-hypothesis-testing.html"><a href="statistical-hypothesis-testing.html#significance-level-size-and-p-values"><i class="fa fa-check"></i><b>2.2</b> Significance Level, Size and p-Values</a></li>
-<li class="chapter" data-level="2.3" data-path="statistical-hypothesis-testing.html"><a href="statistical-hypothesis-testing.html#PF1"><i class="fa fa-check"></i><b>2.3</b> The Power Function</a></li>
-<li class="chapter" data-level="2.4" data-path="statistical-hypothesis-testing.html"><a href="statistical-hypothesis-testing.html#asymptotic-null-distributions"><i class="fa fa-check"></i><b>2.4</b> Asymptotic Null Distributions</a></li>
-<li class="chapter" data-level="2.5" data-path="statistical-hypothesis-testing.html"><a href="statistical-hypothesis-testing.html#multiple-comparisons"><i class="fa fa-check"></i><b>2.5</b> Multiple Comparisons</a></li>
-<li class="chapter" data-level="2.6" data-path="statistical-hypothesis-testing.html"><a href="statistical-hypothesis-testing.html#r-lab-the-gauss-test"><i class="fa fa-check"></i><b>2.6</b> R-Lab: The Gauss-Test</a></li>
-</ul></li>
-<li class="chapter" data-level="3" data-path="estimation-theory.html"><a href="estimation-theory.html"><i class="fa fa-check"></i><b>3</b> Estimation Theory</a><ul>
-<li class="chapter" data-level="3.1" data-path="estimation-theory.html"><a href="estimation-theory.html#bias-variance-and-mse"><i class="fa fa-check"></i><b>3.1</b> Bias, Variance and MSE</a></li>
-<li class="chapter" data-level="3.2" data-path="estimation-theory.html"><a href="estimation-theory.html#consistency-of-estimators"><i class="fa fa-check"></i><b>3.2</b> Consistency of Estimators</a></li>
-<li class="chapter" data-level="3.3" data-path="estimation-theory.html"><a href="estimation-theory.html#rates-of-convergence"><i class="fa fa-check"></i><b>3.3</b> Rates of Convergence</a></li>
-<li class="chapter" data-level="3.4" data-path="estimation-theory.html"><a href="estimation-theory.html#asymptotic-distributions"><i class="fa fa-check"></i><b>3.4</b> Asymptotic Distributions</a></li>
-<li class="chapter" data-level="3.5" data-path="estimation-theory.html"><a href="estimation-theory.html#asymptotic-theory"><i class="fa fa-check"></i><b>3.5</b> Asymptotic Theory</a></li>
-<li class="chapter" data-level="3.6" data-path="estimation-theory.html"><a href="estimation-theory.html#mathematical-tools"><i class="fa fa-check"></i><b>3.6</b> Mathematical tools</a><ul>
-<li class="chapter" data-level="3.6.1" data-path="estimation-theory.html"><a href="estimation-theory.html#taylor-expansions"><i class="fa fa-check"></i><b>3.6.1</b> Taylor expansions</a></li>
-<li class="chapter" data-level="3.6.2" data-path="estimation-theory.html"><a href="estimation-theory.html#tools-for-deriving-asymptotic-distributions"><i class="fa fa-check"></i><b>3.6.2</b> Tools for deriving asymptotic distributions</a></li>
-<li class="chapter" data-level="3.6.3" data-path="estimation-theory.html"><a href="estimation-theory.html#the-delta-method"><i class="fa fa-check"></i><b>3.6.3</b> The Delta-Method</a></li>
+<li class="chapter" data-level="2" data-path="estimation-theory.html"><a href="estimation-theory.html"><i class="fa fa-check"></i><b>2</b> Estimation Theory</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="estimation-theory.html"><a href="estimation-theory.html#bias-variance-and-mse"><i class="fa fa-check"></i><b>2.1</b> Bias, Variance and MSE</a></li>
+<li class="chapter" data-level="2.2" data-path="estimation-theory.html"><a href="estimation-theory.html#consistency-of-estimators"><i class="fa fa-check"></i><b>2.2</b> Consistency of Estimators</a></li>
+<li class="chapter" data-level="2.3" data-path="estimation-theory.html"><a href="estimation-theory.html#rates-of-convergence"><i class="fa fa-check"></i><b>2.3</b> Rates of Convergence</a></li>
+<li class="chapter" data-level="2.4" data-path="estimation-theory.html"><a href="estimation-theory.html#asymptotic-distributions"><i class="fa fa-check"></i><b>2.4</b> Asymptotic Distributions</a></li>
+<li class="chapter" data-level="2.5" data-path="estimation-theory.html"><a href="estimation-theory.html#asymptotic-theory"><i class="fa fa-check"></i><b>2.5</b> Asymptotic Theory</a></li>
+<li class="chapter" data-level="2.6" data-path="estimation-theory.html"><a href="estimation-theory.html#mathematical-tools"><i class="fa fa-check"></i><b>2.6</b> Mathematical tools</a>
+<ul>
+<li class="chapter" data-level="2.6.1" data-path="estimation-theory.html"><a href="estimation-theory.html#taylor-expansions"><i class="fa fa-check"></i><b>2.6.1</b> Taylor expansions</a></li>
+<li class="chapter" data-level="2.6.2" data-path="estimation-theory.html"><a href="estimation-theory.html#tools-for-deriving-asymptotic-distributions"><i class="fa fa-check"></i><b>2.6.2</b> Tools for deriving asymptotic distributions</a></li>
+<li class="chapter" data-level="2.6.3" data-path="estimation-theory.html"><a href="estimation-theory.html#the-delta-method"><i class="fa fa-check"></i><b>2.6.3</b> The Delta-Method</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="ordinary-least-squares-the-classical-linear-regression-model.html"><a href="ordinary-least-squares-the-classical-linear-regression-model.html"><i class="fa fa-check"></i><b>4</b> Ordinary Least Squares: The Classical Linear Regression Model</a><ul>
-<li class="chapter" data-level="4.1" data-path="ordinary-least-squares-the-classical-linear-regression-model.html"><a href="ordinary-least-squares-the-classical-linear-regression-model.html#finite-sample-properties"><i class="fa fa-check"></i><b>4.1</b> Finite-Sample Properties</a><ul>
+<li class="chapter" data-level="3" data-path="statistical-hypothesis-testing.html"><a href="statistical-hypothesis-testing.html"><i class="fa fa-check"></i><b>3</b> Statistical Hypothesis Testing</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="statistical-hypothesis-testing.html"><a href="statistical-hypothesis-testing.html#hypotheses-and-test-statistics"><i class="fa fa-check"></i><b>3.1</b> Hypotheses and Test-Statistics</a></li>
+<li class="chapter" data-level="3.2" data-path="statistical-hypothesis-testing.html"><a href="statistical-hypothesis-testing.html#significance-level-size-and-p-values"><i class="fa fa-check"></i><b>3.2</b> Significance Level, Size and p-Values</a></li>
+<li class="chapter" data-level="3.3" data-path="statistical-hypothesis-testing.html"><a href="statistical-hypothesis-testing.html#PF1"><i class="fa fa-check"></i><b>3.3</b> The Power Function</a></li>
+<li class="chapter" data-level="3.4" data-path="statistical-hypothesis-testing.html"><a href="statistical-hypothesis-testing.html#asymptotic-null-distributions"><i class="fa fa-check"></i><b>3.4</b> Asymptotic Null Distributions</a></li>
+<li class="chapter" data-level="3.5" data-path="statistical-hypothesis-testing.html"><a href="statistical-hypothesis-testing.html#multiple-comparisons"><i class="fa fa-check"></i><b>3.5</b> Multiple Comparisons</a></li>
+<li class="chapter" data-level="3.6" data-path="statistical-hypothesis-testing.html"><a href="statistical-hypothesis-testing.html#r-lab-the-gauss-test"><i class="fa fa-check"></i><b>3.6</b> R-Lab: The Gauss-Test</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="ordinary-least-squares-the-classical-linear-regression-model.html"><a href="ordinary-least-squares-the-classical-linear-regression-model.html"><i class="fa fa-check"></i><b>4</b> Ordinary Least Squares: The Classical Linear Regression Model</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="ordinary-least-squares-the-classical-linear-regression-model.html"><a href="ordinary-least-squares-the-classical-linear-regression-model.html#finite-sample-properties"><i class="fa fa-check"></i><b>4.1</b> Finite-Sample Properties</a>
+<ul>
 <li class="chapter" data-level="4.1.1" data-path="ordinary-least-squares-the-classical-linear-regression-model.html"><a href="ordinary-least-squares-the-classical-linear-regression-model.html#the-algebra-of-least-squares"><i class="fa fa-check"></i><b>4.1.1</b> The Algebra of Least Squares</a></li>
 <li class="chapter" data-level="" data-path="ordinary-least-squares-the-classical-linear-regression-model.html"><a href="ordinary-least-squares-the-classical-linear-regression-model.html#some-quantities-of-interest"><i class="fa fa-check"></i>Some quantities of interest:</a></li>
 <li class="chapter" data-level="4.1.2" data-path="ordinary-least-squares-the-classical-linear-regression-model.html"><a href="ordinary-least-squares-the-classical-linear-regression-model.html#coefficient-of-determination"><i class="fa fa-check"></i><b>4.1.2</b> Coefficient of determination</a></li>
@@ -179,20 +218,24 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="4.2" data-path="ordinary-least-squares-the-classical-linear-regression-model.html"><a href="ordinary-least-squares-the-classical-linear-regression-model.html#asymptotics-under-the-classic-regression-model"><i class="fa fa-check"></i><b>4.2</b> Asymptotics under the Classic Regression Model</a></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="monte-carlo-simulations.html"><a href="monte-carlo-simulations.html"><i class="fa fa-check"></i><b>5</b> Monte-Carlo Simulations</a><ul>
-<li class="chapter" data-level="5.1" data-path="monte-carlo-simulations.html"><a href="monte-carlo-simulations.html#checking-test-statistics"><i class="fa fa-check"></i><b>5.1</b> Checking Test Statistics</a><ul>
+<li class="chapter" data-level="5" data-path="monte-carlo-simulations.html"><a href="monte-carlo-simulations.html"><i class="fa fa-check"></i><b>5</b> Monte-Carlo Simulations</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="monte-carlo-simulations.html"><a href="monte-carlo-simulations.html#checking-test-statistics"><i class="fa fa-check"></i><b>5.1</b> Checking Test Statistics</a>
+<ul>
 <li class="chapter" data-level="5.1.1" data-path="monte-carlo-simulations.html"><a href="monte-carlo-simulations.html#simple-example-gauss-test"><i class="fa fa-check"></i><b>5.1.1</b> Simple Example: Gauss Test</a></li>
 <li class="chapter" data-level="5.1.2" data-path="monte-carlo-simulations.html"><a href="monte-carlo-simulations.html#simulated-power-function"><i class="fa fa-check"></i><b>5.1.2</b> Simulated Power Function</a></li>
 </ul></li>
 <li class="chapter" data-level="5.2" data-path="monte-carlo-simulations.html"><a href="monte-carlo-simulations.html#checking-parameter-estimators"><i class="fa fa-check"></i><b>5.2</b> Checking Parameter Estimators</a></li>
 </ul></li>
-<li class="chapter" data-level="6" data-path="how-to-write.html"><a href="how-to-write.html"><i class="fa fa-check"></i><b>6</b> How to Write</a><ul>
+<li class="chapter" data-level="6" data-path="how-to-write.html"><a href="how-to-write.html"><i class="fa fa-check"></i><b>6</b> How to Write</a>
+<ul>
 <li class="chapter" data-level="6.1" data-path="how-to-write.html"><a href="how-to-write.html#five-common-writing-mistakes"><i class="fa fa-check"></i><b>6.1</b> Five Common Writing Mistakes</a></li>
 <li class="chapter" data-level="6.2" data-path="how-to-write.html"><a href="how-to-write.html#gregory-mankiw-how-to-write-well"><i class="fa fa-check"></i><b>6.2</b> Gregory Mankiw: How to Write Well</a></li>
 <li class="chapter" data-level="6.3" data-path="how-to-write.html"><a href="how-to-write.html#rob-j-hyndman-avoid-annoying-a-referee"><i class="fa fa-check"></i><b>6.3</b> Rob J Hyndman: Avoid Annoying a Referee</a></li>
 <li class="chapter" data-level="6.4" data-path="how-to-write.html"><a href="how-to-write.html#latex"><i class="fa fa-check"></i><b>6.4</b> LaTeX</a></li>
 </ul></li>
-<li class="chapter" data-level="7" data-path="how-to-present.html"><a href="how-to-present.html"><i class="fa fa-check"></i><b>7</b> How to Present</a><ul>
+<li class="chapter" data-level="7" data-path="how-to-present.html"><a href="how-to-present.html"><i class="fa fa-check"></i><b>7</b> How to Present</a>
+<ul>
 <li class="chapter" data-level="7.1" data-path="how-to-present.html"><a href="how-to-present.html#the-aim-of-your-talk"><i class="fa fa-check"></i><b>7.1</b> The Aim of your Talk</a></li>
 <li class="chapter" data-level="7.2" data-path="how-to-present.html"><a href="how-to-present.html#a-suggested-structure"><i class="fa fa-check"></i><b>7.2</b> A Suggested Structure</a></li>
 <li class="chapter" data-level="7.3" data-path="how-to-present.html"><a href="how-to-present.html#preparing-slides"><i class="fa fa-check"></i><b>7.3</b> Preparing Slides</a></li>
@@ -220,8 +263,8 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
             <section class="normal" id="section-">
 <div id="header">
 <h1 class="title">Research Module in Econometrics &amp; Statistics</h1>
-<p class="author"><em>JProf. Dominik Liebl</em></p>
-<p class="date"><em>2020-01-14</em></p>
+<p class="author"><em>Prof. Dominik Liebl (<a href="mailto:dliebl@uni-bonn.de" class="email">dliebl@uni-bonn.de</a>) and Christopher Walsh</em></p>
+<p class="date"><em>2021-10-04</em></p>
 </div>
 <div id="preface" class="section level1 unnumbered">
 <h1>Preface</h1>
@@ -232,15 +275,15 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <p><em>Lecture-Phase:</em> The lecture-phase of this research module is intended to introduce the students to fundamental concepts of (applied and mathematical) statistics, as well as, to provide the students with reasoning skills for communicating statistical results. Participation in the lecture-phase is strongly recommended and active participation is desirable.</p>
 <p><em>Project-Phase:</em> The students have the opportunity to choose among a set of specific projects. Topics suggested by the students are generally appreciated, but will be assessed with respect to their feasibility. Each project must focus on one specific statistical method/topic (for instance, panel data analysis, clustered standard errors, non-parametric regression, etc.) and should contain the following three parts:</p>
 <ol style="list-style-type: decimal">
-<li>A description of the statistical method and its theoretical properties</li>
+<li>A critical description of the statistical method and its theoretical properties</li>
 <li>Monte Carlo simulation studies to assess the finite sample properties of the statistical method</li>
-<li>An exemplary real-data application to showcase the practical use of the statistical method.</li>
+<li>One or more real-data applications to showcase the practical use of the statistical/econometric method.</li>
 </ol>
 <p>Depending on the actual number of participants, it might be that the project work has to be carried out as a group task rather than as an individual task.</p>
 <p><em>Software:</em> Due to the mathematical contents, it is strongly recommended to use LaTeX for preparing the presentation slides and the term papers. Moreover, the Monte Carlo simulations and the real-data applications will make it necessary to work with advanced software such as R, Python, or Matlab. Short introductions to LaTeX and R will be given during the lecture-phase, but the students should be willing to work with such software.</p>
 <p><strong>Grading:</strong> The final grade will be a weighted average of the presentation (40%) and the research paper (60%).</p>
-<p><strong>Important:</strong> You need to register for this course via <a href="https://basis.uni-bonn.de/">BASIS</a>.</p>
-<p>Registration period: Oct. 14-21.</p>
+<p><strong>Registration:</strong> You need to register for this course via <a href="https://basis.uni-bonn.de/">BASIS</a>.</p>
+<p><strong>Registration period:</strong> Oct. 12-19. (<strong>Caution:</strong> No timely registration means you cannot participate in this course)</p>
 <p><br />
 </p>
 <p><strong>Time Table:</strong></p>
@@ -249,67 +292,68 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <tr class="header">
 <th align="left">Date</th>
 <th align="left">Time</th>
-<th align="left">Topic</th>
+<th align="left">Topics<span class="math inline">\(^*\)</span></th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td align="left">07.10.</td>
+<td align="left">12.10.</td>
 <td align="left">14:15 - 15:45</td>
 <td align="left">General Introduction / Introduction to R</td>
 </tr>
 <tr class="even">
-<td align="left">09.10.</td>
+<td align="left">13.10.</td>
 <td align="left">14:15 - 15:45</td>
 <td align="left">Introduction to R</td>
 </tr>
 <tr class="odd">
-<td align="left">14.10.</td>
-<td align="left">14:15 - 15:45</td>
-<td align="left">Test Theory</td>
-</tr>
-<tr class="even">
-<td align="left">16.10.</td>
-<td align="left">14:15 - 15:45</td>
-<td align="left">Test Theory</td>
-</tr>
-<tr class="odd">
-<td align="left">21.10.</td>
+<td align="left">19.10.</td>
 <td align="left">14:15 - 15:45</td>
 <td align="left">Estimation Theory</td>
 </tr>
 <tr class="even">
-<td align="left">23.10.</td>
+<td align="left">20.10.</td>
 <td align="left">14:15 - 15:45</td>
 <td align="left">Estimation Theory</td>
 </tr>
 <tr class="odd">
-<td align="left">28.10.</td>
+<td align="left">26.10.</td>
+<td align="left">14:15 - 15:45</td>
+<td align="left">Test Theory</td>
+</tr>
+<tr class="even">
+<td align="left">27.10.</td>
+<td align="left">14:15 - 15:45</td>
+<td align="left">Test Theory</td>
+</tr>
+<tr class="odd">
+<td align="left">02.11.</td>
 <td align="left">14:15 - 15:45</td>
 <td align="left">Regression Analysis</td>
 </tr>
 <tr class="even">
-<td align="left">04.11.</td>
+<td align="left">03.11.</td>
 <td align="left">14:15 - 15:45</td>
 <td align="left">Monte-Carlo Simulations</td>
 </tr>
 <tr class="odd">
-<td align="left">11.11.</td>
+<td align="left">09.11.</td>
 <td align="left">14:15 - 15:45</td>
 <td align="left">How to Write and Present</td>
 </tr>
 <tr class="even">
-<td align="left">20.01.</td>
+<td align="left">22.01.</td>
 <td align="left">14:15 - 15:45</td>
 <td align="left">Presentations</td>
 </tr>
 <tr class="odd">
-<td align="left">22.01.</td>
+<td align="left">23.01.</td>
 <td align="left">14:15 - 15:45</td>
 <td align="left">Presentations</td>
 </tr>
 </tbody>
 </table>
+<p><span class="math inline">\(^*\)</span> This is just the approximate general structure. Depending on your pre-knowledge, we may deviate from this.</p>
 <ul>
 <li><strong>Lecture-Room:</strong> Room 0.042</li>
 <li><strong>Supervision meetings:</strong> From Nov. to Jan. at the office of JProf. Liebl</li>
@@ -342,7 +386,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li><strong>Deadline for submission of slides:</strong> Jan. 19, 2020, via e-mail to <a href="mailto:dliebl@uni-bonn.de">dliebl@uni-bonn.de</a><br />
 </li>
-<li><strong>Deadline for submission of term papers:</strong> Feb. 5, 2020, via e-mail to <a href="mailto:dliebl@uni-bonn.de">dliebl@uni-bonn.de</a></li>
+<li><strong>Deadline for submission of term papers:</strong> Feb. 7, 2020, via e-mail to <a href="mailto:dliebl@uni-bonn.de">dliebl@uni-bonn.de</a></li>
 </ul>
 
 </div>
@@ -356,12 +400,13 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
-<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
 <script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
 <script>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
@@ -369,12 +414,12 @@ gitbook.start({
 "github": false,
 "facebook": true,
 "twitter": true,
-"google": false,
 "linkedin": false,
 "weibo": false,
 "instapaper": false,
 "vk": false,
-"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
 },
 "fontsettings": {
 "theme": "white",
@@ -389,7 +434,15 @@ gitbook.start({
 "link": null,
 "text": null
 },
+"view": {
+"link": null,
+"text": null
+},
 "download": ["RM_ES_Script.pdf"],
+"search": {
+"engine": "fuse",
+"options": null
+},
 "toc": {
 "collapse": "subsection"
 }

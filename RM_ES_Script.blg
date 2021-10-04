@@ -1,8 +1,8 @@
-This is BibTeX, Version 0.99d (TeX Live 2017/Debian)
-Capacity: max_strings=100000, hash_size=100000, hash_prime=85009
+This is BibTeX, Version 0.99d (TeX Live 2019/Debian)
+Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
 The top-level auxiliary file: RM_ES_Script.aux
 The style file: apalike.bst
-Database file #1: book.bib.bib
+Database file #1: book.bib
 You've used 14 entries,
             1935 wiz_defined-function locations,
             564 strings with 5350 characters,

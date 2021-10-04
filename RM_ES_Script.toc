@@ -1,0 +1,61 @@
+\contentsline {chapter}{Preface}{5}{chapter*.2}%
+\contentsline {chapter}{Topics}{9}{chapter*.3}%
+\contentsline {chapter}{\numberline {1}Introduction to R}{11}{chapter.1}%
+\contentsline {section}{\numberline {1.1}Short Glossary}{12}{section.1.1}%
+\contentsline {section}{\numberline {1.2}First Steps}{12}{section.1.2}%
+\contentsline {section}{\numberline {1.3}Further Data Objects}{16}{section.1.3}%
+\contentsline {section}{\numberline {1.4}Simple Regression Analysis using R}{16}{section.1.4}%
+\contentsline {section}{\numberline {1.5}Programming in R}{20}{section.1.5}%
+\contentsline {section}{\numberline {1.6}R-packages}{23}{section.1.6}%
+\contentsline {section}{\numberline {1.7}Tidyverse}{24}{section.1.7}%
+\contentsline {subsection}{\numberline {1.7.1}Tidyverse: Plotting Basics}{26}{subsection.1.7.1}%
+\contentsline {subsection}{\numberline {1.7.2}Tidyverse: Data Wrangling Basics}{30}{subsection.1.7.2}%
+\contentsline {subsection}{\numberline {1.7.3}The pipe operator \texttt {\%\textgreater {}\%}}{33}{subsection.1.7.3}%
+\contentsline {subsection}{\numberline {1.7.4}The \texttt {group\_by()} function}{34}{subsection.1.7.4}%
+\contentsline {section}{\numberline {1.8}Further Links}{36}{section.1.8}%
+\contentsline {subsection}{\numberline {1.8.1}Further R-Intros}{36}{subsection.1.8.1}%
+\contentsline {subsection}{\numberline {1.8.2}Version Control (Git/GitHub)}{36}{subsection.1.8.2}%
+\contentsline {subsection}{\numberline {1.8.3}R-Ladies}{36}{subsection.1.8.3}%
+\contentsline {chapter}{\numberline {2}Estimation Theory}{37}{chapter.2}%
+\contentsline {section}{\numberline {2.1}Bias, Variance and MSE}{37}{section.2.1}%
+\contentsline {section}{\numberline {2.2}Consistency of Estimators}{38}{section.2.2}%
+\contentsline {section}{\numberline {2.3}Rates of Convergence}{40}{section.2.3}%
+\contentsline {section}{\numberline {2.4}Asymptotic Distributions}{42}{section.2.4}%
+\contentsline {section}{\numberline {2.5}Asymptotic Theory}{45}{section.2.5}%
+\contentsline {section}{\numberline {2.6}Mathematical tools}{46}{section.2.6}%
+\contentsline {subsection}{\numberline {2.6.1}Taylor expansions}{46}{subsection.2.6.1}%
+\contentsline {subsection}{\numberline {2.6.2}Tools for deriving asymptotic distributions}{47}{subsection.2.6.2}%
+\contentsline {subsection}{\numberline {2.6.3}The Delta-Method}{47}{subsection.2.6.3}%
+\contentsline {chapter}{\numberline {3}Statistical Hypothesis Testing}{49}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Hypotheses and Test-Statistics}{49}{section.3.1}%
+\contentsline {section}{\numberline {3.2}Significance Level, Size and p-Values}{50}{section.3.2}%
+\contentsline {section}{\numberline {3.3}The Power Function}{54}{section.3.3}%
+\contentsline {section}{\numberline {3.4}Asymptotic Null Distributions}{59}{section.3.4}%
+\contentsline {section}{\numberline {3.5}Multiple Comparisons}{60}{section.3.5}%
+\contentsline {section}{\numberline {3.6}R-Lab: The Gauss-Test}{64}{section.3.6}%
+\contentsline {chapter}{\numberline {4}Ordinary Least Squares: The Classical Linear Regression Model}{67}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Finite-Sample Properties}{67}{section.4.1}%
+\contentsline {subsection}{\numberline {4.1.1}The Algebra of Least Squares}{71}{subsection.4.1.1}%
+\contentsline {subsection}{Some quantities of interest:}{72}{section*.4}%
+\contentsline {subsection}{\numberline {4.1.2}Coefficient of determination}{73}{subsection.4.1.2}%
+\contentsline {subsection}{Partitioned regression model}{75}{section*.5}%
+\contentsline {subsection}{\numberline {4.1.3}Finite-Sample Properties of OLS}{77}{subsection.4.1.3}%
+\contentsline {subsection}{\numberline {4.1.4}Hypothesis Testing under Normality}{81}{subsection.4.1.4}%
+\contentsline {section}{\numberline {4.2}Asymptotics under the Classic Regression Model}{82}{section.4.2}%
+\contentsline {chapter}{\numberline {5}Monte-Carlo Simulations}{89}{chapter.5}%
+\contentsline {section}{\numberline {5.1}Checking Test Statistics}{89}{section.5.1}%
+\contentsline {subsection}{\numberline {5.1.1}Simple Example: Gauss Test}{89}{subsection.5.1.1}%
+\contentsline {subsection}{\numberline {5.1.2}Simulated Power Function}{91}{subsection.5.1.2}%
+\contentsline {section}{\numberline {5.2}Checking Parameter Estimators}{97}{section.5.2}%
+\contentsline {chapter}{\numberline {6}How to Write}{101}{chapter.6}%
+\contentsline {section}{\numberline {6.1}Five Common Writing Mistakes}{101}{section.6.1}%
+\contentsline {section}{\numberline {6.2}Gregory Mankiw: How to Write Well}{103}{section.6.2}%
+\contentsline {section}{\numberline {6.3}Rob J Hyndman: Avoid Annoying a Referee}{104}{section.6.3}%
+\contentsline {section}{\numberline {6.4}LaTeX}{105}{section.6.4}%
+\contentsline {chapter}{\numberline {7}How to Present}{107}{chapter.7}%
+\contentsline {section}{\numberline {7.1}The Aim of your Talk}{107}{section.7.1}%
+\contentsline {section}{\numberline {7.2}A Suggested Structure}{108}{section.7.2}%
+\contentsline {section}{\numberline {7.3}Preparing Slides}{108}{section.7.3}%
+\contentsline {section}{\numberline {7.4}Keeping to Time}{109}{section.7.4}%
+\contentsline {section}{\numberline {7.5}Giving the Presentation}{110}{section.7.5}%
+\contentsline {section}{Final Advice}{110}{section*.6}%

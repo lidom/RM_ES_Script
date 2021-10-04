@@ -716,17 +716,17 @@ library(tidyverse)
 ```
 
 ```
-## -- Attaching packages --------------------------------------- tidyverse 1.2.1 --
+## -- Attaching packages ------------------------------------------------------------ tidyverse 1.3.0 --
 ```
 
 ```
-## v tibble  2.1.3     v dplyr   0.8.3
-## v tidyr   1.0.0     v stringr 1.2.0
-## v purrr   0.3.2     v forcats 0.4.0
+## v tibble  3.0.6     v dplyr   1.0.4
+## v tidyr   1.1.2     v stringr 1.4.0
+## v purrr   0.3.4     v forcats 0.5.1
 ```
 
 ```
-## -- Conflicts ------------------------------------------ tidyverse_conflicts() --
+## -- Conflicts --------------------------------------------------------------- tidyverse_conflicts() --
 ## x dplyr::filter() masks stats::filter()
 ## x dplyr::lag()    masks stats::lag()
 ```
@@ -781,7 +781,8 @@ CW <- read_csv("ChickWeight.csv")
 ```
 
 ```
-## Parsed with column specification:
+## 
+## -- Column specification -----------------------------------------------------------------------------
 ## cols(
 ##   Chick = col_double(),
 ##   Diet = col_double(),
@@ -839,12 +840,12 @@ glimpse(CW)
 ```
 
 ```
-## Observations: 578
-## Variables: 4
-## $ Chick  <dbl> 18, 18, 16, 16, 16, 16, 16, 16, 16, 15, 15, 15, 15, 15,...
-## $ Diet   <dbl> 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1...
-## $ Time   <dbl> 0, 2, 0, 2, 4, 6, 8, 10, 12, 0, 2, 4, 6, 8, 10, 12, 14,...
-## $ weight <dbl> 39, 35, 41, 45, 49, 51, 57, 51, 54, 41, 49, 56, 64, 68,...
+## Rows: 578
+## Columns: 4
+## $ Chick  <dbl> 18, 18, 16, 16, 16, 16, 16, 16, 16, 15, 15, 15, 15, 15, 15, 15,~
+## $ Diet   <dbl> 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, ~
+## $ Time   <dbl> 0, 2, 0, 2, 4, 6, 8, 10, 12, 0, 2, 4, 6, 8, 10, 12, 14, 0, 2, 4~
+## $ weight <dbl> 39, 35, 41, 45, 49, 51, 57, 51, 54, 41, 49, 56, 64, 68, 68, 67,~
 ```
 
 The function `View()` allows for a spread-sheet type of view on the data:
@@ -906,12 +907,12 @@ glimpse(CW)
 ```
 
 ```
-## Observations: 578
-## Variables: 4
-## $ Chick  <dbl> 18, 18, 16, 16, 16, 16, 16, 16, 16, 15, 15, 15, 15, 15,...
-## $ Diet   <fct> 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1...
-## $ Time   <fct> 0, 2, 0, 2, 4, 6, 8, 10, 12, 0, 2, 4, 6, 8, 10, 12, 14,...
-## $ weight <dbl> 39, 35, 41, 45, 49, 51, 57, 51, 54, 41, 49, 56, 64, 68,...
+## Rows: 578
+## Columns: 4
+## $ Chick  <dbl> 18, 18, 16, 16, 16, 16, 16, 16, 16, 15, 15, 15, 15, 15, 15, 15,~
+## $ Diet   <fct> 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, ~
+## $ Time   <fct> 0, 2, 0, 2, 4, 6, 8, 10, 12, 0, 2, 4, 6, 8, 10, 12, 14, 0, 2, 4~
+## $ weight <dbl> 39, 35, 41, 45, 49, 51, 57, 51, 54, 41, 49, 56, 64, 68, 68, 67,~
 ```
 
 
@@ -955,6 +956,10 @@ ggplot(CW, aes(Time, weight,
   stat_summary(fun.y="mean", geom="line") 
 ```
 
+```
+## Warning: `fun.y` is deprecated. Use `fun` instead.
+```
+
 ![](01-Introduction-to-R_files/figure-latex/meanlinesPlot-1.pdf)<!-- --> 
 
 **Interpretation:**
@@ -996,6 +1001,10 @@ ggplot(CW, aes(Time, weight, group=Diet,
   ggtitle("Chick Weight over Time by Diet") + 
   xlab("Time (days)") +
   ylab("Weight (grams)")
+```
+
+```
+## Warning: `fun.y` is deprecated. Use `fun` instead.
 ```
 
 ![](01-Introduction-to-R_files/figure-latex/finalPlot-1.pdf)<!-- --> 
@@ -1230,6 +1239,13 @@ mnsdCW <- CW %>%
   group_by(Diet, Time) %>% 
   summarise(N = n(), Mean = mean(weight)) %>% 
   arrange(Diet, Time)
+```
+
+```
+## `summarise()` has grouped output by 'Diet'. You can override using the `.groups` argument.
+```
+
+```r
 mnsdCW
 ```
 
@@ -1263,6 +1279,13 @@ sumCW <-  CW %>%
             Min = min(weight),
             Max = max(weight)) %>% 
   arrange(Diet, Time)
+```
+
+```
+## `summarise()` has grouped output by 'Diet'. You can override using the `.groups` argument.
+```
+
+```r
 sumCW
 ```
 

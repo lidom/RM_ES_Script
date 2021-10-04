@@ -1,6 +1,6 @@
 --- 
 title: "Research Module in Econometrics & Statistics"
-author: "JProf. Dominik Liebl"
+author: "Prof. Dominik Liebl (dliebl@uni-bonn.de) and Christopher Walsh"
 date: "`r Sys.Date()`"
 site: bookdown::bookdown_site
 documentclass: book
@@ -29,9 +29,9 @@ Repo that makes this site: https://github.com/lidom/RM_ES_Script
 
 *Project-Phase:* The students have the opportunity to choose among a set of specific projects. Topics suggested by the students are generally appreciated, but will be assessed with respect to their feasibility. Each project must focus on one specific statistical method/topic (for instance, panel data analysis, clustered standard errors, non-parametric regression, etc.) and should contain the following three parts:
 
-  1. A description of the statistical method and its theoretical properties 
+  1. A critical description of the statistical method and its theoretical properties 
   2. Monte Carlo simulation studies to assess the finite sample properties of the statistical method
-  3. An exemplary real-data application to showcase the practical use of the statistical method. 
+  3. One or more real-data applications to showcase the practical use of the statistical/econometric method. 
 
 Depending on the actual number of participants, it might be that the project work has to be carried out as a group task rather than as an individual task.
 
@@ -39,9 +39,9 @@ Depending on the actual number of participants, it might be that the project wor
 
 **Grading:** The final grade will be a weighted average of the presentation (40%) and the  research paper (60%).
 
-**Important:** You need to register for this course via [BASIS](https://basis.uni-bonn.de/). 
+**Registration:** You need to register for this course via [BASIS](https://basis.uni-bonn.de/). 
 
-Registration period: Oct. 14-21.  
+**Registration period:**  Oct. 12-19. (**Caution:** No timely registration means you cannot participate in this course)   
 
 
 \
@@ -49,19 +49,21 @@ Registration period: Oct. 14-21.
 
 **Time Table:**
 
-Date        Time               Topic
+Date        Time               Topics$^*$
 ----------  -----------------  ---------------------------------
-07.10.      14:15 - 15:45      General Introduction / Introduction to R
-09.10.      14:15 - 15:45      Introduction to R
-14.10.      14:15 - 15:45      Test Theory
-16.10.      14:15 - 15:45      Test Theory
-21.10.      14:15 - 15:45      Estimation Theory
-23.10.      14:15 - 15:45      Estimation Theory 
-28.10.      14:15 - 15:45      Regression Analysis
-04.11.      14:15 - 15:45      Monte-Carlo Simulations
-11.11.      14:15 - 15:45      How to Write and Present
-20.01.      14:15 - 15:45      Presentations
+12.10.      14:15 - 15:45      General Introduction / Introduction to R
+13.10.      14:15 - 15:45      Introduction to R
+19.10.      14:15 - 15:45      Estimation Theory
+20.10.      14:15 - 15:45      Estimation Theory
+26.10.      14:15 - 15:45      Test Theory
+27.10.      14:15 - 15:45      Test Theory
+02.11.      14:15 - 15:45      Regression Analysis
+03.11.      14:15 - 15:45      Monte-Carlo Simulations
+09.11.      14:15 - 15:45      How to Write and Present
 22.01.      14:15 - 15:45      Presentations
+23.01.      14:15 - 15:45      Presentations
+
+$^*$ This is just the approximate general structure. Depending on your pre-knowledge, we may deviate from this.
 
 
 - **Lecture-Room:** Room 0.042
@@ -70,6 +72,7 @@ Date        Time               Topic
 
 
 \
+
 
 **Presentations:**
 
@@ -94,7 +97,7 @@ Date        Time               Topic
     * Line-spacing: 1.5
     
 * **Deadline for submission of slides:** Jan. 19, 2020, via e-mail to [dliebl@uni-bonn.de](mailto:dliebl@uni-bonn.de)    
-* **Deadline for submission of term papers:** Feb. 5, 2020, via e-mail to [dliebl@uni-bonn.de](mailto:dliebl@uni-bonn.de)
+* **Deadline for submission of term papers:** Feb. 7, 2020, via e-mail to [dliebl@uni-bonn.de](mailto:dliebl@uni-bonn.de)
 
 
 
