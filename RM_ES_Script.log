@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.999991 (TeX Live 2019/Debian) (preloaded format=xelatex 2021.10.4)  4 OCT 2021 12:46
+This is XeTeX, Version 3.14159265-2.6-0.999991 (TeX Live 2019/Debian) (preloaded format=xelatex 2021.10.4)  4 OCT 2021 13:37
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -814,6 +814,16 @@ LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
 ]
 Underfull \hbox (badness 10000) in paragraph at lines 166--167
 
+ []
+
+
+Overfull \hbox (20.75008pt too wide) in alignment at lines 170--174
+ [] [] [] 
+ []
+
+
+Overfull \hbox (20.75008pt too wide) in alignment at lines 174--187
+ [] [] [] 
  []
 
 

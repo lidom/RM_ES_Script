@@ -52,13 +52,13 @@ Depending on the actual number of participants, it might be that the project wor
 Date        Time               Topics$^*$
 ----------  -----------------  ---------------------------------
 12.10.      14:15 - 15:45      General Introduction / Introduction to R
-13.10.      14:15 - 15:45      Introduction to R
+13.10.      14:15 - 15:45      Introduction to R (Flipped Classroom)
 19.10.      14:15 - 15:45      Estimation Theory
 20.10.      14:15 - 15:45      Estimation Theory
 26.10.      14:15 - 15:45      Test Theory
 27.10.      14:15 - 15:45      Test Theory
-02.11.      14:15 - 15:45      Regression Analysis
-03.11.      14:15 - 15:45      Monte-Carlo Simulations
+02.11.      14:15 - 15:45      Regression / Monte-Carlo Simulations (Flipped Classroom)
+03.11.      14:15 - 15:45      Monte-Carlo Simulations  (Flipped Classroom)
 09.11.      14:15 - 15:45      How to Write and Present
 22.01.      14:15 - 15:45      Presentations
 23.01.      14:15 - 15:45      Presentations
