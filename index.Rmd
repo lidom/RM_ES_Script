@@ -1,6 +1,6 @@
 --- 
 title: "Research Module in Econometrics & Statistics"
-author: "Prof. Dominik Liebl (dliebl@uni-bonn.de) and Christopher Walsh"
+author: "Prof. Dominik Liebl (dliebl@uni-bonn.de) and Christopher Walsh (cwalsh@uni-bonn.de)"
 date: "`r Sys.Date()`"
 site: bookdown::bookdown_site
 documentclass: book
@@ -51,17 +51,17 @@ Depending on the actual number of participants, it might be that the project wor
 
 Date        Time               Topics$^*$
 ----------  -----------------  ---------------------------------
-12.10.      14:15 - 15:45      General Introduction / Introduction to R
-13.10.      14:15 - 15:45      Introduction to R (Flipped Classroom)
-19.10.      14:15 - 15:45      Estimation Theory
-20.10.      14:15 - 15:45      Estimation Theory
-26.10.      14:15 - 15:45      Test Theory
-27.10.      14:15 - 15:45      Test Theory
-02.11.      14:15 - 15:45      Regression / Monte-Carlo Simulations (Flipped Classroom)
-03.11.      14:15 - 15:45      Monte-Carlo Simulations  (Flipped Classroom)
-09.11.      14:15 - 15:45      How to Write and Present
-22.01.      14:15 - 15:45      Presentations
-23.01.      14:15 - 15:45      Presentations
+12.10.      14:15 - 15:45      General Introduction / Introduction to R / Topic Choices [Liebl/Walsh]
+13.10.      14:15 - 15:45      Introduction to R (Flipped Classroom) / Topic Choices [Liebl/Walsh]
+19.10.      14:15 - 15:45      Estimation Theory [Walsh]
+20.10.      14:15 - 15:45      Estimation Theory [Walsh]
+26.10.      14:15 - 15:45      Regression / Monte-Carlo Simulations (Flipped Classroom) [Walsh]
+27.10.      14:15 - 15:45      Test Theory [Liebl]
+02.11.      14:15 - 15:45      Test Theory [Liebl]
+03.11.      14:15 - 15:45      Monte-Carlo Simulations  (Flipped Classroom) [Liebl]
+09.11.      14:15 - 15:45      How to Write and Present [Walsh]
+18.01.      14:15 - 15:45      Presentations [Liebl/Walsh]
+19.01.      14:15 - 15:45      Presentations [Liebl/Walsh]
 
 $^*$ This is just the approximate general structure. Depending on your pre-knowledge, we may deviate from this.
 
@@ -99,8 +99,8 @@ Password: 544848
     * Long tables, proofs, additional figures, etc. should be placed in the appendix.
     * Line-spacing: 1.5
     
-* **Deadline for submission of slides:** Jan. 19, 2020, via e-mail to [dliebl@uni-bonn.de](mailto:dliebl@uni-bonn.de)    
-* **Deadline for submission of term papers:** Feb. 7, 2020, via e-mail to [dliebl@uni-bonn.de](mailto:dliebl@uni-bonn.de)
+* **Deadline for submission of slides:** Jan. 17, 2022, via e-mail to [dliebl@uni-bonn.de](mailto:dliebl@uni-bonn.de)    
+* **Deadline for submission of term papers:** Feb. 11, 2022, via e-mail to [dliebl@uni-bonn.de](mailto:dliebl@uni-bonn.de)
 
 
 
