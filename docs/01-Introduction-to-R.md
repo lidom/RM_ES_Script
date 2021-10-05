@@ -716,17 +716,17 @@ library(tidyverse)
 ```
 
 ```
-## -- Attaching packages ------------------------------------------------------------ tidyverse 1.3.0 --
+## -- Attaching packages --------------------------------------- tidyverse 1.3.0 --
 ```
 
 ```
-## v tibble  3.0.6     v dplyr   1.0.4
+## v tibble  3.1.5     v dplyr   1.0.4
 ## v tidyr   1.1.2     v stringr 1.4.0
 ## v purrr   0.3.4     v forcats 0.5.1
 ```
 
 ```
-## -- Conflicts --------------------------------------------------------------- tidyverse_conflicts() --
+## -- Conflicts ------------------------------------------ tidyverse_conflicts() --
 ## x dplyr::filter() masks stats::filter()
 ## x dplyr::lag()    masks stats::lag()
 ```
@@ -782,7 +782,7 @@ CW <- read_csv("ChickWeight.csv")
 
 ```
 ## 
-## -- Column specification -----------------------------------------------------------------------------
+## -- Column specification --------------------------------------------------------
 ## cols(
 ##   Chick = col_double(),
 ##   Diet = col_double(),

@@ -21,10 +21,10 @@
   <meta name="twitter:description" content="Script for the research module in econometrics &amp; statistics (University Bonn)." />
   
 
-<meta name="author" content="Prof. Dominik Liebl (dliebl@uni-bonn.de) and Christopher Walsh" />
+<meta name="author" content="Prof. Dominik Liebl (dliebl@uni-bonn.de) and Christopher Walsh (cwalsh@uni-bonn.de)" />
 
 
-<meta name="date" content="2021-10-04" />
+<meta name="date" content="2021-10-05" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -634,13 +634,13 @@ helps you to be more productive.</p>
 <div class="sourceCode" id="cb75"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb75-1"><a href="introduction-to-r.html#cb75-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;tidyverse&quot;</span>)</span></code></pre></div>
 <p>To use the <code>tidyverse</code> package load it using the <code>library()</code> function:</p>
 <div class="sourceCode" id="cb76"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb76-1"><a href="introduction-to-r.html#cb76-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code></pre></div>
-<pre><code>## ── Attaching packages ──────────────────────────────────────────────────────────── tidyverse 1.3.0 ──</code></pre>
-<pre><code>## ✔ tibble  3.0.6     ✔ dplyr   1.0.4
-## ✔ tidyr   1.1.2     ✔ stringr 1.4.0
-## ✔ purrr   0.3.4     ✔ forcats 0.5.1</code></pre>
-<pre><code>## ── Conflicts ─────────────────────────────────────────────────────────────── tidyverse_conflicts() ──
-## ✖ dplyr::filter() masks stats::filter()
-## ✖ dplyr::lag()    masks stats::lag()</code></pre>
+<pre><code>## ── Attaching packages ─────────────────────────────────────── tidyverse 1.3.0 ──</code></pre>
+<pre><code>## ✓ tibble  3.1.5     ✓ dplyr   1.0.4
+## ✓ tidyr   1.1.2     ✓ stringr 1.4.0
+## ✓ purrr   0.3.4     ✓ forcats 0.5.1</code></pre>
+<pre><code>## ── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
+## x dplyr::filter() masks stats::filter()
+## x dplyr::lag()    masks stats::lag()</code></pre>
 <p><strong>Chick Weight Data</strong></p>
 <p>R comes with many datasets installed. We will use the <code>ChickWeight</code> dataset
 to learn about the tidyverse. The help system gives a basic summary of the experiment from
@@ -672,7 +672,7 @@ outside of R, is to open the file <code>ChickWeight.csv</code> to check what it 
 it makes sense. Now we can import the data as follows:</p>
 <div class="sourceCode" id="cb82"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb82-1"><a href="introduction-to-r.html#cb82-1" aria-hidden="true" tabindex="-1"></a>CW <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;ChickWeight.csv&quot;</span>)</span></code></pre></div>
 <pre><code>## 
-## ── Column specification ─────────────────────────────────────────────────────────────────────────────
+## ── Column specification ────────────────────────────────────────────────────────
 ## cols(
 ##   Chick = col_double(),
 ##   Diet = col_double(),
@@ -691,7 +691,7 @@ In RStudio you can use the menu bar (“Session - Set Working Directory - Choose
 <p><strong>Looking at the Dataset:</strong>
 To look at the data type just type the object (dataset) name:</p>
 <div class="sourceCode" id="cb85"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb85-1"><a href="introduction-to-r.html#cb85-1" aria-hidden="true" tabindex="-1"></a>CW</span></code></pre></div>
-<pre><code>## # A tibble: 578 x 4
+<pre><code>## # A tibble: 578 × 4
 ##    Chick  Diet  Time weight
 ##    &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt;
 ##  1    18     1     0     39
@@ -818,7 +818,7 @@ factor variables.</p>
 <div class="sourceCode" id="cb100"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb100-1"><a href="introduction-to-r.html#cb100-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Added a column</span></span>
 <span id="cb100-2"><a href="introduction-to-r.html#cb100-2" aria-hidden="true" tabindex="-1"></a>CWm1 <span class="ot">&lt;-</span> <span class="fu">mutate</span>(CW, <span class="at">weightKg =</span> weight<span class="sc">/</span><span class="dv">1000</span>)</span>
 <span id="cb100-3"><a href="introduction-to-r.html#cb100-3" aria-hidden="true" tabindex="-1"></a>CWm1</span></code></pre></div>
-<pre><code>## # A tibble: 578 x 5
+<pre><code>## # A tibble: 578 × 5
 ##   Chick Diet  Time  weight weightKg
 ##   &lt;dbl&gt; &lt;fct&gt; &lt;fct&gt;  &lt;dbl&gt;    &lt;dbl&gt;
 ## 1    18 1     0         39    0.039
@@ -828,7 +828,7 @@ factor variables.</p>
 <div class="sourceCode" id="cb102"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb102-1"><a href="introduction-to-r.html#cb102-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Modify an existing column</span></span>
 <span id="cb102-2"><a href="introduction-to-r.html#cb102-2" aria-hidden="true" tabindex="-1"></a>CWm2 <span class="ot">&lt;-</span> <span class="fu">mutate</span>(CW, <span class="at">Diet =</span> <span class="fu">str_c</span>(<span class="st">&quot;Diet &quot;</span>, Diet))</span>
 <span id="cb102-3"><a href="introduction-to-r.html#cb102-3" aria-hidden="true" tabindex="-1"></a>CWm2</span></code></pre></div>
-<pre><code>## # A tibble: 578 x 4
+<pre><code>## # A tibble: 578 × 4
 ##   Chick Diet   Time  weight
 ##   &lt;dbl&gt; &lt;chr&gt;  &lt;fct&gt;  &lt;dbl&gt;
 ## 1    18 Diet 1 0         39
@@ -840,7 +840,7 @@ factor variables.</p>
 <p><code>select()</code>: Keeps, drops or reorders variables.</p>
 <div class="sourceCode" id="cb104"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb104-1"><a href="introduction-to-r.html#cb104-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Drop the weight variable from CWm1 using minus</span></span>
 <span id="cb104-2"><a href="introduction-to-r.html#cb104-2" aria-hidden="true" tabindex="-1"></a><span class="fu">select</span>(CWm1, <span class="sc">-</span>weight)</span></code></pre></div>
-<pre><code>## # A tibble: 578 x 4
+<pre><code>## # A tibble: 578 × 4
 ##   Chick Diet  Time  weightKg
 ##   &lt;dbl&gt; &lt;fct&gt; &lt;fct&gt;    &lt;dbl&gt;
 ## 1    18 1     0        0.039
@@ -849,7 +849,7 @@ factor variables.</p>
 ## # … with 575 more rows</code></pre>
 <div class="sourceCode" id="cb106"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb106-1"><a href="introduction-to-r.html#cb106-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Keep variables Time, Diet and weightKg</span></span>
 <span id="cb106-2"><a href="introduction-to-r.html#cb106-2" aria-hidden="true" tabindex="-1"></a><span class="fu">select</span>(CWm1, Chick, Time, Diet, weightKg)</span></code></pre></div>
-<pre><code>## # A tibble: 578 x 4
+<pre><code>## # A tibble: 578 × 4
 ##   Chick Time  Diet  weightKg
 ##   &lt;dbl&gt; &lt;fct&gt; &lt;fct&gt;    &lt;dbl&gt;
 ## 1    18 0     1        0.039
@@ -860,7 +860,7 @@ factor variables.</p>
 </p>
 <p><code>rename()</code>: Renames variables whilst keeping all variables.</p>
 <div class="sourceCode" id="cb108"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb108-1"><a href="introduction-to-r.html#cb108-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rename</span>(CW, <span class="at">Group =</span> Diet, <span class="at">Weight =</span> weight)</span></code></pre></div>
-<pre><code>## # A tibble: 578 x 4
+<pre><code>## # A tibble: 578 × 4
 ##   Chick Group Time  Weight
 ##   &lt;dbl&gt; &lt;fct&gt; &lt;fct&gt;  &lt;dbl&gt;
 ## 1    18 1     0         39
@@ -871,7 +871,7 @@ factor variables.</p>
 </p>
 <p><code>filter()</code>: Keeps or drops observations (rows).</p>
 <div class="sourceCode" id="cb110"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb110-1"><a href="introduction-to-r.html#cb110-1" aria-hidden="true" tabindex="-1"></a><span class="fu">filter</span>(CW, Time<span class="sc">==</span><span class="dv">21</span> <span class="sc">&amp;</span> weight<span class="sc">&gt;</span><span class="dv">300</span>)</span></code></pre></div>
-<pre><code>## # A tibble: 8 x 4
+<pre><code>## # A tibble: 8 × 4
 ##   Chick Diet  Time  weight
 ##   &lt;dbl&gt; &lt;fct&gt; &lt;fct&gt;  &lt;dbl&gt;
 ## 1     7 1     21       305
@@ -885,7 +885,7 @@ factor variables.</p>
 </p>
 <p><code>arrange()</code>: Changes the order of the observations.</p>
 <div class="sourceCode" id="cb112"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb112-1"><a href="introduction-to-r.html#cb112-1" aria-hidden="true" tabindex="-1"></a><span class="fu">arrange</span>(CW, Chick, Time)</span></code></pre></div>
-<pre><code>## # A tibble: 578 x 4
+<pre><code>## # A tibble: 578 × 4
 ##   Chick Diet  Time  weight
 ##   &lt;dbl&gt; &lt;fct&gt; &lt;fct&gt;  &lt;dbl&gt;
 ## 1     1 1     0         42
@@ -893,7 +893,7 @@ factor variables.</p>
 ## 3     1 1     4         59
 ## # … with 575 more rows</code></pre>
 <div class="sourceCode" id="cb114"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb114-1"><a href="introduction-to-r.html#cb114-1" aria-hidden="true" tabindex="-1"></a><span class="fu">arrange</span>(CW, <span class="fu">desc</span>(weight))</span></code></pre></div>
-<pre><code>## # A tibble: 578 x 4
+<pre><code>## # A tibble: 578 × 4
 ##   Chick Diet  Time  weight
 ##   &lt;dbl&gt; &lt;fct&gt; &lt;fct&gt;  &lt;dbl&gt;
 ## 1    35 3     21       373
@@ -913,7 +913,7 @@ The pipe operator <code>%&gt;%</code> makes your code nice and readable:</p>
 <span id="cb116-5"><a href="introduction-to-r.html#cb116-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(Chick, Group, Time, Weight) <span class="sc">%&gt;%</span> </span>
 <span id="cb116-6"><a href="introduction-to-r.html#cb116-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(Chick, Time) </span>
 <span id="cb116-7"><a href="introduction-to-r.html#cb116-7" aria-hidden="true" tabindex="-1"></a>CW21</span></code></pre></div>
-<pre><code>## # A tibble: 95 x 4
+<pre><code>## # A tibble: 95 × 4
 ##   Chick Group  Time  Weight
 ##   &lt;dbl&gt; &lt;fct&gt;  &lt;fct&gt;  &lt;dbl&gt;
 ## 1     1 Diet 1 0         42
@@ -953,7 +953,7 @@ and the mean by <strong>diet</strong> and <strong>time</strong>.</p>
 <span id="cb119-4"><a href="introduction-to-r.html#cb119-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(Diet, Time)</span></code></pre></div>
 <pre><code>## `summarise()` has grouped output by &#39;Diet&#39;. You can override using the `.groups` argument.</code></pre>
 <div class="sourceCode" id="cb121"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb121-1"><a href="introduction-to-r.html#cb121-1" aria-hidden="true" tabindex="-1"></a>mnsdCW</span></code></pre></div>
-<pre><code>## # A tibble: 48 x 4
+<pre><code>## # A tibble: 48 × 4
 ## # Groups:   Diet [4]
 ##   Diet  Time      N  Mean
 ##   &lt;fct&gt; &lt;fct&gt; &lt;int&gt; &lt;dbl&gt;
@@ -977,7 +977,7 @@ at days 0 and 21.</p>
 <span id="cb123-10"><a href="introduction-to-r.html#cb123-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(Diet, Time)</span></code></pre></div>
 <pre><code>## `summarise()` has grouped output by &#39;Diet&#39;. You can override using the `.groups` argument.</code></pre>
 <div class="sourceCode" id="cb125"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb125-1"><a href="introduction-to-r.html#cb125-1" aria-hidden="true" tabindex="-1"></a>sumCW</span></code></pre></div>
-<pre><code>## # A tibble: 8 x 8
+<pre><code>## # A tibble: 8 × 8
 ## # Groups:   Diet [4]
 ##   Diet  Time      N  Mean     SD Median   Min   Max
 ##   &lt;fct&gt; &lt;fct&gt; &lt;int&gt; &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;

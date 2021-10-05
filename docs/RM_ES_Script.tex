@@ -37,7 +37,7 @@
 \IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
 \hypersetup{
   pdftitle={Research Module in Econometrics \& Statistics},
-  pdfauthor={Prof.~Dominik Liebl (dliebl@uni-bonn.de) and Christopher Walsh},
+  pdfauthor={Prof.~Dominik Liebl (dliebl@uni-bonn.de) and Christopher Walsh (cwalsh@uni-bonn.de)},
   hidelinks,
   pdfcreator={LaTeX via pandoc}}
 \urlstyle{same} % disable monospaced font for URLs
@@ -116,8 +116,8 @@
 \bibliographystyle{apalike}
 
 \title{Research Module in Econometrics \& Statistics}
-\author{Prof.~Dominik Liebl (\href{mailto:dliebl@uni-bonn.de}{\nolinkurl{dliebl@uni-bonn.de}}) and Christopher Walsh}
-\date{2021-10-04}
+\author{Prof.~Dominik Liebl (\href{mailto:dliebl@uni-bonn.de}{\nolinkurl{dliebl@uni-bonn.de}}) and Christopher Walsh (\href{mailto:cwalsh@uni-bonn.de}{\nolinkurl{cwalsh@uni-bonn.de}})}
+\date{2021-10-05}
 
 \begin{document}
 \maketitle
@@ -172,17 +172,17 @@ Depending on the actual number of participants, it might be that the project wor
 Date & Time & Topics\(^*\) \\
 \midrule
 \endhead
-12.10. & 14:15 - 15:45 & General Introduction / Introduction to R \\
-13.10. & 14:15 - 15:45 & Introduction to R (Flipped Classroom) \\
-19.10. & 14:15 - 15:45 & Estimation Theory \\
-20.10. & 14:15 - 15:45 & Estimation Theory \\
-26.10. & 14:15 - 15:45 & Test Theory \\
-27.10. & 14:15 - 15:45 & Test Theory \\
-02.11. & 14:15 - 15:45 & Regression / Monte-Carlo Simulations (Flipped Classroom) \\
-03.11. & 14:15 - 15:45 & Monte-Carlo Simulations (Flipped Classroom) \\
-09.11. & 14:15 - 15:45 & How to Write and Present \\
-22.01. & 14:15 - 15:45 & Presentations \\
-23.01. & 14:15 - 15:45 & Presentations \\
+12.10. & 14:15 - 15:45 & General Introduction / Introduction to R / Topic Choices {[}Liebl/Walsh{]} \\
+13.10. & 14:15 - 15:45 & Introduction to R (Flipped Classroom) / Topic Choices {[}Liebl/Walsh{]} \\
+19.10. & 14:15 - 15:45 & Estimation Theory {[}Walsh{]} \\
+20.10. & 14:15 - 15:45 & Estimation Theory {[}Walsh{]} \\
+26.10. & 14:15 - 15:45 & Regression / Monte-Carlo Simulations (Flipped Classroom) {[}Walsh{]} \\
+27.10. & 14:15 - 15:45 & Test Theory {[}Liebl{]} \\
+02.11. & 14:15 - 15:45 & Test Theory {[}Liebl{]} \\
+03.11. & 14:15 - 15:45 & Monte-Carlo Simulations (Flipped Classroom) {[}Liebl{]} \\
+09.11. & 14:15 - 15:45 & How to Write and Present {[}Walsh{]} \\
+18.01. & 14:15 - 15:45 & Presentations {[}Liebl/Walsh{]} \\
+19.01. & 14:15 - 15:45 & Presentations {[}Liebl/Walsh{]} \\
 \bottomrule
 \end{longtable}
 
@@ -246,9 +246,9 @@ Date & Time & Topics\(^*\) \\
     Line-spacing: 1.5
   \end{itemize}
 \item
-  \textbf{Deadline for submission of slides:} Jan.~19, 2020, via e-mail to \href{mailto:dliebl@uni-bonn.de}{\nolinkurl{dliebl@uni-bonn.de}}\\
+  \textbf{Deadline for submission of slides:} Jan.~17, 2022, via e-mail to \href{mailto:dliebl@uni-bonn.de}{\nolinkurl{dliebl@uni-bonn.de}}\\
 \item
-  \textbf{Deadline for submission of term papers:} Feb.~7, 2020, via e-mail to \href{mailto:dliebl@uni-bonn.de}{\nolinkurl{dliebl@uni-bonn.de}}
+  \textbf{Deadline for submission of term papers:} Feb.~11, 2022, via e-mail to \href{mailto:dliebl@uni-bonn.de}{\nolinkurl{dliebl@uni-bonn.de}}
 \end{itemize}
 
 \hypertarget{topics}{%
@@ -1077,17 +1077,17 @@ To use the \texttt{tidyverse} package load it using the \texttt{library()} funct
 \end{Shaded}
 
 \begin{verbatim}
-## -- Attaching packages ------------------------------------------------------------ tidyverse 1.3.0 --
+## -- Attaching packages --------------------------------------- tidyverse 1.3.0 --
 \end{verbatim}
 
 \begin{verbatim}
-## v tibble  3.0.6     v dplyr   1.0.4
+## v tibble  3.1.5     v dplyr   1.0.4
 ## v tidyr   1.1.2     v stringr 1.4.0
 ## v purrr   0.3.4     v forcats 0.5.1
 \end{verbatim}
 
 \begin{verbatim}
-## -- Conflicts --------------------------------------------------------------- tidyverse_conflicts() --
+## -- Conflicts ------------------------------------------ tidyverse_conflicts() --
 ## x dplyr::filter() masks stats::filter()
 ## x dplyr::lag()    masks stats::lag()
 \end{verbatim}
@@ -1153,7 +1153,7 @@ it makes sense. Now we can import the data as follows:
 
 \begin{verbatim}
 ## 
-## -- Column specification -----------------------------------------------------------------------------
+## -- Column specification --------------------------------------------------------
 ## cols(
 ##   Chick = col_double(),
 ##   Diet = col_double(),
