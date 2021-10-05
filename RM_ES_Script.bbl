@@ -21,10 +21,20 @@ Cerulli, G. (2015).
 \newblock Advanced Studies in Theoretical and Applied Econometrics Series.
   Springer.
 
+\bibitem[Cunningham, 2020]{cunningham2020causal}
+Cunningham, S. (2020).
+\newblock {\em Causal Inference: The Mixtape}.
+\newblock Yale University Press.
+
 \bibitem[Davidson and MacKinnon, 2004]{DMcK2004}
 Davidson, R. and MacKinnon, J.~G. (2004).
 \newblock {\em Econometric Theory and Methods}.
 \newblock Oxford University Press New York.
+
+\bibitem[Davison and Hinkley, 1997]{DH_Bootstrap_1997}
+Davison, A.~C. and Hinkley, D.~V. (1997).
+\newblock {\em Bootstrap Methods and their Application}.
+\newblock Number~1. Cambridge university press.
 
 \bibitem[F.~Bretz, 2010]{BHW2010}
 F.~Bretz, T.~Hothorn, P.~W. (2010).
@@ -42,15 +52,36 @@ Greene, W. (2003).
 \newblock {\em Econometric Analysis}.
 \newblock Pearson.
 
+\bibitem[Hastie et~al., 2015]{HTW2015}
+Hastie, T., Tibshirani, R., and Wainwright, M. (2015).
+\newblock {\em Statistical Learning with Sparsity: The Lasso and
+  Generalizations}.
+\newblock CRC press.
+
+\bibitem[Hayashi, 2000]{Hayashi2020}
+Hayashi, F. (2000).
+\newblock {\em Econometrics}.
+\newblock Princeton Univ. Press.
+
 \bibitem[Hsiao, 2014]{H2014}
 Hsiao, C. (2014).
 \newblock {\em Analysis of Panel Data}.
 \newblock Cambridge university press.
 
+\bibitem[Huber, 2019]{CausalInf_Huber_2019}
+Huber, M. (2019).
+\newblock An introduction to flexible methods for policy evaluation.
+\newblock {\em arXiv preprint arXiv:1910.00641}.
+
 \bibitem[Imbens and Lemieux, 2008]{IL2008}
 Imbens, G.~W. and Lemieux, T. (2008).
 \newblock Regression discontinuity designs: A guide to practice.
 \newblock {\em Journal of Econometrics}, 142(2):615--635.
+
+\bibitem[Kokoszka and Reimherr, 2017]{KR_FDA_2017}
+Kokoszka, P. and Reimherr, M. (2017).
+\newblock {\em Introduction to Functional Data Analysis}.
+\newblock Chapman and Hall/CRC.
 
 \bibitem[Lehmann and Romano, 2006]{Lehmann2006}
 Lehmann, E.~L. and Romano, J.~P. (2006).
@@ -73,5 +104,10 @@ Little, R. J.~A. (1988).
 Wand, M. and Jones, M. (1994).
 \newblock {\em Kernel Smoothing}, volume~60.
 \newblock Chapman \& Hall/CRC.
+
+\bibitem[Wooldridge, 2010]{Wooldridge2010}
+Wooldridge, J.~M. (2010).
+\newblock {\em Econometric Analysis of Cross Section and Panel Data}.
+\newblock MIT press.
 
 \end{thebibliography}

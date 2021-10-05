@@ -33,16 +33,36 @@
 <br>  
 
 * **Panel Data Analysis** <br>
-  Literature: @H2014, @G2003, and @B2008
+  Literature: @H2014, @G2003, and @B2008, @Wooldridge2010
 <br>  
 
 * **Nonparametric Regression** <br>
   Literature: @LR2007, @FG1996, and @WJ1994
 <br>  
+
+
+* **Functional Data Analysis** <br>
+  Literature: @KR_FDA_2017
+<br>  
+
+
+* **Bootstrap and Resampling Methods** <br>
+  Literature: @DH_Bootstrap_1997
+<br>  
+
   
-<!-- <br>   -->
-<!-- * **Statistical Learning with Sparsity (Lasso and Generalizations)**  <br> -->
-<!--   Literature: @HTW2015 -->
+* **Statistical Learning with Sparsity (Lasso and Generalizations)**  <br>
+  Literature: @HTW2015
+<br>  
+
+* **Generalized Methods of Moments** <br>
+  Literature: @Hayashi2020, @Wooldridge2010
+<br>
+
+
+* **Methods in Causal Inference** <br>
+  Literature: @CausalInf_Huber_2019, @cunningham2020causal
+<br>
 
 <!-- * **Multilevel (Mixed Effects) Linear Models** <br> -->
 <!--   Literature: @GH2006, @VM2000, and @GB2013 -->

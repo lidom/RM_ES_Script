@@ -3,44 +3,46 @@ Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
 The top-level auxiliary file: RM_ES_Script.aux
 The style file: apalike.bst
 Database file #1: book.bib
-You've used 14 entries,
+Warning--there's a number but no series in DH_Bootstrap_1997
+You've used 21 entries,
             1935 wiz_defined-function locations,
-            564 strings with 5350 characters,
-and the built_in function-call counts, 4648 in all, are:
-= -- 440
-> -- 156
-< -- 14
-+ -- 50
-- -- 48
-* -- 363
-:= -- 831
-add.period$ -- 43
-call.type$ -- 14
-change.case$ -- 85
-chr.to.int$ -- 14
-cite$ -- 14
-duplicate$ -- 197
-empty$ -- 354
-format.name$ -- 74
-if$ -- 910
+            601 strings with 6141 characters,
+and the built_in function-call counts, 6742 in all, are:
+= -- 634
+> -- 228
+< -- 21
++ -- 74
+- -- 70
+* -- 508
+:= -- 1216
+add.period$ -- 65
+call.type$ -- 21
+change.case$ -- 125
+chr.to.int$ -- 21
+cite$ -- 22
+duplicate$ -- 294
+empty$ -- 512
+format.name$ -- 107
+if$ -- 1318
 int.to.chr$ -- 1
 int.to.str$ -- 0
-missing$ -- 24
-newline$ -- 73
-num.names$ -- 42
-pop$ -- 99
+missing$ -- 37
+newline$ -- 108
+num.names$ -- 63
+pop$ -- 155
 preamble$ -- 1
-purify$ -- 94
+purify$ -- 140
 quote$ -- 0
-skip$ -- 144
+skip$ -- 213
 stack$ -- 0
-substring$ -- 268
-swap$ -- 17
-text.length$ -- 2
+substring$ -- 354
+swap$ -- 25
+text.length$ -- 3
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 64
-warning$ -- 0
-while$ -- 34
+type$ -- 94
+warning$ -- 1
+while$ -- 48
 width$ -- 0
-write$ -- 178
+write$ -- 263
+(There was 1 warning)
