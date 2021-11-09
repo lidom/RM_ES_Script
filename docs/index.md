@@ -1,7 +1,7 @@
 --- 
 title: "Research Module in Econometrics & Statistics"
 author: "Prof. Dominik Liebl (dliebl@uni-bonn.de) and Christopher Walsh (cwalsh@uni-bonn.de)"
-date: "2021-10-05"
+date: "2021-11-09"
 site: bookdown::bookdown_site
 documentclass: book
 bibliography: [book.bib]

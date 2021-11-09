@@ -156,6 +156,12 @@ It’s not a good idea to annoy the referees of your paper. They make recommenda
 * If you’ve revised the paper based on referees’ comments, then thank them in the acknowledgements section.
 
 
+##  Writing Tips by John H. Cochrane
+
+John H. Cochrane write a now famous paper on **Writing tips for PhD students** which contain many valuable points: 
+
+
+[**Writing tips for PhD students**](https://static1.squarespace.com/static/5e6033a4ea02d801f37e15bb/t/5eda74919c44fa5f87452697/1591374993570/phd_paper_writing.pdf)
 
 
 ## LaTeX
@@ -199,6 +205,18 @@ To make sure everything is working ok, open [sample.tex](https://robjhyndman.com
 
 For help with learning LaTeX, check out Rob J Hyndman's ["Useful LaTeX links"](https://robjhyndman.com/hyndsight/useful-latex-links/).
 
+
+
+
+## General Paper Structure 
+
+There is not prescribed paper structure in econometrics or statistics, but most papers follow this basic structure which is also recommended for your term/seminar-paper: 
+
+1. Introduction (1-3 pages; Here you need to give an easy to read explanation/motivation of the considered method(s), present the existing literature, and finish with a short (one paragraph) outline of the rest of the paper.)
+2. 1st Main Part: Theory (Here you need to describe the theoretical properties of the method(s).)
+3. 2nd Main Part: Monte-Carlo Simulation (Here you need to investigate the properties of the method(s) by means of Monte-Carlo simulations.)
+4. 3rd Main Part: Real-Data Application(s) (Here you apply the method(s) to real data and interpret the results.)
+5. Conclusion (1-2 pages, for wrapping up and giving an outlook)
 
 
 

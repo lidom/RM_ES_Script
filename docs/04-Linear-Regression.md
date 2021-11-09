@@ -24,12 +24,10 @@ y_i = \sum_{k=1}^K\beta_k x_{ik}+\varepsilon_i, \quad i=1,\dots,n \,.
 \end{align}
 
 <!--
-\BeginKnitrBlock{corollary}\iffalse{-91-76-105-110-101-97-114-105-116-121-93-}\fi{}
-<span class="corollary" id="cor:unnamed-chunk-1"><strong>(\#cor:unnamed-chunk-1)  \iffalse (Linearity) \fi{} </strong></span>\begin{align*}
+\BeginKnitrBlock{corollary}\iffalse{-91-76-105-110-101-97-114-105-116-121-93-}\fi{}<div class="corollary"><span class="corollary" id="cor:unnamed-chunk-1"><strong>(\#cor:unnamed-chunk-1)  \iffalse (Linearity) \fi{} </strong></span>\begin{align*}
 y_i = \sum_{k=1}^K\beta_k x_{ik}+\varepsilon_i, \quad i=1,\dots,n \,.
 (\#eq:c3e1)
-\end{align*}
-\EndKnitrBlock{corollary}
+\end{align*}</div>\EndKnitrBlock{corollary}
 -->
 
 
