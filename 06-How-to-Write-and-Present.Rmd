@@ -212,11 +212,11 @@ For help with learning LaTeX, check out Rob J Hyndman's ["Useful LaTeX links"](h
 
 There is not prescribed paper structure in econometrics or statistics, but most papers follow this basic structure which is also recommended for your term/seminar-paper: 
 
-1. Introduction (1-3 pages; Here you need to give an easy to read explanation/motivation of the considered method(s), present the existing literature, and finish with a short (one paragraph) outline of the rest of the paper.)
-2. 1st Main Part: Theory (Here you need to describe the theoretical properties of the method(s).)
-3. 2nd Main Part: Monte-Carlo Simulation (Here you need to investigate the properties of the method(s) by means of Monte-Carlo simulations.)
-4. 3rd Main Part: Real-Data Application(s) (Here you apply the method(s) to real data and interpret the results.)
-5. Conclusion (1-2 pages, for wrapping up and giving an outlook)
+1. **Introduction** (1-3 pages) Here you need to give an easy to read explanation/motivation of the considered method(s), present the existing literature, and finish with a short (one paragraph) outline of the rest of the paper.
+2. **1st Main Part: Theory**  Here you need to describe the theoretical properties of the method(s).
+3. **2nd Main Part: Monte-Carlo Simulation** Here you need to investigate the properties of the method(s) by means of Monte-Carlo simulations.
+4. **3rd Main Part: Real-Data Application(s)** Here you apply the method(s) to real data and interpret the results.
+5. **Conclusion** (1-2 pages) This concluding is section gives you the possibility to wrapping up and give an outlook for possible future work.
 
 
 
