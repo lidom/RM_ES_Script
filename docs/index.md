@@ -83,7 +83,7 @@ Password: 544848
 * For groups of   3: 20-25 minutes
 
 
-Date        Time (roughly)     Topics$^*$
+Date        Time (roughly)     Groups
 ----------  -----------------  ---------------------------------
 18.01.      14:15 - 14:45      Functional Linear Regression
 18.01.      14:45 - 15:15      Lasso, Ridge, and Elastic Net Methods
