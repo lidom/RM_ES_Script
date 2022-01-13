@@ -1,7 +1,7 @@
 --- 
 title: "Research Module in Econometrics & Statistics"
 author: "Prof. Dominik Liebl (dliebl@uni-bonn.de) and Christopher Walsh (cwalsh@uni-bonn.de)"
-date: "2021-11-09"
+date: "2022-01-13"
 site: bookdown::bookdown_site
 documentclass: book
 bibliography: [book.bib]
@@ -81,6 +81,17 @@ Password: 544848
 
 * For groups of 1-2: 15-25 minutes
 * For groups of   3: 20-25 minutes
+
+
+Date        Time (roughly)     Topics$^*$
+----------  -----------------  ---------------------------------
+18.01.      14:15 - 14:45      Functional Linear Regression
+18.01.      14:45 - 15:15      Lasso, Ridge, and Elastic Net Methods
+18.01.      15:15 - 15:45      Differences in Differences
+19.01.      14:15 - 14:45      Nonparametric Regression on the Boundary
+19.01.      14:45 - 15:15      Double / Debiased Machine Learning
+19.01.      15:15 - 15:45      Panel Regression
+
 
 
 \

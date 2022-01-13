@@ -83,6 +83,17 @@ Password: 544848
 * For groups of   3: 20-25 minutes
 
 
+Date        Time (roughly)     Topics$^*$
+----------  -----------------  ---------------------------------
+18.01.      14:15 - 14:45      Functional Linear Regression
+18.01.      14:45 - 15:15      Lasso, Ridge, and Elastic Net Methods
+18.01.      15:15 - 15:45      Differences in Differences
+19.01.      14:15 - 14:45      Nonparametric Regression on the Boundary
+19.01.      14:45 - 15:15      Double / Debiased Machine Learning
+19.01.      15:15 - 15:45      Panel Regression
+
+
+
 \
 
 

@@ -714,7 +714,7 @@ library(tidyverse)
 ```
 
 ```
-## ✓ tibble  3.1.5     ✓ dplyr   1.0.4
+## ✓ tibble  3.1.6     ✓ dplyr   1.0.4
 ## ✓ tidyr   1.1.2     ✓ stringr 1.4.0
 ## ✓ purrr   0.3.4     ✓ forcats 0.5.1
 ```
